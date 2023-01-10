@@ -5,9 +5,10 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>이웃 캐비닛</title>
 	</head>
 	<body>
-		인덱스입니다
+		<div>
+		</div>
 	</body>
 </html>

@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+body{
+	margin : 0;
+	padding : 0;
+}
+/************************* 헤더 전체 *************************/
+#header_wrap{
+	display : fixed;
+}
+#headerBox{
+	height : 80px;
+	display : flex;
+	justify-content : space-between;
+	align-items : center;
+	padding-left : 80px;
+	padding-right : 100px;
+	border-bottom : solid 1px gray;
+}
+
+/*------ 로고 ------*/
+#header_logoImg{
+	vertical-align:middle;
+	height:50px;
+}
+
+/*------ 목록버튼 ------*/
+#user_button{
+	display : flex;
+	height : 40px;
+	align-items : center;
+	border-radius : 30px;
+	border : solid 1px gray;
+	background-color : white;
+	z-index : 5;
+}
+#user_button:hover{
+	cursor:pointer;
+	box-shadow: 2px 2px gray;
+}
+#user_button i:first-child {
+	padding-right : 7px;
+	padding-left : 7px;
+	font-size : 15px;
+}
+
+/*------ 검색 ------*/
+#header_form{
+	display : flex;
+	align-items : center;
+}
+
+#header_searchInput{
+	line-height : 36px;
+	vertical-align:top;
+	border-radius : 30px;
+	border : solid 1px gray;
+	padding : 5px 15px 5px 15px;
+	font-size : 15px;
+	width : 500px;
+}
+#header_searchBtn{
+	border : none;
+	background-color : white;
+	font-size : 15px;
+}
+#header_searchBtn:hover{
+	cursor:pointer;
+}
+#header_noneBtn{
+	display : none;
+}
+#header_search2{
+	display : none;
+}
+/************************* 사이드바 *************************/
+#header_sidebar{
+	position : fixed;
+	right : -50%;
+	width : 40%;
+	height : 100%;
+	border : solid 1px;
+}
+#sidebar_close{
+	position : absolute;
+	top : 20px;
+	right : 30px;
+}
+#sidebar_listBox{
+	margin-top : 100px;
+}
+
+
+/************************* 반응형 설정 *************************/
+@media (max-width: 1023px){
+	
+	#header_searchInput{
+		width : 300px;
+	}
+	#headerBox{
+		padding-left : 48px;
+		padding-right : 60px;
+	}
+	#header_search2{
+		display : none;
+	}
+}
+
+@media (max-width: 700px){
+
+	#header_search{
+		display : none;
+	}
+	#header_noneBtn{
+		cursor:pointer;
+		height : 30px;
+		display : block;
+		border-radius : 30px;
+		border : solid 1px gray;
+		background-color : white;
+		font-size : 10px;
+	}
+	
+	#header_search2{
+		width : 100%;
+		display : block;
+	}
+	#header_form{
+		width : 100%;
+		margin : auto;
+		justify-content : center;
+	}
+	#header_searchInput{
+	width : 500px;
+}
+}

@@ -24,10 +24,10 @@ public class HeaderTest {
 	@RequestMapping("/boxOrder")
 	public String boxOrder(Model model) {
 		
-		ArrayList<BoxInfoVO_y> type_A = service.type_AList();
-		ArrayList<BoxInfoVO_y> type_B = service.type_BList();
-		model.addAttribute("type_A", type_A);
-		model.addAttribute("type_B", type_B);
+//		ArrayList<BoxInfoVO_y> type_A = service.type_AList();
+//		ArrayList<BoxInfoVO_y> type_B = service.type_BList();
+//		model.addAttribute("type_A", type_A);
+//		model.addAttribute("type_B", type_B);
 		
 		return "/boxOrder/boxOrder";
 	}

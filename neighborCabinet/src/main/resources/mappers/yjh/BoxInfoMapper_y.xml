@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neighborCabinet.project.dao.IBoxInfoDAO_y">
+	<select id="type_AList" resultType="com.neighborCabinet.project.model.BoxInfoVO_y">
+		SELECT boxStock, boxPrice, boxName, boxSize, boxType FROM boxInfo WHERE boxType LIKE 'A%' ORDER BY boxNo
+	</select>
+	<select id="type_BList" resultType="com.neighborCabinet.project.model.BoxInfoVO_y">
+		SELECT boxStock, boxPrice, boxName, boxSize, boxType FROM boxInfo WHERE boxType LIKE 'B%' ORDER BY boxNo
+	</select>
+</mapper>

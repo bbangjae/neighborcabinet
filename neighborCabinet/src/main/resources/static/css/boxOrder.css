@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+body{
+	margin : 0;
+	padding : 0;
+}
+/*********** 박스 타입별 정보 ***********/
+#box_TypeImg{
+	margin : auto;
+	width : 85%;
+	height : 300px;
+	border : solid 1px;
+}
+
+/*********** 박스 주문 ***********/
+#box_OrderBox{
+	top : 20px;
+	position : relative;
+	display : flex;
+	width : 85%;
+	height : 1000px;
+	margin : auto;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+         /* 박스선택 */
+#box_selectBox{
+	border : solid 1px;
+	min-width : 210px;
+}
+.boxInfo{
+	border : none;
+	margin : 2px;
+	width : 200px;
+	height : 50px;
+}
+input:checked ~ .boxInfo {
+    border : solid 1px green;
+    margin : 1px;
+    width : 202px;
+}
+#box_type{
+	display : flex;
+	flex-wrap: wrap;
+}
+
+#orderQty_space{
+	width : 20px;
+}
+         /* 박스계산 */
+#box_QtyBox{
+	border : solid 1px;
+	min-width : 210px;
+}
+

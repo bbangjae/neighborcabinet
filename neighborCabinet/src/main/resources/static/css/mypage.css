@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+section{
+	margin-left:20%;
+	margin-right:20%;
+	margin-top:5%;	
+}
+
+.ObjectBox{
+	margin-left:20%;
+	margin-right:15%;
+	margin-top:1%;
+	display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.OjectS{
+	width: 100%;
+}
+
+.pageObject{
+	display: flex !important;
+    flex-direction: column !important;	
+    width: 36% !important;
+    height:250px !important;
+    box-shadow: 0px 6px 16px rgb(0 0 0 / 12%) !important;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:4%;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    float:left;
+    border-style: inset;
+ 	border:1px solid transparent; 
+   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  	transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+}
+
+.pageObject::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom:0px;
+  z-index:-1;
+  width: 0%;
+  height:1px;
+  background: #77AF9C;
+  box-shadow: inset 0px 0px 0px #77AF9C;
+  display: block;
+  -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+}
+.pageObject:hover{
+  border-left:1px solid #77AF9C;
+  border-right:1px solid #77AF9C;
+  border-top:1px solid #77AF9C;
+  border-bottom:1px solid #77AF9C;
+}
+
+@media (max-width: 1085px) {
+	.pageObject{
+	width:30%;
+	height:20%;
+	margin-left:5%;
+    margin-right:5%;
+    margin-top:4%;
+	}
+	span{
+	margin-top:25%;
+	font-size:1em;
+	}
+}
+
+@media (max-width: 820px) {
+	.pageObject{
+	margin-left:3%;
+    margin-right:2%;
+    margin-top:4%;
+	width:40% !important;
+	height:80% !important; 
+	}
+	span{
+	margin-top:25% !important;
+	margin-left:3% !important;
+	font-size:0.8em !important;
+	}
+}
+
+
+
+.ObjectLink {
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100% ;
+}
+
+
+
+#Object1 {
+	 background-image: url(/image/profile.png); 
+	 background-size: 50% auto;
+   	 background-position: center top;
+    background-repeat: no-repeat;
+
+}
+
+#Object2 {
+	background-image: url(/image/money.png);
+	background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+#Object3 {
+	background-image: url(/image/review.png);
+	background-size: 70% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+#Object4 {
+	background-image: url(/image/box.png);
+	background-size: 50% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+span{
+	font-weight:600;
+	font-size:1.2em;
+	color:#285943;
+	margin-left:3%;
+	margin-bottom:1%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

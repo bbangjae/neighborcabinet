@@ -1,23 +1,25 @@
 /**
  * 
  */
- 
- window.addEventListener("wheel", function(e){
-    e.preventDefault();
-},{passive : false});
 
-var mHtml = $("html");
-var page = 1;
+$(document).ready(function(){
+    $(window).scroll(function(){
+        $('.s3').each(function(i){
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight() /2;
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-$(window).on("wheel", function(e) {
-    if(mHtml.is(":animated")) return;
-    if(e.originalEvent.deltaY > 0) {
-        if(page == 5) return;
-        page++;
-    } else if(e.originalEvent.deltaY < 0) {
-        if(page == 1) return;
-        page--;
-    }
-    var posTop =(page-1) * $(window).height();
-    mHtml.animate({scrollTop : posTop});
-})
+            if( bottom_of_window > bottom_of_element ){
+                $(this).animate({'opacity':'1','margin-left':'50px'},1200);
+            }
+
+        });
+        $('.s3_2').each(function(i) {
+            var bottom_of_element = $(this).offset().top + $(this).outerHeight() / 2;
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if (bottom_of_window > bottom_of_element) {
+                $(this).animate({'opacity': '1', 'margin-right': '50px'}, 1200);
+            }
+        });
+    });
+});

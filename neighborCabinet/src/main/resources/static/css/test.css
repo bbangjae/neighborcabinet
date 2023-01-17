@@ -1,0 +1,46 @@
+@charset "UTF-8";
+body {
+    overflow: hidden;
+}
+article {
+    height: 100vh;
+    font-size: 20px;
+    padding-top: 20%;
+    padding-left: 50%;
+    box-sizing: border-box;
+    background-color: pink;
+}
+article:nth-child(1) {
+    background-color: skyblue;
+}
+article:nth-child(2) {
+    background-color: steelblue;
+}
+article:nth-child(3) {
+    background-color: cornflowerblue;
+}
+article:nth-child(4) {
+    background-color: cadetblue;
+}
+
+aside {
+    display: grid;
+    width: 15px;
+    position: fixed;
+    top: 30%;
+    right: 8%;
+}
+aside button {
+    width: 15px;
+    height: 15px;
+    margin-bottom: 5px;
+    display: block;
+    outline: none;
+    border: none;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+aside button:first-child {
+    background-color: rgba(216, 191, 216, 1);
+}

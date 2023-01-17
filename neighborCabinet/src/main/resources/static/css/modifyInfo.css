@@ -1,0 +1,224 @@
+@charset "UTF-8";
+
+.wrap{
+	min-height: 100%;
+	height: auto;
+	position:relative;
+}
+
+div{
+	display:block;
+}
+
+.navBlock{
+	display: inline-block;
+	width: 260px;
+	float:left;
+}
+
+.infoNav{
+	display: block;
+    padding-top: 20px;
+    position: relative;
+    width: 260px;
+}
+
+.allNav .navList{
+	display: block;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+ul{
+	display: block;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+#myinfoLink{
+	background:#D7FFF1 !important;
+}
+
+.navListlink{
+	display:flex;
+	align-items: center;
+	border-radius:21px 21px 21px 21px;
+	position: relative;
+	border:none;
+	margin-bottom:7px;
+	margin-top:7px;
+	height:45px;
+	
+}
+
+.navListlink:hover{
+  border-left:1px solid #77AF9C;
+  border-right:1px solid #77AF9C;
+  border-top:1px solid #77AF9C;
+  border-bottom:1px solid #77AF9C;
+}
+
+figure{
+	width: 25px;
+    height: 25px;
+}
+
+.modifyInfo{
+	height: 100%;
+    width: auto;
+}
+
+.listObject {
+    color: black;
+}
+
+a{
+	text-decoration-line: none;
+}
+
+.sub1{
+	margin-top:1%;
+}
+
+.pageInfo{
+	font-size:0.2em;
+	color:#285943;
+	margin-left:1%;
+}
+
+.sub2{
+	display: inline-block;
+	margin-left:1%;
+	
+}
+
+.pageName{
+	font-size:2em;
+	color:#285943;
+}
+
+.modifyinfoBox{
+	padding-top: 24px;
+    padding-bottom: 24px;
+    border-radius: 1px;
+    margin-left:22%;
+    margin-right:27%;
+}
+
+.inputbtnBox{
+	display:flex;
+}
+
+.userName{
+	display:block;
+	margin-top:1%;
+}
+
+.currentName{
+	margin-top:3%;
+	margin-left:1%;
+	display:flex;
+}
+
+.modifyButton{
+	width:4%;
+	height:4%;
+	text-align: center;
+    background: WHITE;
+    border: solid 2px white;
+    border-radius:50%;
+    display:flex;
+    cursor:pointer;
+    margin-left:78.5%;
+}
+
+@media (max-width: 1295px) {
+	.modifyButton{
+	width:7% !important;
+	height:7% !important;
+	margin-left:75%;
+
+	}
+}
+
+@media (max-width: 915px) {
+	.modifyButton{
+	width:9% !important;
+	height:9% !important;
+	margin-left:68%;
+
+	}
+}
+
+@media (max-width: 760px) {
+	.modifyButton{
+	width:15% !important;
+	height:15% !important;
+	margin-left:63%;
+
+	}
+}
+
+@media (max-width: 580px) {
+	.modifyButton{
+	width:23% !important;
+	height:23% !important;
+	margin-left:50%;
+
+	}
+}
+
+@keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+.btnImage{
+	margin-top:1px;
+	width:100%;
+	height:100%;
+	margin: 0 auto;
+    border-radius: 50%;
+}
+
+.modifyButton:hover{
+	animation: spin 3s linear infinite;
+}
+
+.modifySpan{
+	margin-top:0.8%;
+}
+
+.modifySpan2{
+	font-size:0.8em;
+	color:gray;
+}
+
+hr{
+	margin-right:15%;
+}
+
+.inputText{
+	width:35%;
+	border:1px solid #77AF9C;
+	height:30px;
+}
+
+.inputText:focus{
+	outline:none;
+	border-color:#285943;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

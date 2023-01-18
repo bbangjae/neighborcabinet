@@ -38,18 +38,14 @@
 							<img id="header_logoSimpleImg" src="<c:url value='/image/ncLogosimple.png'/>">
 						</a>
 					</div>
-					<div id="header_formBox">
-						<div id="header_search">
-							<form id="header_form">
-								<div>
-									<input type="text" id="header_searchInput" placeholder="주소를 입력하라">
-								</div>
-								<div>
-									<button type="submit" id="header_searchBtn"><i class="fa-solid fa-magnifying-glass fa-2x" style="color:#00DBAF"></i></button>
-								</div>
-							</form>
+					<form id="header_form">
+						<div id="header_searchInputBox">
+							<input type="text" id="header_searchInput" placeholder="주소를 입력하라">
 						</div>
-					</div>
+						<div id="header_searchBtnBox">
+							<button type="submit" id="header_searchBtn"><i class="fa-solid fa-magnifying-glass fa-2x" style="color:#00DBAF"></i></button>
+						</div>
+					</form>
 					<div>
 						<button type="button" id="user_button">
 							<i class="fa-solid fa-bars fa-1x" style="color:#00DBAF"></i>

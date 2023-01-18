@@ -1,0 +1,353 @@
+@charset "UTF-8";
+
+body{
+	margin : 0;
+	padding : 0;
+}
+/* #wrap{
+	text-align : center;
+} */
+#topspace{
+	height : 400px;
+}
+/*------------------ 섹션 큰 상자 레이아웃 ---------------------*/
+#section_selectBox{
+	width : 70%;
+	margin : auto;
+	display : flex;
+/* 	border : solid 0.5px #c0c0c0; */
+	min-height : 2000px;
+}
+#box_selectBox{
+	width : 90%;
+	text-align : center;
+/*  	border-top : solid 0.1px gray; */
+	margin-right : 5%;
+}
+#box_selectedList{
+	width : 100%;
+/* 	border-top : solid 0.1px gray; */
+/*  	border-left : solid 0.1px gray; */
+}
+#pageTitle{
+	margin : 20px;
+	font-size : 30px;
+}
+/*********** 박스 선택 박스 ***********/
+.box_typeInfo{/* #c0c0c0 */
+	height : 50px;
+	width : 100px;
+	background-color : white;
+	color : gray;
+	border : solid 1px gray;
+	border-radius : 15px;
+	margin : 10px;
+	font-size : 15px;
+}
+.box_typeInfo:hover{
+	background-color : gray;
+	color : white;
+}
+
+/* 사진 */
+.box_TypeImg{
+	width : 100%;
+	height : auto;
+	background : #e5e5e5;
+}
+#boxB_TypeBox{
+	display : none;
+}
+.box_sizeListBox{
+	margin : 30px auto auto auto;
+	width : 80%;
+	height : 50px;
+	border : solid 0.5px gray;
+	border-top-left-radius : 10px;
+	border-top-right-radius : 10px;
+	border-bottom-left-radius : 10px;
+	border-bottom-right-radius : 10px;
+	display : flex;
+	justify-content : space-between;
+	align-items : center;
+}
+.box_sizeListBox:hover{
+	border : solid 0.5px black/* #00DBAF */;
+}
+.box_sizeListBox span {
+	font-size : 20px;
+	margin : 5px;
+}
+.box_sizeListBox button {
+	background-color : white;
+	font-size : 20px;
+	border : none;
+}
+.box_type{
+	display : none;
+}
+.box_type ul{
+	list-style-type : none;
+	margin : auto;
+	border-left : solid 0.5px gray;
+	border-right : solid 0.5px gray;
+	border-bottom : solid 0.5px gray;
+	width : 80%;
+	padding : 0;
+	border-bottom-left-radius : 10px;
+	border-bottom-right-radius : 10px;
+	overflow:scroll;
+	height : 250px;
+}
+.box_type ul::-webkit-scrollbar{
+	display:none;
+}
+.box_type ul li{
+	height : 100px;
+}
+.box_type ul li:hover{
+	background-color : rgba(0,0,0,0.1);
+}
+.box_type ul li:nth-child(n+2){
+	border-top : solid 1px gray;
+}
+.box_type i{
+	color : green;
+}
+.box_left i{
+	display : none;
+}
+input:checked ~ .box_left i{
+	display : inline;
+}
+.box_left{
+	text-align : left;
+	margin-left : 5px;
+	height : 50%;
+}
+.box_right{
+	text-align : right;
+	margin-right : 10px;
+	height : 50%;
+	font-size : 23px;
+}
+/*********** 선택된 박스 ***********/
+#box_title{
+	font-size : 50px;
+	padding : 30px 0 0 20px;
+	margin-left : 10px;
+}
+#boxDis{
+	margin : 10px;
+	padding : 10px 20px;
+/* 	border : solid 0.5px gray; */
+	border-radius : 10px;
+}
+#box_selectedList ul{
+	list-style-type : none;
+	padding : 0;
+	margin : auto;
+	width : 90%;
+}
+#box_selectedList li{
+	
+}
+#box_selectedList ul li:nth-child(n+2){
+	border-top : solid 0.5px gray;
+}
+#box_selectedList ul li:first-child{
+	border-top : solid 1px gray;
+}
+#box_selectedList ul li:last-child{
+	border-bottom : solid 1px gray;
+}
+#box_selectedList ul li div{
+	display : flex;
+	justify-content : space-between;
+	align-items : center;
+	padding : 0px 20px;
+}
+.selectedBox_qty div{
+	margin : 10px;
+}
+.selected_delete{
+	cursor : pointer;
+	margin-right : 30px;
+}
+.input_number{
+	width : 50px;
+	height : 38.78px;
+	text-align : center;
+	font-size : 20px;
+	border : none;
+	border-top : solid 1px gray;
+	border-bottom : solid 1px gray;
+	
+}
+.box_QtyBtn{
+	width : 43px;
+	height : 43px;
+	border : soild 1px;
+}
+.font_size_zero{
+	font-size : 0;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+}
+.price{
+	font-size : 20px;
+}
+.boxPrice{
+	text-align : right;
+	font-size : 20px;
+	background-color : none;
+	border : none;
+	height : 30px;
+	width : 120px;
+}
+.boxPrice:focus{
+	outline: none;
+}
+#total_priceBox{
+	display : flex;
+	justify-content : space-between;
+	align-items : center;
+	margin : 20px 0;
+	font-size : 30px;
+}
+#total_priceVal{
+	text-align : right;
+	font-size : 30px;
+	background-color : none;
+	border : none;
+	height : 40px;
+	width : 150px;
+}
+#total_priceVal:focus{
+	outline: none;
+}
+
+#purchaseBtn{
+	text-align : center;
+	position : relative;
+	bottom : 0;
+	width : 100%;
+	height : 80px;
+	background-color : #00DBAF;
+	border : none;
+	color : white;
+	font-size : 30px;
+	border-radius : 30px;
+}
+#purchaseBtn:hover{
+	cursor : pointer;
+}
+
+
+
+
+
+
+
+
+/*********** 박스 주문 ***********/
+/* .typeName{
+	width : 100%;
+	height : 40px;
+	background-color : #00DBAF;
+}
+
+#box_OrderBox{
+	display : flex;
+	width : 70%;
+	height : auto;
+	margin : 20px auto 0px;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+         박스선택
+#box_selectBox{
+	border : solid 1px #00DBAF;
+	min-width : 210px;
+	width : 50%;
+}
+.boxInfo{
+	background-color : gainsboro;
+	border : none;
+	margin : 2px;
+	width : 200px;
+	height : 150px;
+}
+input:checked ~ .boxInfo {
+    border : solid 1px green;
+    margin : 1px;
+    width : 202px;
+    background-color : rgba(0,0,0,0.2);
+}
+#box_type{
+	display : flex;
+	flex-wrap: wrap;
+}
+
+#orderQty_space{
+	width : 20px;
+}
+         박스계산
+#box_QtyBox{
+	border : solid 1px 0px #00DBAF;
+	width : 50%;
+	min-width : 210px;
+	padding : 3px;
+}
+.input_number{
+	width : 50px;
+	height : 30px;
+	text-align : center;
+	font-size : 20px;
+	border : solid 1px gray;
+	
+}
+.box_QtyBtn{
+	width : 35px;
+	height : 35px;
+}
+.font_size_zero{
+	font-size : 0;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+}
+.selected_BoxType{
+	width : 100%;
+}
+.selected_BoxType button{
+	height : 100px;
+	width : 60px;
+	border : none;
+}
+.selected_BoxType button:hover{
+	background-color : rgba(0,0,0,0.2);
+	cursor:pointer;
+}
+#purchaseBtn{
+	position : relative;
+	bottom : 0;
+}
+         주문하기
+#box_orderForm{
+	margin : 20px auto 0px;
+	border : solid 1px #00DBAF;
+	width : 80%;
+	min-width : 210px;
+	height : 1000px;
+	text-align : center;
+}
+
+#box_orderForm table{
+	margin : auto;
+} */

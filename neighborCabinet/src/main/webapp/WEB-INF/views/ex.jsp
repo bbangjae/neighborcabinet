@@ -8,7 +8,7 @@
 		<script src="<c:url value="/js/jquery-3.6.1.min.js" />"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href=/css/ex.css/> 
-		<c:import url="/WEB-INF/views/layout/head.jsp" />
+		<c:import url="/WEB-INF/views/layout/header.jsp" />
 		<title>개인정보</title>
 	</head>
 	<body>

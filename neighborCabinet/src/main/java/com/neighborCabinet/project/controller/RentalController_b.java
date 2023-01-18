@@ -9,5 +9,10 @@ public class RentalController_b {
     public String rentalDetail(){
         return "rental_b/rentalDetail";
     }
+    @RequestMapping("/rental/map")
+    public String rentalMap(){
+        return "ex";
+    }
+
 
 }

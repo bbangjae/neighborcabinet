@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+table{
+	margin : auto;
+	width : 500px;
+}
+table td{
+	padding : 5px;
+}
+table label{
+	font-size : 20px;
+}
+.input_shipping{
+	margin : 5px 0;
+	height : 40px;
+	font-size : 20px;
+	box-sizing : border-box;
+	padding : 3px;
+}
+/* 수령인 */
+#recipient{
+	width : 100%;
+}
+#memZipcode{
+	width : 30%;
+}
+#searchZipBtn{
+	width : 30%;
+}
+#memAddress1{
+	width : 100%;
+}
+#memAddress2{
+	width : 100%;
+}
+#userHp1{
+	width : 25%;
+}
+#userHp2{
+	width : 30%;
+}
+#userHp3{
+	width : 30%;
+}

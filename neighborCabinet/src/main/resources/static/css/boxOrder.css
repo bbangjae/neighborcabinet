@@ -1,55 +1,103 @@
 @charset "UTF-8";
-
-body{
-	margin : 0;
-	padding : 0;
+/* 전체 레이아웃 및 설정 */
+#wrap{
+	text-align : center;
 }
-/*********** 박스 타입별 정보 ***********/
-#box_TypeImg{
+.spaceDiv{
+	height : 100px;
+}
+#wrap table{
 	margin : auto;
-	width : 85%;
-	height : 300px;
-	border : solid 1px;
+	text-align : left;
+	width : 1536px;
+}
+.left_align{
+	margin : 10px auto;
+	text-align : left;
+	width : 1536px;
+	font-size : 25px;
+	font-weight : bolder;
+}
+table {
+	border-collapse: collapse;
 }
 
-/*********** 박스 주문 ***********/
-#box_OrderBox{
-	top : 20px;
-	position : relative;
+/* 첫번째 테이블 */
+#ordered_boxTitle td{
+	text-align : center;
+}
+#ordered_boxTitle tr td:first-child{
+	border-top : solid 1px gray;
+	border-bottom : solid 1px gray;
+	width : 50%;
+}
+#ordered_boxTitle tr td:nth-child(2){
+	border : solid 1px gray;
+	width : 25%;
+}
+#ordered_boxTitle tr td:nth-child(3){
+	border-top : solid 1px gray;
+	border-bottom : solid 1px gray;
+	width : 25%;
+}
+#ordered_boxTitle tr:nth-child(n+2) td:first-child>div{
 	display : flex;
-	width : 85%;
-	height : 1000px;
-	margin : auto;
-	justify-content: center;
-	flex-wrap: nowrap;
+	align-items : center;
+	justify-content : space-evenly;
 }
-         /* 박스선택 */
-#box_selectBox{
-	border : solid 1px;
-	min-width : 210px;
-}
-.boxInfo{
-	border : none;
-	margin : 2px;
-	width : 200px;
+.top_row{
+	background-color : #d3d3d3;
 	height : 50px;
+	font-size : 20px;
 }
-input:checked ~ .boxInfo {
-    border : solid 1px green;
-    margin : 1px;
-    width : 202px;
+.bottom_row{
+	height : 100px;
 }
-#box_type{
+
+.img_border{
+	margin : 0;
+	border-radius : 80px;
+	width : 80px;
+	height : 80px;
 	display : flex;
-	flex-wrap: wrap;
+	align-items : center;
+}
+.boxA_TypeImg{
+	width : 80px;
+	height : auto;
 }
 
-#orderQty_space{
-	width : 20px;
+/* 아래 두 테이블 */
+.left_col{
+	text-align : left;
+	background-color : #d3d3d3;
+	width : 100px;
+	height : 50px;
+	padding-left : 5px;
+	font-size : 20px;
+	border-top : solid 1px gray;
+	border-bottom : solid 1px gray;
 }
-         /* 박스계산 */
-#box_QtyBox{
-	border : solid 1px;
-	min-width : 210px;
+.right_col{
+	border-top : solid 1px gray;
+	border-bottom : solid 1px gray;
+	border-left : solid 1px gray;
+	padding-left : 5px;
+	font-size : 18px;
 }
 
+/* 배송지 정보 */
+#shipping_option{
+	margin : 5px 0;
+	width : 300px;
+	height : 35px;
+	font-size : 20px;
+}
+#shipping_optionInput{
+	margin : 5px 0;
+	width : 300px;
+	box-sizing : border-box;
+	height : 35px;
+	font-size : 20px;
+	display : none;
+}

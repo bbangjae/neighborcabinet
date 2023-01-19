@@ -1,0 +1,384 @@
+@charset "UTF-8";
+/* color: #00DBAF, #D7FFF1, #8CD790, #77AF9C, #285943 */
+
+html, body {
+	width:100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+#wrap {
+/*   border: 1px solid black; */
+  margin: 100px 140px;
+  position: relative;
+}
+
+.box-wrapper {
+/*   border: 3px solid black; */
+	margin-bottom: 100px;
+/*   z-index: -3; */
+}
+
+.btn-wrapper{
+  display: flex;
+  width: 100%;
+  height: 200px;
+/*   border: 1px solid black; */
+  align-items: center;
+}
+
+.dealBtn{
+  border: 0px;
+  border-radius: 50%;
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.1);
+  width: 160px;
+  height: 160px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 22px;
+  line-height: 160px;
+  letter-spacing: -1px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+  .dealBtn:hover{
+/*     filter: brightness(90%); */
+    opacity: 0.7;
+/*     transition: 0.3s ease-in-out; */
+/*     추후 눌러져있을 때 유별한 효과 주기 */
+  }
+
+.goImg{
+/*   border: 1px solid black; */
+  margin: 0 -120px 0 -137px;
+}
+
+.btn-wrapper img{
+/*   border: 1px solid black; */
+  width: 50px;
+  height: 50px;
+  opacity: 0.1;
+  padding-left: 17px;
+}
+
+#before{
+  background: #c7f3ea;
+}
+
+#after{
+  background: #78e6d0;
+}
+
+#all{
+  background: #17dcb4;
+}
+
+.box-title {
+	height: 30px;
+  width: 100%;
+	margin-bottom: 40px;
+	font-size: 24px;
+	font-weight: bolder;
+/* 	border: 1px solid black; */
+  display: flex;
+  line-height: 30px;
+}
+
+.detail{
+  position: absolute;
+  width: 95%;
+/*   border: 1px solid black; */
+}
+
+.detail img{
+  float: right;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  opacity: 0.5;
+  transition: 0.2s ease-in-out;
+}
+
+.detail img:hover{
+  opacity: 0.8;
+/*   추후 속도 조정 */
+}
+
+.box-alert {
+  height: 20px;
+  margin-top: -20px;
+/*   border: 1px solid black; */
+  padding-right: 60px;
+  color: lightgray;
+  font-size: 13px;
+  font-weight: lighter;
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+ .box-alert img{
+  width: 15px;
+  height: 15px;
+  opacity: 0.3;
+  margin-right: 3px;
+}
+
+#dealContainer{
+  height: 300px;
+}
+
+#re {
+	margin-left: 10px;
+	/* border:1px solid black; */
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	opacity: 0.5;
+	transition: 0.2s ease-in-out;
+}
+
+#re:hover{
+	opacity: 0.8;
+}
+
+#re img {
+	width: 30px;
+	height: 30px;
+}
+
+.boxType {
+/*   border: 1px solid black; */
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.infoContainer {
+  margin-left: 50px;
+  margin-right: 50px;
+  background: #f8f8f8; /* #f0f0f0; */
+	border-radius: 20px;
+  display: flex;
+/*   padding-bottom: 10px; */
+  padding-top: 20px;
+/*   border: 1px solid black; */
+  flex-wrap: wrap;
+/*   flex-direction: column; */
+}
+
+.boxInfo{
+/*   border: 3px solid blue; */
+/*   space-between: 10px; */
+  opacity: 0.6;
+  background: white;
+  border-radius: 3px;
+  width: 520px;
+  height: 180px; 
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.boxInfo:hover{
+  opacity: 0.9;
+}
+
+#topContainer{
+/*   border: 1px solid black; */
+  display: flex;
+  padding: 3px;
+  font-size: 14px;
+}
+
+#date{
+/*   border: 1px solid black; */
+/*   padding: 3px; */
+/*   font-size: 15px; */
+  font-weight: lighter;
+  color: grey;
+  width: 70%;
+}
+
+#time{
+  color: #00DBAF;
+  font-weight: bolder;
+}
+
+#more{
+/*   border: 1px solid grey; */
+  width: 30%;
+}
+
+#moreBtn{
+  border: 1px solid #bababa;
+  border-radius: 10px;
+  font-weight: lighter;
+  color: grey;
+  cursor: pointer;
+  padding: 0px 10px 0px 10px;
+}
+
+#rentContainer{
+/*   border: 1px solid black; */
+  height: 100px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+#rentImg{
+  
+  border: 1px solid grey;
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+}
+
+#rentText{
+/*   border: 1px solid black; */
+  width: 300px;
+  height: 70px;
+  display:flex;
+  align-items: center;
+}
+
+#bottomContainer{
+  border: 1px solid black;
+  height: 35px;
+}
+
+#qrContainer{
+  height: 250px;
+}
+
+.qr {
+	display: flex;
+/*   border: 1px solid black; */
+}
+
+#qrBtn {
+	margin: 0 auto;
+	background-color: #00DBAF;
+  border-radius: 7px;
+  display: inline-block;
+  cursor: pointer;
+  color: black;
+/*   font-family: 'LeferiPoint-WhiteObliqueA'; */
+  font-size: 16px;
+  padding: 12px 26px;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  letter-spacing: -1px;
+  font-weight: lighter;
+}
+
+#qrBtn:hover{
+  background-color: #00cca3;
+}
+
+#qrBtn:active {
+  position: relative;
+  top: 1px;
+  background-color: #00cca3;
+  }
+
+/* .boxImg {
+	display: flex;
+	position: relative;  부모 요소로 설정, 기준점 
+	align-items: center;
+	overflow: hidden;
+	width: 200px;
+	height: 200px;
+	background: #f0f0f0;
+	border-radius: 50%;
+} */
+
+/* .boxImg img {
+	position: absolute;
+	/* border: 1px solid black; 
+	width: 70%;
+	height: 70%;
+	margin-left: 30px;
+	/* object-fit: cover; 
+}
+ */
+
+/* 여기서 반응형 설정 적용(사이즈 축소 시) */
+@media (max-width: 376px) {
+	#wrap{
+    position: relative;
+		margin: 5px 5px;
+	}
+
+  .btn-wrapper{
+    height: 120px;
+  }
+
+  .box-alert{
+    height: 20px;
+    margin-top: -20px;
+    text-align: right;
+    padding-right: 20px;
+    color: lightgray;
+    font-size: 8px;
+    font-weight: lighter;
+    display: flex;
+  }
+
+/*   .box-alert img{
+    width: 20px;
+    height: 20px;
+  } */
+  
+  .dealBtn{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 80px;
+    letter-spacing: -1px;
+    font-weight: lighter;
+    cursor: pointer;
+  }
+
+  .dealBtn:hover{
+/*     filter: brightness(80%); */
+    opacity: 0.7;
+/*     z-index: 10; */
+  }
+
+  .boxType{
+    height: 200px;
+  }
+  
+  .infoContainer {
+	 margin: 0 20px;
+    height: 180px;
+  }
+
+  .box-wrapper {
+	 margin-bottom: 10px;
+  }
+
+  .box-title{
+    font-size: 20px;
+  }
+
+  #qrBtn {
+    font-size: 12px;
+    padding: 10px 24px;
+    transition: 0.2s ease-in-out;
+    letter-spacing: -1px;
+    font-weight: lighter;
+  }
+
+  .exBox{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+}

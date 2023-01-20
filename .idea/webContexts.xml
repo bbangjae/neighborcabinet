@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/neighborCabinet/src/main/webapp/WEB-INF/views/index5.jsp" value="file://$PROJECT_DIR$/neighborCabinet/src/main/webapp/WEB-INF/views" />
+        <entry key="file://$PROJECT_DIR$/neighborCabinet/src/main/webapp/WEB-INF/views/rental_b/rentalDetail.jsp" value="file://$PROJECT_DIR$/neighborCabinet/src/main/webapp/WEB-INF/views/rental_b" />
         <entry key="file://$PROJECT_DIR$/neighborCabinet/src/main/webapp/WEB-INF/views/test.jsp" value="file://$PROJECT_DIR$/neighborCabinet/src/main/webapp/WEB-INF/views" />
       </map>
     </option>

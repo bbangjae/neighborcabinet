@@ -1,46 +1,26 @@
 @charset "UTF-8";
-body {
-    overflow: hidden;
+#myform fieldset{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl; /* 이모지 순서 반전 */
+    border: 0; /* 필드셋 테두리 제거 */
 }
-article {
-    height: 100vh;
-    font-size: 20px;
-    padding-top: 20%;
-    padding-left: 50%;
-    box-sizing: border-box;
-    background-color: pink;
+#myform fieldset legend{
+    text-align: left;
 }
-article:nth-child(1) {
-    background-color: skyblue;
+#myform input[type=radio]{
+    display: none; /* 라디오박스 감춤 */
 }
-article:nth-child(2) {
-    background-color: steelblue;
+#myform label{
+    font-size: 3em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
 }
-article:nth-child(3) {
-    background-color: cornflowerblue;
+#myform label:hover{
+    text-shadow: 0 0 0 #a00; /* 마우스 호버 */
 }
-article:nth-child(4) {
-    background-color: cadetblue;
+#myform label:hover ~ label{
+    text-shadow: 0 0 0 #a00; /* 마우스 호버 뒤에오는 이모지들 */
 }
-
-aside {
-    display: grid;
-    width: 15px;
-    position: fixed;
-    top: 30%;
-    right: 8%;
-}
-aside button {
-    width: 15px;
-    height: 15px;
-    margin-bottom: 5px;
-    display: block;
-    outline: none;
-    border: none;
-    border-radius: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
-    cursor: pointer;
-}
-aside button:first-child {
-    background-color: rgba(216, 191, 216, 1);
+#myform input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #a00; /* 마우스 클릭 체크 */
 }

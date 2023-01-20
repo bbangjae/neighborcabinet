@@ -1,0 +1,17 @@
+@charset "UTF-8";	
+
+.pageName{
+	font-size:2em !important;
+	color:#285943 !important;
+}
+
+.sub1{
+	display: inline-block;
+	margin-left:19%;
+	margin-top:2.2%;
+}
+
+.pageLine{
+	margin-left:19%;
+	margin-right:19%;
+}

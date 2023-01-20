@@ -39,6 +39,7 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
+<c:import url="/WEB-INF/views/member/chat.jsp"/>
 
 
 <div class="container mt-5 ">
@@ -194,6 +195,7 @@
 </script>--%>
 
 <script>
+
     $('.onlyAlphabetAndNumber').keyup(function(event){
         if (!(event.keyCode >=37 && event.keyCode<=40)) {
             var inputVal = $(this).val();
@@ -213,7 +215,8 @@
             $(this).val(inputVal.replace(/[^0-9\s]/gi,''));
         }
     });
-    //유효성 여부를 저장할 변수를 만들고 초기값 false 부여
+
+    //유효성 여부를 저장할 변수를 만들고 초기값 true 부여
     let isNameValid=true;
     let isNickValid=true;
     let isIdValid=true;
@@ -222,14 +225,14 @@
     let isEmailValid = true;
     let isHpValid = true;
 
+    //유저 네임 유효성 검사
     document.querySelector("#userName").addEventListener("input", function(){
-        //1. 입력한 value 값을 읽어온다.
+        // 입력한 value 값을 읽어온다.
         let inputName=this.value;
         var namePattern = /[가-힣]/; // 유효성 패턴
         var spacePattern = /\s/; //공백 패턴
-        //2. 유효성을 검증한다.
+        // 한글 이름 및 ( 자음 모음 X ) 공백 테스트
         isNameValid = !namePattern.test(inputName) || spacePattern.test(inputName);
-        //3. 유효하다면 input 요소에 is-valid 클래스 추가, 아니라면 is-invalid 클래스 추가
         if(isNameValid == false  ){
             this.classList.remove("is-invalid");
             this.classList.add("is-valid");
@@ -240,13 +243,14 @@
         }
     });
 
+    //유저 닉네임 유효성 검사
     document.querySelector("#userNickname").addEventListener("input", function(){
-        //1. 입력한 value 값을 읽어온다.
+        // 입력한 value 값을 읽어온다.
         let inputNick=this.value;
         var spacePattern = /\s/; //공백 패턴
-        //2. 유효성(5글자이상 10글자 이하)을 검증한다.
+        // 닉네임 공백 테스트
         isNickValid = inputNick == "" || spacePattern.test(inputNick);
-        //3. 유효하다면 input 요소에 is-valid 클래스 추가, 아니라면 is-invalid 클래스 추가
+
         if(isNickValid){
             this.classList.remove("is-valid");
             this.classList.add("is-invalid");
@@ -257,14 +261,15 @@
         }
     });
 
+    //유저 아이디 유효성 검사
     document.querySelector("#userId").addEventListener("input", function(){
-        //1. 입력한 value 값을 읽어온다.
+        // 입력한 value 값을 읽어온다.
         let inputId=this.value;
         var idPattern = /[a-zA-Z0-9_-]{5,20}/;
         var spacePattern = /\s/; //공백 패턴
-        //2. 유효성검증한다.
+        // 아이디 정규식( 5~20자 알파벳,_,숫자 만 작성) 및 공백 테스트
         isIdValid = !idPattern.test(inputId) || spacePattern.test(inputId)
-        //3. 유효하다면 input 요소에 is-valid 클래스 추가, 아니라면 is-invalid 클래스 추가
+
         if(isIdValid){
             this.classList.remove("is-valid");
             this.classList.add("is-invalid");
@@ -274,14 +279,15 @@
                 }
     });
 
+    //유저 패스워드 유효성 검사
     document.querySelector("#userPw").addEventListener("input",function (){
-        //1. 입력한 value 값을 읽어온다.
+        //입력한 value 값을 읽어온다.
         let inputPw=this.value;
         var pwPattern = /(?=.*\d)(?=.*[a-zA-ZS]).{8,16}/; // 패스워드 정규식
         var spacePattern = /\s/; //공백 패턴
-        //2. 유효성을 검증한다.
+        //패스워드 정규식(8~16자 영문,숫자 포함) 및 공백 테스트
         isPwValid = !pwPattern.test(inputPw)|| spacePattern.test(inputPw)
-        //3. 유효하다면 input 요소에 is-valid 클래스 추가, 아니라면 is-invalid 클래스 추가
+
         if(isPwValid == false){
             this.classList.remove("is-invalid");
             this.classList.add("is-valid");
@@ -290,10 +296,13 @@
             this.classList.add("is-invalid");
         }
     });
+
+    //유저 패스워드검사 유효성 검사
     document.querySelector("#userPwchk").addEventListener("input",function (){
-        //1. 입력한 value 값을 읽어온다.
+        // 입력한 value 값을 읽어온다.
         let inputPwchk = this.value;
         let userPw = $("#userPw").val();
+        // 패스워드와 값이 같은 지 검사
         isPwchkValid = inputPwchk == userPw
 
         if(isPwchkValid == true){
@@ -306,13 +315,15 @@
             this.classList.add("is-invalid");
         }
     });
+
+    //유저 이메일 유효성 검사
     document.querySelector("#userEmail").addEventListener("input",function (){
-        //1. 입력한 value 값을 읽어온다.
+        //입력한 value 값을 읽어온다.
         let inputEmail = this.value;
         // 이메일 정규식
         var emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var spacePattern = /\s/; //공백 패턴
-
+        //이메일 유효성(@ , . 검사 ) 테스트 및 공백 테스트
         isEmailValid = !emailPattern.test(inputEmail)||spacePattern.test(inputEmail)
 
         if(isEmailValid == false){
@@ -323,11 +334,14 @@
             this.classList.add("is-invalid");
         }
     });
+
+    //유저 휴대폰번호 유효성 검사
     document.querySelector("#userHp").addEventListener("input",function (){
-        //1. 입력한 value 값을 읽어온다.
+        // 입력한 value 값을 읽어온다.
         let inputHp = this.value;
         var spacePattern = /\s/; //공백 패턴
 
+        //공백패턴 test
         isHpValid = spacePattern.test(inputHp)
 
         if(isHpValid==false){
@@ -338,11 +352,12 @@
             this.classList.add("is-invalid");
         }
     });
+
+    //유저 상세주소 유효성 검사
     document.querySelector("#userAddress2").addEventListener("input",function (){
-        //1. 입력한 value 값을 읽어온다.
+        //1입력한 value 값을 읽어온다.
         let inputAddress2 = this.value;
-
-
+        // 공백 테스트
         if(inputAddress2 == ""){
             this.classList.remove("is-valid");
             this.classList.add("is-invalid");
@@ -369,10 +384,10 @@
         if(isNameValid || isNickValid ||isIdValid||isPwValid||isPwchkValid||isEmailValid||isHpValid){
             //이벤트 객체의 함수를 이용해서 폼 전송 막아주기
             e.preventDefault();
+            alert("필수사항을 입력해주세요");
         }
     });
 
 </script>
-
 </body>
 </html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neighborCabinet.project.dao.IMemberDAO">
+
+    <select id="loginCheck" parameterType="string" resultType="string">
+        SELECT userPw FROM member WHERE userId=#{id}
+    </select>
+    <!-- 화원등록 -->
+    <insert id="insertMember" parameterType="com.neighborCabinet.project.model.MemberVO">
+        INSERT INTO member (userId, userPw, userName, userEmail, userHp, userZipcode, userAddress1, userAddress2, userNickname)
+        VALUES (#{userId}, #{userPw}, #{userName}, #{userEmail}, #{userHp}, #{userZipcode}, #{userAddress1}, #{userAddress2}, #{userNickname})
+
+    </insert>
+    <!--중복 검사-->
+    <select id="userIdCheck" parameterType="String"  resultType="string">
+        SELECT userId FROM member where userId = #{userId}
+    </select>
+
+</mapper>

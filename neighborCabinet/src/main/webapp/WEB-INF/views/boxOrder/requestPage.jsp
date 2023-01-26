@@ -97,9 +97,9 @@
 						<section id="s3">
 							<div class="sec_title">예약자 정보</div>
 							<div id="fixedInfo_3">
-								<div><div>예약자</div><input type="text" name="reqName"></div>
-								<div><div>연락처</div><input type="text" name="reqPhone"></div>
-								<div><div>이메일</div><input type="text" name="reqEmail"></div>
+								<div><div>예약자</div><input type="text" name="reqName" value="${res.userName }"></div>
+								<div><div>연락처</div><input type="text" name="reqPhone" value="010 - ${HP2 } - ${HP3 }"></div>
+								<div><div>이메일</div><input type="text" name="reqEmail" value="${res.userEmail }"></div>
 								<div><div>보관물품</div><input type="text" name="reqObject"></div>
 								<div><div>요청사항</div><textarea name="reqDis"></textarea></div>
 								<input type="hidden" name="ordDNo" value="${ordDNo }">
@@ -145,17 +145,5 @@
 				</form>
 			</article>
 		</div>
-	
-		<div>${res.userName }
-			<input type="text" value="${res.userNickname }">
-			<div>예약자<input type="text" value="${res.userNickname }"></div>
-			<div>연락처<input type="text" value="010"> - <input type="text" value="${HP2 }"> - <input type="text" value="${HP3 }"></div>
-			<div>이메일<input type="text" value="${res.userEmail }"></div>
-			<div>보관 물품<input type="text" value=""></div>
-			<div>요청 사항<input type="text" value=""></div>
-		</div>
-		
-		${regist.userNickname }, ${regist.userName },
-		${regist.userHp }, ${regist.userEmail }, ${regist.userAddress1 }, ${regist.userAddress2 }
 	</body>
 </html>

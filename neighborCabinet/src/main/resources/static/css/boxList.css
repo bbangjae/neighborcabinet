@@ -369,3 +369,30 @@ table{
 	}
 }
 
+
+.tooltip {
+	position : relative; 
+	display : inline-block; 
+	color : gray;
+	font-size : 30px;
+	top : 3px;
+}
+
+.tooltip .tooltip-content {
+visibility : hidden;
+width : 300px;
+background-color : gray;
+padding : 10px 0;
+height : 30px;
+border-radius : 10px;
+font-size : 18px;
+margin-top : 10px;
+color : white;
+text-align : center;
+position : absolute;
+z-index : 1;
+}
+
+.tooltip:hover .tooltip-content{
+	visibility: visible;
+}

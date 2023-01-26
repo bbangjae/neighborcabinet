@@ -82,8 +82,7 @@ public class HeaderTest {
 		model.addAttribute("ordName", ordName);
 		
 		// 기본 배송지 주소
-		//String userId = (String) session.getAttribute("sid");
-		String userId = "1234";
+		String userId = (String) session.getAttribute("sid");
 		
 		ShippingVO_y userVo = service.shippingInfo(userId);
 		
@@ -158,11 +157,10 @@ public class HeaderTest {
 		return "boxOrder/success";
 	}
 	@RequestMapping("/rental/payment/{ordDNo}")
-	public String payment(@PathVariable String ordDNo, HttpSession session, Model model) {
+	public String paymentpage(@PathVariable String ordDNo, HttpSession session, Model model) {
 		
 		// 예약자 정보
-		//String userId = (String) session.getAttribute("sid");
-		String userId = "1234";
+		String userId = (String) session.getAttribute("sid");
 		
 		MemberVO reserInfo = service.reserInfo(userId);
 		
@@ -175,31 +173,15 @@ public class HeaderTest {
 		model.addAttribute("res", reserInfo);
 		
 		//등록자 정보
-		MemberVO reg = service.regIdInfo(ordDNo);
-		
-		model.addAttribute("regist", reg);
-		model.addAttribute("ordDNo", ordDNo);
 		
 		return "/boxOrder/requestPage";
 	}
 	
 	@RequestMapping("/payment")
-	public String payment(){
+	public String payment2(){
 		
 		
 		
 		return "boxOrder/success2";
-	}
-	
-	@RequestMapping("/success")
-	public String success() {
-		
-		return "/boxOrder/success";
-	}
-	
-	@RequestMapping("/fail")
-	public String fail() {
-		
-		return "/boxOrder/fail";
 	}
 }

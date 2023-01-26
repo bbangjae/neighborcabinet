@@ -55,12 +55,6 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 	}
 
 	@Override
-	public MemberVO regIdInfo(String ordDNo) {
-		String userId = dao.regIdSearch(ordDNo);
-		return dao.regIdInfo(userId);
-	}
-
-	@Override
 	public void insert_reserve(Reserve_VO vo) {
 		dao.insert_reserve(vo);
 		

@@ -58,7 +58,7 @@
         </form>
     </section>
     <!--bottom  -->
-    <c:import url="/WEB-INF/views/layout/bottom.jsp"/>
+    <c:import url="/WEB-INF/views/layout/footer.jsp"/>
 </div>
 <script>
     $(document).ready(function(){

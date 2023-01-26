@@ -3,6 +3,17 @@
  */
 
 $(document).ready(function(){
+
+	$(document).on("submit","#orderPage",function(){
+		
+		var boxNum = $('.boxPrice').length;
+		
+		if(boxNum == 0){
+			event.preventDefault();
+			alert("박스를 선택해주세요");
+		}
+		
+	});
 	
 	$(document).on("click",".select_checkBox",function(){
 	
@@ -12,7 +23,8 @@ $(document).ready(function(){
 		var boxType = $(this).val();
 		
 		if(check){
-			$('#selectedUl').append('<li id="' + boxType + '1">'+
+			$('#selectedUl').append(
+						'<li id="' + boxType + '_1">'+
 							'<div>'+
 								'<p>'+ boxName +'</p>'+
 								'<span class="selected_delete" data-boxType="'+ boxType +'"><i class="fa-solid fa-xmark fa-2x"></i></span>'+
@@ -20,7 +32,10 @@ $(document).ready(function(){
 							'<div class="selectedBox_qty">'+
 								'<div class="font_size_zero">'+
 									'<button class="box_QtyBtn" data-boxPrice="'+ boxPrice +'" value="1"><i class="fa-solid fa-minus" ></i></button>'+
-									'<input class="input_number" type="number" data-boxPrice="'+ boxPrice +'" value="1">'+
+									'<input name="Selected_boxName" type="hidden" value="'+ boxName +'">' + 
+									'<input name="Selected_boxType" type="hidden" value="'+ boxType +'">' + 
+									'<input name="Selected_boxPrice" type="hidden" value="'+ boxPrice +'">' + 
+									'<input name="Selected_boxQty" class="input_number" type="number" data-boxPrice="'+ boxPrice +'" value="1">'+
 									'<button class="box_QtyBtn" data-boxPrice="'+ boxPrice +'" value="2"><i class="fa-solid fa-plus"></i></button>'+
 								'</div>'+
 								'<div class="price"><input name="boxPrice" class="boxPrice" type="text" value="'+ boxPrice +'원" readonly></div>'+
@@ -28,7 +43,7 @@ $(document).ready(function(){
 						'</li>');
 			doSum();
 		} else{
-			$('#' + boxType + '1').detach();
+			$('#' + boxType + '_1').detach();
 			doSum();
 		}
 	});
@@ -46,13 +61,14 @@ $(document).ready(function(){
         	$('#boxA_sizeListBox').css('border-bottom-right-radius', '10px');
         }
     });
-//    $(document).mouseup(function (e){
-//		if($('#boxA_type').has(e.target).length==0) {
-//			$('#boxA_type').css('display', 'none');
-//        	$('#boxA_sizeListBox').css('border-bottom-left-radius', '10px');
-//        	$('#boxA_sizeListBox').css('border-bottom-right-radius', '10px');
-//		}
-//	});
+
+	$(document).mouseup(function (e){
+		if($('#boxA_type').has(e.target).length==0&&!$(e.target).is('#boxA_sizeListBox')) {
+			$('#boxA_type').css('display', 'none');
+        	$('#boxA_sizeListBox').css('border-bottom-left-radius', '10px');
+        	$('#boxA_sizeListBox').css('border-bottom-right-radius', '10px');
+		}
+	});
 
     // B타입 박스 사이즈 눌렀을 때
     $('#boxB_sizeListBox').on('click', function(){
@@ -67,6 +83,14 @@ $(document).ready(function(){
         	$('#boxB_sizeListBox').css('border-bottom-right-radius', '10px');
         }
     });
+    
+    $(document).mouseup(function (e){
+		if($('#boxB_type').has(e.target).length==0&&!$(e.target).is('#boxB_sizeListBox')) {
+			$('#boxB_type').css('display', 'none');
+        	$('#boxB_sizeListBox').css('border-bottom-left-radius', '10px');
+        	$('#boxB_sizeListBox').css('border-bottom-right-radius', '10px');
+		}
+	});
     
     // A타입 박스 정보 확인
     $('#A_typeInfo').on('click', function(){
@@ -142,7 +166,6 @@ $(document).ready(function(){
     	$(this).parent().parent().detach();
     	$('#' + boxType).prop("checked", false);
     	doSum();
-    	//$('.chkDelete').prop("checked", false);
     });
     
 	function doSum(){
@@ -155,7 +178,7 @@ $(document).ready(function(){
 			return;
 		}
 		
-		$('input[name*="boxPrice"]').each(function(){
+		$('input[name="boxPrice"]').each(function(){
 			
 			
 			var regex = /[^0-9]/g;
@@ -165,7 +188,7 @@ $(document).ready(function(){
 				sum += parseInt(result);
 	        }
 	        
-			$('#total_priceVal').val(sum + "원");
+			$('#total_priceVal').val(sum.toLocaleString() + "원");
 	    });
 	}
 });

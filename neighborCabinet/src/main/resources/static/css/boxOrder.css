@@ -6,7 +6,11 @@
 .spaceDiv{
 	height : 100px;
 }
-#wrap table{
+#wrap table:first-child{
+	margin : auto;
+	width : 1280px;
+}
+#wrap table:nth-child(n+2){
 	margin : auto;
 	text-align : left;
 	width : 1536px;
@@ -40,6 +44,7 @@ table {
 	border-bottom : solid 1px gray;
 	width : 25%;
 }
+
 #ordered_boxTitle tr:nth-child(n+2) td:first-child>div{
 	display : flex;
 	align-items : center;
@@ -71,7 +76,7 @@ table {
 .left_col{
 	text-align : left;
 	background-color : #d3d3d3;
-	width : 100px;
+	width : 120px;
 	height : 50px;
 	padding-left : 5px;
 	font-size : 20px;
@@ -85,8 +90,31 @@ table {
 	padding-left : 5px;
 	font-size : 18px;
 }
+.shipping_info{
+	padding-left : 5px;
+	font-size : 18px;
+	border : none;
+	bacground-color : none;
+	width : 800px;
+}
+.shipping_info:focus{
+	outline: none;
+}
 
 /* 배송지 정보 */
+#SI_change{
+	background-color : gray;
+	border : solid 1px gray;
+	color : white;
+	font-size : 20px;
+	border-radius : 10px;
+}
+#SI_change:hover{
+	background-color : white;
+	border : solid 1px gray;
+	color : gray;
+	cursor : pointer;
+}
 #shipping_option{
 	margin : 5px 0;
 	width : 300px;
@@ -100,4 +128,24 @@ table {
 	height : 35px;
 	font-size : 20px;
 	display : none;
+}
+/* 결제 버튼 */ 
+#paymentBtn{
+	margin-top : 20px;
+	text-align : center;
+	width : 250px;
+	height : 50px;
+	background-color : gray;
+	border : solid 1px gray;
+	color : white;
+	font-size : 30px;
+	border-radius : 10px;
+}
+#paymentBtn:hover{
+	background-color : white;
+	border : solid 1px gray;
+	color : gray;
+	cursor : pointer;
+}
+#hiddenGo{
 }

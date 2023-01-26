@@ -6,7 +6,7 @@ $(document).ready(function(){
 	
 	$('#SI_change').on('click', function(){
 		let b = '/boxOrder2';
-		let a = 'width=600, height=650, top=150, left=600, status=yes, scrollbars=yes, resizable=yes';
+		let a = 'width=400, height=500, top=150, left=600, status=yes, scrollbars=yes, resizable=yes';
 		window.open(b , 'SI_change', a);
 	});
 	
@@ -21,5 +21,10 @@ $(document).ready(function(){
 	    	$("#shipping_optionInput").val($("#shipping_option").val());
 	    }
 	});
-
+	
+	$("#a").on("submit", function(){
+		
+	
+	});
+	
 });

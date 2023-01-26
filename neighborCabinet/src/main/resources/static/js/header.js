@@ -10,8 +10,9 @@ $(document).ready(function(){
 	$('#user_button').on('click', function(){
         if(sidebar.css('right') != '0px') {
         	sidebar.animate({right:0}, 50);
-        	sidebar_background.css('z-index', '150');
+        	sidebar_background.css('z-index', '2500');
         	sidebar_background.css('background-color', 'rgba(0,0,0,0.5)');
+        	sidebar_background.css('box-shadow', 'rgba(0,0,0,0.5) 0 0 0 9999px;');
         }
     });
     $('#sidebar_closeBtn').on('click', function(){

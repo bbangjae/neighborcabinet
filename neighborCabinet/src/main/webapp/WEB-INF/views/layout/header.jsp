@@ -21,9 +21,20 @@
 						<div id="sidebar_top"></div>
 						<div id=sidebar_listBox>
 							<ul>
-								<li>로그인</li>
-								<li>회원가입</li>
-								<li>대여??</li>
+								<c:if test="${empty sessionScope.sid}">
+								<li><a href="<c:url value='/member/loginform'/>">로그인</a></li>
+								<li><a href="<c:url value='/member/joinform'/>">회원가입</a></li>
+								</c:if>
+								
+								<!-- 로그인 성공 후 보여줄 메뉴 항목 -->
+								<c:if test="${not empty sessionScope.sid}">
+									<li><a href="<c:url value='/member/logout'/>">로그아웃</a></li>
+									<hr>
+									<li><a href="<c:url value='/map'/>">지도</a></li>
+									<li><a href="<c:url value='/mypage'/>">마이페이지</a></li>
+									<li><a href="<c:url value='/'/>">공간등록</a></li>
+									<li><a href="<c:url value='/boxList'/>">박스구매</a></li>
+								</c:if>
 							</ul>
 						</div>
 				</div>

@@ -1,40 +1,52 @@
 @charset "UTF-8";
-
 body{
 	margin : 0;
 	padding : 0;
 }
-/* #wrap{
+#wrap{
+	width : 100%;
 	text-align : center;
-} */
-#topspace{
-	height : 400px;
 }
 /*------------------ 섹션 큰 상자 레이아웃 ---------------------*/
 #section_selectBox{
-	width : 70%;
+	width : 1200px;
 	margin : auto;
 	display : flex;
 /* 	border : solid 0.5px #c0c0c0; */
-	min-height : 2000px;
+	min-height : 900px;
 }
 #box_selectBox{
-	width : 90%;
+	width : 550px;
+	box-sizing: border-box;
 	text-align : center;
 /*  	border-top : solid 0.1px gray; */
-	margin-right : 5%;
+	margin-right : 50px;
 }
 #box_selectedList{
-	width : 100%;
+	width : 600px;
+	box-sizing: border-box;
+	text-align : left:
 /* 	border-top : solid 0.1px gray; */
 /*  	border-left : solid 0.1px gray; */
 }
 #pageTitle{
 	margin : 20px;
 	font-size : 30px;
+	font-weight : bold;
 }
 /*********** 박스 선택 박스 ***********/
-.box_typeInfo{/* #c0c0c0 */
+#A_typeInfo{
+	height : 50px;
+	width : 100px;
+	background-color : gray;
+	color : white;
+	border : solid 1px gray;
+	border-radius : 15px;
+	margin : 10px;
+	font-size : 15px;
+}
+
+#B_typeInfo{/* #c0c0c0 */
 	height : 50px;
 	width : 100px;
 	background-color : white;
@@ -53,7 +65,7 @@ body{
 .box_TypeImg{
 	width : 100%;
 	height : auto;
-	background : #e5e5e5;
+	border : solid 1px #e5e5e5;
 }
 #boxB_TypeBox{
 	display : none;
@@ -97,7 +109,7 @@ body{
 	border-bottom-left-radius : 10px;
 	border-bottom-right-radius : 10px;
 	overflow:scroll;
-	height : 250px;
+	height : 300px;
 }
 .box_type ul::-webkit-scrollbar{
 	display:none;
@@ -167,6 +179,9 @@ input:checked ~ .box_left i{
 	align-items : center;
 	padding : 0px 20px;
 }
+.selectedBox_qty{
+	display : flex;
+}
 .selectedBox_qty div{
 	margin : 10px;
 }
@@ -176,18 +191,19 @@ input:checked ~ .box_left i{
 }
 .input_number{
 	width : 50px;
-	height : 38.78px;
+	height : 43px;
 	text-align : center;
 	font-size : 20px;
 	border : none;
 	border-top : solid 1px gray;
 	border-bottom : solid 1px gray;
-	
+	box-sizing: border-box;
 }
 .box_QtyBtn{
 	width : 43px;
 	height : 43px;
 	border : soild 1px;
+	box-sizing: border-box;
 }
 .font_size_zero{
 	font-size : 0;
@@ -204,9 +220,9 @@ input[type='number']::-webkit-inner-spin-button {
 	text-align : right;
 	font-size : 20px;
 	background-color : none;
+	width : 80px;
 	border : none;
 	height : 30px;
-	width : 120px;
 }
 .boxPrice:focus{
 	outline: none;
@@ -216,11 +232,12 @@ input[type='number']::-webkit-inner-spin-button {
 	justify-content : space-between;
 	align-items : center;
 	margin : 20px 0;
-	font-size : 30px;
+	padding : 0 40px;
+	font-size : 25px;
 }
 #total_priceVal{
 	text-align : right;
-	font-size : 30px;
+	font-size : 25px;
 	background-color : none;
 	border : none;
 	height : 40px;
@@ -245,109 +262,110 @@ input[type='number']::-webkit-inner-spin-button {
 #purchaseBtn:hover{
 	cursor : pointer;
 }
-
-
-
-
-
-
-
-
-/*********** 박스 주문 ***********/
-/* .typeName{
-	width : 100%;
-	height : 40px;
-	background-color : #00DBAF;
+/* 박스 정보 표시 */
+table{
+}
+#boxInfo{
+	margin : 30px auto;
+	width : 1200px;
+	border-collapse: collapse;
+}
+#boxInfo td{
+	border : solid 1px #EEEEEE;
+	padding : 10px 20px;
+}
+.table_left{
+	background : #FAFAFA;
+	width : 150px;
+}
+.table_right{
+	color : #6e6e6e;
+}
+#space{
+	height : 50px;
+}
+#boxInfo2{
+	display : none;
 }
 
-#box_OrderBox{
-	display : flex;
-	width : 70%;
-	height : auto;
-	margin : 20px auto 0px;
-	justify-content: center;
-	flex-wrap: nowrap;
+
+@media (max-width: 1280px){
+	#section_selectBox{
+		width : 800px;
+		display : block;
+		min-height : 1000px;
+	}
+	#box_selectBox{
+		margin : auto;
+		min-height : 850px;
+	}
+	#box_selectedList{
+		margin : auto;
+	}
+	#boxInfo{
+		width : 800px;
+	}
+	.table_left{
+		width : 100px;
+	}
 }
-         박스선택
-#box_selectBox{
-	border : solid 1px #00DBAF;
-	min-width : 210px;
-	width : 50%;
+@media (max-width: 830px){
+	#section_selectBox{
+		width : 500px;
+		min-height : 1000px;
+	}
+	#box_selectBox{
+		width : 400px;
+	}
+	#box_selectedList{
+		width : 400px;
+	}
+	#box_title{
+		font-size : 30px;
+	}
+	#boxInfo{
+		display : none;
+	}
+	#boxInfo2{
+		display : block;
+		margin : 30px auto;
+		width : 400px;
+		border-collapse: collapse;
+	}
+	#boxInfo2 td{
+		border : solid 1px #EEEEEE;
+		padding : 10px 20px;
+	}
+	.table_left{
+		width : 100px;
+	}
+	.table_right{
+		width : 290px;
+	}
 }
-.boxInfo{
-	background-color : gainsboro;
-	border : none;
-	margin : 2px;
-	width : 200px;
-	height : 150px;
-}
-input:checked ~ .boxInfo {
-    border : solid 1px green;
-    margin : 1px;
-    width : 202px;
-    background-color : rgba(0,0,0,0.2);
-}
-#box_type{
-	display : flex;
-	flex-wrap: wrap;
+@media (max-width: 500px){
+	#section_selectBox{
+		width : 350px;
+		min-height : 1000px;
+	}
+	#box_selectBox{
+		width : 300px;
+	}
+	#box_selectedList{
+		width : 300px;
+	}
+	#total_priceBox{
+		font-size : 16px;
+	}
+	#boxInfo2{
+		width : 300px;
+	}
+	.table_left{
+		font-size : 12px;
+	}
+	.table_right{
+		width : 240px;
+		font-size : 12px;
+	}
 }
 
-#orderQty_space{
-	width : 20px;
-}
-         박스계산
-#box_QtyBox{
-	border : solid 1px 0px #00DBAF;
-	width : 50%;
-	min-width : 210px;
-	padding : 3px;
-}
-.input_number{
-	width : 50px;
-	height : 30px;
-	text-align : center;
-	font-size : 20px;
-	border : solid 1px gray;
-	
-}
-.box_QtyBtn{
-	width : 35px;
-	height : 35px;
-}
-.font_size_zero{
-	font-size : 0;
-}
-input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
-	  -webkit-appearance: none;
-	  margin: 0;
-}
-.selected_BoxType{
-	width : 100%;
-}
-.selected_BoxType button{
-	height : 100px;
-	width : 60px;
-	border : none;
-}
-.selected_BoxType button:hover{
-	background-color : rgba(0,0,0,0.2);
-	cursor:pointer;
-}
-#purchaseBtn{
-	position : relative;
-	bottom : 0;
-}
-         주문하기
-#box_orderForm{
-	margin : 20px auto 0px;
-	border : solid 1px #00DBAF;
-	width : 80%;
-	min-width : 210px;
-	height : 1000px;
-	text-align : center;
-}
-
-#box_orderForm table{
-	margin : auto;
-} */

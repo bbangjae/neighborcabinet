@@ -1,0 +1,220 @@
+@charset "UTF-8";
+body{
+	margin : 0;
+	background : #F6F6F6;
+}
+
+#wrap{
+	text-align : center;
+}
+article{
+	margin : auto;
+	width : 1130px;
+	box-sizing : border-box;
+}
+article> form{
+	display : flex;
+}
+#left_article{
+	width : 750px;
+	box-sizing : border-box;
+	text-align : left;
+}
+#right_article{
+	margin-left : 30px;
+	width : 350px;
+	box-sizing: border-box;
+	text-align : left;
+}
+.sec_title{
+	padding : 2px 0 15px;
+	font-size : 16px;
+	border-bottom : solid 4px gray;
+	width : 100%;
+	box-sizing : border-box;
+	height : 38px;
+}
+.sec_title2{
+	padding : 20px 30px;
+	font-size : 16px;
+	box-sizing: border-box;
+	background : #EBEBEB;
+}
+/* 공간정보 */
+#s1{
+	margin-top : 50px;
+}
+#fixedInfo_1{
+	padding : 30px;
+	background : white;
+}
+#fixedInfo_1_1{
+	display : flex;
+	min-height : 150px;
+}
+#spaceImg{
+	height : 140px;
+	width : 140px;
+}
+#spaceDis{
+	width : 100%;
+	padding-left : 20px;
+}
+#spaceDis div:first-child{
+	font-size : 30px;
+	padding-bottom : 20px;
+	border-bottom : solid 1px #ebebeb;
+	margin-bottom : 20px;
+}
+#spaceDis p{
+	font-size : 16px;
+}
+#fixedInfo_1_2{
+	padding : 0 20px;
+	font-size : 16px;
+}
+#fixedInfo_1_2>div{
+	display : flex;
+	padding : 15px 0;
+	border-top : solid 1px #ebebeb;
+}
+#fixedInfo_1_2>div>div:last-child{
+	margin-left : 30px;
+}
+/* 예약정보 */
+#s2{
+	margin-top : 50px;
+}
+#fixedInfo_2{
+	padding : 0 30px;
+	box-sizing : border-box;
+	background : white;
+}
+#fixedInfo_2 div{
+	padding : 20px 0;
+	font-size : 16px;
+	display : flex;
+	box-sizing : content-box;
+	justify-content: space-between;
+}
+#fixedInfo_2bobo{
+	border-bottom : solid 1px #ebebeb;
+}
+
+/* 예약자 정보 */
+#s3{
+	margin-top : 50px;
+	background : #F6F6F6;
+}
+#fixedInfo_3{
+	box-sizing: border-box;
+	margin-top : 30px;
+	width : 100%;
+	font-size : 16px;
+}
+#fixedInfo_3>div{
+	display : flex;
+}
+#fixedInfo_3>div:nth-child(n+2){
+	margin-top : 15px;
+}
+#fixedInfo_3>div>div{
+	width : 100px;
+	padding-top : 15px;
+}
+#fixedInfo_3>div>input{
+	padding : 0 15px;
+	box-sizing: border-box;
+	border : solid 1px #ebebeb;
+	width : 100%;
+	font-size : 18px;
+	height : 50px;
+}
+#fixedInfo_3>div>input:focus{
+	outline: none;
+}
+#fixedInfo_3>div>textarea{
+	padding : 15px 16px;
+	box-sizing: border-box;
+	border : solid 1px #ebebeb;
+	width : 100%;
+	resize: none;
+	font-size : 18px;
+	height : 134px;
+}
+/* 호스트 정보 */
+#s4{
+	margin-top : 50px;
+}
+
+#fixedInfo_4{
+	box-sizing: border-box;
+	padding : 16px 30px;
+	width : 100%;
+	font-size : 16px;
+	background : white;
+	border : solid 1px #ebebeb;
+}
+#fixedInfo_4>div{
+	display : flex;
+	box-sizing: border-box;
+	height : 45px;
+	padding-top : 12px;
+}
+#fixedInfo_4>div:nth-child(n+2){
+	border-top : solid 1px #ebebeb;
+}
+#fixedInfo_4>div>div:first-child{
+	width : 125px;
+}
+#fixedInfo_4>div>div:nth-child(n+2){
+	width : 100%;
+}
+#PAndE{
+	display : flex;
+}
+#PAndE>div{
+	margin-right : 30px;
+}
+/* 결제 예정금액 */
+#s5{
+	margin-top : 50px;
+	position : sticky;
+	top: 123.33px;
+}
+#fixedInfo_5{
+	background : white;
+	padding : 0 20px;
+}
+#fixedInfo_5_1{
+	display : flex;
+	justify-content: space-between;
+	align-items : center;
+}
+#fixedInfo_5_1_1>div{
+	padding : 15px 0px 17px;
+}
+#fixedInfo_5_1_1>div:nth-child(n+2){
+	border-top : solid 1px #ebebeb;
+}
+#fixedInfo_5_1_1>div span{
+	margin-left : 20px;
+}
+#fixedInfo_5_2{
+	padding : 19px 0px 23px;
+	text-align : right;
+	border-top : solid 4px gray;
+	font-size : 25px;
+}
+#paymentBtn{
+	width : 100%;
+	line-height : 50px;
+	background : gray;
+	text-align : center;
+	color : white;
+	border : none;
+	font-size : 20px;
+}
+#paymentBtn:hover{
+	cursor : pointer;
+}

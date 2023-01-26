@@ -12,7 +12,7 @@ body{
 #header_wrap{
 	position : fixed;
 	width : 100%;
-	z-index : 100;
+	z-index : 2000;
 }
 #headerBox{
 	height : 80px;
@@ -25,10 +25,10 @@ body{
 	background-color : white;
 }
 #outside_sidebar{
-	position : absolute;
+	position : fixed;
 	display : flex;
-	width : 100%;
-	height : 100%;
+	width : 100vw;
+	height : 100vh;
 	z-index : -1;
 }
 /*------ 로고 ------*/
@@ -93,7 +93,7 @@ body{
 	height : 100%;
 	border-left : solid 1px #00DBAF;
 	background-color : white;
-	z-index : 200;
+	z-index : 3000;
 }
 #sidebar_close{
 	position : absolute;
@@ -106,19 +106,35 @@ body{
 #sidebar_listBox{
 	height : 100%;
 }
-#sidebar_listBox ul{
-	margin : 0;
-}
+
 #sidebar_closeBtn{
 	border : none;
-	background-color : #00DBAF;
+	background-color : white;
 }
 #sidebar_closeBtn:hover{
 	border : none;
-	background-color : #00DBAF;
-	cursor:pointer;
+	cursor : pointer;
 }
-
+#sidebar_listBox ul{
+	margin : 0;
+	padding : 0;
+	list-style-type : none;
+}
+#sidebar_listBox ul li{
+	text-align : left;
+	padding : 15px 15px;
+}
+#sidebar_listBox ul li:hover{
+	background : #EBEBEB;
+	cursor : pointer;
+}
+#sidebar_listBox a{
+	text-decoration-line : none;
+	color : black;
+	width : 100%;
+	font-size : 20px;
+	display: block;
+}
 /************************* 반응형 설정 *************************/
 @media (max-width: 1023px){
 	

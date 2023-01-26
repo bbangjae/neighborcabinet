@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neighborCabinet.project.dao.IRentalregDAO">
+
+    <insert id="rentalreg" parameterType="com.neighborCabinet.project.model.PlaceInfoVO">
+        INSERT INTO
+        place (pNo, pWriteTitle, pWriteSub, pType, pType_d, food, pickup,pPlaceTitle, pPlaceInfo,pHp, pTime, pAddress1,pAddress2, pBoxInfo,pCautionInfo)
+        VALUES (#{pNo},#{pWriteTitle},#{pWriteSub},#{pType},#{pType_d},#{food},#{pickup},#{pPlaceTitle},#{pPlaceInfo},#{pHp},#{pTime},#{pAddress1},#{pAddress2},#{pBoxInfo},#{pCautionInfo})
+    </insert>
+
+
+
+</mapper>
+
+

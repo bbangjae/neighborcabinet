@@ -32,7 +32,7 @@
 									<hr>
 									<li><a href="<c:url value='/map'/>">지도</a></li>
 									<li><a href="<c:url value='/mypage'/>">마이페이지</a></li>
-									<li><a href="<c:url value='/'/>">공간등록</a></li>
+									<li><a href="<c:url value='/rental/rentalreg'/>">공간등록</a></li>
 									<li><a href="<c:url value='/boxList'/>">박스구매</a></li>
 								</c:if>
 							</ul>

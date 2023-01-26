@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+/* 왼쪽 상단 네비 */
+
+.mapWrap{
+	min-height: 100%;
+	height: auto;
+	position:relative;
+	display:flex;
+}	
+
+.navBlock{
+	display: flex;
+	width: 260px;
+	flex-direction:column;
+}
+
+.infoNav{
+	display: flex;
+    padding-top: 20px;
+    position: relative;
+    width: 260px;
+}
+
+.allNav .navList{
+	display: flex;
+	flex-direction:column;
+	width:200px;
+}
+
+#placeCheckLink{
+	background:#D7FFF1 !important;
+}
+
+#placeChecklisk{
+	color:gray;
+}
+
+.navListlink{
+	display:flex;
+	align-items: center;
+	border-radius:21px 21px 21px 21px;
+	position: relative;
+	border:none;
+	margin-bottom:7px;
+	margin-top:7px;
+	height:45px;
+	
+}
+
+.navListlink:hover{
+  border-left:1px solid #77AF9C;
+  border-right:1px solid #77AF9C;
+  border-top:1px solid #77AF9C;
+  border-bottom:1px solid #77AF9C;
+}
+
+.figureBox{
+	height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:50%;
+}
+
+figure{
+	width: 25px;
+    height: 25px;
+}
+
+.modifyInfo{
+	height: 100%;
+    width: auto;
+}
+
+#premiumBox{
+	width: 33px;
+    height: 33px;
+}
+
+.listObject {
+    color: black;
+    margin-right:5%;
+}
+
+a{
+	text-decoration-line: none;
+}
+
+
+/* 지도 위 텍스트 */
+.sub{
+	margin-top:3.5%;
+	color:#285943;
+}
+
+.viewMap{
+	display:flex;
+	flex-direction:column;
+	width:100%;
+	padding:15px;
+}
+
+.viewMapLR{
+	display:flex;
+	margin:15px;
+}
+
+.viewMapL{
+	display:flex;
+	width:59%;
+	height: 70vh;
+}
+
+.viewMapR{
+	display:flex;
+	flex-direction:column;
+	width:40%;
+	height: 70vh;
+	overflow:auto;
+}
+
+.placeInfo{
+	display:flex;
+	width:300px;
+	align-items:center;
+	padding:10px;
+	margin:10px;
+	cursor:pointer;
+	border:1px solid gray;
+}
+
+.placeInfo:hover{
+	border:2px solid #77AF9C;
+}
+
+.placeimageDiv{
+	width:50px;
+	height:45px;
+}
+
+.placeimage{
+	width:100%;
+	height:100%;
+	padding:3px;
+}
+
+.placeTitleBox{
+	width:100%;
+	height:100%;
+}
+
+.placeTitle{
+	display:flex;
+	margin-bottom:3%;
+}
+
+.placeTitle > p {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0px 10px;
+	color:#77AF9C;
+}
+
+.placeDetail{
+	display:flex;
+	margin-left:15px;
+	height:17px;
+}
+
+.placeDetail div {
+	display:flex;
+	align-items:center;
+	margin-right:17px;
+}
+
+.placeDetail div img{
+	width:14px;
+	height:14px;
+}
+
+
+.placeDetail div p {
+	margin-left:10px;
+	font-size:0.8em;
+}

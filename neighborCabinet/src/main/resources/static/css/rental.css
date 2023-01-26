@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /* color: #00DBAF, #D7FFF1, #8CD790, #77AF9C, #285943 */
 
 html, body {
@@ -8,15 +9,12 @@ html, body {
 }
 
 #wrap {
-/*   border: 1px solid black; */
-  margin: 100px 140px;
+  margin: 60px 140px 100px 140px;
   position: relative;
 }
 
 .box-wrapper {
-/*   border: 3px solid black; */
 	margin-bottom: 100px;
-/*   z-index: -3; */
 }
 
 .btn-wrapper{
@@ -27,6 +25,41 @@ html, body {
   align-items: center;
 }
 
+ul.btns{
+	 display: flex;
+ 	/* border: 1px solid black; */
+  list-style: none;
+  text-align: center;
+  align-items: center;
+  margin-left: 130px;
+  width: 100%;
+ height: 160px;
+ 
+}
+
+.line{
+  text-align: center;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+ul.btns li{
+	/* border: 1px solid black; */
+    display: inline-block;
+  	text-align: center;
+  	align-items: center;
+  	opacity: 0.7;
+  	color: black;
+  	transition: 0.2s ease-in-out;
+}
+
+ 
+ul.btns li.current{
+  opacity: 1;
+  box-shadow: 0px 1px 8px 1px rgba(0, 0, 0, 0.1);
+}
+
+
 .dealBtn{
   border: 0px;
   border-radius: 50%;
@@ -34,39 +67,39 @@ html, body {
   width: 160px;
   height: 160px;
   text-align: center;
-  margin: 0 auto;
+ /*  margin: 0 auto; */
   font-size: 22px;
   line-height: 160px;
   letter-spacing: -1px;
   font-weight: lighter;
-  cursor: pointer;
+  cursor: pointer; 
 }
 
   .dealBtn:hover{
 /*     filter: brightness(90%); */
-    opacity: 0.7;
+    opacity: 1;
 /*     transition: 0.3s ease-in-out; */
-/*     추후 눌러져있을 때 유별한 효과 주기 */
   }
-
+  
+/* 
 .goImg{
-/*   border: 1px solid black; */
-  margin: 0 -120px 0 -137px;
-}
+  border: 1px solid black;
+  margin: 0px -120px 0 -137px;
+} */
 
 .btn-wrapper img{
-/*   border: 1px solid black; */
+ /*  border: 1px solid black; */
   width: 50px;
   height: 50px;
   opacity: 0.1;
-  padding-left: 17px;
+  padding-left: 10px;
 }
 
 #before{
   background: #c7f3ea;
 }
 
-#after{
+#cur{
   background: #78e6d0;
 }
 
@@ -76,7 +109,7 @@ html, body {
 
 .box-title {
 	height: 30px;
-  width: 100%;
+    width: 100%;
 	margin-bottom: 40px;
 	font-size: 24px;
 	font-weight: bolder;
@@ -125,22 +158,12 @@ html, body {
   margin-right: 3px;
 }
 
-#dealContainer{
-  height: 300px;
-}
-
 #re {
 	margin-left: 10px;
 	/* border:1px solid black; */
 	cursor: pointer;
 	width: 30px;
 	height: 30px;
-	opacity: 0.5;
-	transition: 0.2s ease-in-out;
-}
-
-#re:hover{
-	opacity: 0.8;
 }
 
 #re img {
@@ -158,38 +181,46 @@ html, body {
 .infoContainer {
   margin-left: 50px;
   margin-right: 50px;
+/*   padding-left: 30px;
+  padding-right: 30px; */
   background: #f8f8f8; /* #f0f0f0; */
 	border-radius: 20px;
-  display: flex;
 /*   padding-bottom: 10px; */
-  padding-top: 20px;
-/*   border: 1px solid black; */
+ display: flex;
   flex-wrap: wrap;
 /*   flex-direction: column; */
+
+}
+
+#rentContainer{
+  display: flex;
+  padding-top: 20px;
+  flex-wrap: wrap;
 }
 
 .boxInfo{
-/*   border: 3px solid blue; */
-/*   space-between: 10px; */
-  opacity: 0.6;
+  border: 0.1px solid #eaeaea;
+  opacity: 0.8;
   background: white;
   border-radius: 3px;
   width: 520px;
-  height: 180px; 
+  height: 150px;
   margin-right: 20px;
-  margin-left: 20px;
+  margin-left: 25px;
+ /*  margin-right: 13px; */
+  /* margin-left: 30px; */
   margin-bottom: 20px;
+
 }
 
 .boxInfo:hover{
-  opacity: 0.9;
+  opacity: 1;
 }
 
 #topContainer{
-/*   border: 1px solid black; */
+ /*   border: 1px solid black; */
   display: flex;
-  padding: 3px;
-  font-size: 14px;
+  padding: 5px;
 }
 
 #date{
@@ -199,11 +230,13 @@ html, body {
   font-weight: lighter;
   color: grey;
   width: 70%;
+  font-size: 14px;
 }
 
 #time{
   color: #00DBAF;
   font-weight: bolder;
+  font-size: 14px;
 }
 
 #more{
@@ -212,45 +245,218 @@ html, body {
 }
 
 #moreBtn{
-  border: 1px solid #bababa;
+  border: 1px solid #eaeaea;
   border-radius: 10px;
   font-weight: lighter;
-  color: grey;
+  color: #bababa;
   cursor: pointer;
-  padding: 0px 10px 0px 10px;
+  padding: 1px 12px;
+  font-size: 12px;
+  float: right;
+  transition: 0.2s ease-in-out;
+  margin-top: 2px;
 }
 
-#rentContainer{
-/*   border: 1px solid black; */
-  height: 100px;
-  padding: 5px;
+#moreBtn:hover{
+  background: #eaeaea;
+/*   border: 1px solid #bababa; */
+  color: #a6a6a6;
+  
+}
+
+#middleContainer{
+  /*   border: 1px solid black; */
+  height: 80px;
+  padding: 2px 5px 0px 10px;
   display: flex;
   align-items: center;
 }
 
 #rentImg{
-  
-  border: 1px solid grey;
+  position: relative;
+  border: 1px solid lightgrey;
   width: 70px;
   height: 70px;
   border-radius: 15px;
+  overflow: hidden;
+}
+
+#rentImg img{
+	position: absolute;
+	width: 100%;
+  	height: 100%;
+  	object-fit: cover;
+}
+
+#pickup{
+	box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 1);
+  background: #00f5b8;
+  border: 1px solid #eeeeee;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  margin-left: 75%;
+  margin-top: 8%;
+  z-index: 1;
 }
 
 #rentText{
 /*   border: 1px solid black; */
   width: 300px;
   height: 70px;
-  display:flex;
-  align-items: center;
+/*   display:flex; */
+/*   align-items: center; */
+  margin-left: 10px;
 }
+
+#address{
+/*   border: 1px solid black; */
+  margin-top: 8px; /*5, 8, 10 */
+  margin-bottom: 3px;
+  font-size: 15px;
+  font-weight: bolder;
+  align-items: center;
+  display: flex;
+}
+
+#address span{
+/*   border: 1px solid black; */
+  max-width: 250px;
+  height: 20px;
+  overflow: hidden;
+}
+
+#map {
+/*   border: 1px solid black; */
+  cursor:pointer;
+}
+
+#map:active{
+  position: relative;
+  top: 1px;
+  
+}
+
+
+#map img{
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+#rentTime{
+/*   border: 1px solid black; */
+  font-size: 13px;
+  font-weight: lighter;
+  padding-left: 3px;
+}
+
 
 #bottomContainer{
-  border: 1px solid black;
-  height: 35px;
+/*   border: 1px solid black; */
+  height: 30px;
+/*   padding-right: 10px; */
+  display: flex;
+  float: right;
+  padding-right: 10px;
 }
 
+#messenger{
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.2s ease-in-out;
+}
+
+#messenger:hover{
+  opacity: 0.8;
+}
+
+#bottomContainer img{
+  width: 20px;
+  height: 19px;
+  opacity: 0.8;
+  margin-right: 10px;
+    
+}
+
+/* ------------------ 대여 현황 --------------- */
+#dealContainer{
+  height: 300px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+/*   align-items: center; */
+  
+}
+
+#dealContainer table{
+/*   border: 1px solid black; */
+  background: #fcfcfc;
+  margin: 0 auto;
+  text-align: center;
+  width: 1050px;
+  height: auto;
+  font-weight: lighter;
+	border-collapse: collapse;
+/* max-height 설정하기, 그 이상 넘어가면 더보기 */
+}
+
+th:nth-child(1) {width: 200px;}
+th:nth-child(4) {width: 250px;}
+th:nth-child(6) {width: 300px;}
+th:nth-child(7) {width: 300px;}
+
+td {
+	font-size: 15px;
+}
+
+th {
+  border-bottom: 1px solid lightgrey;
+  width: 1050px;
+}
+
+th, td{
+  padding: 3px;
+  
+}
+
+
+.dealBtn.current{
+  opacity: 0.5;
+}
+
+.tab-content{
+  display: none;
+}
+
+.tab-content.current{
+	display: inherit;
+}
+
+
+
+/* ------------------ QR코드 생성 --------------- */
+
 #qrContainer{
-  height: 250px;
+  line-height: 250px;
+  color: lightgray;
+  text-align: center;
+  font-size: 14px;
+}
+
+.notice{
+	margin: 0 auto;
+ 	display: flex;
+	text-align: center;
+	align-items: center;
+}
+
+.notice img {
+	/* border:1px solid black; */
+  width: 15px;
+  height: 15px;
+  opacity: 0.3;
+  margin-right: 3px;
 }
 
 .qr {
@@ -283,29 +489,116 @@ html, body {
   top: 1px;
   background-color: #00cca3;
   }
-
-/* .boxImg {
-	display: flex;
-	position: relative;  부모 요소로 설정, 기준점 
-	align-items: center;
-	overflow: hidden;
-	width: 200px;
-	height: 200px;
-	background: #f0f0f0;
-	border-radius: 50%;
-} */
-
-/* .boxImg img {
-	position: absolute;
-	/* border: 1px solid black; 
-	width: 70%;
-	height: 70%;
-	margin-left: 30px;
-	/* object-fit: cover; 
+ 
+ /* 모달 */
+.modal{ 
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  display:none;
+   background: rgba(255,255,255,0.3);
 }
- */
 
+.modal_content{
+  width:1100px;
+  height:450px;
+  background:#ffffff;
+  border-radius:10px;
+  position:relative;
+/*   top:800px;
+  left:400px; */
+  margin: 60% auto;
+  text-align:center;
+  box-sizing:border-box;
+  padding:10px 10px;
+/*   line-height:23px; */
+/*   cursor:pointer; */
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.modal_close{
+	cursor: pointer;
+	/* border: 1px solid black; */
+	width: 30px;
+	height: 30px;
+	margin-left: auto;
+	line-height: 30px;
+}
+
+.modal_close img{
+	/* object-fit: cover; */
+	width: 10px;
+	height: 10px;
+}
+
+.bar{
+	/* border: 1px solid black; */
+	width: 100%;
+	height: 30px;
+ 	display: flex;
+	align-items: center;
+}
+
+.bar form{
+ /* 	border: 2px solid black; */
+	display: flex;
+	margin: 0 auto;
+}
+
+#searchDate{
+	margin-left: 50px;
+	margin-right: 30px;
+}
+
+#searchText {
+	margin-left: -100px;
+	margin-right: 3px;
+	width: 145px;
+	
+	/* height: 20px; 설정 시 수직정렬 문제 */
+}
+
+#searchText::placeholder{
+	font-size: 12px;
+
+}
+
+#searchBtn {
+	width: 20px;
+	height: 20px;
+	/* margin: 0 auto; */
+	opacity: 0.7;
+	cursor: pointer;
+	/* background-color: #00DBAF;
+	/* border-radius: 4px; */
+	/* border: none; */
+	/*   display: inline-block; */
+	/* font-size: 13px;
+	padding: 4px 8px;
+	text-decoration: none;
+	letter-spacing: -1px;
+	font-weight: lighter; */
+}
+
+#all-tr{
+	margin-top: 50px;
+}
+
+#all-tr td{
+	font-size: 14px;
+	font-weight: ligther;
+}
+
+/* 모달 끝 */
+
+ 
+ 
+ 
+/* ------------------ 반응형 --------------- */
 /* 여기서 반응형 설정 적용(사이즈 축소 시) */
+
 @media (max-width: 376px) {
 	#wrap{
     position: relative;
@@ -352,11 +645,11 @@ html, body {
 
   .boxType{
     height: 200px;
-  }
+  }  
   
   .infoContainer {
 	 margin: 0 20px;
-    height: 180px;
+   height: 180px;
   }
 
   .box-wrapper {

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+   <mapper namespace="com.neighborCabinet.project.dao.IDealHistoryDAO">
+  	<resultMap id="dealHistoryResult" type="com.neighborCabinet.project.model.DealHistoryVO" >
+  		<result property="dealNo"  column="dealNo"  />
+  		<result property="dealPlace"  column="dealPlace"  />
+  		<result property="receiptDate"  column="receiptDate"  />
+  		<result property="userName"  column="userName"  />
+  		<result property="dealStart"  column="dealStart"  />
+  		<result property="dealEnd"  column="dealEnd"  />
+  		<result property="dealState"  column="dealState"  />
+  		<result property="pickup"  column="pickup"  />
+  	</resultMap>
+	
+	<!-- 거래 내역 -->
+	<select id="listAllDeal"  resultMap="dealHistoryResult">
+		SELECT *
+		FROM dealHistory
+		ORDER BY dealNo ASC
+	</select>
+
+
+</mapper>

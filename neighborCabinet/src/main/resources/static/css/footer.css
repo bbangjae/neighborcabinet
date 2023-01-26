@@ -15,8 +15,8 @@
 	margin:0px;
 	padding:0px;
 	border:0px;
-	border-top:1px solid gray;
-	border-bottom:1px solid gray;
+	border-top:1px solid #00DBAF;
+	border-bottom:1px solid #00DBAF;
 }
 
 .topBox{
@@ -46,7 +46,7 @@
 .topLinkbox > a{
 	padding: 0px 25px;
 	text-align: center;
-	border-right: 1px solid gray;
+	border-right: 1px solid #00DBAF;
 	font-size:0.73rem;
 	color:gray;
 }
@@ -112,6 +112,9 @@
 	color:gray;
 }
 
+a{
+	text-decoration:none;
+}
 
 
 

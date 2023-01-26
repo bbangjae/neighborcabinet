@@ -2,10 +2,8 @@ package com.neighborCabinet.project.controller;
 
 import com.neighborCabinet.project.model.PlaceInfoVO;
 import com.neighborCabinet.project.model.rentalregVO;
-import com.neighborCabinet.project.service.FileService;
 import com.neighborCabinet.project.service.RentalregService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;

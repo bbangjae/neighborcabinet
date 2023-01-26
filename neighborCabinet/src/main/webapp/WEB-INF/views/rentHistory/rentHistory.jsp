@@ -12,9 +12,10 @@
 		<script src="<c:url value='/js/rentHistory.js' />"></script>
 		<!-- 반응형을 위해 아래의 가로폭 조정 코드 필요 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<c:import url="/WEB-INF/views/layout/header.jsp" />
+		<script src="<c:url value='/js/searchZip.js' />"></script>
 	</head>
 	<body>
-	<%-- <c:import url="/WEB-INF/views/layout/header.jsp"/> --%>
 	<div id="wrap">
     <div class="box-wrapper">
       <!-- 추후 대여중인 박스가 있으면 해당 내용 제공, 없으면 대여중인 박스가 없습니다 보이기 -->

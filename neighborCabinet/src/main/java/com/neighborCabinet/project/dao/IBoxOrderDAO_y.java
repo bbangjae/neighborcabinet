@@ -15,7 +15,5 @@ public interface IBoxOrderDAO_y {
 	public void insert_OrdList(OrderListVO_y vo);
 	public void insert_OrdDetail(OrderListVO_y vo);
 	public MemberVO reserInfo(String userId);
-	public String regIdSearch(String ordDNo); // 여기 바꿔야돼
-	public MemberVO regIdInfo(String userId); // 여기 바꿔야돼
 	public void insert_reserve(Reserve_VO vo);
 }

@@ -75,6 +75,7 @@
 				<div style="padding : 0 30px; margin-left : 10px;">
 					<button type="button" class="box_typeInfo" id="A_typeInfo">플라스틱</button>
 					<button type="button" class="box_typeInfo" id="B_typeInfo">프리미엄</button>
+					<span class="tooltip"><i class="fa-solid fa-circle-info"></i><span class="tooltip-content">원하시는 박스를 누르세요</span></span>
 				</div>
 				<hr>
 				<div id="boxDis"><p style="font-size : 20px;">플라스틱 - 기본 재사용 박스<br> 프리미엄 - 높은 내구성, 자물쇠 기능</p></div>

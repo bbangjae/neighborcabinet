@@ -32,14 +32,4 @@
 		FROM member
 		WHERE userId=#{userId}
 	</select>
-	<select id="regIdSearch" parameterType="string" resultType="string">
-		SELECT userId
-		FROM text
-		WHERE ordDNo=#{ordDNo}
-	</select>
-	<select id="regIdInfo" parameterType="string" resultType="com.neighborCabinet.project.model.MemberVO">
-		SELECT userName, userNickname, userHp, userEmail, userAddress1, userAddress2
-		FROM member
-		WHERE userId=#{userId}
-	</select>
 </mapper>

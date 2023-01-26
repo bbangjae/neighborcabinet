@@ -1,42 +1,39 @@
 @charset "UTF-8";
 
+/* 왼쪽 상단 네비 */
+
 .wrap{
 	min-height: 100%;
 	height: auto;
 	position:relative;
-}
-
-div{
-	display:block;
-}
+	display:flex;
+}	
 
 .navBlock{
-	display: inline-block;
+	display: flex;
 	width: 260px;
-	float:left;
+	flex-direction:column;
 }
 
 .infoNav{
-	display: block;
+	display: flex;
     padding-top: 20px;
     position: relative;
     width: 260px;
 }
 
 .allNav .navList{
-	display: block;
-	margin: 0 !important;
-	padding: 0 !important;
-}
-
-ul{
-	display: block;
-	margin: 0 !important;
-	padding: 0 !important;
+	display: flex;
+	flex-direction:column;
+	width:200px;
 }
 
 #myinfoLink{
 	background:#D7FFF1 !important;
+}
+
+#modifyInfoList{
+	color:gray;
 }
 
 .navListlink{
@@ -52,10 +49,15 @@ ul{
 }
 
 .navListlink:hover{
-  border-left:1px solid #77AF9C;
-  border-right:1px solid #77AF9C;
-  border-top:1px solid #77AF9C;
-  border-bottom:1px solid #77AF9C;
+  border:1px solid #77AF9C;
+}
+
+.figureBox{
+	height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:50%;
 }
 
 figure{
@@ -70,38 +72,39 @@ figure{
 
 .listObject {
     color: black;
+    margin-right:5%;
 }
 
 a{
 	text-decoration-line: none;
 }
 
-.sub1{
-	margin-top:1%;
+.bodyWrap{
+	display:flex;
+	flex-direction: column;
+	width:100%;
 }
 
 .pageInfo{
+	margin-top:3%;
 	font-size:0.2em;
 	color:#285943;
-	margin-left:1%;
-}
-
-.sub2{
-	display: inline-block;
-	margin-left:1%;
-	
+	margin-left:3%;
 }
 
 .pageName{
+	margin-left:3%;
 	font-size:2em;
 	color:#285943;
 }
 
 .modifyinfoBox{
+	display:flex;
+	flex-direction: column;
 	padding-top: 24px;
     padding-bottom: 24px;
     border-radius: 1px;
-    margin-left:22%;
+    margin-left:13%;
     margin-right:27%;
 }
 
@@ -110,8 +113,9 @@ a{
 }
 
 .userName{
-	display:block;
+	flex-direction: column;
 	margin-top:1%;
+	margin-bottom:7%;
 }
 
 .currentName{
@@ -129,7 +133,8 @@ a{
     border-radius:50%;
     display:flex;
     cursor:pointer;
-    margin-left:78.5%;
+    float:right;
+    margin-right:15%;
 }
 
 @media (max-width: 1295px) {
@@ -187,15 +192,21 @@ a{
 
 .modifySpan{
 	margin-top:0.8%;
+	color:#285943;
+	width:100%;
 }
 
 .modifySpan2{
 	font-size:0.8em;
 	color:gray;
+	width:30%;
+	margin-left:1%;
+	border:none;
 }
 
-hr{
-	margin-right:15%;
+.miHr{
+	margin-right:34%;
+	width:84%;
 }
 
 .inputText{
@@ -209,11 +220,40 @@ hr{
 	border-color:#285943;
 }
 
+.formBox{
+	display:none;
+}
 
+.saveBtn{
+	width:8%;
+	height:15%;
+	border:1px solid #285943;
+	background-color:#D7FFF1;
+	color:#285943;
+}
 
+.deleteInfo{
+	width:8%;
+	height:10%;
+	margin-right:15%;
+	background:white;
+}
 
+.deleteBtn{
+	background-color:transparent;
+	border: solid 2px white;
+	cursor:pointer;
+}
 
+.deleteImage{
+	width:100%;
+	height:100%;
+}
 
+.deleteM{
+	color:gray;
+	font-size:0.08em;
+}
 
 
 

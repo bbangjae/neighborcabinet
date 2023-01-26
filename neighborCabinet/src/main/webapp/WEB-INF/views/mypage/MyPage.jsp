@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<script src="js/jquery-3.6.1.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/mypage2.css' />">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/mypage.css' />">
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<c:import url="/WEB-INF/views/layout/header.jsp" />
 		<title>마이페이지</title>
@@ -27,7 +27,7 @@
 				<div class="ObjectBox">
 					<div class="OjectS">
 						<div class="pageObject" id="Object1">
-							<a href="/mypage/view.do" class="ObjectLink"></a>
+							<a href="/modifyInfo" class="ObjectLink"></a>
 							<span>개인 정보</span>
 						</div>
 						<div class="pageObject" id="Object2">

@@ -17,7 +17,7 @@ public class MypageController {
 		return "mypage/MyPage";
 	}
 	
-	@RequestMapping("mypage/view.do")
+	@RequestMapping("/modifyInfo")
 	public String memberView(String userId, Model model) {
 		model.addAttribute("vo", service.viewMember(userId));
 		return "mypage/modifyInfo";

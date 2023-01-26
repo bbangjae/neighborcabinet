@@ -10,5 +10,20 @@
         select * from place where pNo=#{pNo}
     </select>
 
+    <select id="showViewQA" parameterType="string"
+            resultType="com.neighborCabinet.project.model.QaVO">
+        select q.qaNo, q.qaContent, q.qaDate, q.userId, q.pNo, m.userNickName
+        from qa q, member m
+        where q.pNo=#{pNo} and q.userId=m.userId
+        order by q.qaNo
+    </select>
+    <select id="showViewReview" parameterType="string"
+            resultType="com.neighborCabinet.project.model.ReviewVO">
+        select r.reviewNo, r.reviewContent, r.reviewDate,r.reviewGrade, r.userId, r.reviewNo, m.userNickName
+        from review r, member m
+        where r.pNo=#{pNo} and r.userId=m.userId
+        order by r.reviewNo
+    </select>
+
 
 </mapper>

@@ -177,7 +177,9 @@
 
 
         </div>
-        <div id="footer"></div>
+        <div id="footer">
+          <c:import url="/WEB-INF/views/layout/footer.jsp"/>
+        </div>
       </div>
 
 

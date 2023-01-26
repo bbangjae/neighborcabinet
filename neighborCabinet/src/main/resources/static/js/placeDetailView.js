@@ -75,12 +75,74 @@ $(document).ready(function(){
             "z-index": "1"
         });
     });
-    $("#call").on('click',function (){
-        alert("010-1234-2322");
+
+    $(".call_li").on('click',function (){
+        var now_t= (($(window).height()-$(".modal-overlay").outerHeight())/2+$(window).scrollTop())+"px";
+        var now_l= (($(window).width()-$(".modal-overlay").outerWidth())/2+$(window).scrollLeft())+"px";
+        $("#modal_call").css({
+            "display": "flex",
+
+        });
+        $(".modal-window").css({
+
+            "top":now_t,
+            "left":now_l
+
+        });
     });
-    $("#call2").on('click',function (){
-        alert("010-1234-2322");
+
+    $(".QA_btn").on('click',function (){
+        var now_t= (($(window).height()-$(".modal-overlay").outerHeight())/2+$(window).scrollTop())+"px";
+        var now_l= (($(window).width()-$(".modal-overlay").outerWidth())/2+$(window).scrollLeft())+"px";
+        $("#modal_QA").css({
+            "display": "flex",
+
+        });
+        $(".modal-window").css({
+
+            "top":now_t,
+            "left":now_l
+
+        });
     });
+
+    const modal = document.getElementById("modal_call")
+    modal.addEventListener("click",e =>{
+        const evTarget =e.target
+        if(evTarget.classList.contains("modal-overlay")){
+            modal.style.display="none"
+        }
+    } )
+    window.addEventListener("keyup", e => {
+        if(modal.style.display==="flex" && e.key==="Escape"){
+            modal.style.display="none"
+        }
+    })
+    $(".close-area").on('click',function (){
+
+        $(".modal-overlay").css({
+            "display": "none"
+        });
+    });
+    $(".confirm_btn").on('click',function (){
+
+        $(".modal-overlay").css({
+            "display": "none"
+        });
+    });
+    const modal_QA = document.getElementById("modal_QA")
+    modal_QA.addEventListener("click",e =>{
+        const evTarget =e.target
+        if(evTarget.classList.contains("modal-overlay")){
+            modal_QA.style.display="none"
+        }
+    } )
+    window.addEventListener("keyup", e => {
+        if(modal_QA.style.display==="flex" && e.key==="Escape"){
+            modal_QA.style.display="none"
+        }
+    })
+
     $(".op_box").on('click',function (){
         $(".after_btn").css({
             "opacity": "0"

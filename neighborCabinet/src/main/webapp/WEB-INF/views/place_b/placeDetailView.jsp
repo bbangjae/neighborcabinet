@@ -16,6 +16,41 @@
     </head>
     <body>
         <div id="wrap">
+            <div id="modal_call" class="modal-overlay">
+                <div class="modal-window" style="height:230px;">
+                    <div class="title">
+                        <h2>전화번호</h2>
+                    </div>
+                    <div class="close-area">X</div>
+                    <div class="content">
+                        <p >010-1234-1234</p>
+                        <p> 여기로 전화주시면 신속하게 처리 해드리겠습니다</p>
+                        <button class="confirm_btn">확인</button>
+
+                    </div>
+
+                </div>
+            </div>
+            <div id="modal_QA" class="modal-overlay">
+                <div class="modal-window" style="height: 370px;">
+                    <div class="title">
+                        <h2>질문 작성하기</h2>
+                    </div>
+                    <div class="close-area">X</div>
+                    <div class="content" >
+                        <input type="text" style="margin-left:5px; width:95%;height:200px;">
+                        <button class="confirm_btn">확인</button>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+
 
             <div id="header">
                 <c:import url="/WEB-INF/views/layout/header.jsp"/>
@@ -27,10 +62,10 @@
                     <div class="title">
                         ${pi.pWriteTitle}
                     </div>
-                    <div>
+                    <div style="color:gray;">
                         ${pi.pWriteSub}
                     </div>
-                    <div>
+                    <div style="color:gray;">
                         #강남역 (태그)
                     </div>
                 </div>
@@ -60,7 +95,7 @@
                             <div class="t_title">
                                 <span id="space">공간소개</span>
                             </div>
-                            <div class="t_text">
+                            <div class="t_text" style="color:gray;">
 
                                 ${pi.pPlaceInfo}
                             </div>
@@ -71,13 +106,13 @@
                                 <span id="box">박스안내</span>
                             </div>
 
-                            <div class="t_text">
+                            <div class="t_text" style="color:gray;">
                                     ${pi.pBoxInfo}
                             </div>
                             <div class="t_title">
                                 <span id="caution">예약시 주의 사항</span>
                             </div>
-                            <div class="t_text">
+                            <div class="t_text" style="color:gray;">
                                 ${pi.pCautionInfo}
                             </div>
                             <%--<div class="t_title">
@@ -91,13 +126,13 @@
                             <div id="map" style="width:100%;height:400px;"></div>
                             <script>
                                 var mapOptions = {
-                                    center: new naver.maps.LatLng(37.3595704, 127.105399),
+                                    center: new naver.maps.LatLng(37.518236, 127.059297),
                                     zoom: 10
                                 };
 
                                 var map = new naver.maps.Map('map', mapOptions);
                                 var marker = new naver.maps.Marker({
-                                    position: new naver.maps.LatLng(37.3595704, 127.105399),
+                                    position: new naver.maps.LatLng(37.518236, 127.059297),
                                     map: map
                                 });
                             </script>
@@ -110,9 +145,9 @@
                                     서울 강남구 삼성로111길 8
                                     </div>
                                     <div class="i_btn">
-                                        <ul class="ct_ul">
-                                            <li class="ct_li" id="call"><a href="#target">전화걸기</a></li>
-                                            <li class="ct_li"><a href="#target">길찾기</a></li>
+                                        <ul class="call_ul" style="border:0px;">
+                                            <li class="call_li" id="call"><a href="#target">전화걸기</a></li>
+                                            <li class="call_li"><a href="#target">길찾기</a></li>
 
 
                                         </ul>
@@ -129,19 +164,25 @@
                                 <button class="QA_btn">질문작성하기</button>
                             </div>
                             <table class="Q_R_table" >
+                                <c:forEach var="qL" items="${qaList}">
                                 <tr>
-                                    <td rowspan="3" style="width:100px; height:100%;padding:0px; border-collapse : collapse; vertical-align : top;">
+                                    <td style="width:100px; height:100%;padding:0px; border-collapse : collapse; vertical-align : top;">
                                         <div style="width:100px;heght:100px; ">
                                         <img src="/image/profile2.png" style="width:100%;height: 100%;">
-                                        </div></td>
-                                    <td style="font-weight: bold;">변빵재</td>
-                                </tr>
-                                <tr>
-                                    <td>23-01-19에 예약 가능한가요?<img src="/image/profile2.png"></td>
-                                </tr>
-                                <tr>
-                                    <td style="color:gray; font-weight: lighter">2023.01.18.10:23:14<td>
-                                </tr>
+                                        </div>
+                                    </td >
+                                    <td style="display:inline-block; width:100%;height:100%;">
+                                        <div style=" width:100%; font-weight: bold;">
+                                            ${qL.userNickName}
+                                        </div>
+                                        <div style="width: 100%;height:60%;margin-top:30px;">
+                                            ${qL.qaContent}
+                                        </div>
+                                     <div style="  width:100%; color:gray; margin: 30px 0 40px 0; font-weight: lighter">
+                                         ${qL.qaDate}
+                                     </div>
+                                    </td>
+                                </tr> </c:forEach>
                             </table>
                             <div class="t_title" id="review">
 
@@ -152,26 +193,54 @@
 
 
                             </div>
-                                <table class="Q_R_table" style="border:solid 2px gold;" >
-                                    <tr>
+                                <table class="Q_R_table" style="border:solid 0px gold;" >
+
+                                    <c:forEach var="rL" items="${reviewList}">
+                                        <tr >
+                                            <td style="width:100px; height:100%;padding:0px; border-collapse : collapse; vertical-align : top;">
+                                                <div style="width:100px;heght:100px; ">
+                                                    <img src="/image/profile2.png" style="width:100%;height: 100%;">
+                                                </div>
+                                            </td >
+                                            <td style="display:inline-block; width:100%;height:100%;">
+                                                <div style=" width:100%; font-weight: bold;">
+                                                    <div style=" display: inline-block; width:82%;">
+                                                        ${rL.userNickName}
+                                                    </div>
+                                                    <div class="score_wrap" style="display: inline-block; width:16%; text-align: right; font-size:20px;">
+                                                        <div class="score" style="position:relative; display: inline-flex;" >
+                                                            <div class="foreground" style="color:#00DBAF; overflow:hidden;">★★★★★</div>
+                                                            <div class="background" style="color:white; position: absolute;">☆☆☆☆☆</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="width: 100%;height:60%;margin-top:30px;">
+                                                        ${rL.reviewContent}
+                                                </div>
+                                                <div style="  width:100%; color:gray; margin: 30px 0 40px 0; font-weight: lighter">
+                                                        ${rL.reviewDate}
+                                                </div>
+                                            </td>
+                                        </tr> </c:forEach>
+                                    <%--<tr>
                                         <td rowspan="3" style="width:100px; height:100%;padding: 0px; border-collapse : collapse; vertical-align : top;">
                                             <div style="width:100px;heght:100px; ">
                                                 <img src="/image/profile2.png" style="width:100%;height: 100%;">
                                             </div></td>
                                         <td style="font-weight: bold;">변빵재</td>
-                                        <td class="score_wrap" style="text-align: right; font-size:20px; padding-right: 10px;">
+                                        <td>
                                         <div class="score" style="position:relative; display: inline-flex;" >
                                                 <div class="foreground" style="color:#00DBAF; overflow:hidden;">★★★★★</div>
                                                 <div class="background" style="color:white; position: absolute;">☆☆☆☆☆</div>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"> 내가 이래서 이점수를 줌 ㅡㅡ </td>
+                                    </tr>--%>
+                                  <%--  <tr>
+                                        <td colspan="2"> 너무 좋아요~ 다음에도 이용할게요. </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" style="color:gray; font-weight: lighter">2023.01.18.10:23:14<td>
-                                    </tr>
+                                    </tr>--%>
                                 </table>
 
 
@@ -180,21 +249,30 @@
                     </div>
 
                     <div class="ct_right">
-                        <div class="option">
+                        <div class="option" style="border: solid 1px #00DBAF;border-left:0px; border-right:0px; ">
                             <div class="o_title">
                                 박스타입 선택
                             </div>
-                            <table>
+                            <table >
                                 <tr><th colspan="2">호스트 승인후 예약확정
                                 <br><span style="font-weight: normal; color:#00DBAF;font-size: 14px;">확실한 예약을 위해 전화주세요</span>  </th></tr>
-                                <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스1호</th><td class="o_price"><span>$0</span>/시간</td></tr>
+                                <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스1호</th><td class="o_price"><span>$0</span>/시간<button style="margin-left: 10px;">-</button><input type="text" style="width: 10px;"><button>+</button></td></tr>
+
                                 <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스2호</th><td class="o_price"><span>$0</span>/시간</td></tr>
-                                <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스2호</th><td class="o_price"><span>$0</span>/시간</td></tr>
+                                <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스3호</th><td class="o_price"><span>$0</span>/시간</td></tr>
+
                             </table>
-                            <ul class="ct_ul">
-                                <li class="ct_li" id="call2" style="width:10px; margin-right:1px; background-color: #00DBAF;"><a href="#target" style="color:white;">전화</a></li>
-                                <li class="ct_li"  style="background-color: #00DBAF;"><a href="#target" style="color:white;">예약신청하기</a></li>
+                            <table border="1">
+                                <tr><td>11</td><td>233</td></tr>
+                                <tr><td>11</td><td>233</td></tr>
+                                <tr><td>11</td><td>233</td></tr>
+                            </table>
+
+                            <ul class="call_ul" style="border:0px;">
+                                <li class="call_li"  style="width:10px; margin-right:1px; background-color: #00DBAF;"><a href="#target" style="color:white; border:0px;">전화</a></li>
+                                <li class="call_li"  style="background-color: #00DBAF;"><a href="#target" style="color:white;">예약신청하기</a></li>
                             </ul>
+
                         </div>
                     </div>
 
@@ -202,11 +280,13 @@
 
                 </div>
 
-                <div id="footer" style="width: 100%;height: 400px; border:solid 1px black;">
-
+                <div id="footer" style="width: 100%;height: 1px;">
+                    <c:import url="/WEB-INF/views/layout/footer.jsp"/>
 
                 </div>
+
             </div>
+
 
 
         </div>

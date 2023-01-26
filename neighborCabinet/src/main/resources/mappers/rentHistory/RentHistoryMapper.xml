@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+   <mapper namespace="com.neighborCabinet.project.dao.IRentHistoryDAO">
+  	<resultMap id="rentHistoryResult" type="com.neighborCabinet.project.model.RentHistoryVO" >
+  		<result property="rentNo"  column="rentNo"  />
+  		<result property="rentPlace"  column="rentPlace"  />
+  		<result property="receiptDate"  column="receiptDate"  />
+  		<result property="userName"  column="userName"  />
+  		<result property="rentTime"  column="rentTime"  />
+  		<result property="rentState"  column="rentState"  />
+  		<result property="pickup"  column="pickup"  />
+  	</resultMap>
+	
+	<!-- 대여 내역 조회 -->
+	<select id="listAllHistory"  resultMap="rentHistoryResult">
+		SELECT *
+		FROM rentHistory
+		ORDER BY rentNo ASC
+	</select>
+	
+	
+<!-- 	 7일 간 가장 높은 조회수 순으로 메인에서 3개 이미지 출력 
+	<select id="hitsView"  resultMap="mainWriteResult">
+		SELECT *
+		FROM writePage 
+		WHERE writeDate BETWEEN '2022-12-7' AND '2022-12-14' 
+		ORDER BY writeHits DESC LIMIT 0, 3
+		현재 시간으로 출력 ecardDate AS [CURRENT_TIMESTAMP]
+	</select>
+	 -->
+	
+</mapper>

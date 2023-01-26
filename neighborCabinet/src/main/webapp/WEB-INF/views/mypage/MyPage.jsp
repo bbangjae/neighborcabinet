@@ -12,34 +12,34 @@
 		<title>마이페이지</title>
 	</head>
 	<body>
+	<%-- <%
+	String id = (String) session.getAttribute("userId");
+	if(id == null) response.sendRedirect("/mypage2");
+	%> --%>
 		<main>
-		<section>
-			<h1 class="myPageH1">마이페이지</h1>
-			<div> 님 환영합니다</div>
-		</section>
-		<hr color="#00DBAF" width="60%"size="1px"> 
+			<section>
+				<h1 class="myPageH1">마이페이지</h1>
+				<label class="hello1">${sessionScope.sid}님 환영합니다.</label>
+			</section>
+			<hr color="#00DBAF" width="60%"size="1px"> 
 					
 			<div class="wrap">
 				<div class="ObjectBox">
 					<div class="OjectS">
 						<div class="pageObject" id="Object1">
-							<a href="modifyInfo" class="ObjectLink">
-							</a>
+							<a href="/mypage/view.do" class="ObjectLink"></a>
 							<span>개인 정보</span>
 						</div>
 						<div class="pageObject" id="Object2">
-							<a href="#" class="ObjectLink">
-							</a>
-							<span>결제</span>
+							<a href="/rentHistory" class="ObjectLink"></a>
+							<span>거래/대여</span>
 						</div>
 						<div class="pageObject" id="Object3">
-							<a href="#" class="ObjectLink">
-							</a>
+							<a href="#" class="ObjectLink"></a>
 							<span>리뷰 관리</span>
 						</div>
 						<div class="pageObject" id="Object4">
-							<a href="#" class="ObjectLink">
-							</a>
+							<a href="#" class="ObjectLink"></a>
 							<span>박스</span>
 						</div>
 					</div>
@@ -47,4 +47,5 @@
 			</div>
 		</main>
 	</body>
+	<c:import url="/WEB-INF/views/layout/footer.jsp"/>	
 </html>

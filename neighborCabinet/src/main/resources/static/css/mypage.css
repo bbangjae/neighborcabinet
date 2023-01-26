@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+.hello{
+	font-size:4em;
+	width:30%;
+	border:none;
+}
+
 section{
 	margin-left:20%;
 	margin-right:20%;
@@ -50,6 +56,7 @@ section{
   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
   transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
 }
+
 .pageObject:hover{
   border-left:1px solid #77AF9C;
   border-right:1px solid #77AF9C;
@@ -59,11 +66,11 @@ section{
 
 @media (max-width: 1085px) {
 	.pageObject{
-	width:30%;
-	height:20%;
+	width:33% !important;
+	height:60% !important;
 	margin-left:5%;
     margin-right:5%;
-    margin-top:4%;
+    margin-top:7%;
 	}
 	span{
 	margin-top:25%;
@@ -99,30 +106,29 @@ section{
 
 
 #Object1 {
-	 background-image: url(/image/profile.png); 
-	 background-size: 50% auto;
+	 background-image: url(/image/profile2.png); 
+	 background-size: 40% auto;
    	 background-position: center top;
      background-repeat: no-repeat;
-
 }
 
 #Object2 {
-	background-image: url(/image/money.png);
-	background-size: 100% auto;
+	background-image: url(/image/customer.png);
+	background-size: 50% auto;
     background-position: center top;
     background-repeat: no-repeat;
 }
 
 #Object3 {
-	background-image: url(/image/review.png);
-	background-size: 70% auto;
+	background-image: url(/image/review2.png);
+	background-size: 40% auto;
     background-position: center top;
     background-repeat: no-repeat;
 }
 
 #Object4 {
-	background-image: url(/image/box.png);
-	background-size: 50% auto;
+	background-image: url(/image/box2.png);
+	background-size: 40% auto;
     background-position: center top;
     background-repeat: no-repeat;
 }
@@ -134,7 +140,6 @@ span{
 	margin-left:3%;
 	margin-bottom:1%;
 }
-
 
 
 

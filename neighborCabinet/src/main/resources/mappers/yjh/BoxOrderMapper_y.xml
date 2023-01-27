@@ -32,4 +32,9 @@
 		FROM member
 		WHERE userId=#{userId}
 	</select>
+	<select id="placeInfo" parameterType="string" resultType="com.neighborCabinet.project.model.PlaceInfoVO">
+		SELECT *
+		FROM place
+		WHERE pNo=#{pNo}
+	</select>
 </mapper>

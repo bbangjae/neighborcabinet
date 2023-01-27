@@ -78,7 +78,7 @@ input:focus {
 }
 #container .c_header{
     width:100%;
-    height:250px;
+    height:200px;
     border:solid 1px #F9FAFB;
 
 
@@ -167,7 +167,7 @@ input:focus {
 
 }
 
-.call_ul,.call_li{
+.call_ul,.call_li,.reserve_li{
     list-style: none;
     margin:0;
     padding: 0;
@@ -177,13 +177,13 @@ input:focus {
 
     display: flex;
 }
-.call_li{
+.call_li,.reserve_li{
     width:25%;
     flex-grow:1;
     border-radius:21px 21px 21px 21px;
 
 }
-.call_li a{
+.call_li a,.reserve_li a{
     display:block;
     padding:16px;
     font-size:18px;
@@ -191,7 +191,7 @@ input:focus {
     text-decoration: none;
     color:#00DBAF;
 }
-.call_li a:hover{
+.call_li a:hover,.reserve_li a:hover{
     background-color:#00DBAF;
     color:white;
     border-radius:21px 21px 21px 21px;
@@ -335,6 +335,15 @@ input:focus {
 #container .c_content .ct_right .option table .op_box button{
 
 }
+#container .c_content .ct_right .option #calendar {
+
+    border-bottom: solid 1px #00DBAF;
+    margin-bottom: 10px;
+    width: 100%;
+    display:none;
+}
+
+
 .modal-overlay {
     width: 100%;
     height: 4400px;
@@ -419,3 +428,4 @@ input:focus {
 .modal-overlay .confirm_btn:hover {
     cursor : pointer;
 }
+

@@ -88,7 +88,7 @@
 				<div class="viewMapR">
 					<!-- 장소 정보1 -->
 					<c:forEach var="p" items="${listAllMap }">
-					<div class="placeInfo">
+					<div class="placeInfo" onclick="location.href='<c:url value='/place/placeDetailView/${p.pNo}'/>'">
 						<div class="placeimageDiv">
 							<img class="placeimage" src="/image/${p.pImage}.jpg">
 						</div>
@@ -99,7 +99,7 @@
 							<div class="placeDetail">
 								<div id="pTime">
 									<img src="/image/clock.png">
-									<span>${p.pPlaceInfo }</span>
+									<span>${p.pType_d }</span>
 								</div>
 								<div id="pAddress">
 									<img src="/image/placeholder.png">
@@ -115,12 +115,16 @@
 	</div>
 	<!-- 지도 Script -->
 	<script>
-	var mapOptions = {
-	    center: new naver.maps.LatLng(37.5012767241426, 127.039600248343),
-	    zoom: 15
-	};
-	
-	var map = new naver.maps.Map('map', mapOptions);
+		var mapOptions = {
+			center: new naver.maps.LatLng(37.518236, 127.059297),
+			zoom: 10
+		};
+
+		var map = new naver.maps.Map('map', mapOptions);
+		var marker = new naver.maps.Marker({
+			position: new naver.maps.LatLng(37.518236, 127.059297),
+			map: map
+		});
 	</script>
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>	
   </body>

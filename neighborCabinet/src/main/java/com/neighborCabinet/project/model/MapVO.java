@@ -4,7 +4,9 @@ public class MapVO {
 	private int pNo;
 	private String pWriteTitle;
 	private String pWriteSub;
+	private String pType_d;
 	private String pPlaceTitle;
+
 	private String pPlaceInfo;
 	private String pBoxInfo;
 	private String pCautionInfo;
@@ -33,6 +35,15 @@ public class MapVO {
 	public void setpWriteSub(String pWriteSub) {
 		this.pWriteSub = pWriteSub;
 	}
+
+	public String getpType_d() {
+		return pType_d;
+	}
+
+	public void setpType_d(String pType_d) {
+		this.pType_d = pType_d;
+	}
+
 	public String getpPlaceTitle() {
 		return pPlaceTitle;
 	}

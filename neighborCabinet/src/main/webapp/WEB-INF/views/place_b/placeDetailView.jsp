@@ -65,9 +65,6 @@
                     <div style="color:gray;">
                         ${pi.pWriteSub}
                     </div>
-                    <div style="color:gray;">
-                        #강남역 (태그)
-                    </div>
                 </div>
                 <div class="c_content">
 
@@ -222,25 +219,7 @@
                                                 </div>
                                             </td>
                                         </tr> </c:forEach>
-                                    <%--<tr>
-                                        <td rowspan="3" style="width:100px; height:100%;padding: 0px; border-collapse : collapse; vertical-align : top;">
-                                            <div style="width:100px;heght:100px; ">
-                                                <img src="/image/profile2.png" style="width:100%;height: 100%;">
-                                            </div></td>
-                                        <td style="font-weight: bold;">변빵재</td>
-                                        <td>
-                                        <div class="score" style="position:relative; display: inline-flex;" >
-                                                <div class="foreground" style="color:#00DBAF; overflow:hidden;">★★★★★</div>
-                                                <div class="background" style="color:white; position: absolute;">☆☆☆☆☆</div>
-                                            </div>
-                                        </td>
-                                    </tr>--%>
-                                  <%--  <tr>
-                                        <td colspan="2"> 너무 좋아요~ 다음에도 이용할게요. </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" style="color:gray; font-weight: lighter">2023.01.18.10:23:14<td>
-                                    </tr>--%>
+
                                 </table>
 
 
@@ -249,28 +228,42 @@
                     </div>
 
                     <div class="ct_right">
-                        <div class="option" style="border: solid 1px #00DBAF;border-left:0px; border-right:0px; ">
+                        <div class="option" style="border-top: solid 1px #00DBAF;">
                             <div class="o_title">
                                 박스타입 선택
                             </div>
                             <table >
                                 <tr><th colspan="2">호스트 승인후 예약확정
                                 <br><span style="font-weight: normal; color:#00DBAF;font-size: 14px;">확실한 예약을 위해 전화주세요</span>  </th></tr>
-                                <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스1호</th><td class="o_price"><span>$0</span>/시간<button style="margin-left: 10px;">-</button><input type="text" style="width: 10px;"><button>+</button></td></tr>
+                                <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스1호</th><td class="o_price"><span>￦1000</span>/시간</td></tr>
 
-                                <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스2호</th><td class="o_price"><span>$0</span>/시간</td></tr>
-                                <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스3호</th><td class="o_price"><span>$0</span>/시간</td></tr>
+                                <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스2호</th><td class="o_price"><span>￦2000</span>/시간</td></tr>
+                                <tr class="op_box"><th><button class="after_btn"></button><button class="click_btn"></button>박스3호</th><td class="o_price"><span>￦3000</span>/시간</td></tr>
 
                             </table>
-                            <table border="1">
-                                <tr><td>11</td><td>233</td></tr>
-                                <tr><td>11</td><td>233</td></tr>
-                                <tr><td>11</td><td>233</td></tr>
+
+                            <table id="calendar" align="center">
+                                <tr >
+                                    <td align="center"><label onclick="prevCalendar()"> ◀ </label></td>
+                                    <td colspan="5" align="center" id="calendarTitle">yyyy년 m월</td>
+                                    <td align="center"><label onclick="nextCalendar()"> ▶ </label></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><font color ="#F79DC2">일</td>
+                                    <td align="center">월</td>
+                                    <td align="center">화</td>
+                                    <td align="center">수</td>
+                                    <td align="center">목</td>
+                                    <td align="center">금</td>
+                                    <td align="center"><font color ="skyblue">토</td>
+                                </tr>
+
                             </table>
+
 
                             <ul class="call_ul" style="border:0px;">
                                 <li class="call_li"  style="width:10px; margin-right:1px; background-color: #00DBAF;"><a href="#target" style="color:white; border:0px;">전화</a></li>
-                                <li class="call_li"  style="background-color: #00DBAF;"><a href="#target" style="color:white;">예약신청하기</a></li>
+                                <li class="reserve_li"  style="background-color: #00DBAF;"><a href="<c:url value='/rental/payment/${pNo}'/>" style="color:white;">예약신청하기</a></li>
                             </ul>
 
                         </div>

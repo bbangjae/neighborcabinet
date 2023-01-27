@@ -1,73 +1,73 @@
 package com.neighborCabinet.project.model;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class MapVO {
-	private int postNo;
-	private String postImage;
-	private String userName;
-	private String mapPlace;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date mapDate;
-	private String mapTitle;
-	private String boxType;
-	private String boxQty;
-	private String pickup;
-	public int getPostNo() {
-		return postNo;
+	private int pNo;
+	private String pWriteTitle;
+	private String pWriteSub;
+	private String pPlaceTitle;
+	private String pPlaceInfo;
+	private String pBoxInfo;
+	private String pCautionInfo;
+	private String pAddress;
+	private String pImage;
+	
+	/*
+	 * @DateTimeFormat(pattern = "yyyy-MM-dd") private Date mapDate;
+	 */
+	/* private String pickup; */
+	public int getpNo() {
+		return pNo;
 	}
-	public void setPostNo(int postNo) {
-		this.postNo = postNo;
+	public void setpNo(int pNo) {
+		this.pNo = pNo;
 	}
-	public String getPostImage() {
-		return postImage;
+	public String getpWriteTitle() {
+		return pWriteTitle;
 	}
-	public void setPostImage(String postImage) {
-		this.postImage = postImage;
+	public void setpWriteTitle(String pWriteTitle) {
+		this.pWriteTitle = pWriteTitle;
 	}
-	public String getUserName() {
-		return userName;
+	public String getpWriteSub() {
+		return pWriteSub;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setpWriteSub(String pWriteSub) {
+		this.pWriteSub = pWriteSub;
 	}
-	public String getMapPlace() {
-		return mapPlace;
+	public String getpPlaceTitle() {
+		return pPlaceTitle;
 	}
-	public void setMapPlace(String mapPlace) {
-		this.mapPlace = mapPlace;
+	public void setpPlaceTitle(String pPlaceTitle) {
+		this.pPlaceTitle = pPlaceTitle;
 	}
-	public Date getMapDate() {
-		return mapDate;
+	public String getpPlaceInfo() {
+		return pPlaceInfo;
 	}
-	public void setMapDate(Date mapDate) {
-		this.mapDate = mapDate;
+	public void setpPlaceInfo(String pPlaceInfo) {
+		this.pPlaceInfo = pPlaceInfo;
 	}
-	public String getMapTitle() {
-		return mapTitle;
+	public String getpBoxInfo() {
+		return pBoxInfo;
 	}
-	public void setMapTitle(String mapTitle) {
-		this.mapTitle = mapTitle;
+	public void setpBoxInfo(String pBoxInfo) {
+		this.pBoxInfo = pBoxInfo;
 	}
-	public String getBoxType() {
-		return boxType;
+	public String getpCautionInfo() {
+		return pCautionInfo;
 	}
-	public void setBoxType(String boxType) {
-		this.boxType = boxType;
+	public void setpCautionInfo(String pCautionInfo) {
+		this.pCautionInfo = pCautionInfo;
 	}
-	public String getBoxQty() {
-		return boxQty;
+	public String getpAddress() {
+		return pAddress;
 	}
-	public void setBoxQty(String boxQty) {
-		this.boxQty = boxQty;
+	public void setpAddress(String pAddress) {
+		this.pAddress = pAddress;
 	}
-	public String getPickup() {
-		return pickup;
+	public String getpImage() {
+		return pImage;
 	}
-	public void setPickup(String pickup) {
-		this.pickup = pickup;
+	public void setpImage(String pImage) {
+		this.pImage = pImage;
 	}
 	
 	

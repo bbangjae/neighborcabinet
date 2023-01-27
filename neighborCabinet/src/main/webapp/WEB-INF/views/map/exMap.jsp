@@ -9,9 +9,10 @@
 		<script src="<c:url value="/js/mod.js" />"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href=/css/exMap.css/> 
-		<c:import url="/WEB-INF/views/layout/head.jsp" />
+		<c:import url="/WEB-INF/views/layout/header.jsp" />
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="<c:url value='/js/searchZip.js' />"></script>
+		<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=72gbnd4fi6"></script>
 <title>지도페이지 예시</title>
 </head>
 <body>
@@ -65,7 +66,7 @@
 				</li>
 					
 				<li class="navList">
-					<a href="/" class="navListlink" id="dealLink">
+					<a href="/rentHistory" class="navListlink" id="dealLink">
 						<div class="figureBox">
 							<figure>
 								<img class="modifyInfo" src="/image/deal.png">
@@ -78,107 +79,49 @@
 			</ul>
 		</nav>
 	</div>	
-	<!-- 대여 장소 확인 -->
+	<!-- 대여 장소 -->
 	<div class="viewMap">
-		<h2 class="sub">대여 장소 확인</h2>
+		<h2 class="sub">내 주변 공간 찾기</h2>
 			<div class="viewMapLR">
 				<!-- 지도 API -->
-				<div class="viewMapL">
-					<img class="placeimage" src="/image/cancel.png">
-				</div>
-				
+				<div class="viewMapL" id="map"></div>
 				<div class="viewMapR">
 					<!-- 장소 정보1 -->
+					<c:forEach var="p" items="${listAllMap }">
 					<div class="placeInfo">
 						<div class="placeimageDiv">
-							<img class="placeimage" src="/image/cancel.png">
+							<img class="placeimage" src="/image/${p.pImage}.jpg">
 						</div>
 						<div class="placeTitleBox">
 							<div class="placeTitle">
-								<p>짐 맡긴 장소</p>
+								<p>${p.pWriteTitle }</p>
 							</div>
 							<div class="placeDetail">
-								<div>
+								<div id="pTime">
 									<img src="/image/clock.png">
-									<p>한 시간 전</p>
+									<span>${p.pPlaceInfo }</span>
 								</div>
-								<div>
+								<div id="pAddress">
 									<img src="/image/placeholder.png">
-									<p>상세주소</p>
+									${p.pAddress }
 								</div>
 							</div>
 						</div>
 					</div>
-					
-					<!-- 장소 정보2 -->
-					<div class="placeInfo">
-						<div class="placeimageDiv">
-							<img class="placeimage" src="/image/cancel.png">
-						</div>
-						<div class="placeTitleBox">
-							<div class="placeTitle">
-								<p>짐 맡긴 장소</p>
-							</div>
-							<div class="placeDetail">
-								<div>
-									<img src="/image/clock.png">
-									<p>한 시간 전</p>
-								</div>
-								<div>
-									<img src="/image/placeholder.png">
-									<p>상세주소</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<!-- 장소 정보3 -->
-					<div class="placeInfo">
-						<div class="placeimageDiv">
-							<img class="placeimage" src="/image/cancel.png">
-						</div>
-						<div class="placeTitleBox">
-							<div class="placeTitle">
-								<p>짐 맡긴 장소</p>
-							</div>
-							<div class="placeDetail">
-								<div>
-									<img src="/image/clock.png">
-									<p>한 시간 전</p>
-								</div>
-								<div>
-									<img src="/image/placeholder.png">
-									<p>상세주소</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<!-- 장소 정보4 -->
-					<div class="placeInfo">
-						<div class="placeimageDiv">
-							<img class="placeimage" src="/image/cancel.png">
-						</div>
-						<div class="placeTitleBox">
-							<div class="placeTitle">
-								<p>짐 맡긴 장소</p>
-							</div>
-							<div class="placeDetail">
-								<div>
-									<img src="/image/clock.png">
-									<p>한 시간 전</p>
-								</div>
-								<div>
-									<img src="/image/placeholder.png">
-									<p>상세주소</p>
-								</div>
-							</div>
-						</div>
-					</div>
+				  </c:forEach>
 				</div>
 			</div>
+		</div>
 	</div>
-</div>
-</body>
-<c:import url="/WEB-INF/views/layout/footer.jsp"/>	
+	<!-- 지도 Script -->
+	<script>
+	var mapOptions = {
+	    center: new naver.maps.LatLng(37.5012767241426, 127.039600248343),
+	    zoom: 15
+	};
+	
+	var map = new naver.maps.Map('map', mapOptions);
+	</script>
+	<c:import url="/WEB-INF/views/layout/footer.jsp"/>	
+  </body>
 </html>

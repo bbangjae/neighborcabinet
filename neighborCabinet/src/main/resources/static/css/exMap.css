@@ -107,12 +107,19 @@ a{
 }
 
 .viewMapL{
+	border:1px solid lightgrey;
+	border-radius: 2px;
 	display:flex;
 	width:59%;
 	height: 70vh;
 }
 
+.viewMapL:active{
+	border:2px solid #77AF9C;
+}
+
 .viewMapR{
+	/* border:1px solid black; */
 	display:flex;
 	flex-direction:column;
 	width:40%;
@@ -127,7 +134,8 @@ a{
 	padding:10px;
 	margin:10px;
 	cursor:pointer;
-	border:1px solid gray;
+	border:1px solid lightgrey;
+	border-radius: 2px;
 }
 
 .placeInfo:hover{
@@ -142,7 +150,9 @@ a{
 .placeimage{
 	width:100%;
 	height:100%;
-	padding:3px;
+	border:1px solid lightgrey;
+	object-fit: cover;
+	/* padding:3px; */
 }
 
 .placeTitleBox{
@@ -153,6 +163,11 @@ a{
 .placeTitle{
 	display:flex;
 	margin-bottom:3%;
+	/* border: 1px solid black; */
+	font-size: 15px;
+	width: 100%;
+	height: 23px;
+	overflow: hidden;
 }
 
 .placeTitle > p {
@@ -163,24 +178,44 @@ a{
 }
 
 .placeDetail{
+	/* border:1px solid black; */
+	width: 250px;
 	display:flex;
-	margin-left:15px;
+	margin-left:10px;
 	height:17px;
 }
 
 .placeDetail div {
 	display:flex;
-	align-items:center;
 	margin-right:17px;
 }
 
 .placeDetail div img{
+	margin-right: 3px;
 	width:14px;
 	height:14px;
 }
 
+/* 
 
 .placeDetail div p {
 	margin-left:10px;
 	font-size:0.8em;
+} */
+
+
+#pTime{
+	font-size:0.8em;
+	color: #5f5f5f;
+	/* align-items: center; */
 }
+
+#pAddress{
+	font-size:0.8em;
+	/* border: 1px solid red; */
+ 	/* word-break:break-all; */
+ 	overflow: hidden;
+	height: 17px;
+	color: #5f5f5f;
+}
+

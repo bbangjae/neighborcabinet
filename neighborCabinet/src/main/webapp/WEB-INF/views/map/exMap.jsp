@@ -99,11 +99,11 @@
 							<div class="placeDetail">
 								<div id="pTime">
 									<img src="/image/clock.png">
-									<span>${p.pType_d }</span>
+									<span>${p.pTime }</span>
 								</div>
 								<div id="pAddress">
 									<img src="/image/placeholder.png">
-									${p.pAddress }
+									${p.pAddress1 }
 								</div>
 							</div>
 						</div>

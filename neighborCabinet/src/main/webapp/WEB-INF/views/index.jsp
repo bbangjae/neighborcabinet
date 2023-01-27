@@ -161,7 +161,7 @@
               </div>
               <div class="s4_5_button">
                 <button class="s5_btn" type="button" onclick="location.href='<c:url value='/rental/rentalreg'/>'" style="margin-right: 50px;">
-                  장소 등록
+                  공간 등록
                 </button>
                 <button class="s5_btn" type="button">
                   가이드 보기

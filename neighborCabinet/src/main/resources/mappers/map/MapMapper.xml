@@ -13,9 +13,9 @@
   		<result property="pPlaceInfo"  column="pPlaceInfo"  />
   		<result property="pBoxInfo"  column="pBoxInfo"  />
   		<result property="pCautionInfo"  column="pCautionInfo"  />
-  		<result property="pAddress"  column="pAddress"  />
+  		<result property="pAddress1"  column="pAddress1"  />
   		<result property="pImage"  column="pImage"  />
-  		<result property="pType_d"  column="pType_d"  />
+  		<result property="pTime"  column="pTime"  />
 
   	</resultMap>
 	

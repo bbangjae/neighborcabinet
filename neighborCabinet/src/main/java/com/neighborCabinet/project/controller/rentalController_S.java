@@ -63,7 +63,7 @@ public class rentalController_S {
             fileService.fileRegister(fileList);
         }*/
 
-        return "redirect:/map";
+        return "redirect:/";
     }
 
 }

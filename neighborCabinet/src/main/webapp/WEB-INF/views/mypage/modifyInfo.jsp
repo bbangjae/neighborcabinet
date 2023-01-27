@@ -9,7 +9,7 @@
 		<script src="<c:url value="/js/mod.js" />"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href=/css/modifyInfo.css/> 
-		<c:import url="/WEB-INF/views/layout/head.jsp" />
+		<c:import url="/WEB-INF/views/layout/header.jsp" />
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="<c:url value='/js/searchZip.js' />"></script>
 		<%-- <c:import url="/WEB-INF/views/layout/top.jsp" /> --%>

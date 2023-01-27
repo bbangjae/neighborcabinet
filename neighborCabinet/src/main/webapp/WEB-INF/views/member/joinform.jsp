@@ -27,7 +27,9 @@
         /*    background: -o-linear-gradient(bottom left, #FFFFFF 0%, #00DBAF 100%);*/
         /*    background: linear-gradient(to top right, #FFFFFF 0%, #00DBAF 100%);*/
         /*}*/
-
+h2{
+    font-weight: bold;
+}
 
     </style>
 <%--    <style> @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Jua&family=Oswald:wght@700&family=Rowdies:wght@300&display=swap');--%>
@@ -45,7 +47,7 @@
 <div class="container mt-5 ">
     <div class="input-form-backgroud ">
         <div class="input-form col-md-12 mx-auto">
-            <h4 class="mb-3" align="center">회원가입</h4>
+            <h2 class="mb-3" align="center">회원가입</h2>
 
             <form class="validation-form needs-validation" id="joinForm" name="joinForm" method="post" novalidate action="<c:url value='/member/insert'/>">
 
@@ -171,7 +173,7 @@
                 <hr class="mb-4">
 
                 <div class=" d-flex justify-content-center">
-                <input type="submit" id="button" class ="btn btn-lg btn-dark" value="가입완료"> <br> <br> <br>
+                <input type="submit" id="button" class ="btn btn-lg text-white" style="background: #00DBAF"value="가입완료"> <br> <br> <br>
                 </div>
             </form>
     </div>

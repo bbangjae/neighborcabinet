@@ -209,12 +209,11 @@
             background:white;
             padding:10px 15px 10px 15px;
             color:#666;
-            max-width:75%;
-            float:left;
+            max-width:100px;
             margin-left:10px;
-            position:relative;
             margin-bottom:20px;
             border-radius:30px;
+            word-break:break-all; display:block
         }
 
         .msgBox.send  span {
@@ -228,7 +227,11 @@
             width:300px;
 
         }
-
+        /*
+        .msgBox.receive #in{
+            max-width: 300px;
+        }
+        */
         .msgBox.receive  span {
             background:white;
             padding:10px 15px 10px 15px;

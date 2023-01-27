@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+   <mapper namespace="com.neighborCabinet.project.dao.IMapDAO">
+  	<resultMap id="mapResult" type="com.neighborCabinet.project.model.MapVO" >
+  		<result property="pNo"  column="pNo"  />
+  		<result property="pWriteTitle"  column="pWriteTitle"  />
+  		<result property="pWriteSub"  column="pWriteSub"  />
+  		<result property="pPlaceTitle"  column="pPlaceTitle"  />
+  		<result property="pPlaceInfo"  column="pPlaceInfo"  />
+  		<result property="pBoxInfo"  column="pBoxInfo"  />
+  		<result property="pCautionInfo"  column="pCautionInfo"  />
+  		<result property="pAddress"  column="pAddress"  />
+  		<result property="pImage"  column="pImage"  />
+  	</resultMap>
+	
+	<!-- 장소 조회 -->
+	<select id="listAllMap"  resultMap="mapResult">
+		SELECT *
+		FROM place
+		ORDER BY pNo ASC
+	</select>
+
+
+</mapper>

@@ -218,5 +218,6 @@
 	  <!-- 모달 창 끝 -->
     
   </div> <!-- wrap으로 감싼 부분 끝 -->
+  <c:import url="/WEB-INF/views/layout/footer.jsp" />
 	</body>
 </html>

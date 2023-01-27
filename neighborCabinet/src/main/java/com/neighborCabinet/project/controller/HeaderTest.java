@@ -164,13 +164,14 @@ public class HeaderTest {
 		
 		MemberVO reserInfo = service.reserInfo(userId);
 		
-		String HP1 = reserInfo.getUserHp().substring(0, 3);
-		String HP2 = reserInfo.getUserHp().substring(3, 7);
-		String HP3 = reserInfo.getUserHp().substring(7);
+//		String HP1 = reserInfo.getUserHp().substring(0, 3);
+//		String HP2 = reserInfo.getUserHp().substring(3, 7);
+//		String HP3 = reserInfo.getUserHp().substring(7);
+//		
+//		model.addAttribute("HP1", HP1);
+//		model.addAttribute("HP2", HP2);
+//		model.addAttribute("HP3", HP3);
 		
-		model.addAttribute("HP1", HP1);
-		model.addAttribute("HP2", HP2);
-		model.addAttribute("HP3", HP3);
 		model.addAttribute("res", reserInfo);
 		
 		//등록자 정보

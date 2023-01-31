@@ -1,32 +1,32 @@
 package com.neighborCabinet.project.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.neighborCabinet.project.dao.IUsermodifyDAO;
+import com.neighborCabinet.project.model.MemberVO;
 import com.neighborCabinet.project.model.UsermodifyVO;
 
-@Service
+@Service @Primary
 public class UsermodifyService implements IUsermodifyService{
 	@Autowired
-	@Qualifier("IUsermodifyDAO")
 	IUsermodifyDAO dao;
 
-	public UsermodifyVO viewMember(String userId){
-		return dao.viewMember(userId);
+	@Override
+	public UsermodifyVO memberGetDetail(String userId) throws Exception {
+		return dao.memberGetDetail(userId);
 	}
 	
 	@Override
-	public void deleteInfo(UsermodifyVO vo){
-		dao.deleteInfo(vo);
+	public int memberDelete(String userId){
+		return dao.memberDelete(userId);
 		
 	}
 
 	@Override
-	public void updateInfo(UsermodifyVO vo) {
-		// TODO Auto-generated method stub
-		
+	public int memberModify(UsermodifyVO member) throws Exception {
+		return dao.memberModify(member);
 	}
 
 }

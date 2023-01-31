@@ -5,23 +5,28 @@
   
   <mapper namespace="com.neighborCabinet.project.dao.IUsermodifyDAO">
   
-  	<select id="viewMember" resultType="com.neighborCabinet.project.model.UsermodifyVO">
-  		SELECT
-  			userName AS userName,
+  	<select id="memberGetDetail" resultType="com.neighborCabinet.project.model.UsermodifyVO">
+  		SELECT *
+  			<!-- userName AS userName,
   			userNickname AS userNickname,
   			userPw AS userPw,
   			userEmail AS userEmail,
   			userHp AS userHp,
   			userZipcode AS userZipcode,
   			userAddress1 AS userAddress1,
-  			userAddress2 AS userAddress2
+  			userAddress2 AS userAddress2 -->
   		FROM member
-  		WHERE userId = #{userId}
-  			
-  	
+  		WHERE userId=#{userId }
   	</select>
   
-  	<update id="updateInfo">
+  	<!-- 회원탈퇴 -->
+    <delete id="memberDelete">
+		DELETE 
+		FROM member
+		WHERE userId=#{userId }
+	</delete>
+  
+  	<update id="memberModify">
   		UPDATE member SET userName=#{userName }, userNickname=#{userNickname }, 
   		userPw=#{userPw }, userEmail=#{userEmail },
   		 userHp=#{userHp }, userZipcode=#{userZipcode },

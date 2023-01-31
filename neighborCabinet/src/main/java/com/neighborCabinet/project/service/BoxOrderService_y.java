@@ -10,6 +10,7 @@ import com.neighborCabinet.project.dao.IBoxOrderDAO_y;
 import com.neighborCabinet.project.model.BoxInfoVO_y;
 import com.neighborCabinet.project.model.MemberVO;
 import com.neighborCabinet.project.model.OrderListVO_y;
+import com.neighborCabinet.project.model.PlaceInfoVO;
 import com.neighborCabinet.project.model.Reserve_VO;
 import com.neighborCabinet.project.model.ShippingVO_y;
 
@@ -58,6 +59,11 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 	public void insert_reserve(Reserve_VO vo) {
 		dao.insert_reserve(vo);
 		
+	}
+
+	@Override
+	public PlaceInfoVO placeInfo(String pNo) {
+		return dao.placeInfo(pNo);
 	}
 
 	

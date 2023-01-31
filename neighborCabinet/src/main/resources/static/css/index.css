@@ -187,7 +187,7 @@ html,body {
 	height:420px;
 	border: solid 0px black;
 	padding-top: 30px;
-	opacity: 0;
+	/*opacity: 0;*/
 	font-size: 0;
 	letter-spacing: 0;
 	word-spacing: 0;
@@ -251,6 +251,7 @@ html,body {
 	border: solid 0px pink;
 
 
+
 }
 .s4_5_button button{
 	position: relative;
@@ -258,7 +259,7 @@ html,body {
 	display: inline-block;
 	padding: 15px 30px;
 	border-radius: 15px;
-
+	z-index:1;
 	width:250px;
 	height:100px;
 	font-family: "paybooc-Light", sans-serif;

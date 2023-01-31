@@ -22,7 +22,7 @@
 <head>
     <title>대여등록</title>
     <script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
-    <script src="<c:url value='/js/searchZip2.js' />"></script>
+    <script src="<c:url value='/js/searchZip3.js' />"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 
@@ -254,12 +254,12 @@
                 <label for="pAddress1">
                     <span><h4>주소</h4></span>
                 </label>
-                <input type="text" class="form-control" id="pAddress1" name="pAddress1" style="border-radius: 0px;"placeholder="우편번호 찾기를 눌러주세요" size="70" readonly required>
+                <input type="text" class="form-control" id="pAddress1" name="pAddress1" style="border-radius: 0px;"placeholder="주소 찾기를 눌러주세요" size="70" readonly required>
                 <div class="invalid-feedback">
                     주소를 입력해주세요.
                 </div>
                 <br>
-                <input type="button" class="btn  btn-sm btn-block text-white" style="background: #00DBAF" id="searchZipBtn2" name="searchZipBtn2" value="우편번호 찾기">
+                <input type="button" class="btn  btn-sm btn-block text-white" style="background: #00DBAF" id="searchZipBtn2" name="searchZipBtn2" value="주소 찾기">
             </div>
 
             <div class=" col-md-12 mb-5">

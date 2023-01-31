@@ -8,9 +8,9 @@ public class MapVO {
 	private String pPlaceInfo;
 	private String pBoxInfo;
 	private String pCautionInfo;
-	private String pAddress;
+	private String pAddress1;
 	private String pImage;
-	
+	private String pTime;
 	/*
 	 * @DateTimeFormat(pattern = "yyyy-MM-dd") private Date mapDate;
 	 */
@@ -33,6 +33,8 @@ public class MapVO {
 	public void setpWriteSub(String pWriteSub) {
 		this.pWriteSub = pWriteSub;
 	}
+
+
 	public String getpPlaceTitle() {
 		return pPlaceTitle;
 	}
@@ -57,18 +59,27 @@ public class MapVO {
 	public void setpCautionInfo(String pCautionInfo) {
 		this.pCautionInfo = pCautionInfo;
 	}
-	public String getpAddress() {
-		return pAddress;
+
+	public String getpAddress1() {
+		return pAddress1;
 	}
-	public void setpAddress(String pAddress) {
-		this.pAddress = pAddress;
+
+	public void setpAddress1(String pAddress1) {
+		this.pAddress1 = pAddress1;
 	}
+
 	public String getpImage() {
 		return pImage;
 	}
 	public void setpImage(String pImage) {
 		this.pImage = pImage;
 	}
-	
-	
+
+	public String getpTime() {
+		return pTime;
+	}
+
+	public void setpTime(String pTime) {
+		this.pTime = pTime;
+	}
 }

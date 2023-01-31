@@ -63,7 +63,7 @@ public class rentalController_S {
             fileService.fileRegister(fileList);
         }*/
 
-        return "member/loginform";
+        return "redirect:/";
     }
 
 }

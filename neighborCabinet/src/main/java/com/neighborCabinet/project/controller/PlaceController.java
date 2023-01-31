@@ -33,5 +33,9 @@ public class PlaceController {
     public String test(){
         return "testB";
     }
+    @RequestMapping("/testb2")
+    public String test2(){
+        return "testB2";
+    }
 
 }

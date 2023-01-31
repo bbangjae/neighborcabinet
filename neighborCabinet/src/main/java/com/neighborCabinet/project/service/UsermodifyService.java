@@ -29,4 +29,4 @@ public class UsermodifyService implements IUsermodifyService{
 		return dao.memberModify(member);
 	}
 
-}
+} 

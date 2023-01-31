@@ -16,7 +16,7 @@
   			userAddress1 AS userAddress1,
   			userAddress2 AS userAddress2 -->
   		FROM member
-  		WHERE userId=#{userId }
+  		WHERE userId=#{userId } 
   	</select>
   
   	<!-- 회원탈퇴 -->

@@ -16,7 +16,7 @@ import com.neighborCabinet.project.model.UsermodifyVO;
 import com.neighborCabinet.project.service.IUsermodifyService;
 
 @Controller
-public class MypageController {
+public class MypageController { 
 	@Autowired
 	private IUsermodifyService iUsermodifyService;
 	

@@ -18,7 +18,7 @@
 	%> --%>
 		<main>
 			<section>
-				<h1 class="myPageH1">마이페이지</h1>
+				<h1 class="myPageH1">마이페이지</h1> 
 				<label class="hello1">${sessionScope.sid}님 환영합니다.</label>
 			</section>
 			<hr color="#00DBAF" width="60%"size="1px"> 

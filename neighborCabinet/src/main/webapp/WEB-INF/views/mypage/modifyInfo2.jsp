@@ -20,7 +20,7 @@
 		<div class="wrap">
 			<div class="navBlock">
 				<nav class="infoNav">
-					<ul class="allNav">
+					<ul class="allNav"> 
 					<li class="navList">
 							<a href="/" class="navListlink" id="mypageLink">
 								<div class="figureBox">

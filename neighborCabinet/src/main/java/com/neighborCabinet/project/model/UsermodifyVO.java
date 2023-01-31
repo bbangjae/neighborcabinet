@@ -8,7 +8,7 @@ public class UsermodifyVO {
 	private String userPw;
 	private String userEmail;
 	private String userHp;
-	private String userAddress1;
+	private String userAddress1; 
 	private String userZipcode;	
 	private String userAddress2;
 

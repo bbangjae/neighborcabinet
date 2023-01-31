@@ -14,3 +14,4 @@ public interface IUsermodifyService {
 	public int memberDelete(String userId);
 
 }
+ 

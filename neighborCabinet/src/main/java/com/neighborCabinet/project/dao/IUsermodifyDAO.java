@@ -14,4 +14,4 @@ public interface IUsermodifyDAO {
 	public int memberDelete(String userId);
 
 }
- 
+  

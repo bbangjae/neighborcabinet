@@ -12,7 +12,7 @@ public class UsermodifyVO {
 	private String userZipcode;	
 	private String userAddress2;
 
-	
+	 
 	
 	public int getUserNo() {
 		return userNo;

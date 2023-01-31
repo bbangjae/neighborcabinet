@@ -21,7 +21,7 @@
 			<div class="navBlock">
 				<nav class="infoNav">
 					<ul class="allNav"> 
-					<li class="navList">
+					<li class="navList"> 
 							<a href="/" class="navListlink" id="mypageLink">
 								<div class="figureBox">
 									<figure>

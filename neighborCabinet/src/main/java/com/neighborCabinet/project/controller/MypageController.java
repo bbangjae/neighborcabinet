@@ -50,7 +50,7 @@ public class MypageController {
 	public String memberDeletePOST(String userId, RedirectAttributes rttr) {
 		
 		int result = 0;
-		
+		 
 		try {
 			
 			result = iUsermodifyService.memberDelete(userId);

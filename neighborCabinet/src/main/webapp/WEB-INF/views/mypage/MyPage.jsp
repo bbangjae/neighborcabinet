@@ -22,7 +22,7 @@
 				<label class="hello1">${sessionScope.sid}님 환영합니다.</label>
 			</section>
 			<hr color="#00DBAF" width="60%"size="1px"> 
-					
+					 
 			<div class="wrap">
 				<div class="ObjectBox">
 					<div class="OjectS">

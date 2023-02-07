@@ -5,7 +5,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
    <mapper namespace="com.neighborCabinet.project.dao.IRentHistoryDAO">
-  	<resultMap id="rentHistoryResult" type="com.neighborCabinet.project.model.RentHistoryVO" >
+ <!--  	<resultMap id="rentHistoryResult" type="com.neighborCabinet.project.model.RentHistoryVO" >
   		<result property="rentNo"  column="rentNo"  />
   		<result property="rentPlace"  column="rentPlace"  />
   		<result property="receiptDate"  column="receiptDate"  />
@@ -13,12 +13,28 @@
   		<result property="rentTime"  column="rentTime"  />
   		<result property="rentState"  column="rentState"  />
   		<result property="pickup"  column="pickup"  />
-  	</resultMap>
-	
+  	</resultMap> -->
+  	
+  	<!-- 검색 가능한 내역 나누기-->
+  	<!--  -->
+  	
+	<sql id="historyWhere" >
+		WHERE 1=1
+		<if test="searchKeyword != null and searchKeyword != ''">
+		<!-- 공급해준 대여장소(선택지 몇 안 됨, 알맞게 수정) 또는 소비자와 매치 -->
+			<![CDATA[
+			AND
+			(rentPlace LIKE concat('%',#{searchKeyword},'%')
+			OR
+		    userName LIKE concat('%',#{searchKeyword},'%'))  
+			 ]]> 
+		</if>
+	</sql>
 	<!-- 대여 내역 조회 -->
-	<select id="listAllHistory"  resultMap="rentHistoryResult">
+	<select id="listAllHistory" parameterType="com.neighborCabinet.project.model.RentHistoryVO" resultType="com.neighborCabinet.project.model.RentHistoryVO">
 		SELECT *
 		FROM rentHistory
+		<include refid="historyWhere"/>
 		ORDER BY rentNo ASC
 	</select>
 	

@@ -5,7 +5,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
    <mapper namespace="com.neighborCabinet.project.dao.IDealHistoryDAO">
-  	<resultMap id="dealHistoryResult" type="com.neighborCabinet.project.model.DealHistoryVO" >
+<!--   	<resultMap id="dealHistoryResult" type="com.neighborCabinet.project.model.DealHistoryVO" >
   		<result property="dealNo"  column="dealNo"  />
   		<result property="dealPlace"  column="dealPlace"  />
   		<result property="receiptDate"  column="receiptDate"  />
@@ -14,10 +14,10 @@
   		<result property="dealEnd"  column="dealEnd"  />
   		<result property="dealState"  column="dealState"  />
   		<result property="pickup"  column="pickup"  />
-  	</resultMap>
+  	</resultMap> -->
 	
 	<!-- 거래 내역 -->
-	<select id="listAllDeal"  resultMap="dealHistoryResult">
+	<select id="listAllDeal" parameterType="string" resultType="com.neighborCabinet.project.model.DealHistoryVO">
 		SELECT *
 		FROM dealHistory
 		ORDER BY dealNo ASC

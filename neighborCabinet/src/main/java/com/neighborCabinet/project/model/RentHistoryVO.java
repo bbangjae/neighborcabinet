@@ -13,7 +13,13 @@ public class RentHistoryVO {
 	private String rentTime;
 	private String rentState;
 	private String pickup;
-	
+	private String searchKeyword; //검색 변수
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
 	public int getRentNo() {
 		return rentNo;
 	}

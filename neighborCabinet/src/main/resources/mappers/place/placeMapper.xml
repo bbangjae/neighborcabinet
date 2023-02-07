@@ -24,6 +24,34 @@
         where r.pNo=#{pNo} and r.userId=m.userId
         order by r.reviewNo
     </select>
+    <select id="insertQa" parameterType="com.neighborCabinet.project.model.QaVO">
+        insert into QA(qaContent,userId,pNo)
+        values (#{qaContent},#{userId},#{pNo})
+    </select>
 
+    <select id="reserve" parameterType="com.neighborCabinet.project.model.ReserveVo">
+        insert into reserve(reserveDate,reservePrice,userId,pNo)
+        values (#{reserveDate},#{reservePrice},#{userId},#{pNo})
+    </select>
 
+    <select id="showDate" parameterType="HashMap" resultType="HashMap">
+        select
+        JSON_EXTRACT(date, #{reserveDate}) as hours
+        FROM reserveDate
+        WHERE (JSON_EXTRACT(date, '$."boxtype"') = #{bt}) and pNo=#{pNo}
+    </select>
+
+    <select id="updateDate" parameterType="HashMap">
+
+        update reserveDate
+        set date=json_set(date,#{reserveDate},#{hours})
+        WHERE (JSON_EXTRACT(date, '$."boxtype"') = #{bt}) and pNo=#{pNo}
+
+    </select>
+
+    <select id="showBoxtype" parameterType="String" resultType="HashMap">
+        select boxId,boxPrice
+        from boxtype
+        where pNo=1;
+    </select>
 </mapper>

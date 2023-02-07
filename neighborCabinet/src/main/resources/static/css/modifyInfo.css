@@ -23,12 +23,12 @@
 }
 
 .allNav .navList{
-	display: flex;
+	display: flex; 
 	flex-direction:column;
 	width:200px;
 }
 
-#myinfoLink{
+#myinfoLink{ 
 	background:#D7FFF1 !important;
 }
 
@@ -125,8 +125,8 @@ a{
 }
 
 .modifyButton{
-	width:4%;
-	height:4%;
+	width:3.5%;
+	height:3.5%;
 	text-align: center;
     background: WHITE;
     border: solid 2px white;

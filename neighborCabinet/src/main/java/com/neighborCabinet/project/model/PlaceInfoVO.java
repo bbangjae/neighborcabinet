@@ -16,7 +16,8 @@ public class PlaceInfoVO {
     private String pAddress2; // SpaceAddress2
     String pBoxInfo;
     String pCautionInfo; //spaceCaution
-
+    String pImage;
+    String userId;
     public int getpNo() {
         return pNo;
     }
@@ -134,5 +135,21 @@ public class PlaceInfoVO {
 
     public void setpAddress2(String pAddress2) {
         this.pAddress2 = pAddress2;
+    }
+
+    public String getpImage() {
+        return pImage;
+    }
+
+    public void setpImage(String pImage) {
+        this.pImage = pImage;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

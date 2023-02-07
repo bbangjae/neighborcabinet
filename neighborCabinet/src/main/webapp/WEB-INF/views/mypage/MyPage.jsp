@@ -18,11 +18,11 @@
 	%> --%>
 		<main>
 			<section>
-				<h1 class="myPageH1">마이페이지</h1>
+				<h1 class="myPageH1">마이페이지</h1> 
 				<label class="hello1">${sessionScope.sid}님 환영합니다.</label>
 			</section>
 			<hr color="#00DBAF" width="60%"size="1px"> 
-					
+					 
 			<div class="wrap">
 				<div class="ObjectBox">
 					<div class="OjectS">
@@ -35,11 +35,11 @@
 							<span>거래/대여</span>
 						</div>
 						<div class="pageObject" id="Object3">
-							<a href="#" class="ObjectLink"></a>
+							<a href="/" class="ObjectLink"></a>
 							<span>리뷰 관리</span>
 						</div>
 						<div class="pageObject" id="Object4">
-							<a href="#" class="ObjectLink"></a>
+							<a href="/boxUpdate" class="ObjectLink"></a>
 							<span>박스</span>
 						</div>
 					</div>

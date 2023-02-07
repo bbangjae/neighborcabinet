@@ -1,17 +1,25 @@
 package com.neighborCabinet.project.model;
 
 public class UsermodifyVO {
+	private int userNo;
 	private String userId;
 	private String userName;
 	private String userNickname;
 	private String userPw;
 	private String userEmail;
 	private String userHp;
-	private String userAddress1;
+	private String userAddress1; 
 	private String userZipcode;	
 	private String userAddress2;
 
+	 
 	
+	public int getUserNo() {
+		return userNo;
+	}
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -66,6 +74,13 @@ public class UsermodifyVO {
 	}
 	public void setUserAddress2(String userAddress2) {
 		this.userAddress2 = userAddress2;
+	}
+	@Override
+	public String toString() {
+		return "UsermodifyVO [userNo=" + userNo + ", userId=" + userId + ", userName=" + userName + ", userNickname="
+				+ userNickname + ", userPw=" + userPw + ", userEmail=" + userEmail + ", userHp=" + userHp
+				+ ", userAddress1=" + userAddress1 + ", userZipcode=" + userZipcode + ", userAddress2=" + userAddress2
+				+ "]";
 	}
 	
 }

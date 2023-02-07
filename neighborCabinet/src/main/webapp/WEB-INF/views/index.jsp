@@ -11,10 +11,11 @@
     <script src="<c:url value="/js/index.js"/>"></script>
   </head>
   <body>
+
+      <c:import url="/WEB-INF/views/layout/header.jsp"/>
+
     <div id="wrap">
-      <div id="header">
-        <c:import url="/WEB-INF/views/layout/header.jsp"/>
-      </div>
+
       <div id="nv_bar">
       </div>
       <div id="container">
@@ -132,7 +133,7 @@
 
               </div>
               <div class="s4_5_button">
-                <button class="s4_b" type="button" style="margin-right: 50px;">
+                <button class="s4_b" type="button" onclick="location.href='<c:url value='/map'/>'" style=" margin-right: 50px;">
                   대여로 이동
                 </button>
                 <button class="s4_b" type="button">
@@ -150,7 +151,7 @@
 
             <div class="section_text">
               <div id="s5_title" class="title">
-                너도 돈 벌 수 있어 임마
+                누구나 수익창출
 
 
               </div>
@@ -159,8 +160,8 @@
 
               </div>
               <div class="s4_5_button">
-                <button class="s5_btn" type="button" style="margin-right: 50px;">
-                  장소 등록
+                <button class="s5_btn" type="button" onclick="location.href='<c:url value='/rental/rentalreg'/>'" style="margin-right: 50px;">
+                  공간 등록
                 </button>
                 <button class="s5_btn" type="button">
                   가이드 보기

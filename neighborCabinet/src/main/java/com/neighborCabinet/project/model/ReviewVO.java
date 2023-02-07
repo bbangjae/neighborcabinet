@@ -7,7 +7,7 @@ import java.util.Date;
 public class ReviewVO {
     int reviewNo;
     String reviewContent;
-    int reviewGrade;
+    String reviewGrade;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date reviewDate;
     String userId;
@@ -30,11 +30,11 @@ public class ReviewVO {
         this.reviewContent = reviewContent;
     }
 
-    public int getReviewGrade() {
+    public String getReviewGrade() {
         return reviewGrade;
     }
 
-    public void setReviewGrade(int reviewGrade) {
+    public void setReviewGrade(String reviewGrade) {
         this.reviewGrade = reviewGrade;
     }
 

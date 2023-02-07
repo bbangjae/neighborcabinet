@@ -27,13 +27,18 @@
             align-items: center;
             height: 100%;
         }
+        h3{
+            font-weight: bold;
+        }
 
     </style>
+<%--
     <style> @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Jua&family=Oswald:wght@700&family=Rowdies:wght@300&display=swap');
     body * {
         font-family: "Jua", sans-serif;
     }
     </style>
+--%>
 
 </head>
 <body>
@@ -43,11 +48,11 @@
     <!--top.jsp  -->
     <!--  로그인 폼  -->
     <section>
-        <h1 class="h3 mb-3 fw-normal" align = "center">이웃집캐비닛</h1>
+        <h3 class="h1 mb-3 fw-normal" align = "center">이웃집캐비닛</h3>
         <form id="loginForm" name="loginForm">
             <table>
-                <tr><th> ID</th><td><input type="text" id="id" name="id" /></td></tr>
-                <tr><th>비밀번호</th><td><input type="password" id="pwd" name="pwd"/></td></tr>
+                <tr><th>아이디</th><td><input type="text" id="id" name="id" /></td></tr>
+                <tr><th>비밀번호 </th><td><input type="password" id="pwd" name="pwd"/></td></tr>
                 <tr>
                     <td colspan="2" align="center" id="button" >
                         <br>
@@ -58,8 +63,9 @@
         </form>
     </section>
     <!--bottom  -->
-    <c:import url="/WEB-INF/views/layout/footer.jsp"/>
 </div>
+<c:import url="/WEB-INF/views/layout/footer.jsp"/>
+
 <script>
     $(document).ready(function(){
         $('#loginForm').on('submit', function(){

@@ -35,16 +35,20 @@ input:focus {
     list-style: none;
     margin:0;
     padding: 0;
-    border: solid 1px #00DBAF;
+
+
 }
 .ct_ul {
 
     display: flex;
 }
 .ct_li{
-    width:25%;
+    width:20%;
+    margin-right: 10px;
     flex-grow:1;
     border-radius:21px 21px 21px 21px;
+    border: solid 1px #00DBAF;
+    background-color: white;
 
 }
 .ct_li a{
@@ -78,7 +82,7 @@ input:focus {
 }
 #container .c_header{
     width:100%;
-    height:250px;
+    height:200px;
     border:solid 1px #F9FAFB;
 
 
@@ -140,7 +144,10 @@ input:focus {
     display: inline-block;
     height:60px;
     border:solid 0px green;
-    background-color: white;
+    background-color: #F9FAFB;
+}
+#container .c_content .ct_left .ct_text{
+
 }
 #container .c_content .ct_left .ct_text .t_title{
     width:100%;
@@ -151,13 +158,22 @@ input:focus {
     z-index: 10000;
 
 }
+#container .c_content .ct_left .ct_text .fp_available span{
+    font-size:16px;
+    font-weight: bold;
+    color:gray;
+}
 #container .c_content .ct_left .ct_text .t_text {
     width: 100%;
     height: 100%;
 }
 #container .c_content .ct_left .ct_text span{
-    font-size:15px;
+    font-size:20px;
     font-weight: bold;
+}
+#container .c_content .ct_left .ct_text .t_text .box_info{
+    margin-bottom: 50px;
+
 }
 #container .c_content .ct_left .ct_text .info{
 
@@ -167,23 +183,23 @@ input:focus {
 
 }
 
-.call_ul,.call_li{
+.call_ul,.call_li,.reserve_li{
     list-style: none;
     margin:0;
     padding: 0;
     border: solid 1px #00DBAF;
 }
-.call_ul {
+.call_ul{
 
     display: flex;
 }
-.call_li{
+.call_li,.reserve_li{
     width:25%;
     flex-grow:1;
     border-radius:21px 21px 21px 21px;
 
 }
-.call_li a{
+.call_li a,.reserve_li a{
     display:block;
     padding:16px;
     font-size:18px;
@@ -191,14 +207,14 @@ input:focus {
     text-decoration: none;
     color:#00DBAF;
 }
-.call_li a:hover{
+.call_li a:hover,.reserve_li a:hover{
     background-color:#00DBAF;
     color:white;
     border-radius:21px 21px 21px 21px;
     z-index:1;
 }
 #container .c_content .ct_left .ct_text .info .i_title{
-    width:100%;
+    width:90%;
     font-size:32px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -217,7 +233,7 @@ input:focus {
 #container .c_content .ct_left .ct_text .info .i_btn li{
     margin-right: 30px;
 }
-#container .c_content .ct_left .QA_btn{
+#container .c_content .ct_left .QA_btn, #QA_not{
     float: right;
     margin-right:30px;
     display: inline-block;
@@ -236,7 +252,7 @@ input:focus {
 
 }
 
-#container .c_content .ct_left .QA_btn:hover {
+#container .c_content .ct_left .QA_btn:hover, #QA_not:hover{
     color:#00DBAF;
     background-color: white;
     cursor : pointer;
@@ -265,13 +281,13 @@ input:focus {
 
 }
 #container .c_content .ct_right .option{
-    position:sticky;
-    top:80px;
-    z-index:1000;
-    overflow:hidden;
+    /*position:sticky;*/
+    /*top:80px;*/
+    /*z-index:1000;*/
+    /*overflow:hidden;*/
     width:300px;
     margin-left:20px;
-    height:900px;
+    height:1000px;
     border:solid 0px red;
 }
 #container .c_content .ct_right .option .o_title{
@@ -283,29 +299,59 @@ input:focus {
 
 }
 #container .c_content .ct_right .option table{
-
     width: 100%;
     border-top:solid 1px #00DBAF;
-
 }
 #container .c_content .ct_right .option table tr{
     width:100%;
-
 }
 
-#container .c_content .ct_right .option table .op_box{
+#container .c_content .ct_right .option .op_box{
     color:gray;
     font-weight: bold;
     text-align: left;
-    height: 50px;
-    border-bottom:solid 1px gray;
+    border:solid 0px pink;
+    cursor:pointer;
+}
+#container .c_content .ct_right .option .op_box .box_title{
+    color:gray;
+    font-weight: bold;
+    text-align: left;
+    font-size:16px;
+    height: 40px;
+    margin-top: 5px;
+
+}
+#container .c_content .ct_right .option .box_container{
+    display: none;
+    width:98%;
+    height:100%;
+    padding-left:5px;
+    margin-top:-7px;
+    border:solid 0px hotpink;
 
 
 }
-#container .c_content .ct_right .option table .op_box:hover {
+#container .c_content .ct_right .option .box_container .box_detail{
+    display: inline-block;
+    width:22%;
+    height: 22px;
+    border: solid 1px #00DBAF;
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+    cursor:pointer;
+    color: #00DBAF;
+    margin-bottom:5px;
+}
+#container .c_content .ct_right .option .box_container .box_detail:hover{
+    background-color: #00DBAF;
+    color:white;
+}
+
+#container .c_content .ct_right .option .box_container.op_box:hover {
     cursor : pointer;
 }
-#container .c_content .ct_right .option table .op_box .click_btn{
+.op_box .click_btn{
 
     width:20px;
     height:20px;
@@ -315,7 +361,7 @@ input:focus {
     margin-right:5px;
 
 }
-#container .c_content .ct_right .option table .op_box .after_btn{
+.op_box .after_btn{
 
     height:11px;
     position:absolute;
@@ -335,6 +381,75 @@ input:focus {
 #container .c_content .ct_right .option table .op_box button{
 
 }
+#container .c_content .ct_right .option #calendar {
+
+    border-bottom: solid 1px #00DBAF;
+    margin-bottom: 10px;
+    width: 100%;
+    display:none;
+}
+#container .c_content .ct_right .option #calendar td{
+    cursor: pointer;
+}
+#container .c_content .ct_right .option #timeTable{
+    width:100%; !important;
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin-bottom: 15px;
+    display:none;
+
+}
+
+#container .c_content .ct_right .option #timeTable td{
+    font-size:14px;
+    text-align: center;
+    border:solid 1px #00DBAF;
+    color: gray;
+    cursor: pointer;
+    line-height: 25px;
+    border-radius: 5px 5px 5px 5px;
+    opacity: 0.4;
+
+}
+
+
+#container .c_content .ct_right .option #available{
+    display: none;
+    width:100%;
+    height:35px;
+}
+#container .c_content .ct_right .option #available div{
+    display: inline-block;
+    font-weight: lighter;
+    font-size:14px;
+}
+#container .c_content .ct_right .option #available div::before{
+    content: "■";
+    margin-right: 10px;
+}
+#container .c_content .ct_right .option #available #av_disable::before{
+    color:lightgrey;
+}
+#container .c_content .ct_right .option #available #av_able::before{
+    color:#D7FFF1;
+}
+#container .c_content .ct_right .option #available #av_select::before{
+    color:#00DBAF;
+}
+#container .c_content .ct_right .option #timeInfo{
+    display: none;
+    width:100%;
+    height:70px;
+    border:solid 0px red;
+}
+#container .c_content .ct_right .option #sumPrice{
+    display: none;
+    width:100%;
+    height:50px;
+    border:solid 0px red;
+    margin-bottom: 15px;
+}
+
 .modal-overlay {
     width: 100%;
     height: 4400px;
@@ -400,7 +515,7 @@ input:focus {
 
 
 }
-.modal-overlay .confirm_btn {
+.modal-overlay .confirm_btn, #QA_confirm {
     display: inline-block;
     margin-top:15px;
     padding: 5px 20px;
@@ -416,6 +531,7 @@ input:focus {
     background: #00DBAF;
     border: solid 1px #00DBAF;
 }
-.modal-overlay .confirm_btn:hover {
+.modal-overlay .confirm_btn:hover, #QA_confirm:hover{
     cursor : pointer;
 }
+

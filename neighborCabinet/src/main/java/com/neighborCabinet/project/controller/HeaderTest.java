@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.neighborCabinet.project.model.BoxInfoVO_y;
 import com.neighborCabinet.project.model.MemberVO;
 import com.neighborCabinet.project.model.OrderListVO_y;
-import com.neighborCabinet.project.model.Reserve_VO;
+import com.neighborCabinet.project.model.PlaceInfoVO;
 import com.neighborCabinet.project.model.ShippingVO_y;
 import com.neighborCabinet.project.model.boxOrderVO_y;
 import com.neighborCabinet.project.service.BoxOrderService_y;
@@ -156,23 +156,27 @@ public class HeaderTest {
 		
 		return "boxOrder/success";
 	}
-	@RequestMapping("/rental/payment/{ordDNo}")
-	public String paymentpage(@PathVariable String ordDNo, HttpSession session, Model model) {
+	@RequestMapping("/rental/payment/{pNo}")
+	public String paymentpage(@PathVariable String pNo, HttpSession session, Model model) {
 		
 		// 예약자 정보
 		String userId = (String) session.getAttribute("sid");
 		
 		MemberVO reserInfo = service.reserInfo(userId);
 		
-		String HP2 = reserInfo.getUserHp().substring(3, 7);
-		String HP3 = reserInfo.getUserHp().substring(7);
-		
-		model.addAttribute("HP2", HP2);
-		model.addAttribute("HP3", HP3);
+//		String HP1 = reserInfo.getUserHp().substring(0, 3);
+//		String HP2 = reserInfo.getUserHp().substring(3, 7);
+//		String HP3 = reserInfo.getUserHp().substring(7);
+//		
+//		model.addAttribute("HP1", HP1);
+//		model.addAttribute("HP2", HP2);
+//		model.addAttribute("HP3", HP3);
 		
 		model.addAttribute("res", reserInfo);
 		
 		//등록자 정보
+		PlaceInfoVO place = service.placeInfo(pNo);
+		model.addAttribute("place", place);
 		
 		return "/boxOrder/requestPage";
 	}

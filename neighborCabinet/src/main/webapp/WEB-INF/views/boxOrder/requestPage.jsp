@@ -73,7 +73,7 @@
 							<div id="fixedInfo_1">
 								<div id="fixedInfo_1_1">
 									<div>
-										<img id="spaceImg" src="<c:url value="/image/A_type.png"/>">
+										<img id="spaceImg" src="<c:url value="/image/homeImg.png"/>">
 									</div>
 									<div id="spaceDis">
 										<div>글의 제목</div>
@@ -82,7 +82,7 @@
 									</div>
 								</div>
 								<div id="fixedInfo_1_2">
-									<div><div>선택한 박스</div><div>~~~~~~~~~</div></div>
+									<div><div>선택한 박스</div><div>이웃집 플라스틱 박스</div></div>
 									<div><div>모든 개수</div><div>1개</div></div>
 								</div>
 							</div>
@@ -128,7 +128,7 @@
 									<div id="fixedInfo_5_1_1">
 										<div>예약날짜<span>2023.01.27 (금)</span></div>
 										<div>예약시간<span>11시 ~18시, 7시간</span></div>
-										<div>예약박스<span>3개</span></div>
+										<div>예약박스<span>플라스틱 박스</span></div>
 									</div>
 									<div>
 										<div>9000</div>

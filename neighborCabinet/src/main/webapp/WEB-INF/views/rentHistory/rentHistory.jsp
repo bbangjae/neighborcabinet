@@ -178,13 +178,17 @@
 		<div class="modal">
 		  <div class="modal_content" title="">
 		   <div class="modal_close"><img src="<c:url value='/image/close.jpg'/>"></div>
+		   <form id="searchForm" name="searchForm" method="get" action="/rentHistory"> <!--   -->
 		   <div class="bar">
-		     <form id="searchForm" name="searchForm">
-		       <input type="search" name="searchText" id="searchText" placeholder="사용자명을 입력하세요" autocomplete="on" onfocus="this.placeholder=''" onblur="this.placeholder='사용자명을 입력하세요'" required>
-		       <input type="image" src="<c:url value='/image/search.jpg'/>" id="searchBtn">
+		     
+		       <input type="text" name="searchKeyword" id="searchKeyword" value="${searchVO.searchKeyword}" placeholder="사용자명을 입력하세요" autocomplete="on" onfocus="this.placeholder=''" onblur="this.placeholder='사용자명을 입력하세요'" required>
+		       <input type="image" id="searchBtn" src="<c:url value='/image/search.jpg'/>">
+		       <!--  -->
 		       <input type="date" name="searchDate" id="searchDate" value="2023-01-20" min="2023-01-20" max="2099-12-31">
-		     </form>
+		     
 		   </div>
+		    
+		    <!-- 기존 대여테이블 삽입 위치 --> 
 		    <!-- 대여완료 -->
           <table class="tab-content" id="all-tr">
           <tr>
@@ -212,6 +216,40 @@
            </c:forEach>
           </table>
          <!-- 대여완료 끝 -->   
+		    </form>
+		    
+         <!-- 페이징 버튼 구역 -->
+         <div class="pagination">
+         	<div class="pageBtn">
+				<%--  <div class="board-list-paging fr">
+				<c:set var="pageIndex" value="1"/>
+				<ol class="pagination" id="pagination">
+				<c:if test="${searchVO.prev}">
+				<li class="prev_end">
+				       <a href="javascript:void(0);" onclick="fn_go_page(1); return false;" ></a>
+				    </li>
+				<li class="prev">
+				<a href="javascript:void(0);"  onclick="fn_go_page(${searchVO.startDate - 1}); return false;" ></a>
+				</li>
+				</c:if>
+				<c:forEach var="num" begin="${searchVO.startDate}" end="${searchVO.endDate}">
+				<li>
+				<a href="javascript:void(0);" onclick="fn_go_page(${num}); return false;" class="num ${pageIndex eq num ? 'on':'' }" title="${num}">${num}</a>
+				</li>
+				</c:forEach>  
+				<c:if test="${searchVO.next}">
+				<li class="next">
+				<a href="javascript:void(0);"  onclick="fn_go_page(${searchVO.endDate + 1}); return false;" ></a>
+				</li>
+				<li class="next_end">
+				<a href="javascript:void(0);" onclick="fn_go_page(${searchVO.realEnd }); return false;"></a>
+				</li>
+				</c:if>     
+				</ol>
+				</div> --%>
+         	</div>
+         </div>
+         
 		  </div>
 		</div>
 	  

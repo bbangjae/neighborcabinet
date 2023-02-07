@@ -14,8 +14,8 @@ public class RentHistoryService implements IRentHistoryService {
 	IRentHistoryDAO dao;
 
 	@Override
-	public ArrayList<RentHistoryVO> listAllHistory() {
-		return dao.listAllHistory();
+	public ArrayList<RentHistoryVO> listAllHistory(RentHistoryVO searchVO) {
+		return dao.listAllHistory(searchVO);
 	}
 
 }

@@ -502,6 +502,7 @@ th, td{
 }
 
 .modal_content{
+
   width:1100px;
   height:450px;
   background:#ffffff;
@@ -552,15 +553,15 @@ th, td{
 	margin-right: 30px;
 }
 
-#searchText {
-	margin-left: -100px;
+#searchKeyword {
+	margin-left: 20px;
 	margin-right: 3px;
 	width: 145px;
 	
 	/* height: 20px; 설정 시 수직정렬 문제 */
 }
 
-#searchText::placeholder{
+#searchKeyword::placeholder{
 	font-size: 12px;
 
 }
@@ -589,6 +590,23 @@ th, td{
 #all-tr td{
 	font-size: 14px;
 	font-weight: ligther;
+}
+
+/* 페이징 */
+.pagination{
+	display: flex;
+	position: absolute;
+	width: 1075px;
+	height: 50px;
+	border: 1px solid black;
+	bottom: 10px;
+}
+
+.pageBtn{
+	border: 1px solid black;
+	width: 800px;
+	height: 30px;
+	margin: auto;
 }
 
 /* 모달 끝 */

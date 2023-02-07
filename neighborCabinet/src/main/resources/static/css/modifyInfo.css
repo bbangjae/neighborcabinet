@@ -28,14 +28,6 @@
 	width:200px;
 }
 
-#myinfoLink{ 
-	background:#D7FFF1 !important;
-}
-
-#modifyInfoList{
-	color:gray;
-}
-
 .navListlink{
 	display:flex;
 	align-items: center;
@@ -255,7 +247,9 @@ a{
 	font-size:0.08em;
 }
 
-
+.boxQ{
+	margin-right:5px;
+}
 
 
 

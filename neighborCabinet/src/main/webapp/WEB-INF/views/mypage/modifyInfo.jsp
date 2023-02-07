@@ -13,7 +13,14 @@
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="<c:url value='/js/searchZip.js' />"></script>
 		<%-- <c:import url="/WEB-INF/views/layout/top.jsp" /> --%>
-		
+		<style>
+			#myinfoLink{
+				background:#D7FFF1;
+			}
+			#modifyInfoList	{
+				color:gray;
+			}
+		</style>
 		<title>개인정보</title>
 	</head>
 	<body>
@@ -22,7 +29,7 @@
 				<nav class="infoNav">
 					<ul class="allNav"> 
 					<li class="navList"> 
-							<a href="/" class="navListlink" id="mypageLink">
+							<a href="/mypage" class="navListlink" id="mypageLink">
 								<div class="figureBox">
 									<figure>
 										<img class="modifyInfo" src="/image/mypage.png">
@@ -62,13 +69,13 @@
 							</a>
 						</li>
 						<li class="navList">
-							<a href="/" class="navListlink" id="boxLink">
+							<a href="/lenderPage" class="navListlink" id="lenderLink">
 								<div class="figureBox">
 									<figure>
-										<img class="modifyInfo" src="/image/box2.png">
+										<img class="modifyInfo" src="/image/lender.png">
 									</figure>
 								</div>
-								<div class="listObject">박스</div>
+								<div class="listObject">공급자</div>
 							</a>
 						</li>
 					</ul>

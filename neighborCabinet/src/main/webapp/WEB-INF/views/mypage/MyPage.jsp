@@ -39,8 +39,8 @@
 							<span>리뷰 관리</span>
 						</div>
 						<div class="pageObject" id="Object4">
-							<a href="/boxUpdate" class="ObjectLink"></a>
-							<span>박스</span>
+							<a href="/lenderPage" class="ObjectLink"></a>
+							<span>공급자</span>
 						</div>
 					</div>
 				</div>

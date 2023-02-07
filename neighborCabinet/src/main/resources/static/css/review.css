@@ -1,0 +1,243 @@
+@charset "UTF-8";
+
+body{
+	margin : 0;
+	padding : 0;
+}
+
+#wrap{
+	width : 100%;
+	text-align : center;
+	display : flex;
+}
+/* ---------------------정원님 사이드---------------------- */
+.navBlock{
+	display: flex;
+	width: 260px;
+	flex-direction:column;
+}
+
+.infoNav{
+	display: flex;
+    padding-top: 20px;
+    position: relative;
+    width: 260px;
+}
+
+.allNav .navList{
+	display: flex; 
+	flex-direction:column;
+	width:200px;
+}
+
+#reviewLink{ 
+	background:#D7FFF1 !important;
+}
+
+#modifyInfoList{
+	color:gray;
+}
+
+.navListlink{
+	display:flex;
+	align-items: center;
+	border-radius:21px 21px 21px 21px;
+	position: relative;
+	border:none;
+	margin-bottom:7px;
+	margin-top:7px;
+	height:45px;
+	box-sizing: border-box;
+}
+
+.navListlink:hover{
+  background:#D7FFF1 !important;
+}
+
+.figureBox{
+	height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:50%;
+}
+
+figure{
+	width: 25px;
+    height: 25px;
+}
+
+.modifyInfo{
+	height: 100%;
+    width: auto;
+}
+
+.listObject {
+    color: black;
+    margin-right:5%;
+}
+
+a{
+	text-decoration-line: none;
+}
+.pageInfo{
+	margin-top:3%;
+	font-size:0.2em;
+	color:#285943;
+	margin-left:3%;
+	text-align : left;
+}
+
+.pageName{
+	margin-left:3%;
+	font-size:2em;
+	color:#285943;
+	text-align : left;
+}
+
+/* 리뷰 작성 */
+#sectionBox{
+	margin-left : 13%;
+}
+#top_space{
+	height : 50px;
+}
+
+.title_left{
+	text-align : left;
+}
+#section_1{
+	list-style : none;
+   	padding : 10px;
+   	display : flex;
+   	width : 700px;
+   	flex-wrap : wrap;
+   	justify-content : space-between;
+   	/* background : #F8F8F8; */
+   	background : #F4F6F8;
+   	border-radius : 10px;
+   	box-sizing: border-box;
+}
+#section_1 li{
+	width : 100%;
+	height : 120px;
+	/* border : solid 1px #00DBAF; */
+	background : white;
+	border-radius : 10px;
+	box-shadow: 0px 6px 16px rgb(0 0 0 / 5%);
+}
+#section_1 li:nth-child(n+2){
+	margin-top : 10px;
+}
+#section_1 table{
+	width : 100%;
+	height : 100%;
+}
+
+#section_2{
+	list-style : none;
+   	padding-left : 0px;
+   	display : flex;
+   	width : 700px;
+   	flex-wrap : wrap;
+   	justify-content : space-between;
+   	width : 700px;
+	background : #F4F6F8;
+	border-radius : 10px;
+   	box-sizing: border-box;
+   	height : auto;
+}
+#section_2 li{
+	margin : 10px auto;
+	width : 97%;
+	height : 200px;
+	/* border : solid 1px #00DBAF; */
+	border-radius : 30px;
+	background : white;
+	box-shadow: 0px 6px 16px rgb(0 0 0 / 5%);
+}
+.review_title{
+	display : flex;
+	justify-content : space-between;
+	padding : 10px 20px 0;
+	font-size : 10px;
+}
+.detail_Go{
+	color : black;
+	text-align : left;
+	font-size : 13px;
+}
+.review_address{
+	padding : 0 20px;
+	text-align : left;
+}
+.myReview_delete{
+	background : gray;
+	border : solid 1px gray;
+	border-radius : 15px;
+	padding : 3px;
+	color : white;
+}
+.myReview_delete:hover{
+	cursor : pointer;
+}
+#section_2 fieldset{
+	/* justify-content: center; */
+	justify-content: flex-end;
+    display : flex;
+	flex-direction : row-reverse;
+    border : 0;
+    padding : 0 20px;
+}
+#section_2 input[type=radio]{
+    display : none;
+}
+#section_2 label{
+    font-size : 20px;
+    color : transparent;
+    text-shadow : 0 0 0 #f0f0f0;
+}
+#section_2 input[type=radio]:checked ~ label{
+    text-shadow : 0 0 0 #00DBAF;
+}
+#section_2 textarea{
+	margin-top : 10px;
+	width : 90%;
+	height : 80px;
+	border : none;
+	border-radius : 10px;
+	background : #F8F8F8;
+	font-size : 20px;
+	padding : 10px;
+	resize: none;
+	font-size : 13px;
+}
+#section_2 textarea:focus{
+	outline : none;
+}
+#pageNumBox{
+	width : 700px;
+}
+#pageNumBox a{
+	padding : 4px;
+	margin-right : 3px;
+	color : #000;
+	font : bold 12px;
+	border : 1px solid #eee;
+	text-decoration : none;
+	cursor : pointer;
+}
+#pageNumBox a:hover{
+	color : #fff;
+	border : 1px solid #00DBAF;
+	background-color : #00DBAF;
+}
+#pageNumBox span{
+	padding : 4px;
+	font : bold 12px;
+	margin-right : 3px;
+	color : #fff;
+	text-decoration : none;
+	border : 1px solid #00DBAF;
+	background-color : #00DBAF;
+}

@@ -26,13 +26,17 @@
 	        	
 	        	var count = 0;
 	    		
-	    		$('input[name*="req"]').each(function(){
+	    		$('input[name*="sender"]').each(function(){
 	    		
 	    			if($(this).val() == ''){
 	    				count = 1;
 	    			}
 	    			
 	    		});
+		    		
+	    			if($('input[name="storList"]').val() == ''){
+	    				count = 1;
+	    			};
 	    		
 	    		if(count == 1){
 	    			event.preventDefault();
@@ -96,13 +100,30 @@
 						</section>	
 						<section id="s3">
 							<div class="sec_title">예약자 정보</div>
+							
 							<div id="fixedInfo_3">
-								<div><div>예약자</div><input type="text" name="reqName" value="${res.userName }"></div>
-								<div><div>연락처</div><input type="text" name="reqPhone" value="010 - ${HP2 } - ${HP3 }"></div>
-								<div><div>이메일</div><input type="text" name="reqEmail" value="${res.userEmail }"></div>
-								<div><div>보관물품</div><input type="text" name="reqObject"></div>
-								<div><div>요청사항</div><textarea name="reqDis"></textarea></div>
-								<input type="hidden" name="ordDNo" value="${ordDNo }">
+								<div>
+									<div></div>
+									<input type="checkbox" value="0" id="pickup" name="pickup">
+				                    <label for="pickup" style="margin-right : 50px;">픽업 요청</label>
+				                    <input type="checkbox" value="0" id="food" name="food">
+				                    <label for="food">음식 포함</label>
+								</div>
+								<div><div>예약자</div><input type="text" class="senderInfo" name="senderName" value="${res.userName }"></div>
+								<div>
+									<div>연락처</div>
+									<div id="senderPhone">
+										<input type="text" class="senderPhone" name="senderPhone1" value="${HP1 }" style="margin-right : 10px;"><div style="width:20px;">-</div>
+										<input type="text" class="senderPhone" name="senderPhone2" value="${HP2 }" style="margin : 0 10px;"><div style="width:20px;">-</div>
+										<input type="text" class="senderPhone" name="senderPhone3" value="${HP3 }" style="margin-left : 10px;">
+									</div>
+								</div>
+								<div><div>이메일</div><input type="text" class="senderInfo" name=senderEmail value="${res.userEmail }"></div>
+								<div><div>보관물품</div><input type="text" class="senderInfo" name="storList"></div>
+								<div><div>요청사항</div><textarea class="senderInfo" name="request"></textarea></div>
+								<input type="hidden" name="pNo" value="${pNo }">
+								<input type="hidden" name="receiver" value="여기">
+								<input type="hidden" name="sender" value="${userId}">
 								<!-- 예약자 아이디나 userNo, 여기 글No -->
 							</div>
 						</section>

@@ -35,6 +35,9 @@
 									<li><a href="<c:url value='/rental/rentalreg'/>">공간등록</a></li>
 									<li><a href="<c:url value='/boxList'/>">박스구매</a></li>
 								</c:if>
+								<c:if test="${sessionScope.sid == 'admin'}">
+									<li><a href="<c:url value='/admin/boxInfo'/>">관리자페이지</a></li>
+								</c:if>
 							</ul>
 						</div>
 				</div>

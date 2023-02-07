@@ -95,7 +95,7 @@ table {
 	font-size : 18px;
 	border : none;
 	bacground-color : none;
-	width : 800px;
+	width : 100%;
 }
 .shipping_info:focus{
 	outline: none;
@@ -148,4 +148,48 @@ table {
 	cursor : pointer;
 }
 #hiddenGo{
+}
+@media (max-width: 1600px){
+	wrap table:first-child{
+		width : 1280px;
+	}
+	#wrap table:nth-child(n+2){
+		width : 1280px;
+	}
+	.left_align{
+		width : 1280px;
+	}
+}
+@media (max-width: 1400px){
+	wrap table:first-child{
+		width : 800px;
+	}
+	#wrap table:nth-child(n+2){
+		width : 800px;
+	}
+	.left_align{
+		width : 800px;
+	}
+}
+@media (max-width: 900px){
+	wrap table:first-child{
+		width : 600px;
+	}
+	#wrap table:nth-child(n+2){
+		width : 600px;
+	}
+	.left_align{
+		width :600px;
+	}
+}
+@media (max-width: 700px){
+	wrap table:first-child{
+		width : 400px;
+	}
+	#wrap table:nth-child(n+2){
+		width : 400px;
+	}
+	.left_align{
+		width : 400px;
+	}
 }

@@ -122,7 +122,7 @@
 							핸드폰 번호
 						</td>
 						<td class="right_col">
-							<input type="text" id="shipping_phoneF" name="shipping_phoneF" class="shipping_info" value="${HP1 }-${HP2 }-${HP3 }" readonly>
+							<input type="text" id="shipping_phoneF" name="shipping_phoneF" class="shipping_info" value="${HP }" readonly>
 							<input type="hidden" id="shipping_phoneB" name="shipPhone" class="shipping_info" value="${HP1 }${HP2 }${HP3 }" readonly>
 						</td>
 					</tr>

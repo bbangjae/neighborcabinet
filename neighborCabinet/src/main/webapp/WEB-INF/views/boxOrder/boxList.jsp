@@ -12,6 +12,7 @@
 		<script src="<c:url value="/js/boxList.js"/>"></script>
 	</head>
 	<body>
+		<input id="sid" type="hidden" value="${sessionScope.sid}">
 		<div id="wrap">
 			<c:import url="/WEB-INF/views/layout/header.jsp" />
 			<div id="pageTitle">박스 구매</div>
@@ -34,9 +35,9 @@
 										<label for="${box.boxType}">
 											<input type="checkbox" id="${box.boxType}" class="select_checkBox"
 											value="${box.boxType}" style="display:none"
-											data-boxName="${box.boxName}" data-boxPrice="${box.boxPrice}">
+											data-boxName="${box.boxName}" data-boxPrice="${box.boxPrice}" data-boxStock="${box.boxStock}">
 											<div class="box_left">${box.boxName} (${box.boxSize}) <span><i class="fa-solid fa-check"></i></span></div>
-											<div class="box_right">${box.boxPrice}원</div>
+											<div class="box_right"><%-- <div class="stock">재고 : ${box.boxStock}</div> --%><div>${box.boxPrice}원</div></div>
 										</label>
 									</li>
 								</c:forEach>
@@ -59,9 +60,9 @@
 										<label for="${box.boxType}">
 											<input type="checkbox" id="${box.boxType}" class="select_checkBox"
 											value="${box.boxType}" style="display:none"
-											data-boxName="${box.boxName}" data-boxPrice="${box.boxPrice}">
+											data-boxName="${box.boxName}" data-boxPrice="${box.boxPrice}" data-boxStock="${box.boxStock}">
 											<div class="box_left">${box.boxName} (${box.boxSize}) <span><i class="fa-solid fa-check"></i></span></div>
-											<div class="box_right">${box.boxPrice}원</div>
+											<div class="box_right"><%-- <div class="stock">재고 : ${box.boxStock}</div> --%><div>${box.boxPrice}원</div></div>
 										</label>
 									</li>
 								</c:forEach>

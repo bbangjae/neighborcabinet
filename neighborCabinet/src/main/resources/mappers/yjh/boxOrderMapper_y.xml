@@ -27,6 +27,8 @@
 		INSERT INTO orderDetail (ordNo, boxType, boxQty, selPrice)
 		VALUES (#{ordNo}, #{boxType}, #{boxQty}, #{selPrice})
 	</insert>
+	
+	<!-- 예약결제페이지 -->
 	<select id="reserInfo" parameterType="string" resultType="com.neighborCabinet.project.model.MemberVO">
 		SELECT userName, userNickname, userHp, userEmail
 		FROM member
@@ -37,4 +39,43 @@
 		FROM place
 		WHERE pNo=#{pNo}
 	</select>
+	
+	<insert id="insert_res" parameterType="com.neighborCabinet.project.model.ReserveVO_y">
+		INSERT INTO reserve (resNo, pNo, sender, receiver, resState)
+		VALUES (#{resNo}, #{pNo}, #{sender}, #{receiver}, 0)
+	</insert>
+	<insert id="insert_resD" parameterType="com.neighborCabinet.project.model.ReserveDetailVO_y">
+		INSERT INTO reserveDetail (resNo, pickup, food, senderName, senderPhone, senderEmail, storList, request, resState)
+		VALUES (#{resNo}, #{pickup}, #{food}, #{senderName}, #{senderPhone}, #{senderEmail}, #{storList}, #{request}, 0)
+	</insert>
+	
+	
+	<!-- 리뷰 데이터 -->
+	<select id="rentComplete" parameterType="string" resultType="com.neighborCabinet.project.model.RentHistoryVO">
+		SELECT *
+		FROM renthistory
+		WHERE userId=#{userId} and rentState="대여완료"
+	</select>
+	<insert id="reviewReg" parameterType="hashmap">
+		INSERT INTO review (reviewContent, reviewGrade, userId, pNo)
+		VALUES (#{content}, #{grade}, #{userId}, #{pNo})
+	</insert>
+	<select id="myReview" parameterType="hashmap" resultType="com.neighborCabinet.project.model.MyReviewVO">
+		SELECT p.pWriteTitle, p.pNo, p.pAddress1, p.pAddress2, r.reviewContent, r.reviewGrade
+		FROM review r, place p
+		WHERE r.userId=#{userId} and p.pNo=r.pNo ORDER BY reviewDate DESC Limit #{start}, 4
+	</select>
+	<select id="memberInfo" parameterType="string" resultType="com.neighborCabinet.project.model.MemberVO">
+		SELECT *
+		FROM member
+		WHERE userId=#{userId}
+	</select>
+	<select id="myreviewCnt" parameterType="string" resultType="int">
+		SELECT COUNT(*)
+		FROM review
+		WHERE userId=#{userId}
+	</select>
+	<delete id="reviewdelete" parameterType="hashmap">
+		DELETE FROM review WHERE userId=#{userId} and pNo=#{pNo}
+	</delete>
 </mapper>

@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+.wrap3{
+	width:100%;
+	height:800px;
+	display:flex;
+	flex-direction:column;
+}
+
+#boxorderLink{
+	border:1px solid #77AF9C;
+	display: flex;
+    align-items: center;
+}
+
+.bU {
+	width:100%;
+	height:100%;
+	display:flex;
+	margin-top:5%;
+}
+
+.lbU1{
+	height:100%;
+	width:50%;
+	border-top:1px solid #00DBAF;
+	border-bottom:1px solid #00DBAF;
+	margin-left:4%;
+}
+
+.rbU1{
+	height:100%;
+	width:50%;
+	margin-right:4%;
+	border-top:1px solid #00DBAF;
+	border-bottom:1px solid #00DBAF;
+}
+
+.lbU{
+	width:100%;
+	height:30%;
+	display:flex;
+	flex-direction:column;
+	align-items: center;
+    justify-content: center;
+    border:1px solid #00DBAF;
+}
+
+.lbuimageBox{
+	width:17%;
+	height:50%;
+}
+
+.lbuImage{
+	width:100%;
+	height:100%;
+}
+
+.rbU{
+	width:100%;
+	height:30%;
+	display:flex;
+	flex-direction:column;
+	align-items: center;
+    justify-content: center;
+    border:1px solid #00DBAF;
+}
+
+.rbuimageBox{
+	width:20%;
+	height:50%;
+}
+
+.rbuImage{
+	width:100%;
+	height:100%;
+}
+
+.boxType{
+	display:flex;
+	width:100%;
+	hieght:10%;
+}
+
+
+
+.boxF{
+	display: flex;
+    width: 200px;
+}
+
+.boxFtitle{
+	margin-bottom:3%;
+	margin-top:10%;
+	color:gray;
+	font-size:0.5em;
+}
+
+.normalBox{
+	display:flex;
+	flex-direction:column;
+	width:95px;
+	height:100%;
+	border:1px solid #77AF9C;
+	align-items: center;
+}
+
+.premiumBox{
+	display:flex;
+	flex-direction:column;
+	width:95px;
+	height:100%;
+	border:1px solid #77AF9C;
+	margin-left:3%;
+	align-items: center;
+}
+
+.boxFimg1{
+	width:85%;
+	height:85%;
+	margin-bottom:5%;
+}
+
+.boxFimg2{
+	width:100%;
+	height:100%;
+}
+
+.boxT1{
+	margin-top:1px;
+	width:100%;
+	font-size:0.2em;
+	color:gray;
+}
+
+.boxT2{
+	width:100%;
+	font-size:0.1em;
+	color:gray;
+}
+
+.aboxModify{
+	margin-top:10%;
+	margin-right:7%;
+}
+
+.aboxModify tr{
+	font-size:0.5em;
+	color:gray;
+}
+
+.aboxModify th{
+	width:100%;
+}
+
+.aboxModify th:nth-child(1) {
+	width: 100%;
+	}
+
+.thValue{
+	width:25px;
+	text-align:center;
+	border:none;
+}
+
+.saveBtn1{
+	float:right;
+	margin-right:7%;
+	margin-top:5%;
+	background-color:transparent;
+	border:1px solid gray;
+	cursor:pointer;
+}
+
+.m1{
+	background-color:transparent;
+	border:1px solid gray;
+	cursor:pointer;
+}
+
+.p1{
+	background-color:transparent;
+	border:1px solid gray;
+	cursor:pointer;
+}
+
+.bboxModify{
+	margin-top:20%;
+	margin-right:7%;
+}
+
+.bboxModify tr{
+	font-size:0.5em;
+	color:gray;
+}
+
+.bboxModify th{
+	width:100%;
+}
+
+.bboxModify th:nth-child(1) {
+	width: 100%;
+}
+
+.saveBtn2{
+	float:right;
+	margin-right:7%;
+	margin-top:5%;
+	background-color:transparent;
+	border:1px solid gray;
+	cursor:pointer;
+}
+
+.modifyBtn1{
+	float:right;
+	margin-right:7%;
+	margin-top:5%;
+	background-color:transparent;
+	border:1px solid gray;
+	cursor:pointer;
+}
+
+.modifyBtn2{
+	float:right;
+	margin-right:7%;
+	margin-top:5%;
+	background-color:transparent;
+	border:1px solid gray;
+	cursor:pointer;
+}
+
+
+
+

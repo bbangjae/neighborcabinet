@@ -8,9 +8,9 @@ import com.neighborCabinet.project.model.MemberVO;
 import com.neighborCabinet.project.model.MyReviewVO;
 import com.neighborCabinet.project.model.OrderListVO_y;
 import com.neighborCabinet.project.model.PlaceInfoVO;
-import com.neighborCabinet.project.model.RentHistoryVO;
 import com.neighborCabinet.project.model.ReserveDetailVO_y;
 import com.neighborCabinet.project.model.ReserveVO_y;
+import com.neighborCabinet.project.model.ReviewOListVO_y;
 import com.neighborCabinet.project.model.ShippingVO_y;
 
 public interface IBoxOrderService_y {
@@ -22,7 +22,7 @@ public interface IBoxOrderService_y {
 	
 	// 예약 결제 페이지
 	public MemberVO reserInfo(String userId);
-	public PlaceInfoVO placeInfo(String pNo);
+	public PlaceInfoVO placeInfo(int pNo);
 	
 	// 예약 결제 페이지(결제)
 	public void insert_res(ReserveVO_y re);
@@ -30,10 +30,11 @@ public interface IBoxOrderService_y {
 	
 	// 리뷰
 	public MemberVO memberInfo(String userId); // 유저 정보
-	public ArrayList<RentHistoryVO> rentComplete(String userId); //대여 완료 불러오기
+	public ArrayList<ReviewOListVO_y> reviewOList(String userId); //대여 완료 불러오기
 	public ArrayList<MyReviewVO> myReview(String userId, int start); // 내 리뷰보기
+	public int reviewCheck(String userId, int pNo);
 	public void reviewReg(HashMap<String, Object> map); //리뷰 등록
-	public void reviewdelete(String userId, String pNo); // 리뷰 삭제
+	public void reviewdelete(String userId, int pNo); // 리뷰 삭제
 	
 	//리뷰 페이징 카운트
 	public int myreviewCnt(String userId);

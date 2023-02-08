@@ -34,7 +34,7 @@
 		FROM member
 		WHERE userId=#{userId}
 	</select>
-	<select id="placeInfo" parameterType="string" resultType="com.neighborCabinet.project.model.PlaceInfoVO">
+	<select id="placeInfo" parameterType="int" resultType="com.neighborCabinet.project.model.PlaceInfoVO">
 		SELECT *
 		FROM place
 		WHERE pNo=#{pNo}
@@ -51,17 +51,23 @@
 	
 	
 	<!-- 리뷰 데이터 -->
-	<select id="rentComplete" parameterType="string" resultType="com.neighborCabinet.project.model.RentHistoryVO">
-		SELECT *
-		FROM renthistory
-		WHERE userId=#{userId} and rentState="대여완료"
+	<select id="reviewOList" parameterType="string" resultType="com.neighborCabinet.project.model.ReviewOListVO_y">
+		SELECT p.pWriteTitle, p.pNo, p.pAddress1, p.pAddress2, p.pImage, r.reviewEnd
+		FROM reserve r, place p
+		WHERE r.sender=#{userId} and r.resState=3 and p.pNo=r.pNo
+		ORDER BY r.reviewEnd DESC
 	</select>
 	<insert id="reviewReg" parameterType="hashmap">
 		INSERT INTO review (reviewContent, reviewGrade, userId, pNo)
 		VALUES (#{content}, #{grade}, #{userId}, #{pNo})
 	</insert>
+	<update id="reviewCom" parameterType="hashmap">
+		UPDATE reserve
+		SET resState=4
+		WHERE sender=#{userId} and pNo=#{pNo}
+	</update>
 	<select id="myReview" parameterType="hashmap" resultType="com.neighborCabinet.project.model.MyReviewVO">
-		SELECT p.pWriteTitle, p.pNo, p.pAddress1, p.pAddress2, r.reviewContent, r.reviewGrade
+		SELECT p.pWriteTitle, p.pNo, p.pAddress1, p.pAddress2, r.reviewContent, r.reviewGrade, r.reviewDate, r.reviewNo
 		FROM review r, place p
 		WHERE r.userId=#{userId} and p.pNo=r.pNo ORDER BY reviewDate DESC Limit #{start}, 4
 	</select>
@@ -78,4 +84,9 @@
 	<delete id="reviewdelete" parameterType="hashmap">
 		DELETE FROM review WHERE userId=#{userId} and pNo=#{pNo}
 	</delete>
+	<select id="reviewCheck" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*)
+		FROM reserve
+		WHERE sender=#{userId} and pNo=#{pNo} and resState=3
+	</select>
 </mapper>

@@ -1,7 +1,9 @@
 package com.neighborCabinet.project.controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -20,9 +22,9 @@ import com.neighborCabinet.project.model.MemberVO;
 import com.neighborCabinet.project.model.MyReviewVO;
 import com.neighborCabinet.project.model.OrderListVO_y;
 import com.neighborCabinet.project.model.PlaceInfoVO;
-import com.neighborCabinet.project.model.RentHistoryVO;
 import com.neighborCabinet.project.model.ReserveDetailVO_y;
 import com.neighborCabinet.project.model.ReserveVO_y;
+import com.neighborCabinet.project.model.ReviewOListVO_y;
 import com.neighborCabinet.project.model.ShippingVO_y;
 import com.neighborCabinet.project.model.boxOrderVO_y;
 import com.neighborCabinet.project.service.BoxOrderService_y;
@@ -168,7 +170,7 @@ public class HeaderTest {
 	
 	// 예약 결제 페이지
 	@RequestMapping("/rental/payment/{pNo}")
-	public String paymentpage(@PathVariable String pNo, HttpSession session, Model model) {
+	public String paymentpage(@PathVariable int pNo, HttpSession session, Model model) {
 		
 		// 디테일 정보
 		PlaceInfoVO place = service.placeInfo(pNo);
@@ -226,12 +228,34 @@ public class HeaderTest {
 	
 	// 리뷰 페이지
 	@RequestMapping("/mypage/review")
-	public String review(HttpSession session, Model model){
+	public String review(HttpSession session, Model model) throws Exception{
 		
 		String userId = (String) session.getAttribute("sid");
-		ArrayList <RentHistoryVO> RentCom = service.rentComplete(userId);
 		
-		model.addAttribute("RentCom", RentCom);
+		// 작성 가능한 리뷰 가져오기
+		ArrayList <ReviewOListVO_y> reviewO = service.reviewOList(userId);
+		
+		SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
+		Calendar cal = Calendar.getInstance();
+		int nowDate = Integer.parseInt(dtFormat.format(cal.getTime()));
+		
+		for(int i = 0;i<reviewO.size();i++) {
+			
+			String date = reviewO.get(i).getReviewEnd();
+			Date dt = dtFormat.parse(date);
+			cal.setTime(dt);
+			cal.add(Calendar.MONTH, 1);
+			int endDate = Integer.parseInt(dtFormat.format(cal.getTime()));
+			if(endDate<=nowDate) {
+				reviewO.remove(i);
+				i--;
+			}else {
+				String end = String.valueOf(endDate);
+				reviewO.get(i).setReviewEnd(end.substring(0, 4) + "-" + end.substring(4, 6) + "-" + end.substring(6, 8));
+			}
+		}
+		
+		model.addAttribute("reviewO", reviewO);
 		
 		// 나의 리뷰
 		MemberVO myInfo = service.memberInfo(userId);
@@ -297,7 +321,7 @@ public class HeaderTest {
 	// 나의 리뷰 삭제
 	@RequestMapping("/mypage/myReview/delete/{pNo}")
 	public String reviewdelete(HttpSession session,
-							@PathVariable String pNo){
+							@PathVariable int pNo){
 		
 		String userId = (String) session.getAttribute("sid");
 		service.reviewdelete(userId, pNo);
@@ -306,9 +330,23 @@ public class HeaderTest {
 	}
 	//리뷰작성페이지
 	@RequestMapping("/mypage/reviewReg/{pNo}")
-	public String reviewreg(@PathVariable String pNo, HttpSession session, Model model, @RequestParam String check){
+	public String reviewreg(@PathVariable int pNo, HttpSession session, Model model){
 		
+		String userId = (String) session.getAttribute("sid");
+		 int check = service.reviewCheck(userId, pNo);
+		
+		if(check==0) {
+			return "redirect:/mypage/review";
+		}
+		else {
+			
+			MemberVO userInfo = service.memberInfo(userId);
+			PlaceInfoVO place = service.placeInfo(pNo);
+			model.addAttribute("userInfo", userInfo);
+			model.addAttribute("place", place);
+			
 			return "/mypage/reviewreg";
+		}
 	}
 	
 	public int pageNum(int n, int a) {

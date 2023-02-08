@@ -7,8 +7,16 @@ public class ReserveVO_y {
 	private String sender;
 	private String receiver;
 	private int resState;
+	private String rentEndDate;
 	
 	
+	
+	public String getRentEndDate() {
+		return rentEndDate;
+	}
+	public void setRentEndDate(String rentEndDate) {
+		this.rentEndDate = rentEndDate;
+	}
 	public String getResNo() {
 		return resNo;
 	}

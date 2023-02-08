@@ -12,13 +12,13 @@ $(document).ready(function(){
 		let url = '/mypage/reviewReg/' + lin;
 		let title = 'review';
 		let option = 'width=500, height=450, top=150, left=600, status=yes, scrollbars=yes';
-		window.open( "" , title, option);
+		window.open( url , title, option);
 		
-		frmPa.action = url;
-		frmPa.method = "post";
-		frmPa.target = title;
-		frmPa.check.value = '3';
-		frmPa.submit();
+//		frmPa.action = url;
+//		frmPa.method = "post";
+//		frmPa.target = title;
+//		frmPa.check.value = '3';
+//		frmPa.submit();
 	});
 	
 	

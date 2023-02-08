@@ -13,9 +13,9 @@
 	<body>
 		<div id="wrap">
 			<form method="post" id="reviewForm">
-				<div id="title">익산시 대표 공간</div>
-				<div id="writer">5조 일동(닉네임)</div>
-				<input type="hidden" name="pNo" id="pNo" value="1">
+				<div id="title">${place.pWriteTitle }</div>
+				<div id="writer">${userInfo.userNickname }</div>
+				<input type="hidden" name="pNo" id="pNo" value="${place.pNo }">
 				<fieldset>
 					<input type="radio" name="reviewGrade" value="5" id="rate1"><label for="rate1">★</label>
 					<input type="radio" name="reviewGrade" value="4" id="rate2"><label for="rate2">★</label>

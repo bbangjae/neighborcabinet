@@ -13,9 +13,9 @@ import com.neighborCabinet.project.model.MemberVO;
 import com.neighborCabinet.project.model.MyReviewVO;
 import com.neighborCabinet.project.model.OrderListVO_y;
 import com.neighborCabinet.project.model.PlaceInfoVO;
-import com.neighborCabinet.project.model.RentHistoryVO;
 import com.neighborCabinet.project.model.ReserveDetailVO_y;
 import com.neighborCabinet.project.model.ReserveVO_y;
+import com.neighborCabinet.project.model.ReviewOListVO_y;
 import com.neighborCabinet.project.model.ShippingVO_y;
 
 @Service
@@ -60,20 +60,20 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 	}
 
 	@Override
-	public PlaceInfoVO placeInfo(String pNo) {
+	public PlaceInfoVO placeInfo(int pNo) {
 		return dao.placeInfo(pNo);
 	}
 
 	@Override
-	public ArrayList<RentHistoryVO> rentComplete(String userId) {
+	public ArrayList<ReviewOListVO_y> reviewOList(String userId) {
 		
-		return dao.rentComplete(userId);
+		return dao.reviewOList(userId);
 	}
 
 	@Override
 	public void reviewReg(HashMap<String, Object> map) {
 		dao.reviewReg(map);
-		
+		dao.reviewCom(map);
 	}
 
 	@Override
@@ -112,15 +112,25 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 	}
 
 	@Override
-	public void reviewdelete(String userId, String pNo) {
+	public void reviewdelete(String userId, int pNo) {
 		
-HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		
 		map.put("userId", userId);
 		map.put("pNo", pNo);
 		
 		dao.reviewdelete(map);
 		
+	}
+
+	@Override
+	public int reviewCheck(String userId, int pNo) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("userId", userId);
+		map.put("pNo", pNo);
+		
+		return dao.reviewCheck(map);
 	}
 
 

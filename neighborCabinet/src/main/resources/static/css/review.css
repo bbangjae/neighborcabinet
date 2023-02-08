@@ -133,6 +133,14 @@ a{
 	width : 100%;
 	height : 100%;
 }
+#section_1 .reviewImg{
+	height : 110px; 
+	width : 110px;
+}
+#section_1 .text_left{
+	text-align : left;
+	padding-left : 5px;
+}
 
 #section_2{
 	list-style : none;
@@ -150,7 +158,7 @@ a{
 #section_2 li{
 	margin : 10px auto;
 	width : 97%;
-	height : 200px;
+	height : 230px;
 	/* border : solid 1px #00DBAF; */
 	border-radius : 30px;
 	background : white;
@@ -203,7 +211,7 @@ a{
 #section_2 textarea{
 	margin-top : 10px;
 	width : 90%;
-	height : 80px;
+	height : 95px;
 	border : none;
 	border-radius : 10px;
 	background : #F8F8F8;

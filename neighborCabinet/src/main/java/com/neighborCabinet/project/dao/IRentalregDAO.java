@@ -9,5 +9,8 @@ public interface IRentalregDAO {
     int rentalreg(PlaceInfoVO PlaceInfo) throws Exception;
 
     public ArrayList<BoxVO> boxreg(String userId);
+    int boxPreg(boxtypeVO boxtype);
+
+    int boxDate(boxtypeVO boxtype);
 
 }

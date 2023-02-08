@@ -284,7 +284,7 @@
                             </table>
 
                             <c:forEach var="im" items="${im}" varStatus="vs">
-                                <c:if test="${ql[vs.index]>1}">
+                                <c:if test="${ql[vs.index]>0}">
 
                             <div class="op_box">
                                 <div class="box_title" style="">

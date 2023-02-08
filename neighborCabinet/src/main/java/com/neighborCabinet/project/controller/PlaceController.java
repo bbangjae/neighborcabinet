@@ -5,6 +5,7 @@ import com.neighborCabinet.project.model.PlaceInfoVO;
 import com.neighborCabinet.project.model.QaVO;
 import com.neighborCabinet.project.model.ReserveVo;
 import com.neighborCabinet.project.model.ReviewVO;
+import com.neighborCabinet.project.service.FileService;
 import com.neighborCabinet.project.service.MapAddressChangeService;
 import com.neighborCabinet.project.service.PlaceInfoService;
 import org.json.JSONArray;
@@ -30,6 +31,8 @@ public class PlaceController {
     private PlaceInfoService service;
 
     @Autowired
+    FileService fileService;
+    @Autowired
     private MapAddressChangeService macService;
     @RequestMapping("/place/placeDetailView/{pNo}")
     public String rentalDetail(@PathVariable int pNo,
@@ -54,6 +57,7 @@ public class PlaceController {
         }
         r_mean=r_sum/r_cnt;
         model.addAttribute("pi",pi);
+        model.addAttribute("fileList",fileService.fileList(pNo));
         model.addAttribute("qaList",qaList);
         model.addAttribute("reviewList",reviewList);
         model.addAttribute("r_cnt",r_cnt);

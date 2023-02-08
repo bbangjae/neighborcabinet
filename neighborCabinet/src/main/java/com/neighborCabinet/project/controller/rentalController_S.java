@@ -48,7 +48,7 @@ public class rentalController_S {
 
 
     @RequestMapping(value = "/rental/reg")
-    private String reg(PlaceInfoVO placeInfo, HttpSession httpSession,HttpServletRequest req, MultipartFile[] files, Model model)throws Exception {
+    private String reg(PlaceInfoVO placeInfo,  boxtypeVO boxtype,HttpSession httpSession,HttpServletRequest req, MultipartFile[] files, Model model)throws Exception {
 
         // 글저장
 /*
@@ -70,6 +70,11 @@ public class rentalController_S {
 */
         placeInfo.setUserId((String)httpSession.getAttribute("sid"));
         service.rentalreg(placeInfo); // db에 글 저장
+
+        boxtype.setpNo(placeInfo.getpNo());
+        service.boxDate(boxtype);
+        boxtype.setpNo(placeInfo.getpNo());
+        service.boxPreg(boxtype);
 
 /*
         int boxQtyin = Integer.parseInt(req.getParameter("boxQty"));

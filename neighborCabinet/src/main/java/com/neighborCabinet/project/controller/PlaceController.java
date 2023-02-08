@@ -61,6 +61,7 @@ public class PlaceController {
 
 
         HashMap<String,Object> boxtype=service.showBoxtype(pNo);
+
         JSONParser parser = new JSONParser();
         JSONObject boxId = (JSONObject) parser.parse(boxtype.get("boxId").toString());
         JSONObject boxPrice = (JSONObject) parser.parse(boxtype.get("boxPrice").toString());

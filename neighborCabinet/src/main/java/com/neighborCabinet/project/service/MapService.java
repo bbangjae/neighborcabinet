@@ -2,6 +2,7 @@ package com.neighborCabinet.project.service;
 
 import java.util.ArrayList;
 
+import com.neighborCabinet.project.model.PlaceInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,7 @@ public class MapService implements IMapService {
 	IMapDAO dao;
 
 	@Override
-	public ArrayList<MapVO> listAllMap() {
-		return dao.listAllMap();
+	public ArrayList<MapVO> listAllMap() { return dao.listAllMap();
 	}
 
 }

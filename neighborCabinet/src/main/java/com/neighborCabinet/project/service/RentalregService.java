@@ -2,7 +2,6 @@ package com.neighborCabinet.project.service;
 
 import com.neighborCabinet.project.dao.IRentalregDAO;
 import com.neighborCabinet.project.model.BoxVO;
-import com.neighborCabinet.project.model.BoxpVO;
 import com.neighborCabinet.project.model.PlaceInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

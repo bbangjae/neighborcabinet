@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public interface IPlaceInfoDAO {
-    public PlaceInfoVO detailViewPlace(String pNo);
+    public PlaceInfoVO detailViewPlace(int pNo);
 
-    public ArrayList<QaVO> showViewQA(String pNo);
+    public ArrayList<QaVO> showViewQA(int pNo);
 
     public void insertQa(QaVO vo);
 
-    public ArrayList<ReviewVO> showViewReview(String pNo);
+    public ArrayList<ReviewVO> showViewReview(int pNo);
 
     public void reserve(ReserveVo vo);
 
@@ -25,5 +25,5 @@ public interface IPlaceInfoDAO {
 
     public void updateDate(HashMap<String, Object> map);
 
-    public HashMap<String, Object> showBoxtype(String pNo);
+    public HashMap<String, Object> showBoxtype(int pNo);
 }

@@ -73,7 +73,9 @@
                     <div class="ct_left">
 
                         <div class="image">
-                            <img src="<c:url value='/image/${pi.pImage}' />">
+                            <c:forEach var="file" items="${fileList}">
+                                <img src="/files/${file.fileNo}/download" style="width:300px; height:300px;"/>
+                            </c:forEach>
                         </div>
                         <div class="ct_title">
                             ${pi.pPlaceTitle}

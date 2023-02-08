@@ -5,11 +5,25 @@
 
 <mapper namespace="com.neighborCabinet.project.dao.IRentalregDAO">
 
-    <insert id="rentalreg" parameterType="com.neighborCabinet.project.model.PlaceInfoVO">
+    <insert id="rentalreg" useGeneratedKeys="true" keyProperty="pNo" parameterType="com.neighborCabinet.project.model.PlaceInfoVO">
         INSERT INTO
-        place (pNo, pWriteTitle, pWriteSub, pType, pType_d, food, pickup,pPlaceTitle, pPlaceInfo,pHp, pTime, pAddress1,pAddress2, pBoxInfo,pCautionInfo)
-        VALUES (#{pNo},#{pWriteTitle},#{pWriteSub},#{pType},#{pType_d},#{food},#{pickup},#{pPlaceTitle},#{pPlaceInfo},#{pHp},#{pTime},#{pAddress1},#{pAddress2},#{pBoxInfo},#{pCautionInfo})
+        place (pNo, pWriteTitle, pWriteSub, pType, pType_d, food, pickup,pPlaceTitle, pPlaceInfo,pHp, pTime, pAddress1,pAddress2, pBoxInfo,pCautionInfo,userId)
+        VALUES (#{pNo},#{pWriteTitle},#{pWriteSub},#{pType},#{pType_d},#{food},#{pickup},#{pPlaceTitle},#{pPlaceInfo},#{pHp},#{pTime},#{pAddress1},#{pAddress2},#{pBoxInfo},#{pCautionInfo},#{userId})
     </insert>
+
+    <select id="boxreg" parameterType="String" resultType="com.neighborCabinet.project.model.BoxVO">
+        select BoxType, BoxQty, userId
+        from box
+        where userId=#{userId}
+    </select>
+
+<!--
+    <insert id ="boxPreg" parameterType="com.neighborCabinet.project.model.BoxVO">
+        insert into
+        box_p (BoxType, BoxQty, BoxPrice, userId)
+        values (#{BoxType},#{BoxQty},#{BoxPrice},#{userId})
+    </insert>
+-->
 
 
 

@@ -32,7 +32,7 @@ public class PlaceController {
     @Autowired
     private MapAddressChangeService macService;
     @RequestMapping("/place/placeDetailView/{pNo}")
-    public String rentalDetail(@PathVariable String pNo,
+    public String rentalDetail(@PathVariable int pNo,
                                Model model) throws ParseException {
 
         PlaceInfoVO pi=service.detailViewPlace(pNo);

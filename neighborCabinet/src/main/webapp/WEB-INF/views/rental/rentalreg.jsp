@@ -11,6 +11,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+<!-- MDB -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
 <%--
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
@@ -28,13 +34,6 @@
 
 
     <style>
-        html,body{
-            background:#ffffff;
-            height:100%;
-            width:100%;
-            padding:0px;
-            margin:0px;
-        }
         hr{
             width: 100%;
             height: 5px;
@@ -62,6 +61,11 @@
         option[value=""][disabled] {
             display:none
         }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     </style>
 
 </head>
@@ -69,15 +73,14 @@
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
 <c:import url="/WEB-INF/views/member/chat.jsp"/>
 
-<div class="container">
+<div class="container" style="width: 70%;">
     <div class ="heading mt-5">
         <h3> 공간 정보를 입력해주세요</h3>
         <hr>
     </div>
 
-    <form class = "rentalregform  g-3 mt-3" id="rentalform"  method="post" action="<c:url value='/rental/reg'/>">
-
-        <div class="col-md-12">
+    <form class = "rentalregform  g-3 mt-3" id="rentalform"  method="post" action="<c:url value='/rental/reg'/>" enctype="multipart/form-data">
+        <div class="col-md-12 ml-50 mr-50">
             <div class = "title ">
                 <label for = "pWriteTitle">
                     <span><h4>글 제목</h4></span>
@@ -163,10 +166,11 @@
                 <input type="text" class = " form-control form-control-lg" id = "pType_d" name="pType_d" style="border-radius: 0px;"placeholder="공간 유형을 상세하게 적어주세요" >
             </div>
         </div>
-        <div class="col-md-4 mt-3"style="">
+        <div class="col-md-4 mt-3">
             <div class="space_d m-3" >
                 <div class="form-check">
-                    <input class="form-check-input "  type="checkbox" value="Agree" id="food" name="food">
+                    <input class="form-check-input "  type="checkbox" value="1" id="food" name="food">
+                    <input type="hidden" class="form-check-input" name="food" value="0" id="food_check_hidden"/>
                     <label class="form-check-label" for="food">
                         음식 보관
                     </label>
@@ -179,9 +183,11 @@
                     </a>
                 </div>
             </div>
+
             <div class="space_d m-3">
                 <div class="form-check">
-                    <input class="form-check-input"  type="checkbox" value="Agree" id="pickup" name="pickup">
+                    <input class="form-check-input"  type="checkbox" value="1" id="pickup" name="pickup">
+                    <input type="hidden" class="form-check-input" name="pickup" value="0" id="pickup_check_hidden"/>
                     <label class="form-check-label" for="pickup">
                         픽업 가능
                     </label>
@@ -192,19 +198,184 @@
                             <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                         </svg>
                     </a>
+                </div>
+            </div>
 
+        </div>
+
+        <div class="row">
+<%--
+            <div class="col-md-6">
+                <label for="card" class="mb-3"><sapn><h4>내 보유 박스</h4></sapn></label>
+                <div class="row">
+                    <c:forEach items="${boxlist}" var="box">
+                    <div class="col-md-6 mb-5 "id = "card_${box.boxType}">
+                        <div class="card shadow ripple hover-overlay shadow-1-strong rounded"  style="width:300px; cursor:pointer;">
+                        <img class="card-img-top" src="<c:url value="/image/A_type.png"/>" alt="Boximage">
+                        <div class="card-img-overlay">
+                            <h3 class="card-title">${box.boxType}</h3>
+                            <p class="card-text">${box.boxQty}</p>
+                        </div>
+                            <div class="mask" style="background-color: hsla(0, 0%, 98%, 0.5)"></div>
+                        </div>
+                    </div>
+                </c:forEach>
+                </div>
+            </div>
+--%>
+    <div class="col-md-6">
+        <label for="accordionExample" class="mb-3"><sapn><h4>내 보유 박스</h4></sapn></label>
+        <div class="row">
+            <div class="accordion" id="accordionExample">
+                <c:forEach items="${boxlist}" var="box">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne_${box.boxType}">
+                            <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-mdb-toggle="collapse"
+                                    data-mdb-target="#collapse_${box.boxType}"
+                                    aria-expanded="false"
+                                    aria-controls="collapse_${box.boxType}"
+                                    id ="accordion_${box.boxType}"
+                            >
+                                    ${box.boxType}(${box.boxQty})
+                            </button>
+                        </h2>
+                        <div id="collapse_${box.boxType}" class="accordion-collapse collapse" aria-labelledby="headingOne_${box.boxType}" data-mdb-parent="#accordionExample" >
+                            <div class="accordion-body">
+                                <input type="text" class = " form-control form-control-lg" id = "Boxp_${box.boxType}"  style="border-radius: 0px;  "placeholder="시간 당 금액을 적어주세요" >
+                                <input type="hidden" id = "BoxQty_${box.boxType}"  value="<c:out value="${box.boxQty}"/>" >
+                                <div class="number mt-3" style="float: right" >
+                                    <button type="button" class="btn" style="background: #00DBAF;" id="increaseQuantity_${box.boxType}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                        </svg>
+                                    </button>
+                                    <input id="numberUpDown_${box.boxType}"  type="number" value="1" style="width :30px;border:none; text-align: center;" >
+                                    <button type="button" class="btn" style="background: #00DBAF;" id="decreaseQuantity_${box.boxType}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+                                        </svg>
+                                </button>
+                                </div>
+                                <div class="asd mt-3">
+                                    <button type="button" class="btn btn-sm text-white" style="background: #00DBAF;" id="add_${box.boxType}">추가</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+                <label for="Box1" class="mb-3"><h4>등록 박스 목록</h4></label>
+                <div id = "Box1" class = "mb-4" style="display: none;">
+                    <label for="Boxprice_A01" class="form-label"><h5>A_01</h5></label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="float: right; cursor: pointer;" id="Boxp_A01_B">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                </svg>
+                    <div class ="BoxPrice" style="border: 1px solid black;display: flex; align-items: center; ">
+                        <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
+                        <input type="text" class = " form-control " id = "Boxprice_A01" name="BoxPrice" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
+                        <input type="hidden" class = " form-control " id = "Boxprice_A01_h" name="BoxType" value="A01">
+                        <p style="margin-top: 14px;">원</p>
+                        <input type="text" class = " form-control " id = "BoxQtyp_A01" name="BoxQty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <p style="margin-top: 14px;">개</p>
+
+                    </div>
+                </div>
+
+                <div id = "Box2" class = "mb-4" style="display: none;">
+                    <label for="Boxprice_A02" class="form-label"><h5>A_02</h5></label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="float: right; cursor: pointer;" id="Boxp_A02_B">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                    </svg>
+                    <div class ="BoxPrice" style="border: 1px solid black;display: flex; align-items: center; ">
+                        <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
+                        <input type="text" class = " form-control " id = "Boxprice_A02" name="BoxPrice" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
+                        <input type="hidden" class = " form-control " id = "Boxprice_A02_h" name="BoxType" value="A02">
+                        <p style="margin-top: 14px;">원</p>
+                        <input type="text" class = " form-control " id = "BoxQtyp_A02" name="BoxQty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <p style="margin-top: 14px;">개</p>
+                    </div>
+
+                </div>
+                <div id = "Box3"class = "mb-4" style="display: none;">
+                    <label for="Boxprice_A03" class="form-label"><h5>A_03</h5></label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="float: right; cursor: pointer;" id="Boxp_A03_B">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                    </svg>
+                    <div class ="BoxPrice" style="border: 1px solid black;display: flex; align-items: center; ">
+                        <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
+                        <input type="text" class = " form-control " id = "Boxprice_A03" name="BoxPrice" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
+                        <input type="hidden" class = " form-control " id = "Boxprice_A03_h" name="BoxType" value="A03">
+                        <p style="margin-top: 14px;">원</p>
+                        <input type="text" class = " form-control " id = "BoxQtyp_A03" name="BoxQty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <p style="margin-top: 14px;">개</p>
+                    </div>
+                    </div>
+
+                <div id = "Box4"class = "mb-4" style="display: none;">
+                    <label for="Boxprice_B01" class="form-label"><h5>B_01</h5></label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="float: right; cursor: pointer;" id="Boxp_B01_B">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                    </svg>
+                    <div class ="BoxPrice" style="border: 1px solid black;display: flex; align-items: center; ">
+                        <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
+                        <input type="text" class = " form-control " id = "Boxprice_B01" name="BoxPrice" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
+                        <input type="hidden" class = " form-control " id = "Boxprice_B01_h" name="BoxType" value="B01">
+                        <p style="margin-top: 14px;">원</p>
+                        <input type="text" class = " form-control " id = "BoxQtyp_B01" name="BoxQty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <p style="margin-top: 14px;">개</p>
+                    </div>
+                </div>
+
+
+                <div id = "Box5"class = "mb-4" style="display: none;">
+                    <label for="Boxprice_B02" class="form-label"><h5>B_02</h5></label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="float: right; cursor: pointer;" id="Boxp_B02_B">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                    </svg>
+                    <div class ="BoxPrice" style="border: 1px solid black;display: flex; align-items: center; ">
+                        <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
+                        <input type="text" class = " form-control " id = "Boxprice_B02" name="BoxPrice" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
+                        <input type="hidden" class = " form-control " id = "Boxprice_B02_h" name="BoxType" value="B02">
+                        <p style="margin-top: 14px;">원</p>
+                        <input type="text" class = " form-control " id = "BoxQtyp_B02" name="BoxQty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <p style="margin-top: 14px;">개</p>
+                    </div>
+                </div>
+
+                <div id = "Box6"class = "mb-4" style="display: none;">
+                    <label for="Boxprice_B03" class="form-label"><h5>B_03</h5></label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="float: right; cursor: pointer;" id="Boxp_B03_B">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                    </svg>
+                    <div class ="BoxPrice" style="border: 1px solid black;display: flex; align-items: center; ">
+                        <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
+                        <input type="text" class = " form-control " id = "Boxprice_B03" name="BoxPrice" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
+                        <input type="hidden" class = " form-control " id = "Boxprice_B03_h" name="BoxType" value="B03">
+                        <p style="margin-top: 14px;">원</p>
+                        <input type="text" class = " form-control " id = "BoxQtyp_B03" name="BoxQty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <p style="margin-top: 14px;">개</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-12 mb-5 mt-5">
+
+
+            <div class="col-md-12 mb-5 mt-5">
             <div class="mb-3 mt-3">
-                <label for="pPlaceInfo" class="form-label"><h4>공간 소개</h4></label>
+                <label for="pPlaceInfo" ><h4>공간 소개</h4></label>
                 <textarea class="form-control form-control-lg" id="pPlaceInfo" name ="pPlaceInfo" placeholder="공간소개를 적어주세요"style="border-radius: 0px;" rows="10"></textarea>
             </div>
         </div>
         <div class="col-md-12 mb-5 mt-3">
             <div class="mb-3 mt-3">
-                <label for="pCautionInfo" class="form-label"><h4>예약 시 주의사항</h4></label>
+                <label for="pCautionInfo" ><h4>예약 시 주의사항</h4></label>
                 <textarea class="form-control form-control-lg" id="pCautionInfo" name ="pCautionInfo" placeholder="예약 시 주의사항을 적어주세요."style="border-radius: 0px;" rows="5"></textarea>
             </div>
         </div>
@@ -224,8 +395,9 @@
                     <input type="text" class = "form-control form-control-lg onlyNumber" id = "pHp" name="pHp" style="border-radius: 0px;" placeholder="연락 가능한 연락처를 적어주세요. (숫자만 작성)" >
                 </div>
             </div>
+
             <div class="col-md-6">
-                <div class = "title ">
+                <div class = "title2">
                     <label for = "pTime">
                         <span><h4>연락 가능 시간</h4></span>
                     </label>
@@ -238,15 +410,17 @@
                     </a>
                     <input type="text" class = "form-control form-control-lg" id = "pTime" name="pTime" style="border-radius: 0px;" placeholder="연락 가능 시간을 정해주세요. (예)10시 부터 22시" >
                 </div>
-
             </div>
+
         </div>
 
 
         <div id='image' class=" mt-5">
             <h4>공간 사진 업로드</h4>
-            <input type='file' id='pImage' name="pImage" accept=".jpg, .png, .gif" multiple='multiple' />
-            <div id='att_zone' data-placeholder='공간사진을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'></div>
+            <input type='file' class="form-control" id='files' name="files" accept=".jpg, .png, .gif" multiple='multiple' />
+            <div id='att_zone' data-placeholder='공간사진을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'>
+
+            </div>
         </div>
 
         <div class = "Address">
@@ -259,7 +433,7 @@
                     주소를 입력해주세요.
                 </div>
                 <br>
-                <input type="button" class="btn  btn-sm btn-block text-white" style="background: #00DBAF" id="searchZipBtn2" name="searchZipBtn2" value="주소 찾기">
+                <input type="button" class="btn  btn-sm  text-white" style="background: #00DBAF" id="searchZipBtn2" name="searchZipBtn2" value="주소 찾기">
             </div>
 
             <div class=" col-md-12 mb-5">
@@ -271,16 +445,14 @@
                     상세 주소를 입력해주세요.
                 </div>
             </div>
+
         </div>
         <hr>
 
         <div class=" d-flex justify-content-center">
-            <input type="submit" id="button" class="btn  btn-lg btn-block text-white m-5 " style="background: #00DBAF" value="공간 등록" >
+            <input type="submit" id="button" class="btn btn-lg text-white m-5 " style="background: #00DBAF" value="공간 등록" >
         </div>
-
     </form>
-
-
 </div>
 <c:import url="/WEB-INF/views/layout/footer.jsp"/>
 
@@ -304,14 +476,186 @@
         }
     });
 
+    if(document.getElementById("food").checked) {
+        document.getElementById("food_check_hidden").disabled = true;
+    }
+    if(document.getElementById("pickup").checked) {
+        document.getElementById("pickup_check_hidden").disabled = true;
+    }
+</script>
+<script>
+$(document).ready(function() {
+
+        $("#add_A01").click(function(){
+            var price = $('#Boxp_A01').val();
+            var Qty = $('#numberUpDown_A01').val();
+            if(!price) {
+            alert("금액을 입력 해 주세요!");
+        }else{
+            $("#Box1").show();
+            $('#Boxprice_A01').val(price);
+            $('#BoxQtyp_A01').val(Qty);
+
+                document.querySelectorAll('.accordion-collapse').forEach(collapse => {
+                collapse.classList.remove('show');
+            });
+        }
+        });
+        $("#Boxp_A01_B").click(function(){
+            $("#Box1").hide();
+            $("#Boxprice_A01").val(0);
+            $("#BoxQtyp_A01").val(0);
+        });
+
+        $("#add_A02").click(function(){
+            var price = $('#Boxp_A02').val();
+            var Qty = $('#numberUpDown_A02').val();
+            if(!price) {
+                alert("금액을 입력 해 주세요!");
+            }else{
+                $("#Box2").show();
+                $('#Boxprice_A02').val(price);
+                $('#BoxQtyp_A02').val(Qty);
+
+                document.querySelectorAll('.accordion-collapse').forEach(collapse => {
+                    collapse.classList.remove('show');
+                });
+            }
+        });
+        $("#Boxp_A02_B").click(function(){
+            $("#Box2").hide();
+            $("#Boxprice_A02").val(0);
+            $("#BoxQtyp_A02").val(0);
+        });
+        $("#add_A03").click(function(){
+            var price = $('#Boxp_A03').val();
+            var Qty = $('#numberUpDown_A03').val();
+            if(!price) {
+                alert("금액을 입력 해 주세요!");
+            }else{
+                $("#Box3").show();
+                $('#Boxprice_A03').val(price);
+                $('#BoxQtyp_A03').val(Qty);
+
+                document.querySelectorAll('.accordion-collapse').forEach(collapse => {
+                    collapse.classList.remove('show');
+                });
+            }
+        });
+        $("#Boxp_A03_B").click(function(){
+            $("#Box3").hide();
+            $("#Boxprice_A03").val(0);
+            $("#BoxQtyp_A03").val(0);
+
+        });
+        $("#add_B01").click(function(){
+            var price = $('#Boxp_B01').val();
+            var Qty = $('#numberUpDown_B01').val();
+            if(!price) {
+                alert("금액을 입력 해 주세요!");
+            }else{
+                $("#Box4").show();
+                $('#Boxprice_B01').val(price);
+                $('#BoxQtyp_B01').val(Qty);
+
+                document.querySelectorAll('.accordion-collapse').forEach(collapse => {
+                    collapse.classList.remove('show');
+                });
+            }
+        });
+        $("#Boxp_B01_B").click(function(){
+            $("#Box4").hide();
+            $("#Boxprice_B01").val(0);
+            $("#BoxQtyp_B01").val(0);
+        });
+        $("#add_B02").click(function(){
+            var price = $('#Boxp_B02').val();
+            var Qty = $('#numberUpDown_B02').val();
+            if(!price) {
+                alert("금액을 입력 해 주세요!");
+            }else{
+                $("#Box5").show();
+                $('#Boxprice_B02').val(price);
+                $('#BoxQtyp_B02').val(Qty);
+
+                document.querySelectorAll('.accordion-collapse').forEach(collapse => {
+                    collapse.classList.remove('show');
+                });
+            }
+        });
+        $("#Boxp_B02_B").click(function(){
+            $("#Box5").hide();
+            $("#Boxprice_B02").val(0);
+            $("#BoxQtyp_B02").val(0);
+
+        });
+        $("#add_B03").click(function(){
+            var price = $('#Boxp_B03').val();
+            var Qty = $('#numberUpDown_B03').val();
+            if(!price) {
+                alert("금액을 입력 해 주세요!");
+            }else{
+                $("#Box6").show();
+                $('#Boxprice_B03').val(price);
+                $('#BoxQtyp_B03').val(Qty);
+
+                document.querySelectorAll('.accordion-collapse').forEach(collapse => {
+                    collapse.classList.remove('show');
+                });
+            }
+        });
+        $("#Boxp_B03_B").click(function(){
+            $("#Box6").hide();
+            $("#Boxprice_B03").val(0);
+            $("#BoxQtyp_B03").val(0);
+        });
+
+        var updateQuantity = function(productId, operation) {
+            var stat = $('#numberUpDown_' + productId).val();
+            var num = parseInt(stat, 10);
+            if (operation === 'decrease') {
+                num--;
+                if (num <= 0) {
+                    alert('보유박스 최소 수량 입니다.');
+                    num = 1;
+                }
+            } else {
+                num++;
+                var BOXQty = $('#BoxQty_' + productId).val();
+                if (num > BOXQty) {
+                    alert('보유박스 최대 수량입니다.');
+                    num = BOXQty;
+                }
+            }
+            $('#numberUpDown_' + productId).val(num);
+        };
+
+        $('[id^=decreaseQuantity_]').click(function(e) {
+            e.preventDefault();
+            var productId = $(this).attr('id').split('_')[1];
+            updateQuantity(productId, 'decrease');
+        });
+
+        $('[id^=increaseQuantity_]').click(function(e) {
+            e.preventDefault();
+            var productId = $(this).attr('id').split('_')[1];
+            updateQuantity(productId, 'increase');
+        });
+
+    });
+
+
+    $(function(){
+    });
 
 </script>
+
 <script>
     ( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
         imageView = function imageView(att_zone, btn){
 
             var attZone = document.getElementById(att_zone);
-            var pImage = document.getElementById(btn)
+            var files = document.getElementById(btn)
             var sel_files = [];
 
             // 이미지와 체크 박스를 감싸고 있는 div 속성
@@ -323,7 +667,7 @@
             var chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
                 + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
 
-            pImage.onchange = function(e){
+            files.onchange = function(e){
                 var files = e.target.files;
                 var fileArr = Array.prototype.slice.call(files)
                 for(f of fileArr){
@@ -396,7 +740,7 @@
                         var file = sel_files[f];
                         dt.items.add(file);
                     }
-                    pImage.files = dt.files;
+                    files.files = dt.files;
                     var p = ele.parentNode;
                     attZone.removeChild(p)
                 }
@@ -405,10 +749,9 @@
                 return div
             }
         }
-    )('att_zone', 'pImage')
+    )('att_zone', 'files')
 
 </script>
-
 <script>
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();

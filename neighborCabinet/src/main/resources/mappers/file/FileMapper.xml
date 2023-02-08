@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neighborCabinet.project.dao.IFileDAO">
+
+    <select id="fileList" resultType="com.neighborCabinet.project.model.FileVO">
+        SELECT
+            *
+        FROM files
+        WHERE
+            files.pId = #{pId}
+    </select>
+
+    <insert id="fileRegister" parameterType="java.util.List">
+        INSERT INTO
+        files (originalFileName, savedFileName, pId)
+        VALUES
+        <foreach collection="list" item="file" separator="," >
+            ( #{file.originalFileName}, #{file.savedFileName}, #{file.pId})
+        </foreach>
+    </insert>
+
+    <select id="fileDetail" parameterType="int" resultType="com.neighborCabinet.project.model.FileVO">
+        SELECT
+            *
+        FROM files
+        WHERE fileNo = #{fileNo}
+    </select>
+
+    <delete id="fileDelete" parameterType="java.util.List">
+        DELETE FROM
+        files
+        WHERE
+        <foreach collection="list" item="file" separator="or" >
+            fileNo = #{file.fileNo}
+        </foreach>
+    </delete>
+
+    <select id="imgFileList" resultType="string">
+        SELECT
+            savedFileName
+        FROM files
+        WHERE
+        files.pId = 0
+    </select>
+
+
+</mapper>

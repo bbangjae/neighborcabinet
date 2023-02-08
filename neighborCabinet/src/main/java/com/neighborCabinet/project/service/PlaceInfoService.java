@@ -19,23 +19,26 @@ public class PlaceInfoService implements IPlaceInfoService {
     @Qualifier("IPlaceInfoDAO")
     private IPlaceInfoDAO dao;
     @Override
-    public PlaceInfoVO detailViewPlace(String pNo) {
+    public PlaceInfoVO detailViewPlace(int pNo) {
         return dao.detailViewPlace(pNo);
     }
 
     @Override
-    public ArrayList<QaVO> showViewQA(String pNo){return dao.showViewQA(pNo);}
+    public ArrayList<QaVO> showViewQA(int pNo){return dao.showViewQA(pNo);}
 
     @Override
     public void insertQa(QaVO vo){dao.insertQa(vo);}
     @Override
-    public ArrayList<ReviewVO> showViewReview(String pNo){return dao.showViewReview(pNo);}
+    public ArrayList<ReviewVO> showViewReview(int pNo){return dao.showViewReview(pNo);}
     @Override
     public void reserve(ReserveVo vo){dao.reserve(vo);}
     @Override
     public HashMap<String,Object> showDate(HashMap<String,Object> map){return dao.showDate(map);}
     @Override
-    public void updateDate (HashMap<String,Object> map){dao.updateDate(map);}
+    public void updateDate (HashMap<String,Object> map){
+        dao.updateDate(map);}
     @Override
-    public HashMap<String, Object> showBoxtype(String pNo) {return dao.showBoxtype(pNo);}
+    public HashMap<String, Object> showBoxtype(int pNo) {
+        return dao.showBoxtype(pNo);}
 }
+

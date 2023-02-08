@@ -5,19 +5,19 @@
 
 <mapper namespace="com.neighborCabinet.project.dao.IPlaceInfoDAO">
 
-    <select id="detailViewPlace" parameterType="string"
+    <select id="detailViewPlace" parameterType="int"
             resultType="com.neighborCabinet.project.model.PlaceInfoVO">
         select * from place where pNo=#{pNo}
     </select>
 
-    <select id="showViewQA" parameterType="string"
+    <select id="showViewQA" parameterType="int"
             resultType="com.neighborCabinet.project.model.QaVO">
         select q.qaNo, q.qaContent, q.qaDate, q.userId, q.pNo, m.userNickName
         from qa q, member m
         where q.pNo=#{pNo} and q.userId=m.userId
         order by q.qaNo
     </select>
-    <select id="showViewReview" parameterType="string"
+    <select id="showViewReview" parameterType="int"
             resultType="com.neighborCabinet.project.model.ReviewVO">
         select r.reviewNo, r.reviewContent, r.reviewDate,r.reviewGrade, r.userId, r.reviewNo, m.userNickName
         from review r, member m
@@ -49,7 +49,7 @@
 
     </select>
 
-    <select id="showBoxtype" parameterType="String" resultType="HashMap">
+    <select id="showBoxtype" parameterType="int" resultType="HashMap">
         select boxId,boxPrice
         from boxtype
         where pNo=1;

@@ -17,13 +17,13 @@
         where userId=#{userId}
     </select>
 
-<!--
-    <insert id ="boxPreg" parameterType="com.neighborCabinet.project.model.BoxVO">
-        insert into
-        box_p (BoxType, BoxQty, BoxPrice, userId)
-        values (#{BoxType},#{BoxQty},#{BoxPrice},#{userId})
+    <insert id ="boxPreg" parameterType="com.neighborCabinet.project.model.boxtypeVO">
+        call insert_boxtype(#{pNo},#{A_Qty},#{A_Price},#{B_Qty},#{B_Price},#{C_Qty},#{C_Price},#{D_Qty},#{D_Price},#{E_Qty},#{E_Price},#{F_Qty},#{F_Price})
     </insert>
--->
+
+    <insert id ="boxDate" parameterType="com.neighborCabinet.project.model.boxtypeVO">
+        call create_Date(#{pNo},#{A_Qty},#{B_Qty},#{C_Qty},#{D_Qty},#{E_Qty},#{F_Qty})
+    </insert>
 
 
 

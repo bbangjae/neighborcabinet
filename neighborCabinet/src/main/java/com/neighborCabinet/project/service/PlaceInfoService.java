@@ -31,7 +31,8 @@ public class PlaceInfoService implements IPlaceInfoService {
     @Override
     public ArrayList<ReviewVO> showViewReview(int pNo){return dao.showViewReview(pNo);}
     @Override
-    public void reserve(ReserveVo vo){dao.reserve(vo);}
+    public int reserve(ReserveVo vo){
+        return dao.reserve(vo);}
     @Override
     public HashMap<String,Object> showDate(HashMap<String,Object> map){return dao.showDate(map);}
     @Override

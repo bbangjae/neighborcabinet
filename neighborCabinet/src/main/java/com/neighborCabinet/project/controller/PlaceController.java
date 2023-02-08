@@ -129,18 +129,18 @@ public class PlaceController {
     }
     @ResponseBody
     @RequestMapping("/place/placeDetailView/Reserve")
-    public int reserve(
-                       @RequestParam("pNo")int pNo,
-                       @RequestParam("date_text")String d_t,
-                       @RequestParam("total_price")String t_p,
-                       @RequestParam("date_click")String d_c,
-                       @RequestParam("selectedFirstTime")int selectedFirstTime,
-                       @RequestParam("selectedFinalTime")int selectedFinalTime,
-                       @RequestParam("hours")String hours,
-                       @RequestParam("bt")String bt,
-                       ReserveVo vo,
-                       HttpSession session){
-        int result=0;
+    public  HashMap<String,Object> reserve(
+            @RequestParam("pNo")int pNo,
+            @RequestParam("date_text")String d_t,
+            @RequestParam("total_price")String t_p,
+            @RequestParam("date_click")String d_c,
+            @RequestParam("selectedFirstTime")int selectedFirstTime,
+            @RequestParam("selectedFinalTime")int selectedFinalTime,
+            @RequestParam("hours")String hours,
+            @RequestParam("bt")String bt,
+            ReserveVo vo,
+            HttpSession session){
+        HashMap<String,Object> result=new HashMap<String,Object>();
         int t_p2=Integer.parseInt(t_p.replaceAll("[^0-9]",""));
         System.out.print(t_p2);
         String userId=(String)session.getAttribute("sid");
@@ -150,7 +150,8 @@ public class PlaceController {
             vo.setReservePrice(t_p2);
             vo.setUserId(userId);
             service.reserve(vo);
-            result=1;
+            vo.setReserveNo(vo.getReserveNo());
+            result.put("no",vo.getReserveNo()) ;
         }
         System.out.println(bt);
         // 예약 날짜 수정

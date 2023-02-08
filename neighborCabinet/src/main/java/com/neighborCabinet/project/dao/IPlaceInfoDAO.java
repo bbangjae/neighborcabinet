@@ -19,7 +19,7 @@ public interface IPlaceInfoDAO {
 
     public ArrayList<ReviewVO> showViewReview(int pNo);
 
-    public void reserve(ReserveVo vo);
+    public int reserve(ReserveVo vo);
 
     public HashMap<String, Object> showDate(HashMap<String, Object> map);
 

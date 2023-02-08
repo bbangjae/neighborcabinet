@@ -29,10 +29,10 @@
         values (#{qaContent},#{userId},#{pNo})
     </select>
 
-    <select id="reserve" parameterType="com.neighborCabinet.project.model.ReserveVo">
-        insert into reserve(reserveDate,reservePrice,userId,pNo)
-        values (#{reserveDate},#{reservePrice},#{userId},#{pNo})
-    </select>
+    <insert id="reserve" useGeneratedKeys="true" keyProperty="reserveNo" parameterType="com.neighborCabinet.project.model.ReserveVo">
+        insert into reserve(reserveNo,reserveDate,reservePrice,userId,pNo)
+        values (#{reserveNo}, #{reserveDate},#{reservePrice},#{userId},#{pNo})
+    </insert>
 
     <select id="showDate" parameterType="HashMap" resultType="HashMap">
         select

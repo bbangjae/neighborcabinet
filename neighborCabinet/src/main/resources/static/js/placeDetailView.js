@@ -526,9 +526,9 @@ $(document).ready(function(){
             type:"post",
             url:"/place/placeDetailView/Reserve",
             data:obj,
+            dataType:"json",
             success:function(result){
-                if(result==1)
-                    location.href = "/rental/payment/"+obj.pNo;
+                location.href = "/rental/payment/"+result.no;
             }
         })
     });

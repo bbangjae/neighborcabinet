@@ -27,16 +27,5 @@ public class RentalregService implements IRentalService {
         return reg.boxreg(userId);
     }
 
-    @Override
-    public int boxPreg(BoxpVO Box) {
-        return reg.boxPreg(Box);
-    }
 
-
-/*
-    @Override
-    public int rentalreg(rentalregVO vo)  {
-        return reg.rentalreg(vo);
-    }
-*/
 }

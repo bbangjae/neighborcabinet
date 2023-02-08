@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 body{
 	margin : 0;
@@ -29,7 +30,7 @@ article> form{
 .sec_title{
 	padding : 2px 0 15px;
 	font-size : 16px;
-	border-bottom : solid 4px gray;
+	border-bottom : solid 4px #00DBAF;
 	width : 100%;
 	box-sizing : border-box;
 	height : 38px;
@@ -38,7 +39,8 @@ article> form{
 	padding : 20px 30px;
 	font-size : 16px;
 	box-sizing: border-box;
-	background : #EBEBEB;
+	background : #8affe8;
+	/* background : #EBEBEB; */
 }
 /* 공간정보 */
 #s1{
@@ -118,11 +120,11 @@ article> form{
 #fixedInfo_3>div:nth-child(n+2){
 	margin-top : 15px;
 }
-#fixedInfo_3>div>div{
+#fixedInfo_3>div>div:first-child{
 	width : 100px;
 	padding-top : 15px;
 }
-#fixedInfo_3>div>input{
+.senderInfo{
 	padding : 0 15px;
 	box-sizing: border-box;
 	border : solid 1px #ebebeb;
@@ -131,6 +133,24 @@ article> form{
 	height : 50px;
 }
 #fixedInfo_3>div>input:focus{
+	outline: none;
+}
+#senderPhone{
+	width : 100%;
+	box-sizing: border-box;
+	font-size : 18px;
+	height : 50px;
+	display : flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.senderPhone{
+	width : 100%;
+	padding : 0 15px;
+	box-sizing: border-box;
+	border : solid 1px #ebebeb;
+	font-size : 18px;
+	height : 100%;
 	outline: none;
 }
 #fixedInfo_3>div>textarea{
@@ -203,13 +223,13 @@ article> form{
 #fixedInfo_5_2{
 	padding : 19px 0px 23px;
 	text-align : right;
-	border-top : solid 4px gray;
+	border-top : solid 4px #00DBAF;
 	font-size : 25px;
 }
 #paymentBtn{
 	width : 100%;
 	line-height : 50px;
-	background : gray;
+	background : #00DBAF;
 	text-align : center;
 	color : white;
 	border : none;

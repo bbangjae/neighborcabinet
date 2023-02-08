@@ -1,16 +1,33 @@
 /**
- * header.js
+ * boxList.js
  */
-
+window.onpageshow = function(event) {
+    if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+		var chk = $(".select_checkBox").is(":checked");
+		if(chk) {$(".select_checkBox").prop("checked", false).attr("checked", false).removeAttr("checked");}
+    }
+};
+	
 $(document).ready(function(){
-
+	
+	
 	$(document).on("submit","#orderPage",function(){
 		
 		var boxNum = $('.boxPrice').length;
+		var sid = $('#sid').val();
 		
 		if(boxNum == 0){
 			event.preventDefault();
 			alert("박스를 선택해주세요");
+		}
+		
+		if(sid == ""){
+			event.preventDefault();
+			var login = confirm("로그인 후 이용이 가능합니다.\n"+
+					"로그인 페이지로 이동하시겠습니까?");
+				if(login){
+					location.href="/member/loginform";
+				}
 		}
 		
 	});
@@ -20,6 +37,7 @@ $(document).ready(function(){
 		var check = $(this).is(':checked');
 		var boxName = this.getAttribute('data-boxName');
 		var boxPrice = this.getAttribute('data-boxPrice');
+		var boxStock = this.getAttribute('data-boxStock');
 		var boxType = $(this).val();
 		
 		if(check){
@@ -31,12 +49,12 @@ $(document).ready(function(){
 							'</div>'+
 							'<div class="selectedBox_qty">'+
 								'<div class="font_size_zero">'+
-									'<button class="box_QtyBtn" data-boxPrice="'+ boxPrice +'" value="1"><i class="fa-solid fa-minus" ></i></button>'+
+									'<button class="box_QtyBtn" data-boxPrice="'+ boxPrice +'" data-boxStock="'+ boxStock +'" value="1"><i class="fa-solid fa-minus" ></i></button>'+
 									'<input name="Selected_boxName" type="hidden" value="'+ boxName +'">' + 
 									'<input name="Selected_boxType" type="hidden" value="'+ boxType +'">' + 
 									'<input name="Selected_boxPrice" type="hidden" value="'+ boxPrice +'">' + 
-									'<input name="Selected_boxQty" class="input_number" type="number" data-boxPrice="'+ boxPrice +'" value="1">'+
-									'<button class="box_QtyBtn" data-boxPrice="'+ boxPrice +'" value="2"><i class="fa-solid fa-plus"></i></button>'+
+									'<input name="Selected_boxQty" class="input_number" type="number" data-boxPrice="'+ boxPrice +'" data-boxStock="'+ boxStock +'" value="1">'+
+									'<button class="box_QtyBtn" data-boxPrice="'+ boxPrice +'" data-boxStock="'+ boxStock +'" value="2"><i class="fa-solid fa-plus"></i></button>'+
 								'</div>'+
 								'<div class="price"><input name="boxPrice" class="boxPrice" type="text" value="'+ boxPrice +'원" readonly></div>'+
 							'</div>'+
@@ -125,6 +143,7 @@ $(document).ready(function(){
 		
 		var number = $(this).siblings('.input_number');
 		var boxPrice = parseInt(this.getAttribute('data-boxPrice'));
+		var boxStock = parseInt(this.getAttribute('data-boxStock'));
 		var qty = parseInt(number.val());
 		
 			if($(this).val() == 1){
@@ -133,12 +152,20 @@ $(document).ready(function(){
 					qty = 1;
 					alert("최소 수량입니다");
 				}
+				else if(qty > boxStock){
+					qty = boxStock;
+					alert("최대 수량입니다");
+				}
 				number.val(qty);
 				var total = qty * boxPrice;
 				var price = $(this).parent().siblings('.price').children();
 				price.val(total.toLocaleString()+"원");
 			} else{
 				qty += 1;
+				if(qty > boxStock){
+					qty = boxStock;
+					alert("최대 수량입니다");
+				}
 				number.val(qty);
 				var total = qty * boxPrice;
 				var price = $(this).parent().siblings('.price').children();
@@ -151,11 +178,22 @@ $(document).ready(function(){
      	var number = $(this).siblings('.input_number');
      	var qty = parseInt($(this).val());
      	var boxPrice = parseInt(this.getAttribute('data-boxPrice'));
+     	var boxStock = parseInt(this.getAttribute('data-boxStock'));
      	var total = qty * boxPrice;
      	var price = $(this).parent().siblings('.price').children();
      	
      	if (isNaN(total)) {
 			 total = 0;
+		}
+		if(qty < 1){
+			qty = 1;
+			number.val(1);
+			alert("최소 수량입니다");
+		}
+		else if(qty > boxStock){
+			qty = boxStock;
+			number.val(boxStock);
+			alert("최대 수량입니다");
 		}
      	price.val(total.toLocaleString() + "원");
      	doSum();

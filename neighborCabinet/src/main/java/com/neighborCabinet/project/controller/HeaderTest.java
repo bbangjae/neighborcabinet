@@ -1,8 +1,11 @@
 package com.neighborCabinet.project.controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,11 +15,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neighborCabinet.project.model.BoxInfoVO_y;
 import com.neighborCabinet.project.model.MemberVO;
+import com.neighborCabinet.project.model.MyReviewVO;
 import com.neighborCabinet.project.model.OrderListVO_y;
 import com.neighborCabinet.project.model.PlaceInfoVO;
+import com.neighborCabinet.project.model.ReserveDetailVO_y;
+import com.neighborCabinet.project.model.ReserveVO_y;
+import com.neighborCabinet.project.model.ReviewOListVO_y;
 import com.neighborCabinet.project.model.ShippingVO_y;
 import com.neighborCabinet.project.model.boxOrderVO_y;
 import com.neighborCabinet.project.service.BoxOrderService_y;
@@ -86,13 +94,14 @@ public class HeaderTest {
 		
 		ShippingVO_y userVo = service.shippingInfo(userId);
 		
-		String HP1 = userVo.getUserHp().substring(0, 3);
-		String HP2 = userVo.getUserHp().substring(3, 7);
-		String HP3 = userVo.getUserHp().substring(7);
-		
-		model.addAttribute("HP1", HP1);
-		model.addAttribute("HP2", HP2);
-		model.addAttribute("HP3", HP3);
+		if(userVo.getUserHp().length()==11) {
+			String HP1 = userVo.getUserHp().substring(0, 3);
+			String HP2 = userVo.getUserHp().substring(3, 7);
+			String HP3 = userVo.getUserHp().substring(7);
+			
+			String HP = HP1 + "-" + HP2 + "-" + HP3;
+			model.addAttribute("HP", HP);
+		}
 		
 		model.addAttribute("userVo", userVo);
 		
@@ -156,36 +165,201 @@ public class HeaderTest {
 		
 		return "boxOrder/success";
 	}
+	
+	
+	
+	// 예약 결제 페이지
 	@RequestMapping("/rental/payment/{pNo}")
-	public String paymentpage(@PathVariable String pNo, HttpSession session, Model model) {
+	public String paymentpage(@PathVariable int pNo, HttpSession session, Model model) {
+		
+		// 디테일 정보
+		PlaceInfoVO place = service.placeInfo(pNo);
+		model.addAttribute("place", place);
 		
 		// 예약자 정보
 		String userId = (String) session.getAttribute("sid");
 		
 		MemberVO reserInfo = service.reserInfo(userId);
 		
-//		String HP1 = reserInfo.getUserHp().substring(0, 3);
-//		String HP2 = reserInfo.getUserHp().substring(3, 7);
-//		String HP3 = reserInfo.getUserHp().substring(7);
-//		
-//		model.addAttribute("HP1", HP1);
-//		model.addAttribute("HP2", HP2);
-//		model.addAttribute("HP3", HP3);
-		
+		if(reserInfo.getUserHp().length()==11) {
+			String HP1 = reserInfo.getUserHp().substring(0, 3);
+			String HP2 = reserInfo.getUserHp().substring(3, 7);
+			String HP3 = reserInfo.getUserHp().substring(7);
+			
+			model.addAttribute("HP1", HP1);
+			model.addAttribute("HP2", HP2);
+			model.addAttribute("HP3", HP3);
+		}
+		model.addAttribute("userId", userId);
 		model.addAttribute("res", reserInfo);
 		
 		//등록자 정보
-		PlaceInfoVO place = service.placeInfo(pNo);
-		model.addAttribute("place", place);
+		
 		
 		return "/boxOrder/requestPage";
 	}
 	
 	@RequestMapping("/payment")
-	public String payment2(){
+	public String placePayment(ReserveDetailVO_y reD,ReserveVO_y re,Model model, String senderPhone1,
+								String senderPhone2, String senderPhone3){
 		
+		long timeNum = System.currentTimeMillis();
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddHHmmss");
+		String strTime = fmt.format(new Date(timeNum));
 		
+		String rNum = "";
+		for(int i=1;i<=4; i++) {
+			rNum += (int)(Math.random()*10);
+		}
+
+		String resNo = strTime + "_" + rNum;
 		
-		return "boxOrder/success2";
+		reD.setSenderPhone(senderPhone1 + senderPhone2 + senderPhone3);
+		re.setResNo(resNo);
+		reD.setResNo(resNo);
+		
+		service.insert_res(re);
+		service.insert_resD(reD);
+		
+		return "redirect:/";
 	}
+	
+	
+	
+	// 리뷰 페이지
+	@RequestMapping("/mypage/review")
+	public String review(HttpSession session, Model model) throws Exception{
+		
+		String userId = (String) session.getAttribute("sid");
+		
+		// 작성 가능한 리뷰 가져오기
+		ArrayList <ReviewOListVO_y> reviewO = service.reviewOList(userId);
+		
+		SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
+		Calendar cal = Calendar.getInstance();
+		int nowDate = Integer.parseInt(dtFormat.format(cal.getTime()));
+		
+		for(int i = 0;i<reviewO.size();i++) {
+			
+			String date = reviewO.get(i).getReviewEnd();
+			Date dt = dtFormat.parse(date);
+			cal.setTime(dt);
+			cal.add(Calendar.MONTH, 1);
+			int endDate = Integer.parseInt(dtFormat.format(cal.getTime()));
+			if(endDate<=nowDate) {
+				reviewO.remove(i);
+				i--;
+			}else {
+				String end = String.valueOf(endDate);
+				reviewO.get(i).setReviewEnd(end.substring(0, 4) + "-" + end.substring(4, 6) + "-" + end.substring(6, 8));
+			}
+		}
+		
+		model.addAttribute("reviewO", reviewO);
+		
+		// 나의 리뷰
+		MemberVO myInfo = service.memberInfo(userId);
+		model.addAttribute("myInfo", myInfo);
+		
+		ArrayList<MyReviewVO> myReview = service.myReview(userId, 0);
+		model.addAttribute("myReview", myReview);
+		
+		// 페이지 개수
+		int page = pageNum(service.myreviewCnt(userId), 4);
+		
+		ArrayList<Integer> pageNum = new ArrayList<>();
+		for(int i = 1;i<=page;i++) {
+			pageNum.add(i);
+		}
+		
+		model.addAttribute("pageNum", pageNum);
+		model.addAttribute("nowNum", 1);
+		
+		return "/mypage/review";
+	}
+	
+	@RequestMapping("/mypage/review/{pageNum}")
+	public String reviewNum(@PathVariable int pageNum, HttpSession session, Model model){
+		
+		String userId = (String) session.getAttribute("sid");
+		
+		int start = 4*(pageNum-1);
+
+		// 나의 리뷰
+		MemberVO myInfo = service.memberInfo(userId);
+		model.addAttribute("myInfo", myInfo);
+		
+		ArrayList<MyReviewVO> myReview = service.myReview(userId, start);
+		model.addAttribute("myReview", myReview);
+		
+		int page = pageNum(service.myreviewCnt(userId), 4);
+		
+		ArrayList<Integer> pageNum1 = new ArrayList<>();
+		for(int i = 1;i<=page;i++) {
+			pageNum1.add(i);
+		}
+		int nowNum = pageNum;
+		
+		model.addAttribute("pageNum", pageNum1);
+		model.addAttribute("nowNum", nowNum);
+		return "/mypage/myReview";
+	}
+	
+
+	@ResponseBody
+	@RequestMapping("/mypage/reviewReg/regist")
+	public String reviewreg(HttpSession session,
+						@RequestParam HashMap<String, Object> param){
+		
+		String userId = (String) session.getAttribute("sid");
+		param.put("userId", userId);
+		service.reviewReg(param);
+
+		return "success";
+	}
+	
+	// 나의 리뷰 삭제
+	@RequestMapping("/mypage/myReview/delete/{pNo}")
+	public String reviewdelete(HttpSession session,
+							@PathVariable int pNo){
+		
+		String userId = (String) session.getAttribute("sid");
+		service.reviewdelete(userId, pNo);
+		
+		return "redirect:/mypage/review";
+	}
+	//리뷰작성페이지
+	@RequestMapping("/mypage/reviewReg/{pNo}")
+	public String reviewreg(@PathVariable int pNo, HttpSession session, Model model){
+		
+		String userId = (String) session.getAttribute("sid");
+		 int check = service.reviewCheck(userId, pNo);
+		
+		if(check==0) {
+			return "redirect:/mypage/review";
+		}
+		else {
+			
+			MemberVO userInfo = service.memberInfo(userId);
+			PlaceInfoVO place = service.placeInfo(pNo);
+			model.addAttribute("userInfo", userInfo);
+			model.addAttribute("place", place);
+			
+			return "/mypage/reviewreg";
+		}
+	}
+	
+	public int pageNum(int n, int a) {
+		
+		int result = 0;
+		if(n%a == 0) {
+			result = n/a;
+		}else {
+			result = n/a + 1;
+		}
+		
+		return result;
+	}
+	
+		
 }

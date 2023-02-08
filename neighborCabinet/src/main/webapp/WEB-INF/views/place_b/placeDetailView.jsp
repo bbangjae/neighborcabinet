@@ -156,8 +156,13 @@
                             <div id="map" style="width:100%;height:400px;"></div>
                             <script>
                                 var mapOptions = {
-                                    center: new naver.maps.LatLng(${aY},${aX}),
-                                    zoom: 17
+                                    center: new naver.maps.LatLng(${aY},${aX}), //지도 시작지점
+                                    zoom: 17, //확대정도
+                                    zoomControl: true,
+                                    zoomControlOptions: {
+                                        style: naver.maps.ZoomControlStyle.SMALL,
+                                        position: naver.maps.Position.TOP_RIGHT
+                                    }
                                 };
 
                                 var map = new naver.maps.Map('map', mapOptions);

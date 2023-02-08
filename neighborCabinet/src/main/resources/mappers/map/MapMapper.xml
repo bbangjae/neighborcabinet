@@ -18,7 +18,7 @@
   		<result property="pTime"  column="pTime"  />
 
   	</resultMap>
-	
+
 	<!-- 장소 조회 -->
 	<select id="listAllMap"  resultMap="mapResult">
 		SELECT *

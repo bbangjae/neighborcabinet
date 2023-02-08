@@ -48,7 +48,7 @@ public class rentalController_S {
 
 
     @RequestMapping(value = "/rental/reg")
-    private String reg(PlaceInfoVO placeInfo, BoxpVO Box, HttpSession httpSession,HttpServletRequest req, MultipartFile[] files, Model model)throws Exception {
+    private String reg(PlaceInfoVO placeInfo, HttpSession httpSession,HttpServletRequest req, MultipartFile[] files, Model model)throws Exception {
 
         // 글저장
 /*
@@ -75,9 +75,6 @@ public class rentalController_S {
         int boxQtyin = Integer.parseInt(req.getParameter("boxQty"));
 */
 
-
-        Box.setUserId((String)httpSession.getAttribute("sid"));
-        service.boxPreg(Box);
 
         //파일 저장소 위치 존재 확인 후 없으면 생성
         File folder = new File(System.getProperty("user.dir")+ uploadPath);

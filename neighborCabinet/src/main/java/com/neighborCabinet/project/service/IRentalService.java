@@ -13,6 +13,5 @@ public interface IRentalService {
     int rentalreg(PlaceInfoVO PlaceInfo) throws Exception;
     public ArrayList<BoxVO> boxreg(String userId);
 
-    int boxPreg(BoxpVO Box);
 
 }

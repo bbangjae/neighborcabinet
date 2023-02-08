@@ -69,6 +69,7 @@
           <element id="library" level="project" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" />
           <element id="library" level="project" name="Maven: junit:junit:4.13.2" />
           <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:2.2" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.12.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

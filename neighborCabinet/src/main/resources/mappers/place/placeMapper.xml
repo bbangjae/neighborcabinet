@@ -52,6 +52,6 @@
     <select id="showBoxtype" parameterType="int" resultType="HashMap">
         select boxId,boxPrice
         from boxtype
-        where pNo=1;
+        where pNo= #{pNo};
     </select>
 </mapper>

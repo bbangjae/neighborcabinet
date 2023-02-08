@@ -41,7 +41,7 @@
 	</select>
 	
 	<insert id="insert_res" parameterType="com.neighborCabinet.project.model.ReserveVO_y">
-		INSERT INTO reserve (resNo, pNo, sender, receiver, resState)
+		INSERT INTO reserve1 (resNo, pNo, sender, receiver, resState)
 		VALUES (#{resNo}, #{pNo}, #{sender}, #{receiver}, 0)
 	</insert>
 	<insert id="insert_resD" parameterType="com.neighborCabinet.project.model.ReserveDetailVO_y">
@@ -53,7 +53,7 @@
 	<!-- 리뷰 데이터 -->
 	<select id="reviewOList" parameterType="string" resultType="com.neighborCabinet.project.model.ReviewOListVO_y">
 		SELECT p.pWriteTitle, p.pNo, p.pAddress1, p.pAddress2, p.pImage, r.reviewEnd
-		FROM reserve r, place p
+		FROM reserve1 r, place p
 		WHERE r.sender=#{userId} and r.resState=3 and p.pNo=r.pNo
 		ORDER BY r.reviewEnd DESC
 	</select>
@@ -62,7 +62,7 @@
 		VALUES (#{content}, #{grade}, #{userId}, #{pNo})
 	</insert>
 	<update id="reviewCom" parameterType="hashmap">
-		UPDATE reserve
+		UPDATE reserve1
 		SET resState=4
 		WHERE sender=#{userId} and pNo=#{pNo}
 	</update>
@@ -86,7 +86,7 @@
 	</delete>
 	<select id="reviewCheck" parameterType="hashmap" resultType="int">
 		SELECT COUNT(*)
-		FROM reserve
+		FROM reserve1
 		WHERE sender=#{userId} and pNo=#{pNo} and resState=3
 	</select>
 </mapper>

@@ -10,5 +10,4 @@ public interface IRentalregDAO {
 
     public ArrayList<BoxVO> boxreg(String userId);
 
-    int boxPreg(BoxpVO Box);
 }

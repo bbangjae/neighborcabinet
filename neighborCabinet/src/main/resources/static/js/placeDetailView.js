@@ -12,9 +12,10 @@ $(function(){
 /*          캘린더 시작          */
 var today = new Date();
 var date = new Date();
-var realMonth =date.getMonth()+1;
 var realToday=date.getDate();
-
+var realMonth =date.getMonth()+1;
+var realDate = date.getDate()
+var realHour=date.getHours();
 var selectedCell;
 var selectedColor=null;
 var selectedYear=null;
@@ -60,8 +61,12 @@ function buildCalendar() {
     var lastDate = new Date(today.getFullYear(), today.getMonth() +1, 0);
 
     nowMonth = today.getMonth()+1;
+
+
     //이번달이면 0, 다음달이면 1 리턴
     monthEquals = thisMonth(nowMonth, realMonth);
+
+
 
     /*테이블 초기화*/
     while (calendarTable.rows.length > 2) {
@@ -95,6 +100,8 @@ function buildCalendar() {
         }else if (nowMonth> realMonth*1+1){
             noCount+=1;
         }
+
+
         cell.align = "center";
         $(cell).css({
             "color":"gray"
@@ -131,6 +138,7 @@ function buildCalendar() {
                 clickedMonth = (1 + today.getMonth());
                 clickedDate = this.getAttribute('id');
                 today.setDate(clickedDate);
+
 
 
                 clickedDate_text = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
@@ -176,8 +184,6 @@ function buildCalendar() {
     }
 }
 function prevCalendar(){
-    console.log(today.getMonth());
-    console.log(realMonth);
     if(today.getMonth()<realMonth){
         alert("예약은 금일기준으로 당일부터 30일 이후까지 가능합니다")
         return false;
@@ -190,9 +196,7 @@ function nextCalendar(){
         alert("예약은 금일기준으로 당일부터 30일 이후까지 가능합니다")
         return false;
     }
-    console.log(today.getMonth());
     today = new Date (today.getFullYear(),today.getMonth()+1, today.getDate());
-    console.log(today.getMonth());
     buildCalendar();
 }
 
@@ -207,6 +211,7 @@ function timetableInit(start,end,arr) {
 
     for(k=start*1; k<=end*1; k++){
         if(hours_R.charAt(k) ==='1') continue;
+        if(k<realHour && clickedDate*1===realDate*1) continue;
         $(arr[k]).css({
             "color":"gray",
             "background-color": "rgb(215, 255, 241)",
@@ -275,8 +280,9 @@ function timeTableMaker(sY,sM, sD){
                 cnt_t+=1;
                 //클릭 이벤트
 
-                if(noCount_t===0) {
+                if(noCount_t===0&&cell.style.backgroundColor==="rgb(215, 255, 241)") {
                     cell.onclick = function () {
+
                         $("#timeInfo,#sumPrice").show();
                         cnt_selected += 1;
                         //가격표, 시간 보여주기
@@ -299,13 +305,26 @@ function timeTableMaker(sY,sM, sD){
 
 }
 function insertTime(){
-    if(hours_R.charAt(cellTime)==='0')
+    if(cellTime<realHour && clickedDate*1===realDate*1){
+
         $(cell).css({
             "color":"gray",
+            "background-color": "lightgray",
+            "border":"solid 1px gray",
+            "opacity": "1",
+            "cursor":"default"
+        });
+    }
+    else if(hours_R.charAt(cellTime)==='0') {
+
+        $(cell).css({
+            "color": "gray",
             "background-color": "rgb(215, 255, 241)"
         });
+    }
+
     else{
-        noCount_t=1;
+
         $(cell).css({
 
             "color":"gray",
@@ -319,6 +338,7 @@ function insertTime(){
 function clickTime(cellTimearr){
 
 // 시간테이블 3번이상 골랐을경우
+
     if (cnt_selected === 3) {
         timetableInit(startTime * 1, endTime * 1, cellTimearr);
 
@@ -330,7 +350,7 @@ function clickTime(cellTimearr){
         if (selectedFirstTime * 1 < cellTime * 1) {
 
             for (k = selectedFirstTime * 1 + 1; k <= cellTime * 1; k++) {
-                if(hours_R.charAt(k)=== '1'){
+                if(hours_R.charAt(k)=== '1'|| (k<realHour && clickedDate*1===realDate*1)){
                     timetableInit(startTime * 1, endTime * 1, cellTimearr);
                     selectedTimeAndTotalPriceTextInit();
                     return;
@@ -352,7 +372,6 @@ function clickTime(cellTimearr){
                 "opacity": "1"
             });
             cnt_selected = 1;
-            console.log(1234);
             selectedFirstTime = 24*1;
             selectedFinalTime = 0*1;
         }
@@ -385,7 +404,7 @@ function showTimePriceText(){
     resTimeForm = document.getElementById("selectedTime");
     // resDateForm.value=resDate;
     resTimeForm.value = resTime;
-    console.log(selectedFirstTime+"호출후"+selectedFinalTime);
+    // console.log(selectedFirstTime+"호출후"+selectedFinalTime);
     useTime = (selectedFinalTime*1 + 1) - selectedFirstTime*1;
     useTimeForm = document.getElementById("totalPrice");
     useTimeForm.value = "￦"+(useTime * price_R).toLocaleString()+"원";

@@ -72,10 +72,20 @@
 
                     <div class="ct_left">
 
-                        <div class="image">
-                            <c:forEach var="file" items="${fileList}">
-                                <img src="/files/${file.fileNo}/download" style="width:300px; height:300px;"/>
-                            </c:forEach>
+                        <div class="imageSlide">
+                                <div id="pNButtonBox">
+                                    <img id="nButton" src="<c:url value='/image/nextButton.png' />">
+                                    <img id="pButton" src="<c:url value='/image/prevButton.png' />">
+                                </div>
+                            <div id="imagePanel">
+                                <img src="<c:url value='/image/place1.jpg' />">
+                                <img src="<c:url value='/image/food2.png' />">
+                            </div>
+                            <div>
+                            </div>
+<%--                            <c:forEach var="file" items="${fileList}">--%>
+<%--                                <img src="/files/${file.fileNo}/download" style="width:300px; height:300px;"/>--%>
+<%--                            </c:forEach>--%>
                         </div>
                         <div class="ct_title">
                             ${pi.pPlaceTitle}

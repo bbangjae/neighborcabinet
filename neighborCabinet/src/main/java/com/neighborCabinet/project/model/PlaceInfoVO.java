@@ -11,7 +11,8 @@ public class PlaceInfoVO {
     String pPlaceTitle; //spaceName
     String pPlaceInfo; //spaceText
     private String pHp; //spaceHp
-    private String pTime; // spaceTime
+    private String pS_Time; // spaceTime
+    private String pE_Time;// end
     private String pAddress1; // spaceAddress1
     private String pAddress2; // SpaceAddress2
     String pBoxInfo;
@@ -113,14 +114,6 @@ public class PlaceInfoVO {
         this.pHp = pHp;
     }
 
-    public String getpTime() {
-        return pTime;
-    }
-
-    public void setpTime(String pTime) {
-        this.pTime = pTime;
-    }
-
     public String getpAddress1() {
         return pAddress1;
     }
@@ -151,5 +144,21 @@ public class PlaceInfoVO {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getpS_Time() {
+        return pS_Time;
+    }
+
+    public void setpS_Time(String pS_Time) {
+        this.pS_Time = pS_Time;
+    }
+
+    public String getpE_Time() {
+        return pE_Time;
+    }
+
+    public void setpE_Time(String pE_Time) {
+        this.pE_Time = pE_Time;
     }
 }

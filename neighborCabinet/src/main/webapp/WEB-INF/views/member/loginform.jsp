@@ -15,57 +15,157 @@
     <title>로그인</title>
     <script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
     <style>
-        html, body {
-            height: 70%;
-            background: #ffffff;
+        body {
+            line-height: 1.5;
+            margin: 0;
+            min-block-size: 100vh;
+            padding: 5vmin;
+
         }
 
-        #container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-        h3{
-            font-weight: bold;
+        h2 {
+            font-size: 1.75rem;
         }
 
-    </style>
-<%--
-    <style> @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Jua&family=Oswald:wght@700&family=Rowdies:wght@300&display=swap');
-    body * {
-        font-family: "Jua", sans-serif;
-    }
-    </style>
---%>
+        input {
+            background-image: none;
+            border: none;
+            font: inherit;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s;
+        }
+
+        svg {
+            height: auto;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+
+        /* ---------- ALIGN ---------- */
+        .align {
+            display: grid;
+            place-items: center;
+        }
+
+        /* ---------- BUTTON ---------- */
+
+        .button {
+            background-color: #00DBAF;
+            color: #fff;
+            padding: 0.25em 1.5em;
+        }
+
+        .button:focus,
+        .button:hover {
+            background-color: #00DBAF;
+        }
+
+        /* ---------- ICONS ---------- */
+        .icons {
+            display: none;
+        }
+
+        .icon {
+            fill: currentcolor;
+            display: inline-block;
+            height: 1em;
+            width: 1em;
+        }
+
+        /* ---------- LOGIN ---------- */
+        .login {
+            width: 400px;
+            height: 500px;
+            margin: 0 auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+
+        }
+
+        .login__header {
+            background-color: #00DBAF;
+            border-top-left-radius: 1.25em;
+            border-top-right-radius: 1.25em;
+            color: #fff;
+            padding: 1.25em 1.625em;
+        }
+
+        .login__header :first-child {
+            margin-top: 0;
+        }
+
+        .login__header :last-child {
+            margin-bottom: 0;
+        }
+
+        .login h2 .icon {
+            margin-right: 14px;
+        }
+
+        .login__form {
+            background-color: #e5e3e3;
+            border-bottom-left-radius: 1.25em;
+            border-bottom-right-radius: 1.25em;
+            display: grid;
+            gap: 0.875em;
+            padding: 1.25em 1.625em;
+        }
+
+        .login input {
+            border-radius: 0.1875em;
+        }
+
+        .login input[type="text"],
+        .login input[type="password"] {
+            background-color: #eee;
+            color: #777;
+            padding: 0.25em 0.625em;
+            width: 100%;
+        }
+
+        .login input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+        }    </style>
 
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
 
-<div id="container">
-    <!--top.jsp  -->
-    <!--  로그인 폼  -->
-    <section>
-        <h3 class="h1 mb-3 fw-normal" align = "center">이웃집캐비닛</h3>
-        <form id="loginForm" name="loginForm">
-            <table>
-                <tr><th>아이디</th><td><input type="text" id="id" name="id" /></td></tr>
-                <tr><th>비밀번호 </th><td><input type="password" id="pwd" name="pwd"/></td></tr>
-                <tr>
-                    <td colspan="2" align="center" id="button" >
-                        <br>
-                        <input type="submit" value="로그인" class="w-100 btn btn-lg text-white" style="background: #00DBAF" >
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </section>
-    <!--bottom  -->
+<div class="container">
+<div class="login">
+    <header class="login__header">
+        <h2><svg class="icon">
+            <use xlink:href="#icon-lock" />
+        </svg>이웃집 캐비닛</h2>
+    </header>
+    <form class="login__form" id= "loginForm">
+
+        <div>
+            <label for="id">아이디</label>
+            <input type="text" id="id" name="id" placeholder="아이디">
+        </div>
+
+        <div>
+            <label for="pwd">비밀번호</label>
+            <input type="password" id="pwd" name="pwd" placeholder="비밀번호">
+        </div>
+
+        <div>
+            <input class="button" type="submit" value="로그인">
+        </div>
+
+    </form>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" class="icons">
+    <symbol id="icon-lock" viewBox="0 0 448 512">
+        <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z" />
+    </symbol>
+</svg>
+
 </div>
 <c:import url="/WEB-INF/views/layout/footer.jsp"/>
-
 <script>
     $(document).ready(function(){
         $('#loginForm').on('submit', function(){

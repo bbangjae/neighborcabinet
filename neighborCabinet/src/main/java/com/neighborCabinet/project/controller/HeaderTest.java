@@ -1,5 +1,11 @@
 package com.neighborCabinet.project.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,17 +21,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.neighborCabinet.project.model.BoxInfoVO_y;
 import com.neighborCabinet.project.model.MemberVO;
 import com.neighborCabinet.project.model.MyReviewVO;
+import com.neighborCabinet.project.model.ObjectVO;
 import com.neighborCabinet.project.model.OrderListVO_y;
 import com.neighborCabinet.project.model.PlaceInfoVO;
 import com.neighborCabinet.project.model.ReserveDetailVO_y;
 import com.neighborCabinet.project.model.ReserveVO_y;
+import com.neighborCabinet.project.model.ReserveVo;
 import com.neighborCabinet.project.model.ReviewOListVO_y;
+import com.neighborCabinet.project.model.SentimentVO;
 import com.neighborCabinet.project.model.ShippingVO_y;
 import com.neighborCabinet.project.model.boxOrderVO_y;
+import com.neighborCabinet.project.service.AIService_y;
 import com.neighborCabinet.project.service.BoxOrderService_y;
 
 @Controller
@@ -33,6 +44,9 @@ public class HeaderTest {
 	
 	@Autowired
 	private BoxOrderService_y service;
+	
+	@Autowired
+	private AIService_y AIService;
 	
 	@RequestMapping("/header")
 	public String head() {
@@ -168,38 +182,71 @@ public class HeaderTest {
 	
 	
 	// 예약 결제 페이지
-	@RequestMapping("/rental/payment/{pNo}")
-	public String paymentpage(@PathVariable int pNo, HttpSession session, Model model) {
+	@RequestMapping("/rental/payment/{reserveNo}")
+	public String paymentpage(@PathVariable int reserveNo, HttpSession session, Model model) throws Exception {
+		
+		//예약 정보 가져오기
+		int reserveCheck = service.reserveCnt(reserveNo);
+		if(reserveCheck ==0) {
+			return "redirect:/";
+		}
+		ReserveVo reserveInfo = service.reserveInfo(reserveNo);
+		model.addAttribute("reserveInfo", reserveInfo);
+		
+		
+		String reserve_day = reserveInfo.getReserveDate().substring(0, 4) +"."+ reserveInfo.getReserveDate().substring(6, 8)
+				+"." + reserveInfo.getReserveDate().substring(9, 11);
+		DateFormat fmt = new SimpleDateFormat("yyyy.MM.dd");
+		Date date = fmt.parse(reserve_day);
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int dayofweek = cal.get(Calendar.DAY_OF_WEEK);
+		String arr[] = {"","일","월","화","수","목","금","토"};
+		
+		// 날짜
+		model.addAttribute("reserve_day", reserve_day);
+		model.addAttribute("dayofweek", arr[dayofweek]);
+		// 시간
+		String all_time = reserveInfo.getReserveDate().substring(13);
+		String[] start_time = all_time.split(":", 2);
+		String[] back_time = all_time.split("~");
+		String[] end_time = back_time[1].split(":");
+		int reserve_time = Integer.parseInt(end_time[0]) - Integer.parseInt(start_time[0]);
+		
+		model.addAttribute("start_time", start_time[0]);
+		model.addAttribute("end_time", end_time[0]);
+		model.addAttribute("reserve_time", reserve_time);
 		
 		// 디테일 정보
-		PlaceInfoVO place = service.placeInfo(pNo);
+		PlaceInfoVO place = service.placeInfo(reserveInfo.getpNo());
 		model.addAttribute("place", place);
 		
 		// 예약자 정보
 		String userId = (String) session.getAttribute("sid");
 		
-		MemberVO reserInfo = service.reserInfo(userId);
+		MemberVO senderInfo = service.senderInfo(userId);
 		
-		if(reserInfo.getUserHp().length()==11) {
-			String HP1 = reserInfo.getUserHp().substring(0, 3);
-			String HP2 = reserInfo.getUserHp().substring(3, 7);
-			String HP3 = reserInfo.getUserHp().substring(7);
+		if(senderInfo.getUserHp().length()==11) {
+			String HP1 = senderInfo.getUserHp().substring(0, 3);
+			String HP2 = senderInfo.getUserHp().substring(3, 7);
+			String HP3 = senderInfo.getUserHp().substring(7);
 			
 			model.addAttribute("HP1", HP1);
 			model.addAttribute("HP2", HP2);
 			model.addAttribute("HP3", HP3);
 		}
 		model.addAttribute("userId", userId);
-		model.addAttribute("res", reserInfo);
+		model.addAttribute("senderInfo", senderInfo);
 		
 		//등록자 정보
-		
-		
+		place.getUserId();
+		MemberVO host = service.memberInfo(place.getUserId());
+		model.addAttribute("host", host);
 		return "/boxOrder/requestPage";
 	}
 	
-	@RequestMapping("/payment")
-	public String placePayment(ReserveDetailVO_y reD,ReserveVO_y re,Model model, String senderPhone1,
+	@RequestMapping("/payment/{reserveNo}")
+	public String placePayment(@PathVariable int reserveNo, ReserveDetailVO_y reD,ReserveVO_y re,Model model, String senderPhone1,
 								String senderPhone2, String senderPhone3){
 		
 		long timeNum = System.currentTimeMillis();
@@ -215,6 +262,7 @@ public class HeaderTest {
 		
 		reD.setSenderPhone(senderPhone1 + senderPhone2 + senderPhone3);
 		re.setResNo(resNo);
+		re.setReserveNo(reserveNo);
 		reD.setResNo(resNo);
 		
 		service.insert_res(re);
@@ -348,6 +396,63 @@ public class HeaderTest {
 		}
 	}
 	
+	@ResponseBody
+	@RequestMapping("/stt")
+	public String stt(@RequestParam("uploadFile") MultipartFile file,
+			  Model model) throws IOException {
+
+		// 1. 파일 저장 경로 설정 : C:/springWorkspace/upload/
+		// 마지막에 / 있어야 함
+		String uploadPath = "C:/springWorkspace/upload/";
+		
+		// 2. 원본 파일 이름 저장
+		String originalFileName = file.getOriginalFilename();
+		String filePathName = uploadPath + originalFileName; 
+		
+		// 3. 파일 (객체) 생성
+		File sendFile = new File(filePathName);
+		Path filePath = Paths.get(filePathName);
+		// 4. 서버로 전송
+		file.transferTo(sendFile);
+		
+		
+		String result = AIService.stt(filePathName);
+		
+		Files.delete(filePath);
+		
+		return result;
+	}
+	@ResponseBody
+	@RequestMapping("/sentiment")
+	public SentimentVO sentiment(@RequestParam String content) throws IOException {
+		
+		SentimentVO senti = AIService.sentiment(content);
+		
+		System.out.println(senti.getNegative());
+		System.out.println(senti.getNeutral());
+		System.out.println(senti.getPositive());
+		
+		return senti;
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/objectDetect")
+	public ArrayList<ObjectVO> objectDetection(@RequestParam("uploadFile") MultipartFile file) throws IOException {
+		
+		String uploadPath = "C:/springWorkspace/upload/";
+		
+		String originalFileName = file.getOriginalFilename();
+		String filePathName = uploadPath + originalFileName; 
+		
+		File sendFile = new File(filePathName);
+
+		file.transferTo(sendFile);
+		ArrayList<ObjectVO> objList = AIService.objectDetect(filePathName);
+
+		return objList;
+	}
+	
 	public int pageNum(int n, int a) {
 		
 		int result = 0;
@@ -360,5 +465,5 @@ public class HeaderTest {
 		return result;
 	}
 	
-		
+	
 }

@@ -35,8 +35,35 @@ $(document).ready(function(){
 		}else{
 			$('#food').val(0);
 		}
-		
 	});
-	
- 
+	$(document).on("submit","#objectForm",function(){
+ 	
+ 		event.preventDefault();
+ 		
+ 		
+ 		var formData = new FormData($('#objectForm')[0]);
+ 		var fileName = $('#uploadFile').val().split("\\").pop();
+ 		console.log("여기까지옴" + fileName);
+ 		console.log(formData);
+ 		
+ 		$.ajax({
+ 			type:"post",
+ 			url:"/objectDetect",
+ 			enctype:"multipart/form-data",
+ 			processData:false,
+ 			contentType:false,
+ 			data: formData,
+ 			success:function(result){
+ 				$('#resultDiv').empty();
+ 				for(var i=0; i < result.length; i++) {
+ 					
+ 					$('#resultDiv').append('<div>'+ result[i].name + "</div>");
+ 				}
+ 			},
+ 			error:function(){
+ 				alert("왜 실패");
+ 			}
+ 		});
+ 	});
+ 	
 });

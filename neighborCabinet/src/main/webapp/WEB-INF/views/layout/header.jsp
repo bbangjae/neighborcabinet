@@ -23,7 +23,7 @@
 							<ul>
 								<c:if test="${empty sessionScope.sid}">
 								<li><a href="<c:url value='/member/loginform'/>">로그인</a></li>
-								<li><a href="<c:url value='/member/joinform'/>">회원가입</a></li>
+								<li><a href="<c:url value='/member/term'/>">회원가입</a></li>
 								</c:if>
 								
 								<!-- 로그인 성공 후 보여줄 메뉴 항목 -->
@@ -57,7 +57,9 @@
 							<input type="text" id="header_searchInput" placeholder="주소를 입력하라">
 						</div>
 						<div id="header_searchBtnBox">
-							<button type="submit" id="header_searchBtn"><i class="fa-solid fa-magnifying-glass fa-2x" style="color:#00DBAF"></i></button>
+							<button type="submit" id="header_searchBtn"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button>
+							<button type="button" id="STTBtn"><i class="fa-solid fa-microphone fa-2x"></i></button><!-- STTBtn -->
+							
 						</div>
 					</form>
 					<div>
@@ -69,6 +71,9 @@
 			</header>
 		</div>
 		<div id="header_space"></div>
+		<div id="STTStopBox">
+			<button type="button" id="stopBtn"><i class="fa-solid fa-microphone fa-2x"></i></button>
+		</div>
 	</body>
 </html>
 

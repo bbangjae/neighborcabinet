@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,12 +31,14 @@
 	    		
 	    			if($(this).val() == ''){
 	    				count = 1;
+	    				console.log("1");
 	    			}
 	    			
 	    		});
 		    		
 	    			if($('input[name="storList"]').val() == ''){
 	    				count = 1;
+	    				console.log("2");
 	    			};
 	    		
 	    		if(count == 1){
@@ -70,7 +73,7 @@
 		<div id="wrap">
 			<div><h1>예약하기</h1></div>
 			<article>
-				<form action="<c:url value='/payment'/>" method="post" id="payment">
+				<form action="<c:url value='/payment/${reserveInfo.reserveNo }'/>" method="post" id="payment">
 					<div id="left_article">
 						<section id="s1">
 							<div class="sec_title">예약 공간</div>
@@ -80,12 +83,13 @@
 										<img id="spaceImg" src="<c:url value="/image/homeImg.png"/>">
 									</div>
 									<div id="spaceDis">
-										<div>글의 제목</div>
-										<p>글에 대한 설명
+										<div>${place.pWriteTitle }</div>
+										<p>${place.pPlaceInfo }
 										</p>
 									</div>
 								</div>
 								<div id="fixedInfo_1_2">
+									<div><div>공간 유형</div><div>${place.pType }</div></div>
 									<div><div>선택한 박스</div><div>이웃집 플라스틱 박스</div></div>
 									<div><div>모든 개수</div><div>1개</div></div>
 								</div>
@@ -94,7 +98,7 @@
 						<section id="s2">
 							<div class="sec_title">예약정보</div>
 							<div id="fixedInfo_2">
-								<div id="fixedInfo_2bobo"><span>예약날짜</span><span>2023.01.25 (수) 10시 ~ 12시</span></div>
+								<div id="fixedInfo_2bobo"><span>예약날짜</span><span>${reserve_day } (${dayofweek }) ${start_time }시 ~ ${end_time }시</span></div>
 								<div><span>예약박스</span><span>플라스틱 3호</span></div>
 							</div>
 						</section>	
@@ -104,12 +108,16 @@
 							<div id="fixedInfo_3">
 								<div>
 									<div></div>
-									<input type="checkbox" value="0" id="pickup" name="pickup">
-				                    <label for="pickup" style="margin-right : 50px;">픽업 요청</label>
-				                    <input type="checkbox" value="0" id="food" name="food">
-				                    <label for="food">음식 포함</label>
+									<c:if test="${place.pickup eq '1,0'}">
+										<input type="checkbox" value="0" id="pickup" name="pickup">
+					                    <label for="pickup" style="margin-right : 5px;"></label><label for="pickup" style="margin-right : 50px;">픽업 요청</label>
+				                    </c:if>
+				                    <c:if test="${place.food eq '1,0'}">
+					                    <input type="checkbox" value="0" id="food" name="food" >
+					                    <label for="food" style="margin-right : 5px;"></label><label for="food" style="margin-right : 50px;">음식 포함</label>
+				                    </c:if>
 								</div>
-								<div><div>예약자</div><input type="text" class="senderInfo" name="senderName" value="${res.userName }"></div>
+								<div><div>예약자</div><input type="text" class="senderInfo" name="senderName" value="${senderInfo.userName }"></div>
 								<div>
 									<div>연락처</div>
 									<div id="senderPhone">
@@ -118,25 +126,27 @@
 										<input type="text" class="senderPhone" name="senderPhone3" value="${HP3 }" style="margin-left : 10px;">
 									</div>
 								</div>
-								<div><div>이메일</div><input type="text" class="senderInfo" name=senderEmail value="${res.userEmail }"></div>
-								<div><div>보관물품</div><input type="text" class="senderInfo" name="storList"></div>
+								<div><div>이메일</div><input type="text" class="senderInfo" name=senderEmail value="${senderInfo.userEmail }"></div>
+								
+								<div><div>보관물품</div><div style="width:100%; display : flex;"><input type="text" class="senderInfo" name="storList"><span id="object"><i class="fa-solid fa-image"></i></span></div></div>
+								<div><div></div><div style="font-size : 10px;">*보관물품은 이미지로도 작성이 가능합니다.</div></div>
 								<div><div>요청사항</div><textarea class="senderInfo" name="request"></textarea></div>
-								<input type="hidden" name="pNo" value="${pNo }">
-								<input type="hidden" name="receiver" value="여기">
-								<input type="hidden" name="sender" value="${userId}">
+								<input type="hidden" name="pNo" value="${place.pNo }">
+								<input type="hidden" name="receiver" value="${host.userId }">
+								<input type="hidden" name="sender" value="${senderInfo.userId}">
 								<!-- 예약자 아이디나 userNo, 여기 글No -->
 							</div>
 						</section>
 						<section id="s4">
 							<div class="sec_title2">호스트 정보</div>
 							<div id="fixedInfo_4">
-								<div><div>공간상호</div><div>모임공간 르씨엘</div></div>
-								<div><div>대표자명</div><div>김지선</div></div>
-								<div><div>소재지</div><div>서울 관악구~~~~</div></div>
+								<div><div>공간상호</div><div>${place.pPlaceTitle }</div></div>
+								<div><div>대표자명</div><div>${host.userName }</div></div>
+								<div><div>소재지</div><div>${place.pAddress1 }(${place.pAddress2 })</div></div>
 								<div><div>사업자번호</div><div>649824</div></div>
 								<div>
 									<div>연락처</div>
-									<div id="PAndE"><div>010-1348-1564</div><div>abc@abc.com</div></div>
+									<div id="PAndE"><div>${place.pHp }</div><div>${host.userEmail }</div></div>
 									</div>
 							</div>
 						</section>
@@ -147,16 +157,16 @@
 							<div id="fixedInfo_5">
 								<div id="fixedInfo_5_1">
 									<div id="fixedInfo_5_1_1">
-										<div>예약날짜<span>2023.01.27 (금)</span></div>
-										<div>예약시간<span>11시 ~18시, 7시간</span></div>
+										<div>예약날짜<span>${reserve_day } (${dayofweek })</span></div>
+										<div>예약시간<span>${start_time }시 ~ ${end_time }시, ${reserve_time }시간</span></div>
 										<div>예약박스<span>플라스틱 박스</span></div>
 									</div>
 									<div>
-										<div>9000</div>
+										<div><fmt:formatNumber value="${reserveInfo.reservePrice }" pattern="#,###" /></div>
 									</div>
 								</div>
 								<div id="fixedInfo_5_2">
-									70,000
+									<fmt:formatNumber value="${reserveInfo.reservePrice }" pattern="#,###" />
 								</div>
 							</div>
 							<input type="button" onclick="requestPay()" value="결제하기" id="paymentBtn"><br>
@@ -166,5 +176,13 @@
 				</form>
 			</article>
 		</div>
+		<div>
+			<form id="objectForm">
+				음성파일 업로드 : <input type="file" id="uploadFile" name="uploadFile">
+				<input type="submit" value="결과 확인">
+			</form>
+			<div id="resultDiv"></div><br><br>
+		</div>
+		<div style="height : 50px;"></div>
 	</body>
 </html>

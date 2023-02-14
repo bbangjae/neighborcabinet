@@ -80,6 +80,9 @@ article> form{
 	padding : 15px 0;
 	border-top : solid 1px #ebebeb;
 }
+#fixedInfo_1_2>div>div:first-child{
+	width : 100px;
+}
 #fixedInfo_1_2>div>div:last-child{
 	margin-left : 30px;
 }
@@ -124,6 +127,22 @@ article> form{
 	width : 100px;
 	padding-top : 15px;
 }
+#object{
+	font-size : 30px;
+	height : 50px;
+	margin : auto;
+	padding : 5px 10px;
+	text-align : center;
+	color : #00DBAF;
+	background : white;
+	border-bottom : solid 1px #ebebeb;
+	border-top : solid 1px #ebebeb;
+	border-right : solid 1px #ebebeb;
+	box-sizing: border-box;
+}
+#object:hover{
+	cursor : pointer;
+}
 .senderInfo{
 	padding : 0 15px;
 	box-sizing: border-box;
@@ -134,6 +153,19 @@ article> form{
 }
 #fixedInfo_3>div>input:focus{
 	outline: none;
+}
+#fixedInfo_3 input[type="checkbox"] + label{
+	width : 15px;
+	height : 15px;
+	border : 2px solid #bcbcbc;
+	cursor : pointer;
+	margin-top : auto;
+}
+#fixedInfo_3 input[type="checkbox"]:checked + label{
+	background : #00DBAF;
+}
+#fixedInfo_3 input[type="checkbox"]{
+	display : none;
 }
 #senderPhone{
 	width : 100%;
@@ -237,4 +269,16 @@ article> form{
 }
 #paymentBtn:hover{
 	cursor : pointer;
+}
+#resultDiv{
+	display : flex;
+	flex-wrap: wrap;
+	width : 400px;
+	background : green;
+}
+#resultDiv div{
+	width : 100px;
+	height : 50px;
+	background : white;
+	border : solid 1px;
 }

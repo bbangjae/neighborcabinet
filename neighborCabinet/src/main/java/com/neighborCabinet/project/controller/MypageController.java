@@ -87,8 +87,8 @@ public class MypageController {
 	@RequestMapping("/lenderPage")
 	public String lender(Model model) {
 		//대여 내역
-		ArrayList<RentHistoryVO> rentAllHistory = service.listAllHistory();
-		model.addAttribute("rentAllHistory", rentAllHistory);
+//		ArrayList<RentHistoryVO> rentAllHistory = service.listAllHistory();
+//		model.addAttribute("rentAllHistory", rentAllHistory);
 		
 		//거래 내역
 		ArrayList<DealHistoryVO> dealAllHistory = dealService.listAllDeal();

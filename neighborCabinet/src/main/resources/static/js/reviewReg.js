@@ -40,4 +40,21 @@ $(document).ready(function(){
 		window.close();
 		
 	});
+	$("#abcd").on("click", function(){
+		
+		
+		$.ajax({
+ 			type:"post",
+ 			url:"/sentiment",
+ 			data:{"content":$('#reviewContent').val()},
+ 			success:function(result){
+ 				$('#qwer').empty();
+ 				$('#qwer').append("부정 : "+result.negative + "중립 : "+ result.neutral + "긍정 : "+ result.positive);
+ 			},
+ 			error:function(){
+ 				alert("실패");
+ 			},
+ 		});
+	});
+	
 });

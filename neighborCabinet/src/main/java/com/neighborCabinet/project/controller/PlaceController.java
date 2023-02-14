@@ -56,6 +56,13 @@ public class PlaceController {
             r_sum+=rate;
         }
         r_mean=r_sum/r_cnt;
+        if (pi.getpS_Time().length()==1){
+            pi.setpS_Time("0"+pi.getpS_Time());
+        }
+        if (pi.getpE_Time().length()==1){
+            pi.setpE_Time("0"+pi.getpE_Time());
+        }
+
         model.addAttribute("pi",pi);
         model.addAttribute("fileList",fileService.fileList(pNo));
         model.addAttribute("qaList",qaList);
@@ -146,7 +153,6 @@ public class PlaceController {
             HttpSession session){
         HashMap<String,Object> result=new HashMap<String,Object>();
         int t_p2=Integer.parseInt(t_p.replaceAll("[^0-9]",""));
-        System.out.print(t_p2);
         String userId=(String)session.getAttribute("sid");
         if(!(d_t.equals(""))){
             vo.setpNo(pNo);
@@ -157,7 +163,6 @@ public class PlaceController {
             vo.setReserveNo(vo.getReserveNo());
             result.put("no",vo.getReserveNo()) ;
         }
-        System.out.println(bt);
         // 예약 날짜 수정
         StringBuilder sb =new StringBuilder(hours);
         for(int i=selectedFirstTime;i<=selectedFinalTime;i++){
@@ -193,6 +198,7 @@ public class PlaceController {
         map.put("bt",bt);
         HashMap<String,Object> map2= service.showDate(map);
         map2.put("hours",map2.get("hours").toString().replaceAll("\"",""));
+
 
         return map2;
     }

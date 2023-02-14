@@ -261,6 +261,10 @@ function timeTableMaker(sY,sM, sD){
         success:function (map){
 
             hours_R=map.hours;
+            startTime=map.st*1;
+            endTime=map.et*1;
+
+
 
 
             for(i=0;i<endTime - startTime;i++){
@@ -413,6 +417,42 @@ function showTimePriceText(){
 
 
 $(document).ready(function(){
+    // 슬라이드 이동
+    var movedIndex = 0;
+    function moveSlide(index){
+        movedIndex = index;
+
+        var moveLeft = -(index * 750);
+
+        $('#imagePanel').animate({left:moveLeft}, 'fast');
+
+    }
+    $('#pButton').on('click',function(){
+        if(movedIndex !=0)
+            movedIndex= movedIndex -1;
+
+        moveSlide(movedIndex);
+    });
+
+    $('#nButton').on('click', function(){
+        if(movedIndex != 4)
+            movedIndex = movedIndex + 1;
+
+        moveSlide(movedIndex);
+    });
+    $('.imageSlide').mouseover(function(){
+        $('#pNButtonBox').css({
+            "opacity":"0.8"
+        })
+    })
+    $('.imageSlide').mouseleave(function(){
+        $('#pNButtonBox').css({
+            "opacity":"0.1"
+        })
+    })
+
+
+
     var location1 = document.querySelector("#space").offsetTop;
     var location2 = document.querySelector("#box").offsetTop;
     var location3 = document.querySelector("#caution").offsetTop;

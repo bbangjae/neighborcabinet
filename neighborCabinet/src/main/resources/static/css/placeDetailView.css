@@ -13,7 +13,7 @@ html,body,div {
 
 }
 html,body {
-    height:100%;
+
     width:100%;
     padding:0px;
     margin:0px;
@@ -95,41 +95,40 @@ input:focus {
     border: solid 0px gold;
 }
 #container .c_header .title{
-
     font-size: 32px;
     font-weight: bold;
     margin-top:100px;
 }
 
 #container .c_content{
+    display: flex;
     margin:0 auto;
     width: 1080px;
-    height:3500px;
-    border:solid 0px blue;
+    height:100%;
     letter-spacing: 0;
     word-spacing: 0;
     background-color: #F9FAFB;
     border: solid 1px #00DBAF;
 }
 #container .c_content .ct_left{
-    float:left;
+
     width:750px;
     height:100%;
     border: solid 1px #00DBAF;
 }
 #container .c_content .ct_left .imageSlide{
-
+    position: relative;
     width:100%;
     height:400px;
-    /*border:solid 3px pink;*/
     overflow: hidden;
 
 }
 #container .c_content .ct_left .imageSlide #imagePanel{
+    position: relative;
     display: flex;
     width:3000px;
     height:400px;
-    /*border:solid 1px blue;*/
+
 
 }
 
@@ -142,55 +141,61 @@ input:focus {
     position: absolute;
     width:750px;
     height:400px;
-    border:solid 2px blue;
     z-index:1;
+    opacity: 0.1;
 }
-#pButton{
+#container .c_content .ct_left .imageSlide #pNButtonBox #pButton{
     position:absolute;
-    top :160px;
+    top :170px;
     left:4%;
-    opacity:0.8;
+
     cursor:pointer;
 }
 
-#nButton{
+#container .c_content .ct_left .imageSlide #pNButtonBox #nButton{
     position:absolute;
-    top :160px;
+    top :170px;
     right:4%;
-    opacity:0.8;
+
     cursor:pointer;
 }
 
 #container .c_content .ct_left .ct_title{
+
     width:100%;
     height:140px;
-    border:solid 0px red;
     font-size:48px;
     font-weight:300;
     line-height:60px;
     font-family: sans-serif;
 }
+
 #container .c_content .ct_left .ct_menu{
     position:sticky;
     top:80px;
-    z-index:1000;
+    z-index:1001;
     overflow:hidden;
     width:100%;
     display: inline-block;
     height:60px;
-    border:solid 0px green;
+
     background-color: #F9FAFB;
+    margin:0;
 }
 #container .c_content .ct_left .ct_text{
 
+    width:100%;
+    height:100%;
+
 }
 #container .c_content .ct_left .ct_text .t_title{
+
     width:100%;
     height:20px;
     padding:0;
     margin:100px 0 30px 0;
     border:solid 0px green;
-    z-index: 10000;
+
 
 }
 #container .c_content .ct_left .ct_text .fp_available span{
@@ -307,7 +312,7 @@ input:focus {
 
 }
 #container .c_content .ct_right{
-    display: inline-block;
+
     width:320px;
     height:100%;
     border: solid 0px pink;
@@ -322,8 +327,9 @@ input:focus {
     /*overflow:hidden;*/
     width:300px;
     margin-left:20px;
-    height:1000px;
+    height:100%;
     border:solid 0px red;
+
 }
 #container .c_content .ct_right .option .o_title{
     width:100%;

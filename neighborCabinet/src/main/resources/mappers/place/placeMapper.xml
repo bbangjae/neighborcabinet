@@ -36,9 +36,10 @@
 
     <select id="showDate" parameterType="HashMap" resultType="HashMap">
         select
-        JSON_EXTRACT(date, #{reserveDate}) as hours
-        FROM reserveDate
-        WHERE (JSON_EXTRACT(date, '$."boxtype"') = #{bt}) and pNo=#{pNo}
+        JSON_EXTRACT(r.date, #{reserveDate}) as hours,  p.pS_Time as st, p.pE_Time as et
+        FROM reserveDate r , place p
+        WHERE (JSON_EXTRACT(r.date, '$."boxtype"') = #{bt}) and r.pNo=#{pNo}  and r.pNo=p.pNo;
+
     </select>
 
     <select id="updateDate" parameterType="HashMap">

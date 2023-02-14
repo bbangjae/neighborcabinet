@@ -29,8 +29,18 @@
 	</insert>
 	
 	<!-- 예약결제페이지 -->
-	<select id="reserInfo" parameterType="string" resultType="com.neighborCabinet.project.model.MemberVO">
-		SELECT userName, userNickname, userHp, userEmail
+	<select id="reserveCnt" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		FROM reserve
+		WHERE reserveNo=#{reserveNo}
+	</select>
+	<select id="reserveInfo" parameterType="int" resultType="com.neighborCabinet.project.model.ReserveVo">
+		SELECT *
+		FROM reserve
+		WHERE reserveNo=#{reserveNo}
+	</select>
+	<select id="senderInfo" parameterType="string" resultType="com.neighborCabinet.project.model.MemberVO">
+		SELECT userName, userNickname, userHp, userEmail, userId
 		FROM member
 		WHERE userId=#{userId}
 	</select>
@@ -41,8 +51,8 @@
 	</select>
 	
 	<insert id="insert_res" parameterType="com.neighborCabinet.project.model.ReserveVO_y">
-		INSERT INTO reserve1 (resNo, pNo, sender, receiver, resState)
-		VALUES (#{resNo}, #{pNo}, #{sender}, #{receiver}, 0)
+		INSERT INTO reserve1 (resNo, reserveNo, pNo, sender, receiver, resState)
+		VALUES (#{resNo}, #{reserveNo}, #{pNo}, #{sender}, #{receiver}, 0)
 	</insert>
 	<insert id="insert_resD" parameterType="com.neighborCabinet.project.model.ReserveDetailVO_y">
 		INSERT INTO reserveDetail (resNo, pickup, food, senderName, senderPhone, senderEmail, storList, request, resState)

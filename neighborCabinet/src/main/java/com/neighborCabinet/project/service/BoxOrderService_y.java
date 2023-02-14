@@ -15,6 +15,7 @@ import com.neighborCabinet.project.model.OrderListVO_y;
 import com.neighborCabinet.project.model.PlaceInfoVO;
 import com.neighborCabinet.project.model.ReserveDetailVO_y;
 import com.neighborCabinet.project.model.ReserveVO_y;
+import com.neighborCabinet.project.model.ReserveVo;
 import com.neighborCabinet.project.model.ReviewOListVO_y;
 import com.neighborCabinet.project.model.ShippingVO_y;
 
@@ -54,9 +55,9 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 	}
 
 	@Override
-	public MemberVO reserInfo(String userId) {
+	public MemberVO senderInfo(String userId) {
 		
-		return dao.reserInfo(userId);
+		return dao.senderInfo(userId);
 	}
 
 	@Override
@@ -131,6 +132,18 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 		map.put("pNo", pNo);
 		
 		return dao.reviewCheck(map);
+	}
+
+	@Override
+	public ReserveVo reserveInfo(int reserveNo) {
+		
+		return dao.reserveInfo(reserveNo);
+	}
+
+	@Override
+	public int reserveCnt(int reserveNo) {
+		
+		return dao.reserveCnt(reserveNo);
 	}
 
 

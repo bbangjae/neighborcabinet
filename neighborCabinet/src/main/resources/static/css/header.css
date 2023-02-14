@@ -57,11 +57,26 @@ body{
 	font-size : 15px;
 	width : 500px;
 }
+#header_searchInput:focus{
+	outline : none;
+}
+
 #header_searchBtn{
 	border : none;
 	background-color : white;
 	font-size : 15px;
+	color : #00DBAF;
 }
+#STTBtn{
+	border : none;
+	background-color : white;
+	font-size : 15px;
+	color : #00DBAF;
+}
+#STTBtn:hover{
+	cursor:pointer;
+}
+
 #header_searchBtn:hover{
 	cursor:pointer;
 }
@@ -135,6 +150,23 @@ body{
 	font-size : 20px;
 	display: block;
 }
+#STTStopBox{
+	left : 500px;
+	position : absolute;
+	margin :auto;
+	width : 500px;
+	line-height : 500px;
+	background : white;
+	text-align : center;
+	display : none;
+}
+#STTStopBox button{
+	background : none;
+	color : red;
+	border : none;
+	font-size : 100px;
+	margin : auto;
+}
 /************************* 반응형 설정 *************************/
 @media (max-width: 1023px){
 	
@@ -180,6 +212,11 @@ body{
 		margin-left : 19px;
 	}
 	#header_searchBtn{
+		position : relative;
+		left : 16px;
+		font-size : 10px;
+	}
+	#STTBtn{
 		position : relative;
 		left : 16px;
 		font-size : 10px;

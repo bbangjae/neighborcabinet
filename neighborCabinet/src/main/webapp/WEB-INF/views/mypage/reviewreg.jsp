@@ -23,6 +23,7 @@
 					<input type="radio" name="reviewGrade" value="2" id="rate4"><label for="rate4">★</label>
 					<input type="radio" name="reviewGrade" value="1" id="rate5"><label for="rate5">★</label>
 				</fieldset>
+				<button type="button" id="abcd">감정 분석</button><div id="qwer"></div>
 				<div>
 					<textarea name="reviewContent" id="reviewContent"></textarea>
 				</div>

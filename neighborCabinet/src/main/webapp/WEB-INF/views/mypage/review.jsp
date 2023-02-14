@@ -80,60 +80,24 @@
 				
 					<div style="width : 700px;"><div class="title_left">리뷰작성</div><hr></div>
 					<ul id="section_1">
-						<li><table border="1">
-							<tr>
-								<td rowspan="3"><img src="<c:url value="/image/homeImg.png"/>" style="height : 80px; width : 80px;"></td>
-								<td colspan="2" style="text-align : left;">익산시를 대표하는 보관소</td>
-							</tr>
-							<tr>
-								<td colspan="2" style="text-align : left;">익산시 무왕로 802(모현동 2가 대림빌리지)</td>
-							</tr>
-							<tr>
-								<td style="text-align : left;">23-02-28일까지</td>
-								<td><form name="frmPa">
-									<button type="submit" class="reviewWrite" id="1">리뷰 작성하기</button>
-									<input type="hidden" name="check" value="3">
-								</form></td>
-							</tr>
-						</table></li>
-						
 						<c:forEach var="reviewO" items="${reviewO}">
 							<li><table>
 								<tr>
 									<td rowspan="3" class="reviewImg">
 										<img onerror="this.src='<c:url value='/image/homeImg.png'/>'" src="" class="reviewImg">
 									</td>
-									<td colspan="2" class="text_left"><a href="<c:url value='/mypage/review/1'/>">${reviewO.pWriteTitle }제목</a></td>
-								</tr>
-								<tr>
-									<td colspan="2" class="text_left">${reviewO.pAddress1 }(${reviewO.pAddress2 })</td>
+									<td colspan="2" class="text_left"><a href="<c:url value='/place/placeDetailView/${reviewO.pNo }'/>">${reviewO.pWriteTitle }<br>${reviewO.pAddress1 }(${reviewO.pAddress2 })</a></td>
 								</tr>
 								<tr>
 									<td class="text_left">${reviewO.reviewEnd }까지</td>
-									<td><button type="button" class="reviewWrite" id="${reviewO.pNo }">리뷰 작성하기</button></td>
+									<td>
+										<button type="button" class="reviewWrite" id="${reviewO.pNo }">리뷰 작성하기</button>
+									</td>
 								</tr>
 							</table></li>
-							<%-- <form method="post" id="reviewForm" action="<c:url value='/'/>">
-								<div id="title">익산시 대표 공간</div>
-								<div id="writer">5조 일동(닉네임)</div>
-								<input type="hidden" name="pNo" id="pNo" value="1">
-								<fieldset>
-									<input type="radio" name="reviewGrade" value="5" id="rate1"><label for="rate1">★</label>
-									<input type="radio" name="reviewGrade" value="4" id="rate2"><label for="rate2">★</label>
-									<input type="radio" name="reviewGrade" value="3" id="rate3"><label for="rate3">★</label>
-									<input type="radio" name="reviewGrade" value="2" id="rate4"><label for="rate4">★</label>
-									<input type="radio" name="reviewGrade" value="1" id="rate5"><label for="rate5">★</label>
-								</fieldset>
-								<div>
-									<textarea name="reviewContent" id="reviewContent"></textarea>
-								</div>
-								<div id="button">
-									<input type="reset" value="취소"><input type="submit" value="작성">
-								</div>
-							</form> --%>
 						</c:forEach>
 					</ul>
-					<div style="width : 700px;"><div class="title_left">리뷰작성</div><hr></div>
+					<div style="width : 700px;"><div class="title_left">작성한 리뷰</div><hr></div>
 					<div id="myReviewBox">
 						<ul id="section_2">
 							<c:forEach var="review" items="${myReview}">

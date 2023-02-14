@@ -141,6 +141,16 @@ a{
 	text-align : left;
 	padding-left : 5px;
 }
+#section_1 a:visited{
+	color : black;
+}
+#section_1 button{
+	background : #00DBAF;
+	color : white;
+	border : solid 1px #00DBAF;
+	border-radius : 10px;
+	cursor : pointer;
+}
 
 #section_2{
 	list-style : none;
@@ -227,25 +237,28 @@ a{
 	width : 700px;
 }
 #pageNumBox a{
-	padding : 4px;
+	padding : 3px;
 	margin-right : 3px;
 	color : #000;
 	font : bold 12px;
 	border : 1px solid #eee;
 	text-decoration : none;
 	cursor : pointer;
+	border-radius : 5px;
 }
 #pageNumBox a:hover{
 	color : #fff;
 	border : 1px solid #00DBAF;
 	background-color : #00DBAF;
+	border-radius : 5px;
 }
 #pageNumBox span{
-	padding : 4px;
+	padding : 3px;
 	font : bold 12px;
 	margin-right : 3px;
 	color : #fff;
 	text-decoration : none;
 	border : 1px solid #00DBAF;
+	border-radius : 5px;
 	background-color : #00DBAF;
 }

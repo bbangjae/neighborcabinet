@@ -10,6 +10,7 @@ import com.neighborCabinet.project.model.OrderListVO_y;
 import com.neighborCabinet.project.model.PlaceInfoVO;
 import com.neighborCabinet.project.model.ReserveDetailVO_y;
 import com.neighborCabinet.project.model.ReserveVO_y;
+import com.neighborCabinet.project.model.ReserveVo;
 import com.neighborCabinet.project.model.ReviewOListVO_y;
 import com.neighborCabinet.project.model.ShippingVO_y;
 
@@ -20,8 +21,10 @@ public interface IBoxOrderDAO_y {
 	public void insert_OrdList(OrderListVO_y vo);
 	public void insert_OrdDetail(OrderListVO_y vo);
 	
-	// 예약 결제 페이지
-	public MemberVO reserInfo(String userId);
+	// 예약 결제 페이지reserveCnt
+	public int reserveCnt(int reserveNo);
+	public ReserveVo reserveInfo(int reserveNo); // 예약 정보 가져오기
+	public MemberVO senderInfo(String userId);
 	public PlaceInfoVO placeInfo(int pNo);
 	
 	// 예약 결제 페이지(결제)

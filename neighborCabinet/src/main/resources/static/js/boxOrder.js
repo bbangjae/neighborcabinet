@@ -6,7 +6,7 @@ $(document).ready(function(){
 	
 	$('#SI_change').on('click', function(){
 		let b = '/boxOrder2';
-		let a = 'width=480, height=500, top=150, left=600, status=yes, scrollbars=yes, resizable=yes';
+		let a = 'width=480, height=550, top=150, left=600, status=yes, scrollbars=yes, resizable=yes';
 		window.open(b , 'SI_change', a);
 	});
 	

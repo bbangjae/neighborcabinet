@@ -4,6 +4,7 @@ public class ReserveVO_y {
 	
 	private String resNo;
 	private int pNo;
+	private int reserveNo;
 	private String sender;
 	private String receiver;
 	private int resState;
@@ -11,6 +12,12 @@ public class ReserveVO_y {
 	
 	
 	
+	public int getReserveNo() {
+		return reserveNo;
+	}
+	public void setReserveNo(int reserveNo) {
+		this.reserveNo = reserveNo;
+	}
 	public String getRentEndDate() {
 		return rentEndDate;
 	}

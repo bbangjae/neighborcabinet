@@ -7,8 +7,8 @@
 
     <insert id="rentalreg" useGeneratedKeys="true" keyProperty="pNo" parameterType="com.neighborCabinet.project.model.PlaceInfoVO">
         INSERT INTO
-        place (pNo, pWriteTitle, pWriteSub, pType, pType_d, food, pickup,pPlaceTitle, pPlaceInfo,pHp, pTime, pAddress1,pAddress2, pBoxInfo,pCautionInfo,userId)
-        VALUES (#{pNo},#{pWriteTitle},#{pWriteSub},#{pType},#{pType_d},#{food},#{pickup},#{pPlaceTitle},#{pPlaceInfo},#{pHp},#{pTime},#{pAddress1},#{pAddress2},#{pBoxInfo},#{pCautionInfo},#{userId})
+        place (pNo, pWriteTitle, pWriteSub, pType, pType_d, food, pickup,pPlaceTitle, pPlaceInfo,pHp, pS_Time, pE_Time, pAddress1,pAddress2, pBoxInfo,pCautionInfo,userId)
+        VALUES (#{pNo},#{pWriteTitle},#{pWriteSub},#{pType},#{pType_d},#{food},#{pickup},#{pPlaceTitle},#{pPlaceInfo},#{pHp},#{pS_Time}, #{pE_Time}, #{pAddress1},#{pAddress2},#{pBoxInfo},#{pCautionInfo},#{userId})
     </insert>
 
     <select id="boxreg" parameterType="String" resultType="com.neighborCabinet.project.model.BoxVO">

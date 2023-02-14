@@ -45,7 +45,6 @@
     </style>
     <style>
         #att_zone {
-            width: 1300px;
             min-height: 150px;
             padding: 10px;
             border: 1px solid #888888;
@@ -71,7 +70,7 @@
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
 <c:import url="/WEB-INF/views/member/chat.jsp"/>
 
-<div class="container" style="width: 60%;">
+<div class="container" style="width: 70%;">
     <div class ="heading mt-5">
         <h3> 공간 정보를 입력해주세요</h3>
         <hr>
@@ -90,7 +89,7 @@
                         <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                     </svg>
                 </a>
-                <input type="text" class = "form-control form-control-lg" id = "pWriteTitle" name="pWriteTitle" style="border-radius: 0px;" placeholder="글 대표 제목을 적어주세요!" >
+                <input type="text" class = "form-control " id = "pWriteTitle" name="pWriteTitle" style="border-radius: 0px;" placeholder="글 대표 제목을 적어주세요!" >
             </div>
         </div>
 
@@ -99,14 +98,14 @@
                 <label for = "pPlaceTitle">
                     <span><h4>공간명</h4></span>
                 </label>
-                <a href="#" class="d-inline-block" data-toggle="tooltip" title="
+                <a  class="d-inline-block" data-toggle="tooltip" title="
                             • 다른 공간과 구별될 수 있는 공간의 고유 업체 명을 입력해주세요!">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                         <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                     </svg>
                 </a>
-                <input type="text" class = "form-control form-control-lg" id = "pPlaceTitle" name="pPlaceTitle" style="border-radius: 0px;" placeholder="공간의 고유 업체 명을 입력해주세요!" >
+                <input type="text" class = "form-control " id = "pPlaceTitle" name="pPlaceTitle" style="border-radius: 0px;" placeholder="공간의 고유 업체 명을 입력해주세요!" >
             </div>
         </div>
 
@@ -122,7 +121,7 @@
                         <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                     </svg>
                 </a>
-                <input type="text" class = "form-control form-control-lg" id = "pWriteSub" name="pWriteSub" style="border-radius: 0px;" placeholder="공간의 특장점을 한 문장으로 작성해주세요." >
+                <input type="text" class = "form-control " id = "pWriteSub" name="pWriteSub" style="border-radius: 0px;" placeholder="공간의 특장점을 한 문장으로 작성해주세요." >
             </div>
         </div>
 
@@ -138,7 +137,7 @@
                         <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                     </svg>
                 </a>
-                <select class="form-select form-select-lg" id="pType" name="pType" style="border-radius: 0px;" required aria-p>
+                <select class="form-select " id="pType" name="pType" style="border-radius: 0px;" required aria-p>
                     <option value="" disabled selected>공간 유형을 선택해주세요</option>
                     <option value="집">거주지(집)</option>
                     <option value="창고">창고</option>
@@ -161,7 +160,7 @@
                         <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                     </svg>
                 </a>
-                <input type="text" class = " form-control form-control-lg" id = "pType_d" name="pType_d" style="border-radius: 0px;"placeholder="공간 유형을 상세하게 적어주세요" >
+                <input type="text" class = " form-control " id = "pType_d" name="pType_d" style="border-radius: 0px;"placeholder="공간 유형을 상세하게 적어주세요" >
             </div>
         </div>
         <div class="col-md-4 mt-3">
@@ -240,7 +239,7 @@
                                 </h2>
                                 <div id="collapse_${box.boxType}" class="accordion-collapse collapse" aria-labelledby="headingOne_${box.boxType}" data-mdb-parent="#accordionExample" >
                                     <div class="accordion-body">
-                                        <input type="text" class = " form-control form-control-lg" id = "Boxp_${box.boxType}"  style="border-radius: 0px;  "placeholder="시간 당 금액을 적어주세요" >
+                                        <input type="text" class = " form-control onlyNumber " id = "Boxp_${box.boxType}"  style="border-radius: 0px;  "placeholder="시간 당 금액을 적어주세요" maxlength='4'>
                                         <input type="hidden" id = "BoxQty_${box.boxType}"  value="<c:out value="${box.boxQty}"/>" >
                                         <div class="number mt-3" style="float: right" >
                                             <button type="button" class="btn" style="background: #00DBAF;" id="increaseQuantity_${box.boxType}">
@@ -307,7 +306,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="float: right; cursor: pointer;" id="Boxp_A03_B">
                         <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
                     </svg>
-                    <div class ="BoxPrice" style="border: 1px solid black;display: flex; align-items: center; ">
+                    <div class ="BoxPrice" style="border: 1px solid black; display: flex; align-items: center; ">
                         <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
                         <input type="text" class = " form-control " id = "Boxprice_A03" name="C_Price" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
                         <p style="margin-top: 14px;">원</p>
@@ -368,13 +367,13 @@
         <div class="col-md-12 mb-5 mt-5">
             <div class="mb-3 mt-3">
                 <label for="pPlaceInfo" ><h4>공간 소개</h4></label>
-                <textarea class="form-control form-control-lg" id="pPlaceInfo" name ="pPlaceInfo" placeholder="공간소개를 적어주세요"style="border-radius: 0px;" rows="10"></textarea>
+                <textarea class="form-control " id="pPlaceInfo" name ="pPlaceInfo" placeholder="공간소개를 적어주세요"style="border-radius: 0px;" rows="10"></textarea>
             </div>
         </div>
         <div class="col-md-12 mb-5 mt-3">
             <div class="mb-3 mt-3">
                 <label for="pCautionInfo" ><h4>예약 시 주의사항</h4></label>
-                <textarea class="form-control form-control-lg" id="pCautionInfo" name ="pCautionInfo" placeholder="예약 시 주의사항을 적어주세요."style="border-radius: 0px;" rows="5"></textarea>
+                <textarea class="form-control " id="pCautionInfo" name ="pCautionInfo" placeholder="예약 시 주의사항을 적어주세요."style="border-radius: 0px;" rows="5"></textarea>
             </div>
         </div>
         <div class ="row">
@@ -390,13 +389,13 @@
                             <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                         </svg>
                     </a>
-                    <input type="text" class = "form-control form-control-lg onlyNumber" id = "pHp" name="pHp" style="border-radius: 0px;" placeholder="연락 가능한 연락처를 적어주세요. (숫자만 작성)" >
+                    <input type="text" class = "form-control  onlyNumber" id = "pHp" name="pHp" style="border-radius: 0px;" placeholder="연락 가능한 연락처를 적어주세요. (숫자만 작성)" >
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class = "title2">
-                    <label for = "pTime">
+                    <label for = "pS_Time">
                         <span><h4>연락 가능 시간</h4></span>
                     </label>
                     <a href="#" class="d-inline-block" data-toggle="tooltip" title="
@@ -406,7 +405,15 @@
                             <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                         </svg>
                     </a>
-                    <input type="text" class = "form-control form-control-lg" id = "pTime" name="pTime" style="border-radius: 0px;" placeholder="연락 가능 시간을 정해주세요. (예)10시 부터 22시" >
+                    <div class = "row">
+                        <div class = "col-md-6">
+                            <input type="text" class = "form-control " id = "pS_Time" name="pS_Time" style="border-radius: 0px;" placeholder="몇시 부터 " >
+                        </div>
+                        <div class = "col-md-6">
+                            <input type="text" class = "form-control " id = "pE_Time" name="pE_Time" style="border-radius: 0px;" placeholder="몇시 까지 " >
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
@@ -416,7 +423,7 @@
         <div id='image' class=" mt-5">
             <h4>공간 사진 업로드</h4>
             <input type='file' class="form-control" id='files' name="files" accept=".jpg, .png, .gif" multiple='multiple' />
-            <div id='att_zone' data-placeholder='공간사진을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'>
+            <div class = "col-md-12" id='att_zone' data-placeholder='공간사진을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'>
             </div>
         </div>
 
@@ -437,7 +444,7 @@
                 <label for="pAddress2">
                     <span><h4>상세 주소</h4></span>
                 </label>
-                <input type="text" class="form-control" id="pAddress2" name="pAddress2"style="border-radius: 0px;" placeholder="상세주소를 입력해주세요." size="70" required>
+                <input type="text" class="form-control" id="pAddress2" name="pAddress2"style="border-radius: 0px;" placeholder="상세주소를 입력해주세요." size="70" >
                 <div class="invalid-feedback">
                     상세 주소를 입력해주세요.
                 </div>
@@ -450,18 +457,29 @@
             <input type="submit" id="button" class="btn btn-lg text-white m-5 " style="background: #00DBAF" value="공간 등록" >
         </div>
     </form>
+
 </div>
+<a href="#" class="d-inline-block" data-toggle="tooltip" title="
+                            • 연락가능 시간을 정해주세요. (예)10시 부터 22시">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+    </svg>
+</a>
+
 <c:import url="/WEB-INF/views/layout/footer.jsp"/>
 
 <script>
     $(document).ready(function() {
-        $('#spaceType').change(function() {
-            var result = $('#spaceType option:selected').val();
+        $('#pType').change(function() {
+            var result = $('#pType option:selected').val();
             if (result == '자동차') {
-                $("input#spaceType_d").attr("placeholder", "차량번호와 상세 공간을 적어주세요.");
+                $("input#pType_d").attr("placeholder", "차량번호와 상세 공간을 적어주세요.");
                 $('.Address').hide();
+                $('#pAddress1').val('자동차');
+                $('#pAddress2').val($("input#pType_d").val());
             } else {
-                $("input#spaceType_d").attr("placeholder", "공간 유형을 상세하게 적어주세요.");
+                $("input#pType_d").attr("placeholder", "공간 유형을 상세하게 적어주세요.");
                 $('.Address').show();
             }
         });
@@ -745,6 +763,10 @@
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
     });
+</script>
+<script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 </script>
 </body>
 </html>

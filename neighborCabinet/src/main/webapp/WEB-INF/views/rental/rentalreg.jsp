@@ -407,10 +407,10 @@
                     </a>
                     <div class = "row">
                         <div class = "col-md-6">
-                            <input type="text" class = "form-control " id = "pS_Time" name="pS_Time" style="border-radius: 0px;" placeholder="몇시 부터 " >
+                            <input type="text" class = "form-control " id = "pS_Time" name="pS_Time" style="border-radius: 0px;" placeholder="몇시 부터 ex)09:30" >
                         </div>
                         <div class = "col-md-6">
-                            <input type="text" class = "form-control " id = "pE_Time" name="pE_Time" style="border-radius: 0px;" placeholder="몇시 까지 " >
+                            <input type="text" class = "form-control " id = "pE_Time" name="pE_Time" style="border-radius: 0px;" placeholder="몇시 까지 ex)21:30 " >
                         </div>
 
                     </div>

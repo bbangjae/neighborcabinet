@@ -5,8 +5,10 @@
 
 
 <!DOCTYPE html>
-
 <html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
 <head>
 
     <meta charset="UTF-8">
@@ -69,24 +71,27 @@
             </div>
         </div>
         <div class="c_content">
-
             <div class="ct_left">
-
-                <div class="imageSlide">
-                    <div id="pNButtonBox">
-                        <img id="nButton" src="<c:url value='/image/right2.png' />">
-                        <img id="pButton" src="<c:url value='/image/left2.png' />">
-                    </div>
-                    <div id="imagePanel">
-                        <img src="<c:url value='/image/place1.jpg' />">
-                        <img src="<c:url value='/image/food2.png' />">
-                    </div>
-                    <div>
+                    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <c:forEach var="file" items="${fileList}">
+                            <div class="carousel-item active" style="width: 750px; height: 500px;">
+                                <img src="/files/${file.fileNo}/download" class="d-block" style="width: 750px; height: 500px;">
+                            </div>
+                            </c:forEach>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                     <%--                            <c:forEach var="file" items="${fileList}">--%>
                     <%--                                <img src="/files/${file.fileNo}/download" style="width:300px; height:300px;"/>--%>
                     <%--                            </c:forEach>--%>
-                </div>
                 <div class="ct_title">
                     ${pi.pPlaceTitle}
                 </div>

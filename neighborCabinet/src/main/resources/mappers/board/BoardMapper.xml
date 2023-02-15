@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neighborCabinet.project.dao.IBoardDAO">
+
+    <select id="boardList" parameterType="int" resultType="com.neighborCabinet.project.model.NboardVO">
+        select
+        *
+        from board
+        where boCategory = 1
+        order by boNo desc
+        LIMIT #{startBoardNum}, #{boardCountInPage}
+    </select>
+
+    <select id="boardTotalCount" resultType="java.lang.Integer">
+        select
+        count(*)
+        from board
+        where boCategory = 1
+    </select>
+
+    <select id="boardList2" parameterType="int" resultType="com.neighborCabinet.project.model.NboardVO">
+        select
+        *
+        from board
+        where boCategory = 2
+        order by boNo desc
+        LIMIT #{startBoardNum}, #{boardCountInPage}
+    </select>
+
+    <select id="boardTotalCount2" resultType="java.lang.Integer">
+        select
+        count(*)
+        from board
+        where boCategory = 2
+    </select>
+    
+    <insert id="boardRegister" parameterType="com.neighborCabinet.project.model.NboardVO">
+        insert into
+        board (boTitle, boContent, boWriter, boTime, boCategory)
+        values (#{boTitle}, #{boContent}, #{boWriter}, NOW(), #{boCategory})
+    </insert>
+
+    <select id="boardDetail" parameterType="int" resultType="com.neighborCabinet.project.model.NboardVO">
+        select
+        *
+        from board
+        where boNo = #{boNo}
+    </select>
+
+    <delete id="boardDelete" parameterType="int">
+        delete
+        from board
+        where boNo = #{boNo}
+    </delete>
+
+</mapper>

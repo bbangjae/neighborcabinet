@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.neighborCabinet.project.dao.IBoxhistoryDAO">
+  
+  	<select id="listBoxHistory" parameterType="com.neighborCabinet.project.model.boxHistoryVO" resultType="com.neighborCabinet.project.model.boxHistoryVO">
+		SELECT *
+		FROM orderdetail
+		ORDER BY ordDNo ASC
+	</select>
+	
+</mapper>

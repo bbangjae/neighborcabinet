@@ -403,12 +403,12 @@ ul.btns li.current{
 }
 
 th:nth-child(1) {width: 250px;}
-th:nth-child(4) {width: 250px;}
+th:nth-child(4) {width: 300px;}
 th:nth-child(6) {width: 300px;}
 th:nth-child(7) {width: 300px;}
 
 td {
-	font-size: 15px;
+	font-size: 13px;
 }
 
 th {
@@ -530,7 +530,21 @@ th, td{
 	line-height: 30px;
 }
 
+.modal_close1{
+	cursor: pointer;
+	/* border: 1px solid black; */
+	width: 30px;
+	height: 30px;
+	margin-left: auto;
+}
+
 .modal_close img{
+	/* object-fit: cover; */
+	width: 10px;
+	height: 10px;
+}
+
+.modal_close1 img{
 	/* object-fit: cover; */
 	width: 10px;
 	height: 10px;

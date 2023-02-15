@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.neighborCabinet.project.dao.IBoxmodifyDAO">
+  
+	<select id="boxStock" resultType="com.neighborCabinet.project.model.BoxmodifyVO">
+  		SELECT *
+  		FROM boxmodify
+  		WHERE userId=#{userId } 
+  	</select>
+  	
+  	<update id="boxModify">
+  		UPDATE boxmodify SET a01=#{a01 }, a02=#{a02 }, 
+  		a03=#{a03 }, a04=#{a04 }, b01=#{b01 }, b02=#{b02 },
+  		b03=#{b03 }, b04=#{b04 }
+  			  
+  		WHERE userId=#{userId }
+  	</update>
+  	
+   </mapper>	

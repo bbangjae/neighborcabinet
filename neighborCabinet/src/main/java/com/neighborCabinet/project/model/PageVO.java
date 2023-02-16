@@ -1,5 +1,9 @@
 package com.neighborCabinet.project.model;
 
+import java.io.UnsupportedEncodingException;
+
+import java.net.URLEncoder;
+
 public class PageVO {
 
 	private int pageIndex = 1; //현재 페이지
@@ -12,6 +16,15 @@ public class PageVO {
 	private int endDate = 0; //종료 데이터
 	private boolean prev, next; //이전, 다음 버튼
 	private int realEnd = 0; //페이징 마지막 숫자
+	
+	//콘솔에 떠서 추가한 부분
+	/*
+	 * private String searchKeyword; public String getSearchKeyword() { return
+	 * searchKeyword; } public void setSearchKeyword(String searchKeyword) {
+	 * this.searchKeyword = searchKeyword; }
+	 */
+	
+	
 	public int getPageIndex() {
 		return pageIndex;
 	}

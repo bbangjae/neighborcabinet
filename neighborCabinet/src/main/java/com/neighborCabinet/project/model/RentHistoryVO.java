@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class RentHistoryVO {
+public class RentHistoryVO extends PageVO{
 	private int rentNo;
 	private String rentPlace;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -14,6 +14,7 @@ public class RentHistoryVO {
 	private String rentState;
 	private String pickup;
 	private String searchKeyword; //검색 변수
+	
 	public String getSearchKeyword() {
 		return searchKeyword;
 	}

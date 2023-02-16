@@ -402,12 +402,19 @@ ul.btns li.current{
 }
 
 th:nth-child(1) {width: 200px;}
+th:nth-child(2) {width: 1300px;}
 th:nth-child(4) {width: 250px;}
 th:nth-child(6) {width: 300px;}
 th:nth-child(7) {width: 300px;}
 
 td {
 	font-size: 15px;
+}
+
+td:nth-child(2) {
+	/* border:1px solid black; */
+	overflow: hidden;
+	font-size: 13px;
 }
 
 th {
@@ -417,7 +424,6 @@ th {
 
 th, td{
   padding: 3px;
-  
 }
 
 
@@ -504,7 +510,7 @@ th, td{
 .modal_content{
 
   width:1100px;
-  height:450px;
+  height:500px; /* 450px */
   background:#ffffff;
   border-radius:10px;
   position:relative;
@@ -593,20 +599,29 @@ th, td{
 }
 
 /* 페이징 */
-.pagination{
-	display: flex;
+.paginationBox{
+/* 	display: flex; */
 	position: absolute;
 	width: 1075px;
 	height: 50px;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	bottom: 10px;
 }
 
-.pageBtn{
+/* .pageBtn{
 	border: 1px solid black;
 	width: 800px;
 	height: 30px;
 	margin: auto;
+} */
+
+.pagination{
+ 	display: flex;
+ 	/* border: 1px solid black; */
+ 	list-style: none;
+ 	align-items: center;
+ 	
+ 	/* 가운데정렬 다시 */
 }
 
 /* 모달 끝 */

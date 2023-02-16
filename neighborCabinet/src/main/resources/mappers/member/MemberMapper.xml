@@ -12,7 +12,6 @@
     <insert id="insertMember" parameterType="com.neighborCabinet.project.model.MemberVO">
         INSERT INTO member (userId, userPw, userName, userEmail, userHp, userZipcode, userAddress1, userAddress2, userNickname)
         VALUES (#{userId}, #{userPw}, #{userName}, #{userEmail}, #{userHp}, #{userZipcode}, #{userAddress1}, #{userAddress2}, #{userNickname})
-
     </insert>
     <!--중복 검사-->
     <select id="userIdCheck" parameterType="String"  resultType="string">

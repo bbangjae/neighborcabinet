@@ -25,11 +25,11 @@
         ${board.boTime}
         <hr>
     </div>
-<div class="Content m-5 p-3" style="font-size: 20px; border: 1px solid black;">
-<%--
-    <textarea rows="50" style="width: 100%;" readonly>${board.boContent}</textarea>
---%>
-    <pre style="white-space: pre-wrap">${board.boContent}</pre>
+<div class="Content m-3 p-3" style="font-size: 20px; border: 1px solid black;">
+    <h3 class ="con"> 내용 </h3>
+    <hr>
+
+    <pre style="white-space: pre-wrap; margin-left: 20px; margin-top: 20px;">${board.boContent}</pre>
 </div>
     <div class="row">
     <div class = "list m-5 "  style=" width: 1000px">

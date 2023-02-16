@@ -17,34 +17,13 @@
   <title>챗봇</title>
 </head>
 <body>
+
 <div class="container">
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active ">
-        <img src="/image/b.jpg" class="d-block w-100 h-100" >
-      </div>
-      <div class="carousel-item active">
-        <img src="/image/1-removebg-preview.jpg" class="d-block w-100 h-100" >
-      </div>
-      <div class="carousel-item active">
-        <img src="/image/1uybfVxzKI_receipt2 (2).jpg" class="d-block w-100 h-100" >
-      </div>
-
-
-      <div class="carousel-item active">
-        <img src="/image/1BJW5Qyb22_receipt2 (1) (1) (1).jpg" class="d-block w-100 h-100" >
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+  <button type="button" class="btn btn-outline-dark" style="">Primary</button>
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
   </div>
-  1111111111111111111111
+
 </div>
 </body>
 

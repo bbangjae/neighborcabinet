@@ -2,6 +2,7 @@ package com.neighborCabinet.project.controller;
 
 import com.neighborCabinet.project.model.*;
 import com.neighborCabinet.project.service.FileService;
+import com.neighborCabinet.project.service.IBoxmodifyService;
 import com.neighborCabinet.project.service.PlaceInfoService;
 import com.neighborCabinet.project.service.RentalregService;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -29,12 +30,15 @@ public class rentalController_S {
     RentalregService service;
     @Autowired
     FileService fileService;
+    @Autowired
+    IBoxmodifyService iBoxmodifyService;
+
 
     @Value("${file.upload.path}")
     String uploadPath;
 
     @RequestMapping("/rental/rentalreg/{sid}")
-    public String rental(@PathVariable String sid, HttpSession httpSession, Model model) {
+    public String rental(@PathVariable String sid, HttpSession httpSession, Model model) throws Exception {
 /*
         String loginId = (String) httpSession.getAttribute("sid");
         if(loginId == null){
@@ -42,6 +46,8 @@ public class rentalController_S {
         }
 */
         model.addAttribute("boxlist",service.boxreg(sid));
+        model.addAttribute("boxStock", iBoxmodifyService.boxStock(sid));
+
 
         return "rental/rentalreg";
     }

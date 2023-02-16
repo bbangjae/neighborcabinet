@@ -75,6 +75,7 @@
             </c:forEach>
         </ul>
     </div>
+
     <a onclick="location.href='/board/inquiryregister'" class="btn m-3" style="background: #00DBAF; color: #Ffffff; float: right;" >문의 작성</a>
 
 </div>
@@ -89,6 +90,10 @@
         document.getElementById('pageNum'+pageNum).style.textDecoration = 'underline'
         document.getElementById('pageNum'+pageNum).style.fontWeight = 'bold'
     }
+
+</script>
+<script>
+
 
 </script>
 </body>

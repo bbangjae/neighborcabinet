@@ -64,7 +64,7 @@
 						<div id="header_searchBtnBox">
 							<button type="submit" id="header_searchBtn"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button>
 							<button type="button" id="STTBtn"><i class="fa-solid fa-microphone fa-2x"></i></button><!-- STTBtn -->
-							
+							<button type="button" id="stopBtn"><i class="fa-solid fa-microphone fa-2x"></i></button>
 						</div>
 					</form>
 					<div style="display : flex; align-items: center;">

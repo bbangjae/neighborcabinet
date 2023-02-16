@@ -184,8 +184,10 @@ public class HeaderTest {
 	@RequestMapping("/rental/payment/{reserveNo}")
 	public String paymentpage(@PathVariable int reserveNo, HttpSession session, Model model) throws Exception {
 		
+		String userId = (String) session.getAttribute("sid");
+		
 		//예약 정보 가져오기
-		int reserveCheck = service.reserveCnt(reserveNo);
+		int reserveCheck = service.reserveCnt(reserveNo, userId);
 		if(reserveCheck ==0) {
 			return "redirect:/";
 		}
@@ -221,8 +223,6 @@ public class HeaderTest {
 		model.addAttribute("place", place);
 		
 		// 예약자 정보
-		String userId = (String) session.getAttribute("sid");
-		
 		MemberVO senderInfo = service.senderInfo(userId);
 		
 		if(senderInfo.getUserHp().length()==11) {
@@ -240,6 +240,16 @@ public class HeaderTest {
 		//등록자 정보
 		place.getUserId();
 		MemberVO host = service.memberInfo(place.getUserId());
+		if(host.getUserHp().length()==11) {
+			String HP1 = host.getUserHp().substring(0, 3);
+			String HP2 = host.getUserHp().substring(3, 7);
+			String HP3 = host.getUserHp().substring(7);
+			
+			model.addAttribute("H_HP1", HP1);
+			model.addAttribute("H_HP2", HP2);
+			model.addAttribute("H_HP3", HP3);
+		}
+		
 		model.addAttribute("host", host);
 		return "/boxOrder/requestPage";
 	}
@@ -300,7 +310,7 @@ public class HeaderTest {
 				reviewO.get(i).setReviewEnd(end.substring(0, 4) + "-" + end.substring(4, 6) + "-" + end.substring(6, 8));
 			}
 		}
-		
+		model.addAttribute("reviewCnt", reviewO.size());
 		model.addAttribute("reviewO", reviewO);
 		
 		// 나의 리뷰
@@ -317,7 +327,7 @@ public class HeaderTest {
 		for(int i = 1;i<=page;i++) {
 			pageNum.add(i);
 		}
-		
+		model.addAttribute("myreviewCnt", service.myreviewCnt(userId));
 		model.addAttribute("pageNum", pageNum);
 		model.addAttribute("nowNum", 1);
 		

@@ -29,10 +29,10 @@
 	</insert>
 	
 	<!-- 예약결제페이지 -->
-	<select id="reserveCnt" parameterType="int" resultType="int">
+	<select id="reserveCnt" parameterType="hashmap" resultType="int">
 		SELECT COUNT(*)
 		FROM reserve
-		WHERE reserveNo=#{reserveNo}
+		WHERE reserveNo=#{reserveNo} and userId=#{userId}
 	</select>
 	<select id="reserveInfo" parameterType="int" resultType="com.neighborCabinet.project.model.ReserveVo">
 		SELECT *

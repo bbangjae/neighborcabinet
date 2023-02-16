@@ -141,9 +141,14 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 	}
 
 	@Override
-	public int reserveCnt(int reserveNo) {
+	public int reserveCnt(int reserveNo, String userId) {
 		
-		return dao.reserveCnt(reserveNo);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("userId", userId);
+		map.put("reserveNo", reserveNo);
+		
+		return dao.reserveCnt(map);
 	}
 
 	@Override

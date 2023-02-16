@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neighborCabinet.project.dao.IMessageDAO_y">
+	<select id="resInfo" parameterType="string" resultType="com.neighborCabinet.project.model.ReserveVO_y">
+		SELECT *
+		FROM reserve1 
+		WHERE receiver=#{userId} and resState=0
+	</select>
+	<select id="resCheck" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*)
+		FROM reserve1 
+		WHERE receiver=#{userId} and resNo=#{resNo}
+	</select>
+	<select id="requestInfo" parameterType="hashmap" resultType="com.neighborCabinet.project.model.ReserveDetailVO_y">
+		SELECT *
+		FROM reserveDetail d, reserve1 r
+		WHERE r.resNo=#{resNo} and r.resNo=d.resNo and r.receiver=#{userId}
+	</select>
+	<update id="requestO" parameterType="hashmap">
+		UPDATE reserve1
+		SET resState=1
+		WHERE resNo=#{resNo}
+	</update>
+	<insert id="requestOMessage" parameterType="hashmap">
+		INSERT INTO messageAll (message, resNo, userId, OX)
+		VALUES ("예약이 확정되었습니다.", #{resNo}, #{messageId}, 0)
+	</insert>
+	<delete id="requestX" parameterType="hashmap">
+		DELETE FROM reserve1 WHERE resNo=#{resNo}
+	</delete>
+	<delete id="requestX2" parameterType="hashmap">
+		DELETE FROM reserveDetail WHERE resNo=#{resNo}
+	</delete>
+	<insert id="requestXMessage" parameterType="hashmap">
+		INSERT INTO messageAll (message, resNo, userId, OX)
+		VALUES ("예약 신청이 거절되었습니다.", #{resNo}, #{messageId}, 0)
+	</insert>
+	<select id="messageAll" parameterType="string" resultType="com.neighborCabinet.project.model.messageAllVO_y">
+		SELECT *
+		FROM messageAll 
+		WHERE userId=#{userId}
+	</select>
+</mapper >

@@ -128,7 +128,10 @@
 								</div>
 								<div><div>이메일</div><input type="text" class="senderInfo" name=senderEmail value="${senderInfo.userEmail }"></div>
 								
-								<div><div>보관물품</div><div style="width:100%; display : flex;"><input type="text" class="senderInfo" name="storList"><span id="object"><i class="fa-solid fa-image"></i></span></div></div>
+								<div><div>보관물품</div><div style="width:100%; display : flex;">
+									<input type="text" class="senderInfo" name="storList" id="storList">
+									<label for="objectModal"><span id="objectImg"><i class="fa-solid fa-image"></i></span></label>
+								</div></div>
 								<div><div></div><div style="font-size : 10px;">*보관물품은 이미지로도 작성이 가능합니다.</div></div>
 								<div><div>요청사항</div><textarea class="senderInfo" name="request"></textarea></div>
 								<input type="hidden" name="pNo" value="${place.pNo }">
@@ -176,12 +179,22 @@
 				</form>
 			</article>
 		</div>
-		<div>
-			<form id="objectForm">
-				음성파일 업로드 : <input type="file" id="uploadFile" name="uploadFile">
-				<input type="submit" value="결과 확인">
-			</form>
-			<div id="resultDiv"></div><br><br>
+		<input type="checkbox" style="display:none;" id="objectModal">
+		<div id="modal">
+			<label for="objectModal"></label>
+			<div>
+				<label for="objectModal"><i class="fa-regular fa-circle-xmark"></i></label>
+				<form id="objectForm">
+					사진 업로드 : <input type="file" id="uploadFile" name="uploadFile">
+					<input type="submit" value="결과 확인">
+				</form>
+				<div id="selectedObjectBox">
+					<div style="margin : auto 0">선택한 물품 : </div>
+					<div id="selectedObject"></div>
+				</div>
+				<div id="resultDiv"></div><br>
+				<button type="button" id="complete">적용하기</button>
+			</div>
 		</div>
 		<div style="height : 50px;"></div>
 	</body>

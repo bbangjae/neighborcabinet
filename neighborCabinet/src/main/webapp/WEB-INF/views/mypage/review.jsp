@@ -70,9 +70,7 @@
 					</ul>
 				</nav>
 			</div>
-			<div style="display:flex;
-	flex-direction: column;
-	width:100%;">
+			<div style="display:flex; flex-direction:column; width:100%;">
 				<!-- <div id="top_space"></div> -->
 				<div class="pageInfo">마이페이지 → 리뷰관리</div>
 				<h1 class="pageName">리뷰관리</h1>
@@ -86,12 +84,15 @@
 									<td rowspan="3" class="reviewImg">
 										<img onerror="this.src='<c:url value='/image/homeImg.png'/>'" src="" class="reviewImg">
 									</td>
-									<td colspan="2" class="text_left"><a href="<c:url value='/place/placeDetailView/${reviewO.pNo }'/>">${reviewO.pWriteTitle }<br>${reviewO.pAddress1 }(${reviewO.pAddress2 })</a></td>
+									<td colspan="2" class="text_left">
+										<a href="<c:url value='/place/placeDetailView/${reviewO.pNo }'/>">${reviewO.pWriteTitle }<br>
+										${reviewO.pAddress1 }(${reviewO.pAddress2 })</a>
+									</td>
 								</tr>
 								<tr>
 									<td class="text_left">${reviewO.reviewEnd }까지</td>
 									<td>
-										<button type="button" class="reviewWrite" id="${reviewO.pNo }">리뷰 작성하기</button>
+										<button type="button" class="reviewWrite" id="${reviewO.resNo }">리뷰 작성하기</button>
 									</td>
 								</tr>
 							</table></li>
@@ -103,7 +104,7 @@
 							<c:forEach var="review" items="${myReview}">
 								<li><div class="review_title">
 									<div><a class="detail_Go" href="<c:url value='/place/placeDetailView/${review.pNo }'/>">${review.pWriteTitle}</a></div>
-									<div><a class="myReview_delete" id="${review.pNo }">삭제하기</a></div>
+									<div><a class="myReview_delete" id="${review.reviewNo }">삭제하기</a></div>
 								</div>
 									<div class="review_address">
 										<a class="detail_Go" href="<c:url value='/place/placeDetailView/${review.pNo }'/>">

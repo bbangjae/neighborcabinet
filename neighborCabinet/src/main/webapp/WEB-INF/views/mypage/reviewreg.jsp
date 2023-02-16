@@ -16,6 +16,7 @@
 				<div id="title">${place.pWriteTitle }</div>
 				<div id="writer">${userInfo.userNickname }</div>
 				<input type="hidden" name="pNo" id="pNo" value="${place.pNo }">
+				<input type="hidden" name="resNo" id="resNo" value="${resNo}">
 				<fieldset>
 					<input type="radio" name="reviewGrade" value="5" id="rate1"><label for="rate1">★</label>
 					<input type="radio" name="reviewGrade" value="4" id="rate2"><label for="rate2">★</label>

@@ -43,8 +43,6 @@ $(document).ready(function(){
  		
  		var formData = new FormData($('#objectForm')[0]);
  		var fileName = $('#uploadFile').val().split("\\").pop();
- 		console.log("여기까지옴" + fileName);
- 		console.log(formData);
  		
  		$.ajax({
  			type:"post",
@@ -57,7 +55,8 @@ $(document).ready(function(){
  				$('#resultDiv').empty();
  				for(var i=0; i < result.length; i++) {
  					
- 					$('#resultDiv').append('<div>'+ result[i].name + "</div>");
+ 					$('#resultDiv').append('<input type="checkbox" id="object_'+ result[i].number +'" class="objectCheck" value="'+ result[i].name +'">' + 
+				'<label for="object_'+ result[i].number + '">' + result[i].name + '</label>');
  				}
  			},
  			error:function(){
@@ -66,4 +65,38 @@ $(document).ready(function(){
  		});
  	});
  	
+ 	
+ 	
+ 	$(document).on("change",".objectCheck",function(){
+ 		var tagColor = ['#AFEEEE', '#40E0D0', '#48D1CC', '#00CED1', '#D7FFF1', '#8CD790', '#77AF9C'];
+ 		if($(this).is(":checked")){
+ 			$('#selectedObject').append('<div id="'+$(this).attr('id')+'x1">' + $(this).val() + '<i class="fa-regular fa-circle-xmark"></i><div>');
+ 			$('#'+$(this).attr('id')+'x1').css('background', tagColor[Math.floor(Math.random() * tagColor.length)]);
+ 		}
+ 		else{
+ 			$('#'+$(this).attr('id')+'x1').detach();
+ 		}
+ 	});
+ 	$(document).on("click",".fa-circle-xmark",function(){
+ 		var allId = $(this).parent().attr('id');
+ 		var good = allId.split('x', 1);
+ 		$(this).parent().detach();
+ 		$('#'+good).prop("checked", false);
+ 	});
+ 	$(document).on("click","#complete",function(){
+ 		var result ="";
+ 		var cnt = 0;
+ 		$('input[class="objectCheck"]').each(function(){
+ 			if($(this).is(":checked") && cnt==0){
+ 				cnt = 1;
+ 				result += $(this).val();
+ 			}else if($(this).is(":checked") && cnt==1){
+ 				result += ", "+$(this).val();
+ 			}
+ 		});
+ 		$('#storList').val(result);
+ 		$('#objectModal').prop("checked", false);
+ 		$('#resultDiv').empty();
+ 		$('#selectedObject').empty();
+ 	});
 });

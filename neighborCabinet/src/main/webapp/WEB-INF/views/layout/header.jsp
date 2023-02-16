@@ -54,7 +54,7 @@
 					</div>
 					<form id="header_form">
 						<div id="header_searchInputBox">
-							<input type="text" id="header_searchInput" placeholder="주소를 입력하라">
+							<input type="text" id="header_searchInput" placeholder="주소를 입력하세요">
 						</div>
 						<div id="header_searchBtnBox">
 							<button type="submit" id="header_searchBtn"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button>
@@ -62,7 +62,11 @@
 							
 						</div>
 					</form>
-					<div>
+					<div style="display : flex">
+						<div>
+							<i class="fa-regular fa-envelope fa-1x" style="color:#00DBAF"></i>
+							<i class="fa-regular fa-bell fa-1x" style="color:#00DBAF"></i>
+						</div>
 						<button type="button" id="user_button">
 							<i class="fa-solid fa-bars fa-1x" style="color:#00DBAF"></i>
 						</button>

@@ -51,7 +51,7 @@
 				<div id="headerBox">
 					<div>
 						<a href="<c:url value='/'/>">
-							<img id="header_logoImg" src="<c:url value='/image/nclogo.png'/>">
+							<img id="header_logoImg" src="<c:url value='/image/ncLogo.png'/>">
 						</a>
 						<a href="<c:url value='/'/>">
 							<img id="header_logoSimpleImg" src="<c:url value='/image/ncLogosimple.png'/>">

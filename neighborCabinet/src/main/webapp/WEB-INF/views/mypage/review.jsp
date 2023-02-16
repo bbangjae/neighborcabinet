@@ -77,7 +77,11 @@
 				<div id="sectionBox">
 				
 					<div style="width : 700px;"><div class="title_left">리뷰작성</div><hr></div>
+					
 					<ul id="section_1">
+						<c:if test="${reviewCnt == 0}">
+							<div style="margin : auto;">작성 가능한 리뷰가 없습니다.</div>
+						</c:if>
 						<c:forEach var="reviewO" items="${reviewO}">
 							<li><table>
 								<tr>
@@ -101,6 +105,9 @@
 					<div style="width : 700px;"><div class="title_left">작성한 리뷰</div><hr></div>
 					<div id="myReviewBox">
 						<ul id="section_2">
+							<c:if test="${myreviewCnt == 0}">
+								<div style="margin : auto;">작성한 리뷰가 없습니다.</div>
+							</c:if>
 							<c:forEach var="review" items="${myReview}">
 								<li><div class="review_title">
 									<div><a class="detail_Go" href="<c:url value='/place/placeDetailView/${review.pNo }'/>">${review.pWriteTitle}</a></div>

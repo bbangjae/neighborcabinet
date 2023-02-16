@@ -28,7 +28,7 @@ public class AIService_y {
 		
 		String result="";
 		String clientId = "2wp8nsh8wo"; // Application Client ID";
-		String clientSecret = "eMcdSoeB8aScQU00Jvb1iTKzvE8usBraVRZBxLBf"; // Application Client Secret";
+		String clientSecret = "CI8m6vQdcx52TsBKS00GpkzHJh0hgio1eYgTMGwi"; // Application Client Secret";
 
 		try {
 			String imgFile = filePathName;
@@ -93,7 +93,7 @@ public class AIService_y {
 		SentimentVO senti = new SentimentVO();
 		
 		String clientId = "2wp8nsh8wo";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "eMcdSoeB8aScQU00Jvb1iTKzvE8usBraVRZBxLBf";//애플리케이션 클라이언트 시크릿값";
+        String clientSecret = "CI8m6vQdcx52TsBKS00GpkzHJh0hgio1eYgTMGwi";//애플리케이션 클라이언트 시크릿값";
         try {
         	String content = text;
             String apiURL = "https://naveropenapi.apigw.ntruss.com/sentiment-analysis/v1/analyze";
@@ -157,7 +157,7 @@ public class AIService_y {
 		ArrayList<ObjectVO> objList = new ArrayList<ObjectVO>();
 		
 		String clientId = "2wp8nsh8wo";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "eMcdSoeB8aScQU00Jvb1iTKzvE8usBraVRZBxLBf";//애플리케이션 클라이언트 시크릿값";
+        String clientSecret = "CI8m6vQdcx52TsBKS00GpkzHJh0hgio1eYgTMGwi";//애플리케이션 클라이언트 시크릿값";
         
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
@@ -258,7 +258,7 @@ public class AIService_y {
 	public String translateToKor(String name) {
 		// Papago Translation API 여기에 복사
 		String clientId = "nzkn92k0f8";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "gDtX4DFQCxD9WQ8iISey51BY0edm8cTcmtoRXwfB";//애플리케이션 클라이언트 시크릿값";
+        String clientSecret = "qhy70brb93k7ZnBkkSlc9ISq6sd1EUbYRss5FjJJ";//애플리케이션 클라이언트 시크릿값";
         
         String result = "";
         try {

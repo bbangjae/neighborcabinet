@@ -22,7 +22,7 @@ public interface IBoxOrderService_y {
 	public void insert_OrdDetail(OrderListVO_y vo);
 	
 	// 예약 결제 페이지
-	public int reserveCnt(int reserveNo);
+	public int reserveCnt(int reserveNo, String userId);
 	public ReserveVo reserveInfo(int reserveNo); // 예약 정보 가져오기
 	public MemberVO senderInfo(String userId);
 	public PlaceInfoVO placeInfo(int pNo);

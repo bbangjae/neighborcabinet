@@ -64,10 +64,10 @@
             margin: 0;
         }
     </style>
+    <c:import url="/WEB-INF/views/layout/header.jsp"/>
 
 </head>
 <body>
-<c:import url="/WEB-INF/views/layout/header.jsp"/>
 <c:import url="/WEB-INF/views/member/chat.jsp"/>
 
 <div class="container" style="width: 70%;">
@@ -199,68 +199,239 @@
         </div>
 
         <div class="row">
-            <%--
-                        <div class="col-md-6">
-                            <label for="card" class="mb-3"><sapn><h4>내 보유 박스</h4></sapn></label>
-                            <div class="row">
-                                <c:forEach items="${boxlist}" var="box">
-                                <div class="col-md-6 mb-5 "id = "card_${box.boxType}">
-                                    <div class="card shadow ripple hover-overlay shadow-1-strong rounded"  style="width:300px; cursor:pointer;">
-                                    <img class="card-img-top" src="<c:url value="/image/A_type.png"/>" alt="Boximage">
-                                    <div class="card-img-overlay">
-                                        <h3 class="card-title">${box.boxType}</h3>
-                                        <p class="card-text">${box.boxQty}</p>
-                                    </div>
-                                        <div class="mask" style="background-color: hsla(0, 0%, 98%, 0.5)"></div>
-                                    </div>
-                                </div>
-                            </c:forEach>
-                            </div>
-                        </div>
-            --%>
             <div class="col-md-6">
                 <label for="accordionExample" class="mb-3"><sapn><h4>내 보유 박스</h4></sapn></label>
                 <div class="row">
                     <div class="accordion" id="accordionExample">
-                        <c:forEach items="${boxlist}" var="box">
+
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne_${box.boxType}">
+                                <h2 class="accordion-header" id="headingOne_A01">
                                     <button
                                             class="accordion-button collapsed"
                                             type="button"
                                             data-mdb-toggle="collapse"
-                                            data-mdb-target="#collapse_${box.boxType}"
+                                            data-mdb-target="#collapse_A01"
                                             aria-expanded="false"
-                                            aria-controls="collapse_${box.boxType}"
-                                            id ="accordion_${box.boxType}"
+                                            aria-controls="collapse_A01"
+                                            id ="accordion_A01"
                                     >
-                                            ${box.boxType}(${box.boxQty})
+                                            A01(${boxStock.a01})
                                     </button>
                                 </h2>
-                                <div id="collapse_${box.boxType}" class="accordion-collapse collapse" aria-labelledby="headingOne_${box.boxType}" data-mdb-parent="#accordionExample" >
+                                <div id="collapse_A01" class="accordion-collapse collapse" aria-labelledby="headingOne_A01" data-mdb-parent="#accordionExample" >
                                     <div class="accordion-body">
-                                        <input type="text" class = " form-control onlyNumber " id = "Boxp_${box.boxType}"  style="border-radius: 0px;  "placeholder="시간 당 금액을 적어주세요" maxlength='4'>
-                                        <input type="hidden" id = "BoxQty_${box.boxType}"  value="<c:out value="${box.boxQty}"/>" >
+                                        <input type="text" class = " form-control onlyNumber " id = "Boxp_A01"  style="border-radius: 0px;  "placeholder="시간 당 금액을 적어주세요" maxlength='4'>
+                                        <input type="hidden" id = "BoxQty_A01"  value="<c:out value="${boxStock.a01}"/>" >
                                         <div class="number mt-3" style="float: right" >
-                                            <button type="button" class="btn" style="background: #00DBAF;" id="increaseQuantity_${box.boxType}">
+                                            <button type="button" class="btn" style="background: #00DBAF;" id="increaseQuantity_A01">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
                                                 </svg>
                                             </button>
-                                            <input id="numberUpDown_${box.boxType}"  type="number" value="1" style="width :30px;border:none; text-align: center;" >
-                                            <button type="button" class="btn" style="background: #00DBAF;" id="decreaseQuantity_${box.boxType}">
+                                            <input id="numberUpDown_A01"  type="number" value="1" style="width :30px;border:none; text-align: center;" >
+                                            <button type="button" class="btn" style="background: #00DBAF;" id="decreaseQuantity_A01">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
                                                 </svg>
                                             </button>
                                         </div>
                                         <div class="asd mt-3">
-                                            <button type="button" class="btn btn-sm text-white" style="background: #00DBAF;" id="add_${box.boxType}">추가</button>
+                                            <button type="button" class="btn btn-sm text-white" style="background: #00DBAF;" id="add_A01">추가</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </c:forEach>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne_A02">
+                                <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-mdb-toggle="collapse"
+                                        data-mdb-target="#collapse_A02"
+                                        aria-expanded="false"
+                                        aria-controls="collapse_A02"
+                                        id ="accordion_A02"
+                                >
+                                    A02(${boxStock.a02})
+                                </button>
+                            </h2>
+                            <div id="collapse_A02" class="accordion-collapse collapse" aria-labelledby="headingOne_A02" data-mdb-parent="#accordionExample" >
+                                <div class="accordion-body">
+                                    <input type="text" class = " form-control onlyNumber " id = "Boxp_A02"  style="border-radius: 0px;  "placeholder="시간 당 금액을 적어주세요" maxlength='4'>
+                                    <input type="hidden" id = "BoxQty_A02"  value="<c:out value="${boxStock.a02}"/>" >
+                                    <div class="number mt-3" style="float: right" >
+                                        <button type="button" class="btn" style="background: #00DBAF;" id="increaseQuantity_A02">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                            </svg>
+                                        </button>
+                                        <input id="numberUpDown_A02"  type="number" value="1" style="width :30px;border:none; text-align: center;" >
+                                        <button type="button" class="btn" style="background: #00DBAF;" id="decreaseQuantity_A02">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="asd mt-3">
+                                        <button type="button" class="btn btn-sm text-white" style="background: #00DBAF;" id="add_A02">추가</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne_A03">
+                                <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-mdb-toggle="collapse"
+                                        data-mdb-target="#collapse_A03"
+                                        aria-expanded="false"
+                                        aria-controls="collapse_A03"
+                                        id ="accordion_A03"
+                                >
+                                    A03(${boxStock.a03})
+                                </button>
+                            </h2>
+                            <div id="collapse_A03" class="accordion-collapse collapse" aria-labelledby="headingOne_A03" data-mdb-parent="#accordionExample" >
+                                <div class="accordion-body">
+                                    <input type="text" class = " form-control onlyNumber " id = "Boxp_A03"  style="border-radius: 0px;  "placeholder="시간 당 금액을 적어주세요" maxlength='4'>
+                                    <input type="hidden" id = "BoxQty_A03"  value="<c:out value="${boxStock.a03}"/>" >
+                                    <div class="number mt-3" style="float: right" >
+                                        <button type="button" class="btn" style="background: #00DBAF;" id="increaseQuantity_A03">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                            </svg>
+                                        </button>
+                                        <input id="numberUpDown_A03"  type="number" value="1" style="width :30px;border:none; text-align: center;" >
+                                        <button type="button" class="btn" style="background: #00DBAF;" id="decreaseQuantity_A03">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="asd mt-3">
+                                        <button type="button" class="btn btn-sm text-white" style="background: #00DBAF;" id="add_A03">추가</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne_B01">
+                                <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-mdb-toggle="collapse"
+                                        data-mdb-target="#collapse_B01"
+                                        aria-expanded="false"
+                                        aria-controls="collapse_B01"
+                                        id ="accordion_B01"
+                                >
+                                    B01(${boxStock.b01})
+                                </button>
+                            </h2>
+                            <div id="collapse_B01" class="accordion-collapse collapse" aria-labelledby="headingOne_B01" data-mdb-parent="#accordionExample" >
+                                <div class="accordion-body">
+                                    <input type="text" class = " form-control onlyNumber " id = "Boxp_B01"  style="border-radius: 0px;  "placeholder="시간 당 금액을 적어주세요" maxlength='4'>
+                                    <input type="hidden" id = "BoxQty_B01"  value="<c:out value="${boxStock.b01}"/>" >
+                                    <div class="number mt-3" style="float: right" >
+                                        <button type="button" class="btn" style="background: #00DBAF;" id="increaseQuantity_B01">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                            </svg>
+                                        </button>
+                                        <input id="numberUpDown_B01"  type="number" value="1" style="width :30px;border:none; text-align: center;" >
+                                        <button type="button" class="btn" style="background: #00DBAF;" id="decreaseQuantity_B01">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="asd mt-3">
+                                        <button type="button" class="btn btn-sm text-white" style="background: #00DBAF;" id="add_B01">추가</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne_B02">
+                                <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-mdb-toggle="collapse"
+                                        data-mdb-target="#collapse_B02"
+                                        aria-expanded="false"
+                                        aria-controls="collapse_B02"
+                                        id ="accordion_B02"
+                                >
+                                    B02(${boxStock.b02})
+                                </button>
+                            </h2>
+                            <div id="collapse_B02" class="accordion-collapse collapse" aria-labelledby="headingOne_B02" data-mdb-parent="#accordionExample" >
+                                <div class="accordion-body">
+                                    <input type="text" class = " form-control onlyNumber " id = "Boxp_B02"  style="border-radius: 0px;  "placeholder="시간 당 금액을 적어주세요" maxlength='4'>
+                                    <input type="hidden" id = "BoxQty_B02"  value="<c:out value="${boxStock.b02}"/>" >
+                                    <div class="number mt-3" style="float: right" >
+                                        <button type="button" class="btn" style="background: #00DBAF;" id="increaseQuantity_B02">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                            </svg>
+                                        </button>
+                                        <input id="numberUpDown_B02"  type="number" value="1" style="width :30px;border:none; text-align: center;" >
+                                        <button type="button" class="btn" style="background: #00DBAF;" id="decreaseQuantity_B02">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="asd mt-3">
+                                        <button type="button" class="btn btn-sm text-white" style="background: #00DBAF;" id="add_B02">추가</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne_B03">
+                                <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-mdb-toggle="collapse"
+                                        data-mdb-target="#collapse_B03"
+                                        aria-expanded="false"
+                                        aria-controls="collapse_B03"
+                                        id ="accordion_B03"
+                                >
+                                    B03(${boxStock.b03})
+                                </button>
+                            </h2>
+                            <div id="collapse_B03" class="accordion-collapse collapse" aria-labelledby="headingOne_B03" data-mdb-parent="#accordionExample" >
+                                <div class="accordion-body">
+                                    <input type="text" class = " form-control onlyNumber " id = "Boxp_B03"  style="border-radius: 0px;  "placeholder="시간 당 금액을 적어주세요" maxlength='4'>
+                                    <input type="hidden" id = "BoxQty_B03"  value="<c:out value="${boxStock.b03}"/>" >
+                                    <div class="number mt-3" style="float: right" >
+                                        <button type="button" class="btn" style="background: #00DBAF;" id="increaseQuantity_B03">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                                            </svg>
+                                        </button>
+                                        <input id="numberUpDown_B03"  type="number" value="1" style="width :30px;border:none; text-align: center;" >
+                                        <button type="button" class="btn" style="background: #00DBAF;" id="decreaseQuantity_B03">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="asd mt-3">
+                                        <button type="button" class="btn btn-sm text-white" style="background: #00DBAF;" id="add_B03">추가</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -282,7 +453,7 @@
                         <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
                         <input type="text" class = " form-control " id = "Boxprice_A01" name="A_Price" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
                         <p style="margin-top: 14px;">원</p>
-                        <input type="text" class = " form-control " id = "BoxQtyp_A01" name="A_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <input type="text" class = " form-control " id = "BoxQtyp_A01" name="A_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" readonly>
                         <p style="margin-top: 14px;">개</p>
                     </div>
                 </div>
@@ -296,7 +467,7 @@
                         <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
                         <input type="text" class = " form-control " id = "Boxprice_A02" name="B_Price" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
                         <p style="margin-top: 14px;">원</p>
-                        <input type="text" class = " form-control " id = "BoxQtyp_A02" name="B_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <input type="text" class = " form-control " id = "BoxQtyp_A02" name="B_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" readonly>
                         <p style="margin-top: 14px;">개</p>
                     </div>
 
@@ -310,7 +481,7 @@
                         <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
                         <input type="text" class = " form-control " id = "Boxprice_A03" name="C_Price" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
                         <p style="margin-top: 14px;">원</p>
-                        <input type="text" class = " form-control " id = "BoxQtyp_A03" name="C_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <input type="text" class = " form-control " id = "BoxQtyp_A03" name="C_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" readonly>
                         <p style="margin-top: 14px;">개</p>
                     </div>
                 </div>
@@ -324,7 +495,7 @@
                         <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
                         <input type="text" class = " form-control " id = "Boxprice_B01" name="D_Price" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
                         <p style="margin-top: 14px;">원</p>
-                        <input type="text" class = " form-control " id = "BoxQtyp_B01" name="D_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <input type="text" class = " form-control " id = "BoxQtyp_B01" name="D_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0"readonly >
                         <p style="margin-top: 14px;">개</p>
                     </div>
                 </div>
@@ -339,7 +510,7 @@
                         <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
                         <input type="text" class = " form-control " id = "Boxprice_B02" name="E_Price" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
                         <p style="margin-top: 14px;">원</p>
-                        <input type="text" class = " form-control " id = "BoxQtyp_B02" name="E_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <input type="text" class = " form-control " id = "BoxQtyp_B02" name="E_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" readonly>
                         <p style="margin-top: 14px;">개</p>
                     </div>
                 </div>
@@ -353,7 +524,7 @@
                         <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
                         <input type="text" class = " form-control " id = "Boxprice_B03" name="F_Price" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
                         <p style="margin-top: 14px;">원</p>
-                        <input type="text" class = " form-control " id = "BoxQtyp_B03" name="F_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" >
+                        <input type="text" class = " form-control " id = "BoxQtyp_B03" name="F_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0"readonly >
                         <p style="margin-top: 14px;">개</p>
                     </div>
                 </div>
@@ -468,6 +639,30 @@
 </a>
 
 <c:import url="/WEB-INF/views/layout/footer.jsp"/>
+<script>
+    $(document).ready(function() {
+        if(${boxStock.a01} === 0) {
+            $('#accordion_A01').closest('.accordion-item').hide();
+        }
+        if(${boxStock.a02} === 0) {
+            $('#accordion_A02').closest('.accordion-item').hide();
+        }
+        if(${boxStock.a03} === 0) {
+            $('#accordion_A03').closest('.accordion-item').hide();
+        }
+        if(${boxStock.b01} === 0) {
+            $('#accordion_B01').closest('.accordion-item').hide();
+        }
+        if(${boxStock.b02} === 0) {
+            $('#accordion_B02').closest('.accordion-item').hide();
+        }
+        if(${boxStock.b03} === 0) {
+            $('#accordion_B03').closest('.accordion-item').hide();
+        }
+
+
+    });
+</script>
 
 <script>
     $(document).ready(function() {
@@ -671,7 +866,7 @@
             // 미리보기 이미지 속성
             var img_style = 'width:100%;height:100%;z-index:none';
             // 이미지안에 표시되는 체크박스의 속성
-            var chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
+            var chk_style = 'width:30px;height:30px;position:absolute;font-size:20px;'
                 + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
 
             files.onchange = function(e){
@@ -763,10 +958,6 @@
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
     });
-</script>
-<script>
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 </script>
 </body>
 </html>

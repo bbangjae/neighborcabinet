@@ -14,7 +14,7 @@
     <select id="boxreg" parameterType="String" resultType="com.neighborCabinet.project.model.BoxVO">
         select BoxType, BoxQty, userId
         from box
-        where userId=#{userId}
+        where userId=#{userId} and BoxQty > 0
     </select>
 
     <insert id ="boxPreg" parameterType="com.neighborCabinet.project.model.boxtypeVO">

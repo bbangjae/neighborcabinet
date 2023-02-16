@@ -67,6 +67,16 @@ body{
 	font-size : 15px;
 	color : #00DBAF;
 }
+#messageBox{
+	font-size : 25px;
+	margin-right : 30px;
+}
+#messageBox i{
+	margin-left : 10px;
+}
+#messageBox i:hover{
+	cursor : pointer;
+}
 #STTBtn{
 	border : none;
 	background-color : white;

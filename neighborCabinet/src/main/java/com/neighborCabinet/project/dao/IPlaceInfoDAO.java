@@ -26,4 +26,5 @@ public interface IPlaceInfoDAO {
     public void updateDate(HashMap<String, Object> map);
 
     public HashMap<String, Object> showBoxtype(int pNo);
+    public int imgCount(int pNo) ;
 }

@@ -6,13 +6,13 @@
 
 <!DOCTYPE html>
 <html>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>--%>
+<%--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">--%>
 
 <head>
 
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<%--    <meta http-equiv="X-UA-Compatible" content="IE=edge">--%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>대여 디테일</title>
     <link rel="stylesheet" type="text/css" href='<c:url value="/css/placeDetailView.css"/>'>
@@ -72,26 +72,35 @@
         </div>
         <div class="c_content">
             <div class="ct_left">
-                    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <c:forEach var="file" items="${fileList}">
-                            <div class="carousel-item active" style="width: 750px; height: 500px;">
-                                <img src="/files/${file.fileNo}/download" class="d-block" style="width: 750px; height: 500px;">
-                            </div>
-                            </c:forEach>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                <div class="imageSlide">
+                    <div id="pNButtonBox">
+                        <img id="nButton" src="<c:url value='/image/right2.png' />">
+                        <img id="pButton" src="<c:url value='/image/left2.png' />">
                     </div>
-                    <%--                            <c:forEach var="file" items="${fileList}">--%>
-                    <%--                                <img src="/files/${file.fileNo}/download" style="width:300px; height:300px;"/>--%>
-                    <%--                            </c:forEach>--%>
+                    <div id="imagePanel" style="width:750px;">
+                        <c:forEach var="file" items="${fileList}">
+                            <img class="img" style="width:750px !important; height:100%;" src="/files/${file.fileNo}/download" />
+                        </c:forEach>
+                    </div>
+<%--                    <div>--%>
+<%--                    <div id="carousel" class="carousel slide" data-bs-ride="carousel">--%>
+<%--                        <div class="carousel-inner">--%>
+<%--                            <c:forEach var="file" items="${fileList}">--%>
+<%--                            <div class="carousel-item active" style="width: 750px; height: 500px;">--%>
+<%--                                <img src="/files/${file.fileNo}/download" class="d-block" style="width: 750px; height: 500px;">--%>
+<%--                            </div>--%>
+<%--                            </c:forEach>--%>
+<%--                        </div>--%>
+<%--                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">--%>
+<%--                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>--%>
+<%--                            <span class="visually-hidden">Previous</span>--%>
+<%--                        </button>--%>
+<%--                        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">--%>
+<%--                            <span class="carousel-control-next-icon" aria-hidden="true"></span>--%>
+<%--                            <span class="visually-hidden">Next</span>--%>
+<%--                        </button>--%>
+                    </div>
+
                 <div class="ct_title">
                     ${pi.pPlaceTitle}
                 </div>
@@ -116,6 +125,7 @@
                     <div class="t_text" style="color:gray; margin-bottom: 40px;">
 
                         ${pi.pPlaceInfo}
+
                     </div>
                     <div>
                         <span id="starttime" style="font-size:18px; font-weight: bold; color:black;">영업시간 </span><span id="endtime" style="font-size:17px; font-weight: normal; color:#00DBAF;">

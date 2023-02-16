@@ -64,12 +64,13 @@ public class PlaceController {
         }
 
         model.addAttribute("pi",pi);
-        model.addAttribute("fileList",fileService.fileList(pNo));
+
         model.addAttribute("qaList",qaList);
         model.addAttribute("reviewList",reviewList);
         model.addAttribute("r_cnt",r_cnt);
         model.addAttribute("r_mean",r_mean);
-
+//        int fileCount = service.imgCount(pNo);
+//        System.out.print(fileCount);
 
         HashMap<String,Object> boxtype=service.showBoxtype(pNo);
 
@@ -86,7 +87,6 @@ public class PlaceController {
             str = str.replaceAll("\"", "");
             str = str.replaceAll("\\[", "");
             str = str.replaceAll("\\]", "");
-
 
 
             // 리스트에 넣기
@@ -109,7 +109,8 @@ public class PlaceController {
         model.addAttribute("aX",Double.parseDouble(addressMap.get("x").toString()));
         model.addAttribute("aY",Double.parseDouble(addressMap.get("y").toString()));
         model.addAttribute("aM",addressMap);
-
+        model.addAttribute("fileList",fileService.fileList(pNo));
+//        model.addAttribute("fC",fileCount);
 
 
 

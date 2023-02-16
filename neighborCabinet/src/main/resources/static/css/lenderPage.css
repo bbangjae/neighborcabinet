@@ -56,6 +56,18 @@
 	float:right;
 }
 
+#boxodrderNav{
+	margin-bottom:5%;
+}
+
+#boxorderLink1{
+	border:1px solid #77AF9C;
+	display: flex;
+    align-items: center;
+    background-color:transparent;
+	cursor:pointer;
+}
+
 #boxorderLink{
 	border:1px solid #77AF9C;
 	display: flex;
@@ -282,5 +294,7 @@
 }
 
 
-
+.fb{
+	margin-top:70%;
+}
 

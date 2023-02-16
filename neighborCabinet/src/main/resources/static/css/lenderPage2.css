@@ -328,19 +328,19 @@ ul.btns li.current{
   overflow: hidden;
 }
 
-#map {
+#Pn {
 /*   border: 1px solid black; */
   cursor:pointer;
 }
 
-#map:active{
+#Pn:active{
   position: relative;
   top: 1px;
   
 }
 
 
-#map img{
+#Pn img{
   width: 20px;
   height: 20px;
   margin-left: 5px;

@@ -35,9 +35,10 @@ public interface IBoxOrderService_y {
 	public MemberVO memberInfo(String userId); // 유저 정보
 	public ArrayList<ReviewOListVO_y> reviewOList(String userId); //대여 완료 불러오기
 	public ArrayList<MyReviewVO> myReview(String userId, int start); // 내 리뷰보기
-	public int reviewCheck(String userId, int pNo);
+	public int reviewCheck(String userId, String resNo);
 	public void reviewReg(HashMap<String, Object> map); //리뷰 등록
-	public void reviewdelete(String userId, int pNo); // 리뷰 삭제
+	public void reviewdelete(String userId, int reviewNo); // 리뷰 삭제
+	public int reviewpNo(String resNo); // reserve에서 pNo 값 가져오기
 	
 	//리뷰 페이징 카운트
 	public int myreviewCnt(String userId);

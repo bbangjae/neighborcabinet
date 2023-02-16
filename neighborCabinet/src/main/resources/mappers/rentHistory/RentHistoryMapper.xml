@@ -27,26 +27,26 @@
 			(rentPlace LIKE concat('%',#{searchKeyword},'%')
 			OR
 		    userName LIKE concat('%',#{searchKeyword},'%'))  
-			 ]]> 
+			]]> 
 		</if>
 	</sql>
 	<!-- 대여 내역 조회 -->
 	<select id="listAllHistory" parameterType="com.neighborCabinet.project.model.RentHistoryVO" resultType="com.neighborCabinet.project.model.RentHistoryVO">
+		<![CDATA[
 		SELECT *
 		FROM rentHistory
+		]]> 
 		<include refid="historyWhere"/>
-		ORDER BY rentNo ASC
+		<![CDATA[
+		ORDER BY rentNo DESC
+		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+		]]> 
 	</select>
 	
-	
-<!-- 	 7일 간 가장 높은 조회수 순으로 메인에서 3개 이미지 출력 
-	<select id="hitsView"  resultMap="mainWriteResult">
-		SELECT *
-		FROM writePage 
-		WHERE writeDate BETWEEN '2022-12-7' AND '2022-12-14' 
-		ORDER BY writeHits DESC LIMIT 0, 3
-		현재 시간으로 출력 ecardDate AS [CURRENT_TIMESTAMP]
+	<select id="getListCnt" parameterType="com.neighborCabinet.project.model.RentHistoryVO" resultType="java.lang.Integer">
+		SELECT count(*)
+		FROM rentHistory
+		<include refid="historyWhere"/>
 	</select>
-	 -->
 	
 </mapper>

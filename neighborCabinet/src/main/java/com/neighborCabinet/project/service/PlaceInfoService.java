@@ -41,5 +41,7 @@ public class PlaceInfoService implements IPlaceInfoService {
     @Override
     public HashMap<String, Object> showBoxtype(int pNo) {
         return dao.showBoxtype(pNo);}
+    @Override
+    public int imgCount(int pNo) {return dao.imgCount(pNo);}
 }
 

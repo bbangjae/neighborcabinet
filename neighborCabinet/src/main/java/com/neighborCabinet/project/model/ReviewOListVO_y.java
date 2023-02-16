@@ -8,7 +8,15 @@ public class ReviewOListVO_y {
 	private String pImage;
 	private String userId;
 	private String reviewEnd;
+	private String resNo;
 	
+	
+	public String getResNo() {
+		return resNo;
+	}
+	public void setResNo(String resNo) {
+		this.resNo = resNo;
+	}
 	public int getpNo() {
 		return pNo;
 	}

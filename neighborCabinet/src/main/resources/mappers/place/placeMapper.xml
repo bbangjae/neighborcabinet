@@ -55,4 +55,7 @@
         from boxtype
         where pNo= ${pNo};
     </select>
+    <select id="imgCount" parameterType="int" resultType="int">
+        select count(*) from files where pid=8;
+    </select>
 </mapper>

@@ -37,10 +37,10 @@ $(document).ready(function(){
 	});
 	$('.myReview_delete').on('click', function(e){
 		
-		var pNo = $(this).attr('id');
+		var reviewNo = $(this).attr('id');
 		
 	    if(confirm("재작성이 불가능합니다. \n삭제하시겠습니까?")){
-	        location.href = "/mypage/myReview/delete/" + pNo;
+	        location.href = "/mypage/myReview/delete/" + reviewNo;
 	        return true;
 	    } else {
 	        return false;

@@ -113,23 +113,23 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 	}
 
 	@Override
-	public void reviewdelete(String userId, int pNo) {
+	public void reviewdelete(String userId, int reviewNo) {
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
 		map.put("userId", userId);
-		map.put("pNo", pNo);
+		map.put("reviewNo", reviewNo);
 		
 		dao.reviewdelete(map);
 		
 	}
 
 	@Override
-	public int reviewCheck(String userId, int pNo) {
+	public int reviewCheck(String userId, String resNo) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
 		map.put("userId", userId);
-		map.put("pNo", pNo);
+		map.put("resNo", resNo);
 		
 		return dao.reviewCheck(map);
 	}
@@ -144,6 +144,12 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 	public int reserveCnt(int reserveNo) {
 		
 		return dao.reserveCnt(reserveNo);
+	}
+
+	@Override
+	public int reviewpNo(String resNo) {
+		
+		return dao.reviewpNo(resNo);
 	}
 
 

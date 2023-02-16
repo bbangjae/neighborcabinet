@@ -34,8 +34,14 @@ public class MapController {
 		for(int i=0;i<listAllMap.size();i++) {
 			HashMap<String, Object> map = macService.addToxy(listAllMap.get(i).getpAddress1());
 			JSONObject jo = new JSONObject(map);
+			jo.put("wT",listAllMap.get(i).getpWriteTitle());
+			jo.put("pNo",listAllMap.get(i).getpNo());
 			mapAddress.put(jo);
+			System.out.println(jo);
 		}
+
+
+
 
 		request.setAttribute("mA",mapAddress);
 		model.addAttribute("listAllMap", listAllMap);

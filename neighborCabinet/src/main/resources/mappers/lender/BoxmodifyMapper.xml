@@ -13,7 +13,13 @@
   	
   	<update id="boxModify">
   		UPDATE boxmodify SET a01=#{a01 }, a02=#{a02 }, 
-  		a03=#{a03 }, a04=#{a04 }, b01=#{b01 }, b02=#{b02 },
+  		a03=#{a03 }, a04=#{a04 }
+  			  
+  		WHERE userId=#{userId }
+  	</update>
+  	
+  	<update id="boxModify2">
+  		UPDATE boxmodify SET  b01=#{b01 }, b02=#{b02 },
   		b03=#{b03 }, b04=#{b04 }
   			  
   		WHERE userId=#{userId }

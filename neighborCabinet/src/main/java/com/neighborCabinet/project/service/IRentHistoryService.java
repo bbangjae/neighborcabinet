@@ -1,11 +1,13 @@
 package com.neighborCabinet.project.service;
 
 import java.util.ArrayList;
+import java.util.Map;
 
+import com.neighborCabinet.project.model.PageVO;
 import com.neighborCabinet.project.model.RentHistoryVO;
 
 public interface IRentHistoryService {
 	public ArrayList<RentHistoryVO> listAllHistory(RentHistoryVO searchVO);
-	
-//	닉네임 조회 서비스 추가
+	public int getListCnt(RentHistoryVO searchVO);
+	public Map<String, Object> listAllHistory(PageVO searchVO);
 }

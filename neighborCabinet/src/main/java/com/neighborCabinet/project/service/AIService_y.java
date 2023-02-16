@@ -127,7 +127,7 @@ public class AIService_y {
             }
             
             br.close();
-            System.out.println(response.toString());
+            //System.out.println(response.toString());
             
             senti = jsonToString2(response.toString());
             
@@ -210,7 +210,7 @@ public class AIService_y {
                     response.append(inputLine);
                 }
                 br.close();
-                System.out.println(response.toString()); // 결과 출력
+                //System.out.println(response.toString()); // 결과 출력
                 
                 objList = jsonToVOList(response.toString());
             } else {

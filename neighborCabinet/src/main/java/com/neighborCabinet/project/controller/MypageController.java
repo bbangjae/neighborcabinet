@@ -140,9 +140,9 @@ public class MypageController {
       return "redirect:/lenderPage";
    }
    
-   @RequestMapping("/dealNotice")
+   @RequestMapping("/guidePage")
    public String dealNotice(Model model){
       
-      return "mypage/dealNotice";
+      return "mypage/guidePage";
    }
 }

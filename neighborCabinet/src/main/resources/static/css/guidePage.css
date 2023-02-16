@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+hr{
+	width: 100%;
+	height: 2px;
+	background: #00DBAF;
+	border: 0;
+}
+
+.btnGroup{
+	display:flex;
+}
+
+.Type1{
+	color:#66CDAA;
+	background-color:transparent;
+	border:1px solid #66CDAA;
+	margin-right:5px;
+	width:12%;
+}
+.Type1:hover{
+	color:#fff;
+	background-color:#66CDAA;
+}

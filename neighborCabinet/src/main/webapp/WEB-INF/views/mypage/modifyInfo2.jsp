@@ -114,7 +114,7 @@
 						<span class="modifySpan">비밀번호</span>
 					</div>
 						<div class="currentName">
-							<input type="password" class="modifySpan2" id="userPw" name="userPw" >
+							<input type="password" class="modifySpan2" id="userPw" name="userPw" value="<c:out value='${memberInfo.userPw }'></c:out>">
 						</div><hr class="miHr" color="#00DBAF" size="1px">
 				</div>
 				

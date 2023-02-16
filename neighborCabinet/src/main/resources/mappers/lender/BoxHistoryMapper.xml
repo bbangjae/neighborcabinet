@@ -7,7 +7,7 @@
   
   	<select id="listBoxHistory" parameterType="com.neighborCabinet.project.model.boxHistoryVO" resultType="com.neighborCabinet.project.model.boxHistoryVO">
 		SELECT *
-		FROM orderdetail
+		FROM orderDetail
 		ORDER BY ordDNo ASC
 	</select>
 	

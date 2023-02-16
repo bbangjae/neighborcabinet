@@ -42,6 +42,7 @@
 
 .navListlink:hover{
   border:1px solid #77AF9C;
+  font-size: 0.93em;
 }
 
 .figureBox{
@@ -65,6 +66,7 @@ figure{
 .listObject {
     color: black;
     margin-right:5%;
+    font-size: 0.93em;
 }
 
 a{

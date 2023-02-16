@@ -75,7 +75,7 @@
 										<img class="modifyInfo" src="/image/lender.png">
 									</figure>
 								</div>
-								<div class="listObject">공급자</div>
+								<div class="listObject">공급자페이지</div>
 							</a>
 						</li>
 					</ul>

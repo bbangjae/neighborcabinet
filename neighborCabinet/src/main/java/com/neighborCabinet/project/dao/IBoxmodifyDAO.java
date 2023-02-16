@@ -6,4 +6,6 @@ public interface IBoxmodifyDAO {
 	public BoxmodifyVO boxStock(String userId);
 	
 	public int boxModify(BoxmodifyVO boxmodify);
+	
+	public int boxModify2(BoxmodifyVO boxmodify);
 }

@@ -81,50 +81,6 @@ $(document).ready(function () { // 페이지 document 로딩 완료 후 스크�
 		}
 	});
 	
-		$("#saveBtn1").on("click", function(){	
-		
-		let a01 = $("#a01v").val();
-		let a02 = $("#a02v").val();
-		let a03 = $("#a03v").val();
-		let a04 = $("#a04v").val();
-		
-		if ( !confirm("수정 하시겠습니까?")) {
-				 alert("취소를 누르셨습니다.");
-				 return false;
-			} else {
-				/*$("#a01").val(a01);
-				$("#a02").val(a02);
-				$("#a03").val(a03);
-				$("#a04").val(a04);*/
-				$(".update_a01").val(a01);
-				$(".update_a02").val(a02);
-				$(".update_a03").val(a03);
-				$(".update_a04").val(a04);
-				$("#modifyBoxForm").submit();
-				 alert("저장 완료"); 
-			}	
-	});
-	
-			
-		$("#saveBtn2").on("click", function(){		
-		
-		let b01 = $("#b01v").val();
-		let b02 = $("#b02v").val();
-		let b03 = $("#b03v").val();
-		let b04 = $("#b04v").val();
-		
-		if ( !confirm("수정 하시겠습니까?")) {
-				 alert("취소를 누르셨습니다.");
-				 return false;
-			} else {
-				$(".update_b01").val(b01);
-				$(".update_b02").val(b02);
-				$(".update_b03").val(b03);
-				$(".update_b04").val(b04);
-				$("#modifyBoxForm").submit();
-				 alert("저장 완료"); 
-			}		
-	});
 	
 		//상자구매 모달창
 		  $('#boxorderLink').click(function(){  
@@ -138,7 +94,55 @@ $(document).ready(function () { // 페이지 document 로딩 완료 후 스크�
 		  	$('.fb').fadeIn();	
 		  });
 		
+		$("#saveBtn1").on("click", function(e){	
+		let modifyABoxForm = $("#modifyABoxForm");	
+	
+	/* 	let ba01 = $("#a01v").val();
+		let ba02 = $("#a02v").val();
+		let ba03 = $("#a03v").val();
+		let ba04 = $("#a04v").val(); */
 		
+		if ( !confirm("수정 하시겠습니까?")) {
+				 alert("취소를 누르셨습니다.");
+				 return false;
+			} else {
+				/*$("#a01").val(a01);
+				$("#a02").val(a02);
+				$("#a03").val(a03);
+				$("#a04").val(a04);*/
+				/* $(".update_a01").val(ba01);
+				$(".update_a02").val(ba02);
+				$(".update_a03").val(ba03);
+				$(".update_a04").val(ba04); */
+				e.preventDefault();
+				modifyABoxForm.submit();
+				alert("저장 완료"); 
+			}	
+	});
+	
+			
+		$("#saveBtn2").on("click", function(e){	
+		let modifyBBoxForm = $("#modifyBBoxForm");
+		
+	/* 	let b01 = $("#b01v").val();
+		let b02 = $("#b02v").val();
+		let b03 = $("#b03v").val();
+		let b04 = $("#b04v").val(); */
+		
+		if ( !confirm("수정 하시겠습니까?")) {
+				 alert("취소를 누르셨습니다.");
+				 return false;
+			} else {
+				/* $(".update_b01").val(b01);
+				$(".update_b02").val(b02);
+				$(".update_b03").val(b03);
+				$(".update_b04").val(b04); */
+				e.preventDefault();
+				modifyBBoxForm.submit();
+				 alert("저장 완료"); 
+			}		
+	});
+	
 });
 
 

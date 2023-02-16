@@ -1,11 +1,16 @@
 package com.neighborCabinet.project.model;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class boxHistoryVO {
 	private int ordDNo;
 	private String ordNo;
 	private String boxType;
 	private int boxQty;
 	private int selPrice;
+	private String ordDate;
 	
 	public int getOrdDNo() {
 		return ordDNo;
@@ -36,6 +41,12 @@ public class boxHistoryVO {
 	}
 	public void setSelPrice(int selPrice) {
 		this.selPrice = selPrice;
+	}
+	public String getOrdDate() {
+		return ordDate;
+	}
+	public void setOrdDate(String ordDate) {
+		this.ordDate = ordDate;
 	}	
 	
 	

@@ -21,6 +21,11 @@ public class BoxmodifyService implements IBoxmodifyService{
 	public int boxModify(BoxmodifyVO boxmodify)throws Exception{
 		return dao.boxModify(boxmodify);
 	}
+	
+	@Override
+	public int boxModify2(BoxmodifyVO boxmodify)throws Exception{
+		return dao.boxModify2(boxmodify);
+	}
 
 
 }

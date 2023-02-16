@@ -24,16 +24,21 @@
 								<c:if test="${empty sessionScope.sid}">
 								<li><a href="<c:url value='/member/loginform'/>">로그인</a></li>
 								<li><a href="<c:url value='/member/term'/>">회원가입</a></li>
+								<hr>
+								<li><a href="<c:url value='/board/noticeboardlist'/>">공지사항</a></li>
+								<li><a href="<c:url value='/board/inquiryboardlist'/>">문의사항</a></li>
 								</c:if>
 								
 								<!-- 로그인 성공 후 보여줄 메뉴 항목 -->
 								<c:if test="${not empty sessionScope.sid}">
 									<li><a href="<c:url value='/member/logout'/>">로그아웃</a></li>
 									<hr>
+									<li><a href="<c:url value='/board/noticeboardlist'/>">공지사항</a></li>
 									<li><a href="<c:url value='/map'/>">지도</a></li>
 									<li><a href="<c:url value='/mypage'/>">마이페이지</a></li>
 									<li><a href="<c:url value='/rental/rentalreg/${sessionScope.sid}'/>">공간등록</a></li>
 									<li><a href="<c:url value='/boxList'/>">박스구매</a></li>
+									<li><a href="<c:url value='/board/inquiryboardlist'/>">문의사항</a></li>
 								</c:if>
 								<c:if test="${sessionScope.sid == 'admin'}">
 									<li><a href="<c:url value='/admin/boxInfo'/>">관리자페이지</a></li>
@@ -62,8 +67,8 @@
 							
 						</div>
 					</form>
-					<div style="display : flex">
-						<div>
+					<div style="display : flex; align-items: center;">
+						<div id="messageBox">
 							<i class="fa-regular fa-envelope fa-1x" style="color:#00DBAF"></i>
 							<i class="fa-regular fa-bell fa-1x" style="color:#00DBAF"></i>
 						</div>

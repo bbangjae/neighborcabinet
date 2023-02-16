@@ -77,32 +77,18 @@
                         <img id="nButton" src="<c:url value='/image/right2.png' />">
                         <img id="pButton" src="<c:url value='/image/left2.png' />">
                     </div>
-                    <div id="imagePanel" style="width:750px;">
-                        <c:forEach var="file" items="${fileList}">
-                            <img class="img" style="width:750px !important; height:100%;" src="/files/${file.fileNo}/download" />
+                    <div id="imagePanel" style="width:${fC*750}px; " value="${fC}">
+                        <c:forEach var="file"  items="${fileList}">
+                            <img style=" width:750px; height: 400px;" src="/files/${file.fileNo}/download" >
+
                         </c:forEach>
+
                     </div>
-<%--                    <div>--%>
-<%--                    <div id="carousel" class="carousel slide" data-bs-ride="carousel">--%>
-<%--                        <div class="carousel-inner">--%>
-<%--                            <c:forEach var="file" items="${fileList}">--%>
-<%--                            <div class="carousel-item active" style="width: 750px; height: 500px;">--%>
-<%--                                <img src="/files/${file.fileNo}/download" class="d-block" style="width: 750px; height: 500px;">--%>
-<%--                            </div>--%>
-<%--                            </c:forEach>--%>
-<%--                        </div>--%>
-<%--                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">--%>
-<%--                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>--%>
-<%--                            <span class="visually-hidden">Previous</span>--%>
-<%--                        </button>--%>
-<%--                        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">--%>
-<%--                            <span class="carousel-control-next-icon" aria-hidden="true"></span>--%>
-<%--                            <span class="visually-hidden">Next</span>--%>
-<%--                        </button>--%>
-                    </div>
+                </div>
 
                 <div class="ct_title">
                     ${pi.pPlaceTitle}
+
                 </div>
 
                 <div class="ct_menu">
@@ -225,7 +211,7 @@
 
                     <div class="t_title">
                         <span id="QA">Q&A</span>
-                        <span style="color:#00DBAF;"> 2개</span>
+                        <span style="color:#00DBAF;"> ${qaList.size()}개</span>
                         <c:if test="${not empty sessionScope.sid}">
                             <button class="QA_btn">질문작성하기</button>
                         </c:if>
@@ -242,14 +228,24 @@
                                     </div>
                                 </td >
                                 <td style="display:inline-block; width:100%;height:100%;">
-                                    <div style=" width:100%; font-weight: bold;">
+                                    <div style=" display:flex; width:100%; font-weight: bold;">
+                                        <div style="width:80%">
                                             ${qL.userNickName}
+                                        </div>
+                                        <c:if test="${qL.userId==sessionScope.sid}">
+                                        <div style="width:20%; display:flex; ">
+                                            <button class="c_btn" style="margin-left:30px;">수정</button>
+                                            <button class="c_btn" style="margin-left:10px;" >삭제</button>
+                                        </div>
+                                        </c:if>
                                     </div>
                                     <div style="width: 100%;height:60%;margin-top:30px;">
                                             ${qL.qaContent}
                                     </div>
                                     <div style="  width:100%; color:gray; margin: 30px 0 40px 0; font-weight: lighter">
                                         <fmt:formatDate value="${qL.qaDate}" pattern="YY-MM-dd"/>
+
+
                                     </div>
                                 </td>
                             </tr> </c:forEach>

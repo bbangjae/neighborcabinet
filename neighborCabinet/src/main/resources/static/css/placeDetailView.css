@@ -126,7 +126,6 @@ input:focus {
 #container .c_content .ct_left .imageSlide #imagePanel{
     position: relative;
     display: flex;
-    width:3000px;
     height:400px;
 
 }
@@ -272,7 +271,7 @@ input:focus {
 #container .c_content .ct_left .ct_text .info .i_btn li{
     margin-right: 30px;
 }
-#container .c_content .ct_left .QA_btn, #QA_not{
+#container .c_content .ct_left .QA_btn, #QA_not, .c_btn{
     float: right;
     margin-right:30px;
     display: inline-block;
@@ -290,10 +289,26 @@ input:focus {
     border: solid 1px #00DBAF;
 
 }
+#container .c_content .ct_left .c_btn{
+    width:38px;
+    height:24px;
+    display:flex;
+    font-size: 14px;
+    padding: 2px 0 0 4px;
 
-#container .c_content .ct_left .QA_btn:hover, #QA_not:hover{
     color:#00DBAF;
     background-color: white;
+    border-radius:5px 5px 5px 5px;
+    margin:0px;
+}
+#container .c_content .ct_left .QA_btn:hover, #QA_not:hover, .c_btn:hover{
+    color:#00DBAF;
+    background-color: white;
+    cursor : pointer;
+}
+#container .c_content .ct_left .c_btn:hover{
+    color:white;
+    background-color: #00DBAF;
     cursor : pointer;
 }
 

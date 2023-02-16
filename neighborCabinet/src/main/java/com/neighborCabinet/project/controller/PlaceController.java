@@ -55,7 +55,10 @@ public class PlaceController {
             r_cnt+=1;
             r_sum+=rate;
         }
-        r_mean=r_sum/r_cnt;
+        if(r_sum==0)
+            r_mean=0;
+        else
+            r_mean=r_sum/r_cnt;
         if (pi.getpS_Time().length()==1){
             pi.setpS_Time("0"+pi.getpS_Time());
         }
@@ -69,8 +72,9 @@ public class PlaceController {
         model.addAttribute("reviewList",reviewList);
         model.addAttribute("r_cnt",r_cnt);
         model.addAttribute("r_mean",r_mean);
-//        int fileCount = service.imgCount(pNo);
-//        System.out.print(fileCount);
+        int fileCount = service.imgCount(pNo);
+        System.out.print(fileCount);
+        model.addAttribute("fC",fileCount);
 
         HashMap<String,Object> boxtype=service.showBoxtype(pNo);
 
@@ -110,7 +114,7 @@ public class PlaceController {
         model.addAttribute("aY",Double.parseDouble(addressMap.get("y").toString()));
         model.addAttribute("aM",addressMap);
         model.addAttribute("fileList",fileService.fileList(pNo));
-//        model.addAttribute("fC",fileCount);
+
 
 
 

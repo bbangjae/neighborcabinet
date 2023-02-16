@@ -435,7 +435,7 @@ $(document).ready(function(){
     });
 
     $('#nButton').on('click', function(){
-        if(movedIndex != 4)
+        if(movedIndex != $("#imagePanel").attr("value")*1-1)
             movedIndex = movedIndex + 1;
 
         moveSlide(movedIndex);

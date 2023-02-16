@@ -51,8 +51,8 @@
 	</select>
 	
 	<insert id="insert_res" parameterType="com.neighborCabinet.project.model.ReserveVO_y">
-		INSERT INTO reserve1 (resNo, reserveNo, pNo, sender, receiver, resState)
-		VALUES (#{resNo}, #{reserveNo}, #{pNo}, #{sender}, #{receiver}, 0)
+		INSERT INTO reserve1 (resNo, reserveNo, pNo, sender, receiver, resState, reviewEnd)
+		VALUES (#{resNo}, #{reserveNo}, #{pNo}, #{sender}, #{receiver}, 0, "00000000")
 	</insert>
 	<insert id="insert_resD" parameterType="com.neighborCabinet.project.model.ReserveDetailVO_y">
 		INSERT INTO reserveDetail (resNo, pickup, food, senderName, senderPhone, senderEmail, storList, request, resState)
@@ -62,7 +62,7 @@
 	
 	<!-- 리뷰 데이터 -->
 	<select id="reviewOList" parameterType="string" resultType="com.neighborCabinet.project.model.ReviewOListVO_y">
-		SELECT p.pWriteTitle, p.pNo, p.pAddress1, p.pAddress2, p.pImage, r.reviewEnd
+		SELECT p.pWriteTitle, p.pNo, p.pAddress1, p.pAddress2, p.pImage, r.reviewEnd, r.resNo
 		FROM reserve1 r, place p
 		WHERE r.sender=#{userId} and r.resState=3 and p.pNo=r.pNo
 		ORDER BY r.reviewEnd DESC
@@ -74,12 +74,17 @@
 	<update id="reviewCom" parameterType="hashmap">
 		UPDATE reserve1
 		SET resState=4
-		WHERE sender=#{userId} and pNo=#{pNo}
+		WHERE resNo=#{resNo}
 	</update>
 	<select id="myReview" parameterType="hashmap" resultType="com.neighborCabinet.project.model.MyReviewVO">
 		SELECT p.pWriteTitle, p.pNo, p.pAddress1, p.pAddress2, r.reviewContent, r.reviewGrade, r.reviewDate, r.reviewNo
 		FROM review r, place p
 		WHERE r.userId=#{userId} and p.pNo=r.pNo ORDER BY reviewDate DESC Limit #{start}, 4
+	</select>
+	<select id="reviewpNo" parameterType="string" resultType="int">
+		SELECT pNo
+		FROM reserve1
+		WHERE resNo=#{resNo}
 	</select>
 	<select id="memberInfo" parameterType="string" resultType="com.neighborCabinet.project.model.MemberVO">
 		SELECT *
@@ -92,11 +97,11 @@
 		WHERE userId=#{userId}
 	</select>
 	<delete id="reviewdelete" parameterType="hashmap">
-		DELETE FROM review WHERE userId=#{userId} and pNo=#{pNo}
+		DELETE FROM review WHERE userId=#{userId} and reviewNo=#{reviewNo}
 	</delete>
 	<select id="reviewCheck" parameterType="hashmap" resultType="int">
 		SELECT COUNT(*)
 		FROM reserve1
-		WHERE sender=#{userId} and pNo=#{pNo} and resState=3
+		WHERE sender=#{userId} and resNo=#{resNo} and resState=3
 	</select>
 </mapper>

@@ -158,7 +158,6 @@ public class HeaderTest {
 		}
 
 		String ordNo = strTime + "_" + rNum;
-		
 		vo.setOrdNo(ordNo);
 		
 		service.insert_OrdList(vo);
@@ -357,7 +356,6 @@ public class HeaderTest {
 	@RequestMapping("/mypage/reviewReg/regist")
 	public String reviewreg(HttpSession session,
 						@RequestParam HashMap<String, Object> param){
-		
 		String userId = (String) session.getAttribute("sid");
 		param.put("userId", userId);
 		service.reviewReg(param);
@@ -366,29 +364,30 @@ public class HeaderTest {
 	}
 	
 	// 나의 리뷰 삭제
-	@RequestMapping("/mypage/myReview/delete/{pNo}")
+	@RequestMapping("/mypage/myReview/delete/{reviewNo}")
 	public String reviewdelete(HttpSession session,
-							@PathVariable int pNo){
+							@PathVariable int reviewNo){
 		
 		String userId = (String) session.getAttribute("sid");
-		service.reviewdelete(userId, pNo);
+		service.reviewdelete(userId, reviewNo);
 		
 		return "redirect:/mypage/review";
 	}
 	//리뷰작성페이지
-	@RequestMapping("/mypage/reviewReg/{pNo}")
-	public String reviewreg(@PathVariable int pNo, HttpSession session, Model model){
+	@RequestMapping("/mypage/reviewReg/{resNo}")
+	public String reviewreg(@PathVariable String resNo, HttpSession session, Model model){
 		
 		String userId = (String) session.getAttribute("sid");
-		 int check = service.reviewCheck(userId, pNo);
+		 int check = service.reviewCheck(userId, resNo);
 		
 		if(check==0) {
 			return "redirect:/mypage/review";
 		}
 		else {
-			
+			int pNo = service.reviewpNo(resNo);
 			MemberVO userInfo = service.memberInfo(userId);
 			PlaceInfoVO place = service.placeInfo(pNo);
+			model.addAttribute("resNo", resNo);
 			model.addAttribute("userInfo", userInfo);
 			model.addAttribute("place", place);
 			
@@ -449,6 +448,10 @@ public class HeaderTest {
 
 		file.transferTo(sendFile);
 		ArrayList<ObjectVO> objList = AIService.objectDetect(filePathName);
+		
+		for(int i = 0; i < objList.size(); i++) {
+			objList.get(i).setNumber(i);
+		}
 
 		return objList;
 	}

@@ -16,7 +16,7 @@
 			<c:forEach var="review" items="${myReview}">
 				<li><div class="review_title">
 					<div><a class="detail_Go" href="<c:url value='/place/placeDetailView/${review.pNo }'/>">${review.pWriteTitle}</a></div>
-					<div><a class="myReview_delete" id="${review.pNo }">삭제하기</a></div>
+					<div><a class="myReview_delete" id="${review.reviewNo }">삭제하기</a></div>
 				</div>
 					<div class="review_address">
 						<a class="detail_Go" href="<c:url value='/place/placeDetailView/${review.pNo }'/>">

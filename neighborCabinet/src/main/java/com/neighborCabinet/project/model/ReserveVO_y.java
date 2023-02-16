@@ -10,8 +10,6 @@ public class ReserveVO_y {
 	private int resState;
 	private String rentEndDate;
 	
-	
-	
 	public int getReserveNo() {
 		return reserveNo;
 	}

@@ -35,7 +35,7 @@
 <div class="container" style="width: 50%">
     <div class="d-flex justify-content-center">
     <a href="<c:url value='/'/>">
-        <img id="header_logoImg" class="m-5" style="width: 200px; height: auto;" src="<c:url value='/image/nclogo.png'/>">
+        <img id="header_logoImg" class="m-5" style="width: 200px; height: auto;" src="<c:url value='/image/ncLogo.png'/>">
     </a>
     </div>
     <div class="col-md-12 mb-5 mt-5">

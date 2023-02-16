@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,6 +11,7 @@
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/rental.css'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="<c:url value='/js/rentHistory.js' />"></script>
+		<script src="<c:url value='/js/pagination.js' />" ></script>
 		<!-- 반응형을 위해 아래의 가로폭 조정 코드 필요 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<c:import url="/WEB-INF/views/layout/header.jsp" />
@@ -178,80 +180,90 @@
 		<div class="modal">
 		  <div class="modal_content" title="">
 		   <div class="modal_close"><img src="<c:url value='/image/close.jpg'/>"></div>
-		   <form id="searchForm" name="searchForm" method="get" action="/rentHistory"> <!--   -->
+		   <form id="searchForm" name="searchForm"> <!--  method="get" action="/rentHistorySearch"  -->
+			<input type="hidden" id="pageIndex" name="pageIndex" value="">
 		   <div class="bar">
-		     
 		       <input type="text" name="searchKeyword" id="searchKeyword" value="${searchVO.searchKeyword}" placeholder="사용자명을 입력하세요" autocomplete="on" onfocus="this.placeholder=''" onblur="this.placeholder='사용자명을 입력하세요'" required>
 		       <input type="image" id="searchBtn" src="<c:url value='/image/search.jpg'/>">
-		       <!--  -->
 		       <input type="date" name="searchDate" id="searchDate" value="2023-01-20" min="2023-01-20" max="2099-12-31">
-		     
 		   </div>
-		    
 		    <!-- 기존 대여테이블 삽입 위치 --> 
 		    <!-- 대여완료 -->
+		    <span>총게시물 ${totCnt} / 페이지 (${searchVO.pageIndex} / ${totalPageCnt})</span>
           <table class="tab-content" id="all-tr">
-          <tr>
-            <th>번호</th>
-            <th>장소</th>
-            <th>수령일</th>
-            <th>사용자</th>
-            <th>시간</th>
-            <th>상태</th>
-            <th>픽업</th>
-            </tr>
-           <c:forEach var="all" items="${rentAllHistory}">
-            <c:if test="${all.rentState eq '대여완료' }">
-            <tr>
-              <td>${all.rentNo}</td>
-              <td>${all.rentPlace}</td>
+            <thead>
+	          <tr>
+	            <th>번호</th>
+	            <th>장소</th>
+	            <th>수령일</th>
+	            <th>사용자</th>
+	            <th>시간</th>
+	            <th>상태</th>
+	            <th>픽업</th>
+	          </tr>
+            </thead>
+            <tbody class="listData">
+            <c:set var="ii" value="${resultCnt - (searchVO.pageIndex -1) * paginationInfo.recordCountPerPage }" />
+           	<c:forEach var="all" items="${rentAllHistory}" varStatus="sts">
+            <%-- <c:if test="${all.rentState eq '대여완료' }"> --%>
+            <!-- ${fn:contains(all.rentState, '대여완료')} == true -->
+            <tr class="rentHistory">
+              <td class="t_c"><c:out value="${all.rentNo}"/></td> <!-- ${ii} -->
+              <td class="t_c">${all.rentPlace}</td>
               <!-- 시간대 재조정 -->
-              <td><fmt:formatDate value='${all.receiptDate}' pattern="yyyy-MM-dd hh:mm"/></td>
-              <td>${all.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
-              <td>${all.rentTime}</td>
-              <td style="color:grey;">${all.rentState}</td>
-              <td>${all.pickup}</td>
+              <td class="t_c"><fmt:formatDate value='${all.receiptDate}' pattern="yyyy-MM-dd hh:mm"/></td>
+              <td class="t_c">${all.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
+              <td class="t_c">${all.rentTime}</td>
+              <td class="t_c" style="color:grey;">${all.rentState}</td>
+              <td class="t_c">${all.pickup}</td>
             </tr>
-            </c:if>
+            <c:set var="ii" value="${ii - 1}"/>
+            <%-- </c:if> --%>
            </c:forEach>
+			 	<c:if test="${fn:length(rentAllHistory) == 0}">
+					<tr>
+					  <td colspan="7"  class="first last">조회 결과가 없습니다.</td> 
+					</tr>
+				</c:if>
+			</tbody>
           </table>
          <!-- 대여완료 끝 -->   
-		    </form>
-		    
+       
          <!-- 페이징 버튼 구역 -->
-         <div class="pagination">
-         	<div class="pageBtn">
-				<%--  <div class="board-list-paging fr">
-				<c:set var="pageIndex" value="1"/>
-				<ol class="pagination" id="pagination">
-				<c:if test="${searchVO.prev}">
-				<li class="prev_end">
-				       <a href="javascript:void(0);" onclick="fn_go_page(1); return false;" ></a>
-				    </li>
-				<li class="prev">
-				<a href="javascript:void(0);"  onclick="fn_go_page(${searchVO.startDate - 1}); return false;" ></a>
-				</li>
-				</c:if>
-				<c:forEach var="num" begin="${searchVO.startDate}" end="${searchVO.endDate}">
-				<li>
-				<a href="javascript:void(0);" onclick="fn_go_page(${num}); return false;" class="num ${pageIndex eq num ? 'on':'' }" title="${num}">${num}</a>
-				</li>
-				</c:forEach>  
-				<c:if test="${searchVO.next}">
-				<li class="next">
-				<a href="javascript:void(0);"  onclick="fn_go_page(${searchVO.endDate + 1}); return false;" ></a>
-				</li>
-				<li class="next_end">
-				<a href="javascript:void(0);" onclick="fn_go_page(${searchVO.realEnd }); return false;"></a>
-				</li>
-				</c:if>     
-				</ol>
-				</div> --%>
+         <div class="paginationBox">
+         <!--   <div class="pageBtn"> -->
+				<div class="board-list-paging fr">
+				 <c:set var="pageIndex" value="1"/>
+					<ol class="pagination" id="pagination">
+					<c:if test="${searchVO.prev}">
+						<li class="prev_end">
+							<a href="javascript:void(0);" onclick="fn_go_page(1); return false;" ></a>
+						</li>
+						<li class="prev">
+							<a href="javascript:void(0);"  onclick="fn_go_page(${searchVO.startDate - 1}); return false;" ></a>
+						</li>
+					</c:if>
+					<c:forEach var="num" begin="${searchVO.startDate}" end="${searchVO.endDate}">
+						<li>
+							<a href="javascript:void(0);" onclick="fn_go_page(${num}); return false;" class="num ${pageIndex eq num ? 'on':'' }" title="${num}">${num}</a>
+						</li>
+					</c:forEach>  
+					<c:if test="${searchVO.next}">
+						<li class="next">
+							<a href="javascript:void(0);"  onclick="fn_go_page(${searchVO.endDate + 1}); return false;" ></a>
+						</li>
+						<li class="next_end">
+							<a href="javascript:void(0);" onclick="fn_go_page(${searchVO.realEnd }); return false;"></a>
+						</li>
+					</c:if>     
+					</ol>
+			 <!--  </div> -->
          	</div>
          </div>
-         
+        	 </form>
 		  </div>
 		</div>
+		
 	  
 	  <!-- 모달 창 끝 -->
     

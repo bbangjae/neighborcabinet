@@ -123,11 +123,26 @@ public class MypageController {
    }
    
    @RequestMapping("/modifyBox")
-   public String boxModifyPOST(BoxmodifyVO boxmodify)throws Exception{
-      
-      
+   public String boxModifyPOST(BoxmodifyVO boxmodify, HttpSession session)throws Exception{
+	  String userId = (String) session.getAttribute("sid");
+	  boxmodify.setUserId(userId);
       iBoxmodifyService.boxModify(boxmodify);
       
       return "redirect:/lenderPage";
+   }
+   
+   @RequestMapping("/modifyBox2")
+   public String boxModifyPOST2(BoxmodifyVO boxmodify, HttpSession session)throws Exception{
+	  String userId = (String) session.getAttribute("sid");
+	  boxmodify.setUserId(userId);
+      iBoxmodifyService.boxModify2(boxmodify);
+      
+      return "redirect:/lenderPage";
+   }
+   
+   @RequestMapping("/dealNotice")
+   public String dealNotice(Model model){
+      
+      return "mypage/dealNotice";
    }
 }

@@ -81,14 +81,25 @@
 										<img class="modifyInfo" src="/image/lender.png">
 									</figure>
 								</div>
-								<div class="listObject" id="lenderList">공급자</div>
+								<div class="listObject" id="lenderList">공급자페이지</div>
 							</a>
+						</li>
+						
+						<li class="navList" id="boxodrderNav">
+							<button id="boxorderLink1" onClick="/dealNotice">
+								<div class="figureBox">
+									<figure>
+										<img class="modifyInfo" src="/image/check.png">
+									</figure>
+								</div>
+								<div class="listObject" id="boxorderList">거래 알림</div>
+							</button>
 						</li>
 						<li class="navList" id="boxodrderNav">
 							<button id="boxorderLink">
 								<div class="figureBox">
 									<figure>
-										<img class="modifyInfo" src="/image/tracking.png">
+										<img class="modifyInfo" src="/image/tracking1.png">
 									</figure>
 								</div>
 								<div class="listObject" id="boxorderList">박스구매내역</div>
@@ -113,20 +124,10 @@
 								</a>	
 							</div>
 						</li>
-						<input type="hidden" name="userId" id="userId" value="<c:out value='${sessionScope.sid}'></c:out>">
-						<form action="/modifyBox" method="post" id="modifyBoxForm">
-							<input type="hidden" id="a01" name="a01" class="update_a01" value="${boxStock.a01}">
-							<input type="hidden" id="a02" name="a02" class="update_a02" value="${boxStock.a02}">
-							<input type="hidden" id="a03" name="a03" class="update_a03" value="${boxStock.a03}">
-							<input type="hidden" id="a04" name="a04" class="update_a04" value="${boxStock.a04}">
-							<input type="hidden" id="b01" name="b01" class="update_b01" value="${boxStock.b01}">
-							<input type="hidden" id="b02" name="b02" class="update_b02" value="${boxStock.b02}">
-							<input type="hidden" id="b03" name="b03" class="update_b03" value="${boxStock.b03}">
-							<input type="hidden" id="b04" name="b04" class="update_b04" value="${boxStock.b04}">
-						</form>
-						<!-- <form id="modifyABoxForm" action="/modifyABox" method="post"> -->
+						<form action="/modifyBox" method="post" id="modifyABoxForm">
 						<table class="aboxModify" id="aboxModify" style="display:none;">
 							<tr>
+								<input type="hidden" class="modifySpan2" name="userId" id="userId" value="<c:out value='${sessionScope.sid}'></c:out>">
 								<th>타입</th>
 								<th>크기</th>
 								<th class="pmth" style="display:none;"></th>
@@ -137,36 +138,36 @@
 								<th>A01</th>
 								<th>100x100x100</th>
 								<th class="pmth" style="display:none;"><button type ="button" onclick="fnCalCount('m',this);" class="m1">-</button></th>
-								<th><input class="thValue" id="a01v" value="${boxStock.a01}"   readonly="readonly"/></th>
+								<th><input class="thValue" id="a01" name="a01" value="${boxStock.a01}"   readonly="readonly"/></th>
 								<th class="pmth" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
 							</tr>
 							<tr>
 								<th>A02</th>
 								<th>200x200x200</th>
 								<th class="pmth" style="display:none;"><button type ="button" onclick="fnCalCount('m',this);" class="m1">-</button></th>
-								<th><input class="thValue" id="a02v" value="${boxStock.a02 }" readonly="readonly"/></th>
+								<th><input class="thValue" id="a02" name="a02" value="${boxStock.a02 }" readonly="readonly"/></th>
 								<th class="pmth" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
 							</tr>
 							<tr>
 								<th>A03</th>
 								<th>300x300x300</th>
 								<th class="pmth" style="display:none;"><button type ="button" onclick="fnCalCount('m',this);" class="m1">-</button></th>
-								<th><input class="thValue" id="a03v" value="${boxStock.a03 }" readonly="readonly"/></th>
+								<th><input class="thValue" id="a03" name="a03" value="${boxStock.a03 }" readonly="readonly"/></th>
 								<th class="pmth" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
 							</tr>
 							<tr>
 								<th>A04</th>
 								<th>400x400x400</th>
 								<th class="pmth" style="display:none;"><button type ="button" onclick="fnCalCount('m',this);" class="m1">-</button></th>
-								<th><input class="thValue" id="a04v" value="${boxStock.a04 }" readonly="readonly"/></th>
+								<th><input class="thValue" id="a04" name="a04" value="${boxStock.a04 }" readonly="readonly"/></th>
 								<th class="pmth" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
 							</tr>
 							
 						</table>
-						<!-- </form> -->
+						</form>
 								<button class="saveBtn1" id="saveBtn1" style="display:none;">저장</button>
 								<button class="modifyBtn1" id="modifyBtn1" style="display:none;">수정</button>
-									
+						<form action="/modifyBox2" method="post" id="modifyBBoxForm">			
 						<table class="bboxModify" id="bboxModify" style="display:none;">
 							<tr>
 								<th>타입</th>
@@ -179,31 +180,32 @@
 								<th>B01</th>
 								<th>100x100x100</th>
 								<th class="pmth1" style="display:none;"><button type ="button" onclick="fnCalCount('m',this);" class="m1">-</button></th>
-								<th><input class="thValue" id="b01v" value="${boxStock.b01 }" readonly="readonly"/></th>
+								<th><input class="thValue" id="b01" name="b01" value="${boxStock.b01 }" readonly="readonly"/></th>
 								<th class="pmth1" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
 							</tr>
 							<tr>
 								<th>B02</th>
 								<th>200x200x200</th>
 								<th class="pmth1" style="display:none;"><button type ="button" onclick="fnCalCount('m',this);" class="m1">-</button></th>
-								<th><input class="thValue" id="b02v" value="${boxStock.b02 }" readonly="readonly"/></th>
+								<th><input class="thValue" id="b02" name="b02" value="${boxStock.b02 }" readonly="readonly"/></th>
 								<th class="pmth1" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
 							</tr>
 							<tr>
 								<th>B03</th>
 								<th>300x300x300</th>
 								<th class="pmth1" style="display:none;"><button type ="button" onclick="fnCalCount('m',this);" class="m1">-</button></th>
-								<th><input class="thValue" id="b03v" value="${boxStock.b03 }" readonly="readonly"/></th>
+								<th><input class="thValue" id="b03" name="b03" value="${boxStock.b03 }" readonly="readonly"/></th>
 								<th class="pmth1" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
 							</tr>
 							<tr>
 								<th>B04</th>
 								<th>400x400x400</th>
 								<th class="pmth1" style="display:none;"><button type ="button" onclick="fnCalCount('m',this);" class="m1">-</button></th>
-								<th><input class="thValue" id="b04v" value="${boxStock.b04 }" readonly="readonly"/></th>
+								<th><input class="thValue" id="b04" name="b04" value="${boxStock.b04 }" readonly="readonly"/></th>
 								<th class="pmth1" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
 							</tr>
 						</table>
+						</form>
 								<button class="saveBtn2" id="saveBtn2" style="display:none;">저장</button>
 								<button class="modifyBtn2" id="modifyBtn2" style="display:none;">수정</button>
 								
@@ -216,11 +218,11 @@
 				<div class="modal_body">
 					<div class="modal_close1"><img src="<c:url value='/image/close.jpg'/>"></div>
 					<div class="title-l">박스구매내역</div>
-					<input type="date" name="searchDate" id="searchDate" value="2023-02-10" min="2023-02-10" max="2099-12-31">
 					<table class="boxTable">
 						<tr>
 							<th>번호</th>
-							<th>주문번호</th>
+							<th style="width:25%">주문번호</th>
+							<th style="width:25%">주문날짜</th>
 							<th>박스종류</th>
 							<th>박스수량</th>
 							<th>가격</th>
@@ -229,6 +231,7 @@
 			            <tr>
 			              <td>${bh.ordDNo}</td>
 			              <td>${bh.ordNo}</td>
+			              <td>${bh.ordDate}</td>
 			              <td>${bh.boxType}</td>
 			              <td>${bh.boxQty}</td>
 			              <td>${bh.selPrice}</td>
@@ -261,8 +264,8 @@
 			              </div>
 			              <div id="rentText">
 			                <div id="address">
-			                  <span>${ldeal.userHP}</span>
-			                  <a id="map"><img src="<c:url value='/image/phone1.png'/>"></a>
+			                  <span id="HP">${ldeal.userHP}</span>
+			                  <a id="Pn"><img src="<c:url value='/image/phone1.png'/>"></a>
 			                </div>
 			                <div id="rentTime">${ldeal.ldealStart}<span>~</span>${ldeal.ldealEnd}<span>,</span> ${ldeal.userName}</div>
 			              </div>
@@ -443,27 +446,43 @@
 				<input type="hidden" name="memberId" value="${member.memberId}">
 			</form>
     		
-			<div class="fb"><c:import url="/WEB-INF/views/layout/footer.jsp"/></div>
 			</div>
 		</div>
+        <%-- <form action="/modifyBox" method="post" id="modifyBoxForm">
+			<input type="hidden" id="a01" name="a01" class="update_a01" value="${boxStock.a01}">
+			<input type="hidden" id="a02" name="a02" class="update_a02" value="${boxStock.a02}">
+			<input type="hidden" id="a03" name="a03" class="update_a03" value="${boxStock.a03}">
+			<input type="hidden" id="a04" name="a04" class="update_a04" value="${boxStock.a04}">
+			<input type="hidden" id="b01" name="b01" class="update_b01" value="${boxStock.b01}">
+			<input type="hidden" id="b02" name="b02" class="update_b02" value="${boxStock.b02}">
+			<input type="hidden" id="b03" name="b03" class="update_b03" value="${boxStock.b03}">
+			<input type="hidden" id="b04" name="b04" class="update_b04" value="${boxStock.b04}">
+		</form> --%>
+		<script>
+
+		    document.getElementById("Pn").onclick = function(){
+		        // div 내부 텍스트 취득
+		        const valOfspan = document.getElementById("HP").innerText;
 		
+		        // textarea 생성
+		        const textArea = document.createElement('textarea');
 		
-<!-- 	<script>
-      const modal = document.querySelector('.modal1');
-      const btnOpenPopup = document.querySelector('#boxorderLink');
-      /* const box-wrapper = document.querySelector('.box-wrapper');
-      const modal-close1 = document.querySelector('.modal-close1'); */
-      
-      
-      btnOpenPopup.addEventListener('click', () => {
-        modal.style.display = 'block';
-       ('.boxorderLink').style.display = 'none';
-      });
-      
-/*       modal-close1.addEventListener('click', () => {
-    	  modal.style.display = 'none';
-          box-wrapper.style.display = 'block';
-      }); */
-    </script> -->
+		        // textarea 추가
+		        document.body.appendChild(textArea);
+		        
+		        // textara의 value값으로 div내부 텍스트값 설정
+		        textArea.value = valOfspan;
+		
+		        // textarea 선택 및 복사
+		        textArea.select();
+		        document.execCommand('copy');
+		
+		        // textarea 제거
+		        document.body.removeChild(textArea);
+		        alert("복사 완료"); 
+		    }
+
+		</script>
 		</body>
+		<div class="fb"><c:import url="/WEB-INF/views/layout/footer.jsp"/></div>
 </html>

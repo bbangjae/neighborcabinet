@@ -85,7 +85,7 @@
 							</a>
 						</li>
 						
-						<li class="navList" id="boxodrderNav">
+						<!-- <li class="navList" id="boxodrderNav">
 							<button id="boxorderLink1" onClick="/dealNotice">
 								<div class="figureBox">
 									<figure>
@@ -94,7 +94,7 @@
 								</div>
 								<div class="listObject" id="boxorderList">거래 알림</div>
 							</button>
-						</li>
+						</li> -->
 						<li class="navList" id="boxodrderNav">
 							<button id="boxorderLink">
 								<div class="figureBox">

@@ -60,6 +60,18 @@ public class MemberController {
         return "member/loginform"; // 회원 가입 후 로그인 폼으로 이동
     }
 
+    @ResponseBody
+    @RequestMapping("/member/memIdCheck")
+    public String memIdCheck(@RequestParam("userId") String userId){
+        String userId_result = service.userIdCheck(userId);
+
+        String result = "use";
+        if(userId_result != null) //존재 한다면
+            result ="no_use";
+
+        return  result;
+    }
+
 }
 
 

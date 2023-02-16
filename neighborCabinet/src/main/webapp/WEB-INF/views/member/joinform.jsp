@@ -85,7 +85,7 @@ h2{
                         사용가능한 아이디 입니다.
                     </div>
                     <div class="invalid-feedback">
-                        5글자 이상 20글자이내 알파벳, _ ,숫자 만 입력가능합니다.
+                        아이디가 중복되었습니다.
                     </div>
                 </div>
                 </div>
@@ -272,14 +272,28 @@ h2{
         var spacePattern = /\s/; //공백 패턴
         // 아이디 정규식( 5~20자 알파벳,_,숫자 만 작성) 및 공백 테스트
         isIdValid = !idPattern.test(inputId) || spacePattern.test(inputId)
-
-        if(isIdValid){
-            this.classList.remove("is-valid");
-            this.classList.add("is-invalid");
-        }else{
-                    this.classList.remove("is-invalid");
-                    this.classList.add("is-valid");
+            $.ajax({
+                type:"post",
+                url:"memIdCheck",
+                data: {"userId":$('#userId').val()},
+                dataType:'text',
+                success:function(result){
+                    if(result == "no_use"){
+                        document.querySelector("#userId").classList.remove("is-valid");
+                        document.querySelector("#userId").classList.add("is-invalid");
+                    }else{
+                        document.querySelector("#userId").classList.remove("is-invalid");
+                        document.querySelector("#userId").classList.add("is-valid");
+                    }
+                },
+                error:function(){
+                    alert("실패");
+                },
+                complete:function(){
+                    // alert("작업 완료");
                 }
+            }); // ajax 종료
+
     });
 
     //유저 패스워드 유효성 검사

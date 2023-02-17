@@ -30,8 +30,8 @@
     </select>
 
     <insert id="reserve" useGeneratedKeys="true" keyProperty="reserveNo" parameterType="com.neighborCabinet.project.model.ReserveVo">
-        insert into reserve(reserveNo,reserveDate,reservePrice,userId,pNo)
-        values (#{reserveNo}, #{reserveDate},#{reservePrice},#{userId},#{pNo})
+        insert into reserve(reserveNo,reserveDate,reservePrice,userId,pNo,boxType,startTime,endTime)
+        values (#{reserveNo}, #{reserveDate},#{reservePrice},#{userId},#{pNo},#{boxType},#{startTime},#{endTime})
     </insert>
 
     <select id="showDate" parameterType="HashMap" resultType="HashMap">
@@ -43,11 +43,9 @@
     </select>
 
     <select id="updateDate" parameterType="HashMap">
-
         update reserveDate
         set date=json_set(date,#{reserveDate},#{hours})
         WHERE (JSON_EXTRACT(date, '$."boxtype"') = #{bt}) and pNo=#{pNo}
-
     </select>
 
     <select id="showBoxtype" parameterType="int" resultType="HashMap">
@@ -58,4 +56,14 @@
     <select id="imgCount" parameterType="int" resultType="int">
         select count(*) from files where pid=#{pNo}
     </select>
+    <delete id="qaDelete"  parameterType="int">
+        delete
+        from qa
+        where qaNo=${qaNo}
+    </delete>
+    <update id="qaUpdate" parameterType="HashMap">
+        update qa
+        set qaContent=#{qaContent} where qaNo=#{qaNo}
+
+    </update>
 </mapper>

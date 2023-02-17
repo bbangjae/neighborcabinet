@@ -73,7 +73,6 @@ public class PlaceController {
         model.addAttribute("r_cnt",r_cnt);
         model.addAttribute("r_mean",r_mean);
         int fileCount = service.imgCount(pNo);
-        System.out.print(fileCount);
         model.addAttribute("fC",fileCount);
 
         HashMap<String,Object> boxtype=service.showBoxtype(pNo);
@@ -156,6 +155,7 @@ public class PlaceController {
             @RequestParam("bt")String bt,
             ReserveVo vo,
             HttpSession session){
+
         HashMap<String,Object> result=new HashMap<String,Object>();
         int t_p2=Integer.parseInt(t_p.replaceAll("[^0-9]",""));
         String userId=(String)session.getAttribute("sid");
@@ -164,6 +164,9 @@ public class PlaceController {
             vo.setReserveDate(d_t);
             vo.setReservePrice(t_p2);
             vo.setUserId(userId);
+            vo.setBoxType(bt);
+            vo.setStartTime(selectedFirstTime+":00");
+            vo.setEndTime(selectedFinalTime+1+":00");
             service.reserve(vo);
             vo.setReserveNo(vo.getReserveNo());
             result.put("no",vo.getReserveNo()) ;
@@ -207,14 +210,21 @@ public class PlaceController {
 
         return map2;
     }
-    //시간 저장으로 바뀜
-//    @ResponseBody
-//    @RequestMapping("/place/placeDetailView/reserveDate"){
-//        public String reserveDate(){
-//
-//            return result;
-//        }
-//    }
+    @ResponseBody
+    @RequestMapping("/place/placeDetailView/qaDelete")
+    public void qaDelete(@RequestParam("qaNo")int qaNo ){
+        service.qaDelete(qaNo);
+    }
+    @ResponseBody
+    @RequestMapping("/place/placeDetailView/qaUpdate")
+    public void qaUpdate(@RequestParam("qaNo")int qaNo,
+                         @RequestParam("qaContent")String qaContent){
+        HashMap<String,Object> map =new HashMap<>();
+        map.put("qaNo",qaNo);
+        map.put("qaContent",qaContent);
+        service.qaUpdate(map);
+    }
+
     @RequestMapping("/testb")
     public String test(){
         return "testB";

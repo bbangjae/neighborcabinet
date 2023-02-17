@@ -6,6 +6,11 @@ public class ReserveVo {
     int reservePrice;
     int pNo;
     String userId;
+    String boxType;
+    String startTime;
+    String endTime;
+
+
     public int getReserveNo() {
         return reserveNo;
     }
@@ -44,5 +49,29 @@ public class ReserveVo {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getBoxType() {
+        return boxType;
+    }
+
+    public void setBoxType(String boxType) {
+        this.boxType = boxType;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 }

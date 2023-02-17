@@ -22,6 +22,7 @@ html,body {
 a{
     text-decoration: none;
 }
+.scrollLock{ overflow:hidden;}
 textarea:focus {
     outline: none;
 }
@@ -271,7 +272,7 @@ input:focus {
 #container .c_content .ct_left .ct_text .info .i_btn li{
     margin-right: 30px;
 }
-#container .c_content .ct_left .QA_btn, #QA_not, .c_btn{
+#container .c_content .ct_left .QA_btn, #QA_not, .qa_update, .qa_delete{
     float: right;
     margin-right:30px;
     display: inline-block;
@@ -289,7 +290,7 @@ input:focus {
     border: solid 1px #00DBAF;
 
 }
-#container .c_content .ct_left .c_btn{
+#container .c_content .ct_left .qa_update, .qa_delete{
     width:38px;
     height:24px;
     display:flex;
@@ -301,12 +302,12 @@ input:focus {
     border-radius:5px 5px 5px 5px;
     margin:0px;
 }
-#container .c_content .ct_left .QA_btn:hover, #QA_not:hover, .c_btn:hover{
+#container .c_content .ct_left .QA_btn:hover, #QA_not:hover{
     color:#00DBAF;
     background-color: white;
     cursor : pointer;
 }
-#container .c_content .ct_left .c_btn:hover{
+#container .c_content .ct_left .qa_update:hover, .qa_delete:hover{
     color:white;
     background-color: #00DBAF;
     cursor : pointer;

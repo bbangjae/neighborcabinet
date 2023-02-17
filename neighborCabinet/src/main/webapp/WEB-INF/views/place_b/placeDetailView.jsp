@@ -46,8 +46,10 @@
                 <h2>질문 작성하기</h2>
             </div>
             <div class="close-area">X</div>
-            <div class="content" >
-                <input type="text" id="qa_text" name="qa_text" style="margin-left:5px; width:95%;height:150px; margin-top:-20px; text-align: left">
+            <div class="content"  >
+                <div style="display:block;">
+                    <textarea  id="qa_text" name="qa_text" style="margin-left:5px; width:95%;height:150px; margin-top:-20px;resize:none;" placeholder="내용을 입력해 주세요."></textarea>
+                </div>
                 <button  id="QA_confirm" name="QA_confirm" value=${pi.pNo}>확인</button>
 
             </div>
@@ -154,8 +156,8 @@
 
                     <div class="t_text" style="color:gray;">
                         <c:forEach var="im" items="${im}" varStatus="vs">
-                            <c:if test="${ql[vs.index]>1}" >
-                                <li class="box_info">박스 ${im.key}</li>
+                            <c:if test="${ql[vs.index]>0}" >
+                                <li class="box_info">박스 ${im.key} 보유</li>
                             </c:if>
                         </c:forEach>
                     </div>
@@ -220,7 +222,7 @@
                         </c:if>
                     </div>
                     <table class="Q_R_table" >
-                        <c:forEach var="qL" items="${qaList}">
+                        <c:forEach var="qL" items="${qaList}" varStatus="q_vs">
                             <tr>
                                 <td style="width:100px; height:100%;padding:0px; border-collapse : collapse; vertical-align : top;">
                                     <div style="width:100px;heght:100px; ">
@@ -233,23 +235,28 @@
                                             ${qL.userNickName}
                                         </div>
                                         <c:if test="${qL.userId==sessionScope.sid}">
-                                        <div style="width:20%; display:flex; ">
-                                            <button class="c_btn" style="margin-left:30px;">수정</button>
-                                            <button class="c_btn" style="margin-left:10px;" >삭제</button>
-                                        </div>
+                                            <div class="qa_btn" style="width:20%; display:flex;">
+                                                <input class="qa_update" type="submit" style="margin-left:30px;" value="수정" vs="${q_vs.index}">
+                                                <input class="qa_delete" type="submit" style="margin-left:10px;" value="삭제" qaNo="${qL.qaNo}">
+                                            </div>
                                         </c:if>
                                     </div>
-                                    <div style="width: 100%;height:60%;margin-top:30px;">
-                                            ${qL.qaContent}
+                                    <div style="width:98%;height:auto; padding:0;display: block; ">
+                                        <textarea class="qa_text"  style="margin-top:10px;border:0px; height:100% !important;width: 100%;  resize:none; overflow:hidden; background-color: #F9FAFB;" onkeydown="resize(this)" onkeyup="resize(this)" readonly>${qL.qaContent}</textarea>
+
                                     </div>
-                                    <div style="  width:100%; color:gray; margin: 30px 0 40px 0; font-weight: lighter">
+                                    <div style="  width:100%; color:gray; margin: 10px 0 40px 0; font-weight: lighter">
                                         <fmt:formatDate value="${qL.qaDate}" pattern="YY-MM-dd"/>
-
-
-                                    </div>
-                                </td>
+                                    </div>                                </td>
                             </tr> </c:forEach>
                     </table>
+                    <script>
+
+                        function resize(obj) {
+                            obj.style.height = '1px';
+                            obj.style.height = (obj.scrollHeight) + 'px';
+                        }
+                    </script>
                     <div class="t_title" id="review">
 
                         <ul style="margin:0; padding:0; display:flex; ">

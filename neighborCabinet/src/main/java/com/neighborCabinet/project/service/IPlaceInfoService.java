@@ -25,5 +25,7 @@ public interface IPlaceInfoService {
 
     public HashMap<String, Object> showBoxtype(int pNo);
     public int imgCount(int pNo) ;
+    public void qaDelete(int qaNo);
+    public void qaUpdate(HashMap<String, Object> map);
 
 }

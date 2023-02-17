@@ -43,5 +43,9 @@ public class PlaceInfoService implements IPlaceInfoService {
         return dao.showBoxtype(pNo);}
     @Override
     public int imgCount(int pNo) {return dao.imgCount(pNo);}
+    @Override
+    public void qaDelete(int qaNo){dao.qaDelete(qaNo);}
+    @Override
+    public void qaUpdate(HashMap<String, Object> map){dao.qaUpdate(map);};
 }
 

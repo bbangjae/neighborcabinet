@@ -18,14 +18,10 @@
 	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=hm0bb8lwq6&submodules=geocoder"></script>
 	<script type="text/javascript">
 		$(function(){
-
 			initMap();
-
 		});
 
 		function initMap(){
-
-
 
 
 			let markers = new Array(); // 마커 정보를 담는 배열

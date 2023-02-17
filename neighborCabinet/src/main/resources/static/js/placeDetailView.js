@@ -3,11 +3,19 @@
  */
 var hours_R=""; // 시간 받아온값
 var boxtype="";
+
 $(function(){
-
-
-
+    qaHeight();
 });
+function qaHeight(){
+    $(".qa_text").each(function()
+    {
+        $(this).css({
+            "height":($(this).prop('scrollHeight'))+"px"
+        })
+    });
+
+}
 
 /*          캘린더 시작          */
 var today = new Date();
@@ -450,6 +458,122 @@ $(document).ready(function(){
             "opacity":"0.1"
         })
     })
+    var q_index=0;
+    var qa_text;
+    var q_content;
+    $(".qa_update").on('click',function(){
+        if($(this).val()==="수정") {
+            $(qa_text).val(q_content);
+            $(qa_text).attr('readonly',true);
+            $(qa_text).css({
+                "background-color":"rgb(249, 250, 251)"
+            })
+            $(".qa_delete").val("삭제")
+            $(".qa_update").val("수정");
+
+            $(this).val("확인");
+            q_index= $(this).attr("vs") * 1;
+            $(".qa_delete").eq(q_index).val("취소");
+            qa_text=$(".qa_text").eq(q_index);
+            q_content=$(".qa_text").eq(q_index).val()
+            $(qa_text).attr('readonly',false);
+            $(qa_text).css({
+                "background-color":"white",
+                "height":"50px;"
+            })
+
+            let len = $(qa_text).val().length;
+            $(qa_text).focus();
+            // focus 마지막에 잡기
+            $(qa_text)[0].setSelectionRange(len, len);
+
+        }
+        else if($(this).val()==="확인"){
+            let answer = confirm("수정하시겠습니까?");
+            if(answer){
+
+                $.ajax({
+                    type: "post",
+                    url: "/place/placeDetailView/qaUpdate",
+                    data:{
+                        "qaNo":$(".qa_delete").eq(q_index).attr("qaNo"),
+                        "qaContent":$(qa_text).val()
+                    },
+                    success(){
+                        $(qa_text).val($(qa_text).val());
+                        $(qa_text).attr('readonly',true);
+                        $(qa_text).css({
+                            "background-color":"rgb(249, 250, 251)"
+                        });
+                        $(".qa_update").eq(q_index).val("수정");
+                        $(".qa_delete").eq(q_index).val("삭제");
+                    }
+
+                })
+
+
+            }
+        }
+    });
+
+
+    $(".qa_delete").on('click', function () {
+            if($(this).val()==="삭제") {
+                $(qa_text).val(q_content);
+                $(qa_text).attr('readonly',true);
+                $(qa_text).css({
+                    "background-color":"rgb(249, 250, 251)"
+                })
+                $(".qa_delete").val("삭제")
+                $(".qa_update").val("수정");
+
+                let answer=confirm("삭제하시겠습니까?");
+                if(answer) {
+                    $.ajax({
+                        type: "post",
+                        url: "/place/placeDetailView/qaDelete",
+                        data: {"qaNo": $(this).attr("qaNo")},
+                        success() {
+                            location.href = "/place/placeDetailView/" + $("#QA_confirm").val();
+                        }
+                    })
+                }
+            }
+            else if($(this).val()==="취소") {
+
+                    $(qa_text).val(q_content);
+
+                    $(qa_text).attr('readonly',true);
+                    $(qa_text).css({
+                        "background-color":"rgb(249, 250, 251)"
+                    })
+                    qaHeight();
+                    $(this).val("삭제")
+                    $(".qa_update").eq(q_index).val("수정");
+
+            }
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+        // $.ajax({
+        //     type:"post",
+        //     url:"/place/placeDetailView/qaDelete",
+        //     data: {"qaNo":$(this).attr("qaNo")},
+        //     success(){
+        //         location.href="/place/placeDetailView/"+$("#QA_confirm").val();
+        //     }
+        // })
+
 
 
 
@@ -515,10 +639,11 @@ $(document).ready(function(){
             "z-index": "1"
         });
     });
-
+    const body = document.getElementsByTagName('body')[0];
     $(".call_li").on('click',function (){
         var now_t= (($(window).height()-$("#modal_call").outerHeight())/2+$(window).scrollTop())+"px";
         var now_l= (($(window).width()-$("#modal_call").outerWidth())/2+$(window).scrollLeft())+"px";
+        body.classList.add('scrollLock');
         $("#modal_call").css({
             "display": "flex",
 
@@ -531,9 +656,12 @@ $(document).ready(function(){
         });
     });
 
+
     $(".QA_btn").on('click',function (){
         var now_t= (($(window).height()-$("#modal_QA").outerHeight())/2+$(window).scrollTop())+"px";
         var now_l= (($(window).width()-$("#modal_QA").outerWidth())/2+$(window).scrollLeft())+"px";
+        body.classList.add('scrollLock');
+
         $("#modal_QA").css({
             "display": "flex",
 
@@ -550,21 +678,26 @@ $(document).ready(function(){
     modal_call.addEventListener("click",e =>{
         const evTarget =e.target
         if(evTarget.classList.contains("modal-overlay")){
-            modal_call.style.display="none"
+            modal_call.style.display="none";
+            body.classList.remove('scrollLock');
         }
     } )
     window.addEventListener("keyup", e => {
         if(modal_call.style.display==="flex" && e.key==="Escape"){
-            modal_call.style.display="none"
+            modal_call.style.display="none";
+            body.classList.remove('scrollLock');
         }
     })
     $(".close-area").on('click',function (){
-
+        body.classList.remove('scrollLock');
         $(".modal-overlay").css({
             "display": "none"
         });
+
+
     });
     $(".confirm_btn").on('click',function (){
+        body.classList.remove('scrollLock');
         $(".modal-overlay").css({
             "display": "none"
         });
@@ -612,6 +745,7 @@ $(document).ready(function(){
                         "display": "none"
                     });
                 }
+                body.classList.remove('scrollLock');
             }
         });
     });
@@ -620,11 +754,13 @@ $(document).ready(function(){
         const evTarget =e.target
         if(evTarget.classList.contains("modal-overlay")){
             modal_QA.style.display="none"
+            body.classList.remove('scrollLock');
         }
     } )
     window.addEventListener("keyup", e => {
         if(modal_QA.style.display==="flex" && e.key==="Escape"){
             modal_QA.style.display="none"
+            body.classList.remove('scrollLock');
         }
     })
 

@@ -149,7 +149,7 @@
 								<div><div>사업자번호</div><div>649824</div></div>
 								<div>
 									<div>연락처</div>
-									<div id="PAndE"><div>${place.pHp }</div><div>${host.userEmail }</div></div>
+									<div id="PAndE"><div>${H_HP1 }-${H_HP2 }-${H_HP3 }</div><div>${host.userEmail }</div></div>
 									</div>
 							</div>
 						</section>

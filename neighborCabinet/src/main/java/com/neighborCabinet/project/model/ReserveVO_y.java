@@ -2,7 +2,6 @@ package com.neighborCabinet.project.model;
 
 public class ReserveVO_y {
 	
-	private String resNo;
 	private int pNo;
 	private int reserveNo;
 	private String sender;
@@ -21,12 +20,6 @@ public class ReserveVO_y {
 	}
 	public void setRentEndDate(String rentEndDate) {
 		this.rentEndDate = rentEndDate;
-	}
-	public String getResNo() {
-		return resNo;
-	}
-	public void setResNo(String resNo) {
-		this.resNo = resNo;
 	}
 	public int getpNo() {
 		return pNo;

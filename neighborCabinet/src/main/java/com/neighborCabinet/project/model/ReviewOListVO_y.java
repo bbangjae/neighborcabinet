@@ -8,14 +8,15 @@ public class ReviewOListVO_y {
 	private String pImage;
 	private String userId;
 	private String reviewEnd;
-	private String resNo;
+	private String reserveNo;
 	
 	
-	public String getResNo() {
-		return resNo;
+	
+	public String getReserveNo() {
+		return reserveNo;
 	}
-	public void setResNo(String resNo) {
-		this.resNo = resNo;
+	public void setReserveNo(String reserveNo) {
+		this.reserveNo = reserveNo;
 	}
 	public int getpNo() {
 		return pNo;

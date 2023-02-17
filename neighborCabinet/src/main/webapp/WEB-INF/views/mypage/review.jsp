@@ -96,7 +96,7 @@
 								<tr>
 									<td class="text_left">${reviewO.reviewEnd }까지</td>
 									<td>
-										<button type="button" class="reviewWrite" id="${reviewO.resNo }">리뷰 작성하기</button>
+										<button type="button" class="reviewWrite" id="${reviewO.reserveNo }">리뷰 작성하기</button>
 									</td>
 								</tr>
 							</table></li>

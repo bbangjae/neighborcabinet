@@ -6,10 +6,10 @@ $(document).ready(function(){
 	
 	$(".requestInfo").on("click", function(){
 
-		var resNo = $(this).attr('id');
+		var reserveNo = $(this).attr('id');
  		$.ajax({
  			type:"post",
- 			url:"/message/requestInfo/" + resNo,
+ 			url:"/message/requestInfo/" + reserveNo,
  			success:function(result){
  				$('#infoResult').html(result);
  			},

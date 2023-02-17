@@ -96,11 +96,11 @@ $(document).ready(function(){
   		var formData = new FormData();
   		formData.append('uploadFile', blob, clipName + ".mp3");
   		// name, 데이터, 파일명
-  		
+  		console.log(formData);
   		// 서버에 전달하고 응답 받음
   		$.ajax({
  			type:"post",
- 			url:"stt",
+ 			url:"/stt",
  			enctype:"multipart/form-data",
  			processData:false,
  			contentType:false,

@@ -6,37 +6,34 @@
 <mapper namespace="com.neighborCabinet.project.dao.IMessageDAO_y">
 	<select id="resInfo" parameterType="string" resultType="com.neighborCabinet.project.model.ReserveVO_y">
 		SELECT *
-		FROM reserve1 
+		FROM reserve
 		WHERE receiver=#{userId} and resState=0
 	</select>
 	<select id="resCheck" parameterType="hashmap" resultType="int">
 		SELECT COUNT(*)
-		FROM reserve1 
-		WHERE receiver=#{userId} and resNo=#{resNo}
+		FROM reserve
+		WHERE receiver=#{userId} and reserveNo=#{reserveNo}
 	</select>
 	<select id="requestInfo" parameterType="hashmap" resultType="com.neighborCabinet.project.model.ReserveDetailVO_y">
 		SELECT *
-		FROM reserveDetail d, reserve1 r
-		WHERE r.resNo=#{resNo} and r.resNo=d.resNo and r.receiver=#{userId}
+		FROM reserve
+		WHERE reserveNo=#{reserveNo} and receiver=#{userId}
 	</select>
-	<update id="requestO" parameterType="hashmap">
-		UPDATE reserve1
+	<update id="requestO" parameterType="int">
+		UPDATE reserve
 		SET resState=1
-		WHERE resNo=#{resNo}
+		WHERE reserveNo=#{reserveNo}
 	</update>
 	<insert id="requestOMessage" parameterType="hashmap">
-		INSERT INTO messageAll (message, resNo, userId, OX)
-		VALUES ("예약이 확정되었습니다.", #{resNo}, #{messageId}, 0)
+		INSERT INTO messageAll (message, reserveNo, userId, OX)
+		VALUES ("예약이 확정되었습니다.", #{reserveNo}, #{messageId}, 0)
 	</insert>
-	<delete id="requestX" parameterType="hashmap">
-		DELETE FROM reserve1 WHERE resNo=#{resNo}
-	</delete>
-	<delete id="requestX2" parameterType="hashmap">
-		DELETE FROM reserveDetail WHERE resNo=#{resNo}
+	<delete id="requestX" parameterType="int">
+		DELETE FROM reserve WHERE reserveNo=#{reserveNo}
 	</delete>
 	<insert id="requestXMessage" parameterType="hashmap">
-		INSERT INTO messageAll (message, resNo, userId, OX)
-		VALUES ("예약 신청이 거절되었습니다.", #{resNo}, #{messageId}, 0)
+		INSERT INTO messageAll (message, reserveNo, userId, OX)
+		VALUES ("예약 신청이 거절되었습니다.", #{reserveNo}, #{messageId}, 0)
 	</insert>
 	<select id="messageAll" parameterType="string" resultType="com.neighborCabinet.project.model.messageAllVO_y">
 		SELECT *

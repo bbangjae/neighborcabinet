@@ -26,31 +26,30 @@ public class MessageService_y implements IMessageService_y {
 	}
 
 	@Override
-	public ReserveDetailVO_y requestInfo(String resNo, String userId) {
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("resNo", resNo);
+	public ReserveDetailVO_y requestInfo(int reserveNo, String userId) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("reserveNo", reserveNo);
 		map.put("userId", userId);
 		return dao.requestInfo(map);
 	}
 
 	@Override
-	public void requestO(String resNo, String messageId) {
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("resNo", resNo);
+	public void requestO(int reserveNo, String messageId) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("reserveNo", reserveNo);
 		map.put("messageId", messageId);
 		
-		dao.requestO(map);
+		dao.requestO(reserveNo);
 		dao.requestOMessage(map);
 		
 	}
 
 	@Override
-	public void requestX(String resNo, String messageId) {
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("resNo", resNo);
+	public void requestX(int reserveNo, String messageId) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("reserveNo", reserveNo);
 		map.put("messageId", messageId);
-		dao.requestX2(map);
-		dao.requestX(map);
+		dao.requestX(reserveNo);
 		dao.requestXMessage(map);
 		
 	}
@@ -62,9 +61,9 @@ public class MessageService_y implements IMessageService_y {
 	}
 
 	@Override
-	public int resCheck(String resNo, String userId) {
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("resNo", resNo);
+	public int resCheck(int reserveNo, String userId) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("reserveNo", reserveNo);
 		map.put("userId", userId);
 		return dao.resCheck(map);
 	}

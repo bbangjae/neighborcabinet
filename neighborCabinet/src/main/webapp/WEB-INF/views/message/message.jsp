@@ -12,10 +12,10 @@
 	<body>
 		<c:forEach var="resInfo" items="${resInfo}">
 			<div>
-				<button type="button" class="requestInfo" id="${resInfo.resNo}">정보 보기</button>
-				<a href="<c:url value='/message/requestInfo/${resInfo.resNo}'/>">정보 보기</a>
-				<a href="<c:url value='/message/requestO/${resInfo.resNo}/${resInfo.sender}'/>">수락</a>
-				<a href="<c:url value='/message/requestX/${resInfo.resNo}/${resInfo.sender}'/>">거절</a>
+				<button type="button" class="requestInfo" id="${resInfo.reserveNo}">정보 보기</button>
+				<a href="<c:url value='/message/requestInfo/${resInfo.reserveNo}'/>">정보 보기</a>
+				<a href="<c:url value='/message/requestO/${resInfo.reserveNo}/${resInfo.sender}'/>">수락</a>
+				<a href="<c:url value='/message/requestX/${resInfo.reserveNo}/${resInfo.sender}'/>">거절</a>
 			</div>
 		</c:forEach>
 		<c:forEach var="message" items="${message}">
@@ -23,7 +23,7 @@
 				<div>${message.userId}</div>
 				<div>${message.message}</div>
 				<div>${message.mesDate}</div>
-				<div>${message.resNo}</div>
+				<div>${message.reserveNo}</div>
 				<div>${message.OX}</div>
 			</div>
 			<hr>

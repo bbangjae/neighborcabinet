@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+#messageModal:checked + div{
+	display : block;
+}
+
+#messageBox{
+/* 	display : none; */
+	position : fixed;
+	top : 0;
+	left : 0;
+	width : 100%;
+	height : 100%;
+	z-index : 100;
+	text-align : center;
+}
+#messageBox>label{
+	position : absolute;
+	top : 0;
+	left : 0;
+	width : 100%;
+	height : 100%;
+	background : rgba(0,0,0,0.5);
+	z-index : 1;
+}
+#messageBox>div{
+	border-radius : 15px;
+	position : absolute;
+	top : 50%;
+	left : 50%;
+	transform : translate(-50%, -50%);
+	width : 50%;
+	height : 80%;
+	background : white;
+	z-index : 2;
+}
+#messageBox>div>label{
+	position : absolute;
+	top : 0%;
+	right : 0%;
+	padding : 0 10px;
+	border-radius : 100%;
+	z-index : 1;
+	font-size : 25px;
+}
+#section1{
+	margin : 10px 0;
+	font-size : 30px;
+}
+#section2{
+	display : flex;
+	padding : 20px;
+	height : 85%;
+}
+#section2_1{
+	width : 10%;
+}
+
+
+
+#section2_2{
+	width : 90%;
+	display : flex;
+	height : 100%;
+	justify-content: center;
+	border-radius : 15px;
+	box-shadow: 0px 6px 16px rgb(0 0 0 / 5%);
+	overflow: auto;
+}
+#section2_2::-webkit-scrollbar {
+    width: 7px;
+}
+#section2_2::-webkit-scrollbar-thumb {
+    height: 30%;
+    background: #ebebeb;
+    border-radius: 10px;
+}
+#section2_2::-webkit-scrollbar-track {
+    background: white;
+}
+#section2_2>div>div {
+	height:100px;
+}

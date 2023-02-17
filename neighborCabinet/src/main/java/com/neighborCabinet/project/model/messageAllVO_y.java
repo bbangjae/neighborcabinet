@@ -5,9 +5,15 @@ public class messageAllVO_y {
 	private String userId;
 	private String message;
 	private String mesDate;
-	private String resNo;
+	private int reserveNo;
 	private int OX;
 	
+	public int getReserveNo() {
+		return reserveNo;
+	}
+	public void setReserveNo(int reserveNo) {
+		this.reserveNo = reserveNo;
+	}
 	public int getMesNo() {
 		return mesNo;
 	}
@@ -31,12 +37,6 @@ public class messageAllVO_y {
 	}
 	public void setMesDate(String mesDate) {
 		this.mesDate = mesDate;
-	}
-	public String getResNo() {
-		return resNo;
-	}
-	public void setResNo(String resNo) {
-		this.resNo = resNo;
 	}
 	public int getOX() {
 		return OX;

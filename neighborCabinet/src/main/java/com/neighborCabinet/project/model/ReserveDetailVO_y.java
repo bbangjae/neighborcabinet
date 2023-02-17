@@ -2,7 +2,7 @@ package com.neighborCabinet.project.model;
 
 public class ReserveDetailVO_y {
 	
-	private String resNo;
+	private String reserveNo;
 	private int pickup;
 	private int food;
 	private String senderName;
@@ -12,11 +12,12 @@ public class ReserveDetailVO_y {
 	private String request;
 	private int resState;
 	
-	public String getResNo() {
-		return resNo;
+	
+	public String getReserveNo() {
+		return reserveNo;
 	}
-	public void setResNo(String resNo) {
-		this.resNo = resNo;
+	public void setReserveNo(String reserveNo) {
+		this.reserveNo = reserveNo;
 	}
 	public int getPickup() {
 		return pickup;

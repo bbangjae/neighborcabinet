@@ -9,7 +9,7 @@
 		<script src="<c:url value="/js/jquery-3.6.1.min.js"/>"></script>
 	</head>
 	<body>
-		<div>${requestInfo.resNo}</div>
+		<div>${requestInfo.reserveNo}</div>
 		<div>${requestInfo.pickup}</div>
 		<div>${requestInfo.food}</div>
 		<div>${requestInfo.senderName}</div>

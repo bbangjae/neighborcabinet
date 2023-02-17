@@ -36,35 +36,35 @@ public class MessageController {
 		return "/message/message";
 	}
 	
-	@RequestMapping("/message/requestO/{resNo}/{messageId}")
-	public String requestO(@PathVariable String resNo, @PathVariable String messageId, HttpSession session, Model model) {
+	@RequestMapping("/message/requestO/{reserveNo}/{messageId}")
+	public String requestO(@PathVariable int reserveNo, @PathVariable String messageId, HttpSession session, Model model) {
 		
 		String userId = (String) session.getAttribute("sid");
-		System.out.println(service.resCheck(resNo, userId));
-		if(service.resCheck(resNo, userId) == 0) {
+		System.out.println(service.resCheck(reserveNo, userId));
+		if(service.resCheck(reserveNo, userId) == 0) {
 			return "/index";
 		}
-		service.requestO(resNo, messageId);
+		service.requestO(reserveNo, messageId);
 		
 		return "redirect:/message";
 	}
 	@RequestMapping("/message/requestX/{resNo}/{messageId}")
-	public String requestX(@PathVariable String resNo, @PathVariable String messageId, HttpSession session, Model model) {
+	public String requestX(@PathVariable int reserveNo, @PathVariable String messageId, HttpSession session, Model model) {
 		String userId = (String) session.getAttribute("sid");
-		if(service.resCheck(resNo, userId) == 0) {
+		if(service.resCheck(reserveNo, userId) == 0) {
 			return "/index";
 		}
-		service.requestX(resNo, messageId);
+		service.requestX(reserveNo, messageId);
 		
 		return "redirect:/message";
 	}
 	
-	@RequestMapping("/message/requestInfo/{resNo}")
-	public String requestInfo(@PathVariable String resNo, HttpSession session, Model model) {
+	@RequestMapping("/message/requestInfo/{reserveNo}")
+	public String requestInfo(@PathVariable int reserveNo, HttpSession session, Model model) {
 		
 		String userId = (String) session.getAttribute("sid");
 		
-		ReserveDetailVO_y requestInfo = service.requestInfo(resNo, userId);
+		ReserveDetailVO_y requestInfo = service.requestInfo(reserveNo, userId);
 		
 		model.addAttribute("requestInfo", requestInfo);
 		

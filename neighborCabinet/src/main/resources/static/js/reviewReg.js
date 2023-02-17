@@ -22,7 +22,7 @@ $(document).ready(function(){
  			data: {"grade":grade,
  			        "content":$('#reviewContent').val(),
  			        "pNo":$('#pNo').val(),
- 			        "resNo":$('#resNo').val()},
+ 			        "reserveNo":$('#reserveNo').val()},
  			dataType:'text',
  			success:function(result){
  				if(result == "success"){

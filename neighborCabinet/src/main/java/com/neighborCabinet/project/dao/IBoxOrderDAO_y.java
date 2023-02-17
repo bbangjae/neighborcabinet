@@ -39,7 +39,7 @@ public interface IBoxOrderDAO_y {
 	public void reviewReg(HashMap<String, Object> map); //리뷰 등록
 	public void reviewCom(HashMap<String, Object> map);
 	public void reviewdelete(HashMap<String, Object> map); // 리뷰 삭제
-	public int reviewpNo(String resNo); // reserve에서 pNo 값 가져오기
+	public int reviewpNo(int reserveNo); // reserve에서 pNo 값 가져오기
 	//리뷰 페이징 카운트
 	public int myreviewCnt(String userId); // 리
 }

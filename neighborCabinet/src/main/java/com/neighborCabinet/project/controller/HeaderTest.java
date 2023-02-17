@@ -15,6 +15,7 @@ import java.util.HashMap;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,6 +48,9 @@ public class HeaderTest {
 	
 	@Autowired
 	private AIService_y AIService;
+	
+	@Value("${file.upload.path}")
+    String uploadPath;
 	
 	@RequestMapping("/header")
 	public String head() {
@@ -258,21 +262,9 @@ public class HeaderTest {
 	public String placePayment(@PathVariable int reserveNo, ReserveDetailVO_y reD,ReserveVO_y re,Model model, String senderPhone1,
 								String senderPhone2, String senderPhone3){
 		
-		long timeNum = System.currentTimeMillis();
-		SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddHHmmss");
-		String strTime = fmt.format(new Date(timeNum));
-		
-		String rNum = "";
-		for(int i=1;i<=4; i++) {
-			rNum += (int)(Math.random()*10);
-		}
-
-		String resNo = strTime + "_" + rNum;
 		
 		reD.setSenderPhone(senderPhone1 + senderPhone2 + senderPhone3);
-		re.setResNo(resNo);
 		re.setReserveNo(reserveNo);
-		reD.setResNo(resNo);
 		
 		service.insert_res(re);
 		service.insert_resD(reD);
@@ -384,20 +376,20 @@ public class HeaderTest {
 		return "redirect:/mypage/review";
 	}
 	//리뷰작성페이지
-	@RequestMapping("/mypage/reviewReg/{resNo}")
-	public String reviewreg(@PathVariable String resNo, HttpSession session, Model model){
+	@RequestMapping("/mypage/reviewReg/{reserveNo}")
+	public String reviewreg(@PathVariable int reserveNo, HttpSession session, Model model){
 		
 		String userId = (String) session.getAttribute("sid");
-		 int check = service.reviewCheck(userId, resNo);
+		 int check = service.reviewCheck(userId, reserveNo);
 		
 		if(check==0) {
 			return "redirect:/mypage/review";
 		}
 		else {
-			int pNo = service.reviewpNo(resNo);
+			int pNo = service.reviewpNo(reserveNo);
 			MemberVO userInfo = service.memberInfo(userId);
 			PlaceInfoVO place = service.placeInfo(pNo);
-			model.addAttribute("resNo", resNo);
+			model.addAttribute("reserveNo", reserveNo);
 			model.addAttribute("userInfo", userInfo);
 			model.addAttribute("place", place);
 			
@@ -409,23 +401,27 @@ public class HeaderTest {
 	@RequestMapping("/stt")
 	public String stt(@RequestParam("uploadFile") MultipartFile file,
 			  Model model) throws IOException {
-
+		
+		File folder = new File(System.getProperty("user.dir")+ uploadPath);
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
+		
 		// 1. 파일 저장 경로 설정 : C:/springWorkspace/upload/
 		// 마지막에 / 있어야 함
-		String uploadPath = "C:/springWorkspace/upload/";
+		//String uploadPath = "C:/springWorkspace/upload/";
 		
 		// 2. 원본 파일 이름 저장
-		String originalFileName = file.getOriginalFilename();
-		String filePathName = uploadPath + originalFileName; 
+		//String originalFileName = file.getOriginalFilename();
+		//String filePathName = uploadPath + originalFileName; 
 		
 		// 3. 파일 (객체) 생성
-		File sendFile = new File(filePathName);
-		Path filePath = Paths.get(filePathName);
+		File sendFile = new File(System.getProperty("user.dir")+ uploadPath + "stt");
+		Path filePath = Paths.get(System.getProperty("user.dir")+ uploadPath + "stt");
 		// 4. 서버로 전송
 		file.transferTo(sendFile);
 		
-		
-		String result = AIService.stt(filePathName);
+		String result = AIService.stt(System.getProperty("user.dir")+ uploadPath + "stt");
 		
 		Files.delete(filePath);
 		
@@ -437,9 +433,6 @@ public class HeaderTest {
 		
 		SentimentVO senti = AIService.sentiment(content);
 		
-		System.out.println(senti.getNegative());
-		System.out.println(senti.getNeutral());
-		System.out.println(senti.getPositive());
 		
 		return senti;
 		
@@ -449,20 +442,31 @@ public class HeaderTest {
 	@RequestMapping("/objectDetect")
 	public ArrayList<ObjectVO> objectDetection(@RequestParam("uploadFile") MultipartFile file) throws IOException {
 		
-		String uploadPath = "C:/springWorkspace/upload/";
+		File folder = new File(System.getProperty("user.dir")+ uploadPath);
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
+//		String uploadPath = "C:/springWorkspace/upload/";
+//		
+//		String originalFileName = file.getOriginalFilename();
+//		String filePathName = uploadPath + originalFileName; 
+//		
+//		File sendFile = new File(filePathName);
+//		Path filePath = Paths.get(filePathName);
+//		file.transferTo(sendFile);
 		
-		String originalFileName = file.getOriginalFilename();
-		String filePathName = uploadPath + originalFileName; 
-		
-		File sendFile = new File(filePathName);
-
+		File sendFile = new File(System.getProperty("user.dir")+ uploadPath + "objectDetect");
+		Path filePath = Paths.get(System.getProperty("user.dir")+ uploadPath + "objectDetect");
 		file.transferTo(sendFile);
-		ArrayList<ObjectVO> objList = AIService.objectDetect(filePathName);
+		
+		ArrayList<ObjectVO> objList = AIService.objectDetect(System.getProperty("user.dir")+ uploadPath + "objectDetect");
 		
 		for(int i = 0; i < objList.size(); i++) {
 			objList.get(i).setNumber(i);
 		}
-
+		
+		Files.delete(filePath);
+		
 		return objList;
 	}
 	
@@ -477,6 +481,14 @@ public class HeaderTest {
 		
 		return result;
 	}
-	
+	@RequestMapping("/yjh")
+	public String yjh() {
+		
+		
+		
+		
+		return "/message/header";
+		
+	}
 	
 }

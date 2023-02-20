@@ -80,9 +80,9 @@
                         <img id="pButton" src="<c:url value='/image/left2.png' />">
                     </div>
                     <div id="imagePanel" style="width:${fC*750}px; " value="${fC}">
-<%--                        <c:forEach var="file"  items="${fileList}">--%>
-<%--                            <img style=" width:750px; height: 400px;" src="/files/${file.fileNo}/download" >--%>
-<%--                        </c:forEach>--%>
+                        <c:forEach var="file"  items="${fileList}">
+                            <img style=" width:750px; height: 400px;" src="<c:url value='/uploads/${file.savedFileName}' />" >
+                        </c:forEach>
 
                     </div>
                 </div>

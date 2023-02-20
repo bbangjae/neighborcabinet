@@ -64,6 +64,5 @@
     <update id="qaUpdate" parameterType="HashMap">
         update qa
         set qaContent=#{qaContent} where qaNo=#{qaNo}
-
     </update>
 </mapper>

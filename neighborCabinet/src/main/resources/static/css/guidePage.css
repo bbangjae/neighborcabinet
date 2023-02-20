@@ -29,6 +29,10 @@ hr{
 	border-radius:15px 15px 15px 15px;
 }
 
+#TypeD{
+	border-radius:15px 15px 15px 15px;
+}
+
 .Type1Guide{
 	width:100%;
 	height: 2050px;
@@ -37,6 +41,11 @@ hr{
 .Type2Guide{
 	width:100%;
 	height: 2050px;
+}
+
+.Type3Guide{
+	width:100%;
+	height: 830px;
 }
 
 h5{
@@ -71,6 +80,69 @@ h5{
 .T1B div{
 	color:#66CDAA;
 	margin-top:25%;
+}
+
+.Type3GuideTop{
+	width:100%;
+	height:250px;
+	display:flex;
+	border:1px solid #66CDAA;
+	margin-bottom:3%;
+}
+
+.boxTitle{
+	display:flex;
+	width:100%;
+	margin-top:3%;
+}
+
+.lt{
+	margin-left:22%;
+}
+
+.rt{
+	margin-left:42%;
+}
+
+.TypeABoximg{
+	width:25%;
+	margin:auto;
+}
+
+.TypeBBoximg{
+	width:25%;
+	margin:auto;
+}
+
+.box_TypeImg{
+	width:100%;
+	height:100%;
+}
+
+.boxInfoW{
+	display:flex;
+	width:100%;
+	height:250px;
+	margin-bottom:3%;
+}
+
+.boxInfoW table{
+	width:100%;
+	height:250px;
+}
+
+.boxInfoW table, td, th{
+	border : 1px solid #66CDAA;
+  	border-collapse : collapse;
+}
+
+.boxInfoW td, th{
+	text-align : center;
+  	vertical-align : middle;
+}
+
+.boxInfoW td{
+	color:darkgray;
 }
 
 .sp{
@@ -180,6 +252,15 @@ h4{
 	color:black;
 }
 
+.tr5 td {
+	border:none;
+	border-bottom: 1px solid #66CDAA !important; 
+}
+
+.td2{
+	border-right: 1px solid #66CDAA !important; 
+}
+
 ul{
    list-style:none;
 }
@@ -197,4 +278,32 @@ ul{
 .s1img{
 	width:100%;
 	hieght:100%;
+}
+
+.BoxSizeWrap{
+	width: 100%;
+    height: 250px;
+    display: flex;
+    border: 1px solid #66CDAA;
+    margin-bottom: 3%;
+}
+
+.BoxSizeImg{
+	width: 33%;
+    margin: auto;
+}
+
+.boxType1{
+	width:80%;
+	height:210px;
+}
+
+.boxType2{
+	width:90%;
+	height:230px;
+}
+
+.boxType3{
+	width:100%;
+	height:250px;
 }

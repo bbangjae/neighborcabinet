@@ -252,22 +252,23 @@
 			         <c:forEach var="ldeal" items="${LdealAllHistory}">
 			          <div class="boxInfo">
 			            <div id="topContainer">
-			              <div id="date"><fmt:formatDate value='${ldeal.lreceiptDate}' dateStyle="full"/><span id="time"> <fmt:formatDate value='${ldeal.lreceiptDate}' type="time" timeStyle="short"/></span>까지</div>
+			              <div id="date"><%-- <fmt:formatDate value='${ldeal.reserveDate}' dateStyle="full"/><span id="time"> <fmt:formatDate value='${ldeal.reserveDate}' type="time" timeStyle="short"/></span> --%>
+			              ${ldeal.reserveDate}까지</div>
 			              <div id="more"><a id="moreBtn">상세보기</a></div>
 			            </div>
 			            <div id="middleContainer">
 			              <div id="rentImg">
-			              <c:if test="${ldeal.lpickUp eq 'O' }">
+			              <c:if test="${ldeal.pickup eq '0' }">
 			                <div id="pickup"></div>
 			               </c:if>
-			                <img src="<c:url value='/image/${ldeal.ldealObject}.jpg'/>" alt="이미지가 없습니다">
+			                <img src="<c:url value='/image/${ldeal.storList}.jpg'/>" alt="이미지가 없습니다">
 			              </div>
 			              <div id="rentText">
 			                <div id="address">
-			                  <span id="HP">${ldeal.userHP}</span>
+			                  <span id="HP">${ldeal.senderPhone}</span>
 			                  <a id="Pn"><img src="<c:url value='/image/phone1.png'/>"></a>
 			                </div>
-			                <div id="rentTime">${ldeal.ldealStart}<span>~</span>${ldeal.ldealEnd}<span>,</span> ${ldeal.userName}</div>
+			                <div id="rentTime">${ldeal.startTime}<span>~</span>${ldeal.endTime}<span>,</span> ${ldeal.senderName}</div>
 			              </div>
 			            </div>
 			            <div id="bottomContainer">

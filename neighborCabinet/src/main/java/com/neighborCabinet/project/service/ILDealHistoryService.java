@@ -5,5 +5,5 @@ import java.util.ArrayList;
 import com.neighborCabinet.project.model.LDealHistoryVO;
 
 public interface ILDealHistoryService {
-	public ArrayList<LDealHistoryVO> LlistAllDeal();
+	public ArrayList<LDealHistoryVO> LlistAllDeal(String userId);
 }

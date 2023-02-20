@@ -14,8 +14,8 @@ public class LDealHistoryService implements ILDealHistoryService {
 	ILDealHistoryDAO dao;
 				
 	@Override
-	public ArrayList<LDealHistoryVO> LlistAllDeal() {
-		return dao.LlistAllDeal();
+	public ArrayList<LDealHistoryVO> LlistAllDeal(String userId) {
+		return dao.LlistAllDeal(userId);
 	}
 
 }

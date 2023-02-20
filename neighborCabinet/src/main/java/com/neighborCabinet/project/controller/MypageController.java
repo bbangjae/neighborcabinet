@@ -111,7 +111,7 @@ public class MypageController {
       model.addAttribute("boxAllHistory", boxAllHistory);
       
       //거래 내역
-      ArrayList<LDealHistoryVO> LdealAllHistory = LdealService.LlistAllDeal();
+      ArrayList<LDealHistoryVO> LdealAllHistory = LdealService.LlistAllDeal(userId);
       model.addAttribute("LdealAllHistory", LdealAllHistory);
       
       //대여 내역

@@ -124,13 +124,9 @@
             <div class="section_text">
               <div id="s4_title" class="title">
                   언제 어디서나 보관
-
-
               </div>
               <div id="s4_sub" class="sub">
                   지금 보관해보세요
-
-
               </div>
               <div class="s4_5_button">
                 <button class="s4_b" type="button" onclick="location.href='<c:url value='/map'/>'" style=" margin-right: 50px;">
@@ -157,7 +153,6 @@
               </div>
               <div id="s5_sub" class="sub">
                 지금 당장 신청하세요
-
               </div>
               <div class="s4_5_button">
                 <button class="s5_btn" type="button" onclick="location.href='<c:url value='/rental/rentalreg'/>'" style="margin-right: 50px;">
@@ -169,9 +164,7 @@
               </div>
             </div>
             <div class="section_img">
-
               <div><img src="image/map.png"></div>
-
             </div>
           </div>
 

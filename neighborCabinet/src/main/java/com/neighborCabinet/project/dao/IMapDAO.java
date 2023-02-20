@@ -8,4 +8,6 @@ import com.neighborCabinet.project.model.PlaceInfoVO;
 public interface IMapDAO {
 	//지도 정보 전체 조회
 	public ArrayList<MapVO> listAllMap();
+
+	public int searchPlace(String keyword);
 }

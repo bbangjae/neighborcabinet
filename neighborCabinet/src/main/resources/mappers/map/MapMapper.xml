@@ -5,25 +5,53 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
    <mapper namespace="com.neighborCabinet.project.dao.IMapDAO">
-  	<resultMap id="mapResult" type="com.neighborCabinet.project.model.MapVO" >
-  		<result property="pNo"  column="pNo"  />
-  		<result property="pWriteTitle"  column="pWriteTitle"  />
-  		<result property="pWriteSub"  column="pWriteSub"  />
-  		<result property="pPlaceTitle"  column="pPlaceTitle"  />
-  		<result property="pPlaceInfo"  column="pPlaceInfo"  />
-  		<result property="pBoxInfo"  column="pBoxInfo"  />
-  		<result property="pCautionInfo"  column="pCautionInfo"  />
-  		<result property="pAddress1"  column="pAddress1"  />
-  		<result property="pImage"  column="pImage"  />
-  		<result property="pTime"  column="pTime"  />
+<!--  	<resultMap id="mapResult" type="com.neighborCabinet.project.model.MapVO" >-->
+<!--  		<result property="pNo"  column="pNo"  />-->
+<!--  		<result property="pWriteTitle"  column="pWriteTitle"  />-->
+<!--  		<result property="pWriteSub"  column="pWriteSub"  />-->
+<!--  		<result property="pPlaceTitle"  column="pPlaceTitle"  />-->
+<!--  		<result property="pPlaceInfo"  column="pPlaceInfo"  />-->
+<!--  		<result property="pBoxInfo"  column="pBoxInfo"  />-->
+<!--  		<result property="pCautionInfo"  column="pCautionInfo"  />-->
+<!--  		<result property="pAddress1"  column="pAddress1"  />-->
+<!--  		<result property="pImage"  column="fileNo"  />-->
+<!--  		<result property="pTime"  column="pTime"  />-->
+<!--  	</resultMap>-->
 
-  	</resultMap>
+		<resultMap id="mapResult" type="com.neighborCabinet.project.model.MapVO" >
+			<result property="pNo"  column="pNo"  />
+			<result property="pWriteTitle"  column="pWriteTitle"  />
+			<result property="pWriteSub"  column="pWriteSub"  />
+			<result property="pPlaceTitle"  column="pPlaceTitle"  />
+			<result property="pPlaceInfo"  column="pPlaceInfo"  />
+			<result property="pBoxInfo"  column="pBoxInfo"  />
+			<result property="pCautionInfo"  column="pCautionInfo"  />
+			<result property="pAddress1"  column="pAddress1"  />
+			<result property="pImage"  column="pImage"  />
+			<result property="pTime"  column="pTime"  />
 
+		</resultMap>
+
+	<!-- 장소 조회 -->
+
+<!--	<select id="listAllMap"  resultMap="mapResult">-->
+<!--		SELECT p.*, (select f.fileNo from files f where f.pId=p.pNo limit 1 ) as fileNo-->
+<!--		FROM place p, files f-->
+<!--		where p.pNo=f.pId-->
+<!--		group by pNo;-->
+<!--	</select>-->
 	<!-- 장소 조회 -->
 	<select id="listAllMap"  resultMap="mapResult">
 		SELECT *
 		FROM place
 		ORDER BY pNo ASC
+	</select>
+
+	<select id="searchPlace" parameterType="string" resultType="int">
+		select ifnull(max(pNo),0)
+		from place
+		where pWriteTitle like concat('%',#{searchInput},'%')
+		limit 1
 	</select>
 
 

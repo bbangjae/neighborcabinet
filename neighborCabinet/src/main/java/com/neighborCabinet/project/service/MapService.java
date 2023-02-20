@@ -17,5 +17,7 @@ public class MapService implements IMapService {
 	@Override
 	public ArrayList<MapVO> listAllMap() { return dao.listAllMap();
 	}
+	@Override
+	public int searchPlace(String keyword) {return dao.searchPlace(keyword);}
 
 }

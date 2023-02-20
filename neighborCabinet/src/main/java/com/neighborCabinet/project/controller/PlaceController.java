@@ -115,9 +115,6 @@ public class PlaceController {
         model.addAttribute("fileList",fileService.fileList(pNo));
 
 
-
-
-
         return "place_b/placeDetailView";
     }
     @ResponseBody
@@ -139,7 +136,7 @@ public class PlaceController {
         }
         else
             result=-1;
-
+        System.out.print(1234);
         return result;
     }
     @ResponseBody

@@ -481,14 +481,5 @@ public class HeaderTest {
 		
 		return result;
 	}
-	@RequestMapping("/yjh")
-	public String yjh() {
-		
-		
-		
-		
-		return "/message/header";
-		
-	}
 	
 }

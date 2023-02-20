@@ -3,19 +3,20 @@
  */
 
 $(document).ready(function(){
-	
-	$(".requestInfo").on("click", function(){
-
-		var reserveNo = $(this).attr('id');
- 		$.ajax({
- 			type:"post",
- 			url:"/message/requestInfo/" + reserveNo,
- 			success:function(result){
- 				$('#infoResult').html(result);
- 			},
- 			error:function(){
- 				alert("실패");
- 			},
- 		});
+	$(document).on("click","input[name='mes_messageS']",function(){
+		var check = $(this).is(':checked');
+		var a = $(this);
+			if(check){
+				$(this).next().children('.paymentMInfo').css("display","block");
+				$(this).next().children('.mesCutLine').css("display","none");
+				$(this).prev().css("background","#ebebeb");
+				
+				var reserveNo = $(this).attr('id').split('_', 1);
+			}else{
+				$(this).next().children('.paymentMInfo').css("display","none");
+				$(this).next().children('.mesCutLine').css("display","block");
+				$(this).prev().css("background","white");
+			}
 	});
+	
 });

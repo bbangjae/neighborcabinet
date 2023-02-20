@@ -3,22 +3,44 @@
  */
  
 $(document).ready(function(){
-  	
-  		$.ajax({
+	
+	if($("input[name='mesCtg']").val() == "1"){
+ 		$.ajax({
  			type:"post",
- 			url:"/stt",
- 			enctype:"multipart/form-data",
- 			processData:false,
- 			contentType:false,
- 			data: formData,
+ 			url:"/message/message",
  			success:function(result){
- 				$('#header_searchInput').val(result);
- 				
+ 				$('#applyDiv').html(result);
  			},
  			error:function(){
  				alert("실패");
  			},
- 			complete:function(){
- 			}
  		});
+	}
+	
+	$("input[name='mesCtg']").change(function(){
+		if($(this).val() == "1"){
+	 		$.ajax({
+	 			type:"post",
+	 			url:"/message/message",
+	 			success:function(result){
+	 				$('#applyDiv').html(result);
+	 			},
+	 			error:function(){
+	 				alert("실패");
+	 			},
+	 		});
+		}
+		if($(this).val() == "2"){
+	 		$.ajax({
+	 			type:"post",
+	 			url:"/message/request",
+	 			success:function(result){
+	 				$('#applyDiv').html(result);
+	 			},
+	 			error:function(){
+	 				alert("실패");
+	 			},
+	 		});
+		}
+	});
 });

@@ -16,46 +16,18 @@
 		<input type="checkbox" style="display:none;" id="messageModal">
 		<div id="messageBox">
 			<label for="messageModal"></label>
-			<div>
-				<label for="messageModal"><i class="fa-regular fa-circle-xmark"></i></label>
-				<div id="section1">
-					알림메시지 <i class="fa-regular fa-bell fa-1x" style="color:#00DBAF"></i>
+			<div id="mesContentBox">
+				<div id="mesCtg">
+					<input type="radio" name="mesCtg" id="mesCtg1" value="1" checked>
+					<label for="mesCtg1">알림</label>
+					<input type="radio" name="mesCtg" id="mesCtg2" value="2">
+					<label for="mesCtg2">요청</label>
 				</div>
-				<div id="section2">
-					<div id="section2_1">
-						<input type="radio" name="message_category" id="mescag1">
-						<div>
-							<label for="mescag1">
-							</label>
-						</div>
-						<input type="radio" name="message_category" id="mescag2">
-						<div>
-							<label for="mescag2">
-							</label>
-						</div>
-					</div>
-					<div id="section2_2">
-						<div>
-							<div>예약 정보 ~~~ </div>
-							<div></div>
-							<div>수락 및 거절</div>
-							<div>예약 정보 ~~~ </div>
-							<div></div>
-							<div>수락 및 거절</div>
-							<div>예약 정보 ~~~ </div>
-							<div></div>
-							<div>수락 및 거절</div>
-							<div>예약 정보 ~~~ </div>
-							<div></div>
-							<div>수락 및 거절</div>
-							
-						</div>
-					</div>
+				<div id="mesInfoBox">
+					<label for="messageModal"><i class="fa-regular fa-circle-xmark"></i></label>
+					<div id="applyDiv"></div>
 				</div>
-				
-				
 			</div>
-			
 		</div>
 	</body>
 </html>

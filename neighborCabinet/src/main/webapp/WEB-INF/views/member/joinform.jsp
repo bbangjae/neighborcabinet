@@ -48,6 +48,7 @@ h2{
     <div class="input-form-backgroud ">
         <div class="input-form col-md-12 mx-auto">
             <h2 class="mb-3" align="center">회원가입</h2>
+            <hr>
 
             <form class="validation-form needs-validation" id="joinForm" name="joinForm" method="post" novalidate action="<c:url value='/member/insert'/>">
 

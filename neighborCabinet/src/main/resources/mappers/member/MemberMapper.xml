@@ -18,4 +18,12 @@
         SELECT userId FROM member where userId = #{userId}
     </select>
 
+    <select id="getNickName" resultType="String" parameterType="String">
+        select userNickname from member where userId = #{userId}
+    </select>
+
+    <select id="findid" resultType="String" parameterType="com.neighborCabinet.project.model.MemberVO">
+        select userId from member where userName = #{name} and userEmail = #{email}
+    </select>
+
 </mapper>

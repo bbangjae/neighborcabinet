@@ -34,8 +34,8 @@
     <style>
         hr{
             width: 100%;
-            height: 5px;
-            background: #285943;
+            height: 2px;
+            background: #00DBAF;
             border: 0;
         }
         h3{
@@ -166,7 +166,7 @@
         <div class="col-md-4 mt-3">
             <div class="space_d m-3" >
                 <div class="form-check">
-                    <input class="form-check-input "  type="checkbox" value="0" id="food" name="food" onclick="this.value = (this.checked) ? 0 : 1">
+                    <input class="form-check-input "  type="checkbox" value="1" id="food" name="food" onclick="this.value = (this.checked) ? 0 : 1">
                     <label class="form-check-label" for="food">
                         음식 보관
                     </label>
@@ -182,7 +182,7 @@
 
             <div class="space_d m-3">
                 <div class="form-check">
-                    <input class="form-check-input"  type="checkbox" value="0" id="pickup" name="pickup" onclick="this.value = (this.checked) ? 0 : 1">
+                    <input class="form-check-input"  type="checkbox" value="1" id="pickup" name="pickup" onclick="this.value = (this.checked) ? 0 : 1">
                     <label class="form-check-label" for="pickup">
                         픽업 가능
                     </label>
@@ -625,18 +625,13 @@
         <hr>
 
         <div class=" d-flex justify-content-center">
-            <input type="submit" id="button" class="btn btn-lg text-white m-5 " style="background: #00DBAF" value="공간 등록" >
+            <input type="button" id="button2" class="btn btn-lg text-white m-5 " style="background: #888888; border-radius: 0px; width: 220px; height: 55px;" value="취소" onclick="location.href='/'">
+            <input type="submit" id="button" class="btn btn-lg text-white m-5 " style="background: #00DBAF; border-radius: 0px; width: 220px; height: 55px;" value="공간 등록" >
+
         </div>
     </form>
 
 </div>
-<a href="#" class="d-inline-block" data-toggle="tooltip" title="
-                            • 연락가능 시간을 정해주세요. (예)10시 부터 22시">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-    </svg>
-</a>
 
 <c:import url="/WEB-INF/views/layout/footer.jsp"/>
 <script>
@@ -956,6 +951,7 @@
 </script>
 <script>
     $(document).ready(function(){
+        e.stopImmediatePropagation();
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>

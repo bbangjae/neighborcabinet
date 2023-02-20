@@ -2,6 +2,7 @@ package com.neighborCabinet.project.service;
 
 import com.neighborCabinet.project.dao.IBoardDAO;
 import com.neighborCabinet.project.model.NboardVO;
+import com.neighborCabinet.project.model.boardCommentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -50,4 +51,21 @@ public class BoardService implements IBoardService{
     public void boardDelete(int boNo) {
         dao.boardDelete(boNo);
     }
+
+    @Override
+    public List<boardCommentVO> list(int boNo) {
+        return dao.list(boNo);
+    }
+
+    @Override
+    public void write(boardCommentVO vo) {
+        dao.write(vo);
+
+    }
+
+    @Override
+    public int commentTotalCount(int boNo) {
+        return dao.commentTotalCount(boNo);
+    }
+
 }

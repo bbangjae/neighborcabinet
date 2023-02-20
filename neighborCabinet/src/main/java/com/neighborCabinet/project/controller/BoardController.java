@@ -2,6 +2,7 @@ package com.neighborCabinet.project.controller;
 
 import com.neighborCabinet.project.CommonUtility;
 import com.neighborCabinet.project.model.NboardVO;
+import com.neighborCabinet.project.model.boardCommentVO;
 import com.neighborCabinet.project.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,6 +66,7 @@ public class BoardController {
     private String Nregister(NboardVO nboardVO, HttpSession httpSession){
 
         nboardVO.setBoWriter((String)httpSession.getAttribute("sid"));
+        nboardVO.setBoNickname((String)httpSession.getAttribute("nickname"));
         boardService.boardRegister(nboardVO);
 
         return "redirect:/board/noticeboardlist";
@@ -73,6 +75,7 @@ public class BoardController {
     private String Iregister(NboardVO nboardVO, HttpSession httpSession){
 
         nboardVO.setBoWriter((String)httpSession.getAttribute("sid"));
+        nboardVO.setBoNickname((String)httpSession.getAttribute("nickname"));
         boardService.boardRegister(nboardVO);
 
         return "redirect:/board/inquiryboardlist";
@@ -80,7 +83,11 @@ public class BoardController {
 
     @RequestMapping("board/{boNo}")
     private String noticedetail(@PathVariable int boNo, Model model){
+
         model.addAttribute("board",boardService.boardDetail(boNo)); //글 정보
+        model.addAttribute("comment",boardService.list(boNo)); // 댓글 정보
+
+
         return "board/noticedetail";
     }
 
@@ -90,6 +97,14 @@ public class BoardController {
             boardService.boardDelete(boNo);
         }
         return "redirect:/board/noticeboardlist";
+    }
+    @RequestMapping("/comment/write")
+    public String commentwrite(boardCommentVO vo,HttpSession httpSession){
+
+        vo.setcWriter((String)httpSession.getAttribute("nickname"));
+        boardService.write(vo);
+
+        return "redirect:/board/"+vo.getBoNo();
     }
 
 }

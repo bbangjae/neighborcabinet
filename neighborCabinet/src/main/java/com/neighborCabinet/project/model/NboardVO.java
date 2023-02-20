@@ -9,6 +9,7 @@ public class NboardVO {
     private String boTitle;
     private String boContent;
     private String boWriter;
+    private String boNickname;
     private String boTime;
     private String boCategory;
 
@@ -42,6 +43,14 @@ public class NboardVO {
 
     public void setBoWriter(String boWriter) {
         this.boWriter = boWriter;
+    }
+
+    public String getBoNickname() {
+        return boNickname;
+    }
+
+    public void setBoNickname(String boNickname) {
+        this.boNickname = boNickname;
     }
 
     public String getBoTime() {

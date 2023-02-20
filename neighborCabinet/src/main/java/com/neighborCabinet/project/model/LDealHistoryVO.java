@@ -5,63 +5,141 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class LDealHistoryVO {
-	private int ldealNo;
-	private String userHP;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date lreceiptDate;
-	private String userName;
-	private String ldealStart;
-	private String ldealEnd;
-	private String ldealObject;
-	private String lpickUp;
-	public int getLdealNo() {
-		return ldealNo;
+	private int reserveNo;
+	private String reserveDate;
+	private int reservePrice;
+	private String userId;
+	private int pNo;
+	private int pickup;
+	private int food;
+	private String senderName;
+	private String senderPhone;
+	private String senderEmail;
+	private String storList;
+	private String request;
+	private int resState;
+	private String reviewEnd;
+	private String sender;
+	private String receiver;
+	private String startTime;
+	private String endTime;
+	private String boxType;
+	
+	public int getReserveNo() {
+		return reserveNo;
 	}
-	public void setLdealNo(int ldealNo) {
-		this.ldealNo = ldealNo;
+	public void setReserveNo(int reserveNo) {
+		this.reserveNo = reserveNo;
 	}
-	public String getUserHP() {
-		return userHP;
+	public String getReserveDate() {
+		return reserveDate;
 	}
-	public void setUserHP(String userHP) {
-		this.userHP = userHP;
+	public void setReserveDate(String reserveDate) {
+		this.reserveDate = reserveDate;
 	}
-	public Date getLreceiptDate() {
-		return lreceiptDate;
+	public int getReservePrice() {
+		return reservePrice;
 	}
-	public void setLreceiptDate(Date lreceiptDate) {
-		this.lreceiptDate = lreceiptDate;
+	public void setReservePrice(int reservePrice) {
+		this.reservePrice = reservePrice;
 	}
-	public String getUserName() {
-		return userName;
+	public String getUserId() {
+		return userId;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getLdealStart() {
-		return ldealStart;
+	public int getpNo() {
+		return pNo;
 	}
-	public void setLdealStart(String ldealStart) {
-		this.ldealStart = ldealStart;
+	public void setpNo(int pNo) {
+		this.pNo = pNo;
 	}
-	public String getLdealEnd() {
-		return ldealEnd;
+	public int getPickup() {
+		return pickup;
 	}
-	public void setLdealEnd(String ldealEnd) {
-		this.ldealEnd = ldealEnd;
+	public void setPickup(int pickup) {
+		this.pickup = pickup;
 	}
-	public String getLdealObject() {
-		return ldealObject;
+	public int getFood() {
+		return food;
 	}
-	public void setLdealObject(String ldealObject) {
-		this.ldealObject = ldealObject;
+	public void setFood(int food) {
+		this.food = food;
 	}
-	public String getLpickUp() {
-		return lpickUp;
+	public String getSenderName() {
+		return senderName;
 	}
-	public void setLpickUp(String lpickUp) {
-		this.lpickUp = lpickUp;
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
 	}
+	public String getSenderPhone() {
+		return senderPhone;
+	}
+	public void setSenderPhone(String senderPhone) {
+		this.senderPhone = senderPhone;
+	}
+	public String getSenderEmail() {
+		return senderEmail;
+	}
+	public void setSenderEmail(String senderEmail) {
+		this.senderEmail = senderEmail;
+	}
+	public String getStorList() {
+		return storList;
+	}
+	public void setStorList(String storList) {
+		this.storList = storList;
+	}
+	public String getRequest() {
+		return request;
+	}
+	public void setRequest(String request) {
+		this.request = request;
+	}
+	public int getResState() {
+		return resState;
+	}
+	public void setResState(int resState) {
+		this.resState = resState;
+	}
+	public String getReviewEnd() {
+		return reviewEnd;
+	}
+	public void setReviewEnd(String reviewEnd) {
+		this.reviewEnd = reviewEnd;
+	}
+	public String getSender() {
+		return sender;
+	}
+	public void setSender(String sender) {
+		this.sender = sender;
+	}
+	public String getReceiver() {
+		return receiver;
+	}
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
+	}
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+	public String getBoxType() {
+		return boxType;
+	}
+	public void setBoxType(String boxType) {
+		this.boxType = boxType;
+	}
+	
 	
 	
 	

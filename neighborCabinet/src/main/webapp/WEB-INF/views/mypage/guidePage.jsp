@@ -31,7 +31,7 @@
 		<div class="btnGroup">
 			<button class="Type1" id="TypeA">사용자 안내</button>
 			<button class="Type1" id="TypeB">공급자 안내</button>
-			<button class="Type1" id="TypeC">이용요금 안내</button>
+			<button class="Type1" id="TypeC">박스이용 안내</button>
 		</div>
     	<div class="Type1Guide">
     		<h5> 간편한 대여 방법으로 이웃집 캐비넷 서비스를 이용할 수 있습니다.</h5>
@@ -185,8 +185,8 @@
     					<div>
     						<span class="sbImg"><img class="s1img" src="/image/dog.png"></span>
     						<h5>반려동물</h5>
-    						<b>현재 반려동물을 맡기는 부분에 있어서</b><br>
-    						<b>권장하지 않고 있습니다.</b><br>
+    						<b>현재 반려동물을 맡기는 것은 권장하지</b><br>
+    						<b>않고 있습니다.</b><br>
     					</div>
     				</li>
     				
@@ -290,7 +290,7 @@
 	    			</div>
     			</div>
     			<div class="sequenceR">
-    				<img src="/image/GRentalreg.JPG" class="sequenceImg2">
+    				<img src="/image/Gagree.JPG" class="sequenceImg2">
     			</div>
     		</div>
     		<hr>
@@ -347,12 +347,127 @@
     					<div>
     						<span class="sbImg"><img class="s1img" src="/image/dog.png"></span>
     						<h5>반려동물</h5>
-    						<b>현재 반려동물을 맡기는 부분에 있어서</b><br>
-    						<b>권장하지 않고 있습니다.</b><br>
+    						<b>현재 반려동물을 맡기는 것은 권장하지</b><br>
+    						<b>않고 있습니다.</b><br>
     					</div>
     				</li>
     				
     			</ul>
+    		</div>
+    	</div>
+    	
+    	<div class="Type3Guide" style="display:none;">
+    		<div class="BoxTitle">
+	    		<h5 class="lt">일반박스</h5>
+	    		<h5 class="rt">프리미엄박스</h5>
+    		</div>
+    		<div class="Type3GuideTop">
+    			<div class="TypeABoximg">
+    				<img class="box_TypeImg" src="/image/plastic.png">
+    			</div>
+    			<div class="TypeBBoximg">
+    				<img class="box_TypeImg" src="/image/Pbox.png">
+    			</div>
+    		</div>
+    		<button class="Type1" id="TypeD">박스사이즈 비교</button>
+    		
+    		<div class="TypeBoxGuide" style="display:none;">
+    			<div class="BoxSizeWrap">
+    				<div class="BoxSizeImg">
+    					<img class="boxType1" src="/image/size1.png">
+    				</div>
+    				<div class="BoxSizeImg">
+    					<img class="boxType2" src="/image/size2.png">
+    				</div>
+    				<div class="BoxSizeImg">
+    					<img class="boxType3" src="/image/size3.png">
+    				</div>
+    			</div>
+    		</div>
+    		
+    		<h5>박스 정보</h5>
+    		<div class="boxInfoW">
+    			<table>
+    				<tr>
+    					<th>박스종류</th>
+    					<td>일반 1호</td>
+    					<td>일반 2호</td>
+    					<td>일반 3호</td>
+    					<td>프리미엄 1호</td>
+    					<td>프리미엄 2호</td>
+    					<td>프리미엄 3호</td>
+    				</tr>
+    				
+    				<tr>
+    					<th>박스크기</th>
+    					<td>34 x 25 x 21(cm)</td>
+    					<td>41 x 31 x 28(cm)</td>
+    					<td>48 x 38 x 34(cm)</td>
+    					<td>35 x 25 x 21(cm)</td>
+    					<td>42 x 31 x 28(cm)</td>
+    					<td>48 x 38 x 34(cm)</td>
+    				</tr>
+    				
+    				<tr>
+    					<th>박스가격</th>
+    					<td>1000원</td>
+    					<td>1500원</td>
+    					<td>2500원</td>
+    					<td>2500원</td>
+    					<td>3500원</td>
+    					<td>5000원</td>
+    				</tr>
+    				
+    				<tr>
+    					<th>이용가격 (시간 당)</th>
+    					<td>1000원</td>
+    					<td>1500원</td>
+    					<td>2000원</td>
+    					<td>2000원</td>
+    					<td>2500원</td>
+    					<td>3000원</td>
+    				</tr>
+    				
+    				<tr class="tr5">
+    					<th>재질</th>
+    					<td></td>
+    					<td>폴리프로필렌</td>
+    					<td class="td2"></td>
+    					<td></td>
+    					<td>ABS</td>
+    					<td></td>
+    				</tr>
+    				
+    				<tr class="tr5">
+    					<th>AS</th>
+    					<td></td>
+    					<td>X</td>
+    					<td class="td2"></td>
+    					<td></td>
+    					<td>구매 후 1년</td>
+    					<td></td>
+    				</tr>
+    				
+    				<tr class="tr5">
+    					<th>잠금장치</th>
+    					<td></td>
+    					<td>X</td>
+    					<td class="td2"></td>
+    					<td></td>
+    					<td>O</td>
+    					<td></td>
+    				</tr>
+    				
+    				<tr class="tr5">
+    					<th>원산지</th>
+    					<td></td>
+    					<td>Made in Korea</td>
+    					<td class="td2"></td>
+    					<td></td>
+    					<td>Made in Canada</td>
+    					<td></td>
+    				</tr>
+    			</table>
     		</div>
     		
     	</div>

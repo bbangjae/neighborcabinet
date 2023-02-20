@@ -8,8 +8,8 @@
    
 	<select id="LlistAllDeal" parameterType="string" resultType="com.neighborCabinet.project.model.LDealHistoryVO">
 		SELECT *
-		FROM ldealhistory
-		ORDER BY ldealNo ASC
+		FROM reserve
+		WHERE receiver=#{userId }
 	</select>
 	
 	

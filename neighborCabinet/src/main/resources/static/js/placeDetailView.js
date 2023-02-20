@@ -291,7 +291,6 @@ function timeTableMaker(sY,sM, sD){
                 cellTimearr[cellTime*1]=cell;
                 cnt_t+=1;
                 //클릭 이벤트
-
                 if(noCount_t===0&&cell.style.backgroundColor==="rgb(215, 255, 241)") {
                     cell.onclick = function () {
 
@@ -317,8 +316,7 @@ function timeTableMaker(sY,sM, sD){
 
 }
 function insertTime(){
-    if(cellTime<realHour && clickedDate*1===realDate*1){
-
+    if(cellTime<realHour && clickedDate*1===realDate*1&&clickedMonth*1===realMonth*1){
         $(cell).css({
             "color":"gray",
             "background-color": "lightgray",
@@ -491,15 +489,17 @@ $(document).ready(function(){
         else if($(this).val()==="확인"){
             let answer = confirm("수정하시겠습니까?");
             if(answer){
-
+                console.log($(".qa_delete").eq(q_index));
+                console.log($(".qa_div").eq(q_index).attr("qaNo"));
                 $.ajax({
                     type: "post",
                     url: "/place/placeDetailView/qaUpdate",
                     data:{
-                        "qaNo":$(".qa_delete").eq(q_index).attr("qaNo"),
+                        "qaNo":$(".qa_div").eq(q_index).attr("qaNo"),
                         "qaContent":$(qa_text).val()
                     },
                     success(){
+
                         $(qa_text).val($(qa_text).val());
                         $(qa_text).attr('readonly',true);
                         $(qa_text).css({
@@ -554,28 +554,6 @@ $(document).ready(function(){
             }
 
         });
-
-
-
-
-
-
-
-
-
-
-
-        // $.ajax({
-        //     type:"post",
-        //     url:"/place/placeDetailView/qaDelete",
-        //     data: {"qaNo":$(this).attr("qaNo")},
-        //     success(){
-        //         location.href="/place/placeDetailView/"+$("#QA_confirm").val();
-        //     }
-        // })
-
-
-
 
     var location1 = document.querySelector("#space").offsetTop;
     var location2 = document.querySelector("#box").offsetTop;

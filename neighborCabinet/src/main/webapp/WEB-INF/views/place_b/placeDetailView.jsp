@@ -80,10 +80,9 @@
                         <img id="pButton" src="<c:url value='/image/left2.png' />">
                     </div>
                     <div id="imagePanel" style="width:${fC*750}px; " value="${fC}">
-                        <c:forEach var="file"  items="${fileList}">
-                            <img style=" width:750px; height: 400px;" src="/files/${file.fileNo}/download" >
-
-                        </c:forEach>
+<%--                        <c:forEach var="file"  items="${fileList}">--%>
+<%--                            <img style=" width:750px; height: 400px;" src="/files/${file.fileNo}/download" >--%>
+<%--                        </c:forEach>--%>
 
                     </div>
                 </div>
@@ -230,14 +229,14 @@
                                     </div>
                                 </td >
                                 <td style="display:inline-block; width:100%;height:100%;">
-                                    <div style=" display:flex; width:100%; font-weight: bold;">
+                                    <div class="qa_div" style=" display:flex; width:100%; font-weight: bold;" qaNo="${qL.qaNo}">
                                         <div style="width:80%">
                                             ${qL.userNickName}
                                         </div>
                                         <c:if test="${qL.userId==sessionScope.sid}">
                                             <div class="qa_btn" style="width:20%; display:flex;">
                                                 <input class="qa_update" type="submit" style="margin-left:30px;" value="수정" vs="${q_vs.index}">
-                                                <input class="qa_delete" type="submit" style="margin-left:10px;" value="삭제" qaNo="${qL.qaNo}">
+                                                <input class="qa_delete" type="submit" style="margin-left:10px;" value="삭제">
                                             </div>
                                         </c:if>
                                     </div>

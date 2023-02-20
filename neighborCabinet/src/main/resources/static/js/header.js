@@ -121,7 +121,54 @@ $(document).ready(function(){
  			}
  		}); // ajax 종료 	
   	}
-	
-	
-	
+	$('#header_searchInput').on('keydown', function(e){
+
+		var keyCode = e.which;
+
+
+		if (keyCode === 13) { // Enter Key
+			e.preventDefault();
+			let url=($(location).attr('pathname'));
+			let searchInput=$('#header_searchInput').val();
+			$.ajax({
+				type:"post",
+				url:"/map/Search",
+				data:{"searchInput":searchInput},
+				success:function(result) {
+					console.log(url.indexOf('map'));
+					if (url.indexOf('map')===-1)
+						location.href = "/map/SearchForm/" + result;
+					else {
+						if (!(result === 0))
+							searchTitleToCoordinate(result);
+						else
+							searchAddressToCoordinate(searchInput);
+					}
+				}
+			})
+		}
+	});
+
+	$('#header_searchBtn').on('click', function(e) {
+		e.preventDefault();
+		let url=($(location).attr('pathname'));
+		let searchInput=$('#header_searchInput').val();
+		$.ajax({
+			type:"post",
+			url:"/map/Search",
+			data:{"searchInput":searchInput},
+			success:function(result) {
+				if (url.indexOf('map')===-1) {
+					location.href = "/map/SearchForm/" + result;
+				}
+				else {
+					if (!(result === 0))
+						searchTitleToCoordinate(result);
+					else
+						searchAddressToCoordinate(searchInput);
+				}
+			}
+		})
+	});
+
 });

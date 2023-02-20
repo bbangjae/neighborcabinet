@@ -18,7 +18,183 @@ hr{
 	margin-right:5px;
 	width:12%;
 }
+
 .Type1:hover{
 	color:#fff;
 	background-color:#66CDAA;
+}
+
+#TypeC{
+	margin-left:72%;
+	border-radius:15px 15px 15px 15px;
+}
+
+.Type1Guide{
+	width:100%;
+	height: 2050px;
+}
+
+.Type2Guide{
+	width:100%;
+	height: 2050px;
+}
+
+h5{
+	margin-top:1%;
+	color:#006400;
+}
+
+.Type1GuideTop{
+	margin-left:7%;
+}
+
+.T1BW{
+	display:flex;
+	margin-bottom: 5%;
+}
+
+.T1B{
+	text-align:center;
+	width: 150px;
+    height: 150px;
+	margin-top:5%;
+	background:#fff;
+	border-radius:50%;
+	border:1px solid #66CDAA;
+	box-shadow: 0px 6px 16px rgb(0 0 0 / 12%) !important;
+}
+
+.T1B span{
+	color:#66CDAA;
+}
+
+.T1B div{
+	color:#66CDAA;
+	margin-top:25%;
+}
+
+.sp{
+	margin-left:3.5%;
+	margin-right:3.5%;
+	margin-top:10%;
+	color:DarkSeaGreen;
+}
+
+.sequenceBox{
+	display:flex;
+	width:100%;
+	height:250px;
+}
+
+.sequenceText{
+	margin-top:8%;
+	margin-left:20%;
+}
+
+.sequenceText2{
+	margin-top:8%;
+	margin-left:30%;
+}
+
+
+.sequenceL{
+	width:50%;
+}
+
+.sequenceImg{
+	width: 50%;
+    height: 100%;
+    margin-left: 30%;
+    border: 1px solid #66CDAA;
+    border-radius:20px 20px 20px 20px;
+    box-shadow: 0px 6px 16px rgb(0 0 0 / 12%) !important;
+}
+
+.sequenceImg2{
+	width: 50%;
+    height: 100%;
+    margin-left: 20%;
+    border: 1px solid #66CDAA;
+    border-radius:20px 20px 20px 20px;
+    box-shadow: 0px 6px 16px rgb(0 0 0 / 12%) !important;
+}
+ 
+h4{
+	color:black;
+}
+
+.sequenceR{
+	width:50%;
+}
+
+.sequenceR span{
+	color:gray;
+	font-size:0.9em;
+}
+
+.sequenceL span{
+	color:gray;
+	font-size:0.9em;
+}
+
+.sequenceR div{
+	color:gray;
+	font-size:0.9em;
+}
+
+.sequenceL div{
+	color:gray;
+	font-size:0.9em;
+}
+
+.secondBox{
+	width:100%;
+	padding-top:50px;
+	padding-bottom:50px;
+	
+}
+
+.secondBox li{
+	float:left;
+	width:30%;
+	margin-bottom:100px;
+	margin-left:160px;
+	margin-right:50px;
+	line-height: 1.5;
+}
+
+.secondBox li:nth-child(3){ margin-bottom:0px; }
+.secondBox li:nth-child(4){ margin-bottom:0px; }
+
+.secondBox li div{
+	position: relative;
+    padding-left: 105px;
+}
+
+.secondBox li b{
+	color:darkgray;
+	font-size:0.8em;
+}
+
+.secondBox h5{
+	color:black;
+}
+
+ul{
+   list-style:none;
+}
+
+.sbImg{
+	position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 70px;
+    height: 70px;
+    border: 1px solid #66CDAA;
+    border-radius:13px 13px 13px 13px;
+}
+
+.s1img{
+	width:100%;
+	hieght:100%;
 }

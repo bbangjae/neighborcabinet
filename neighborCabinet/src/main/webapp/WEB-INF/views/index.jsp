@@ -132,7 +132,7 @@
                 <button class="s4_b" type="button" onclick="location.href='<c:url value='/map'/>'" style=" margin-right: 50px;">
                   대여로 이동
                 </button>
-                <button class="s4_b" type="button">
+                <button class="s4_b" type="button" onclick="location.href='/guidePage'">
                   가이드 보기
                 </button>
               </div>
@@ -158,7 +158,7 @@
                 <button class="s5_btn" type="button" onclick="location.href='<c:url value='/rental/rentalreg'/>'" style="margin-right: 50px;">
                   공간 등록
                 </button>
-                <button class="s5_btn" type="button">
+                <button class="s5_btn" type="button" onclick="location.href='/guidePage'">
                   가이드 보기
                 </button>
               </div>

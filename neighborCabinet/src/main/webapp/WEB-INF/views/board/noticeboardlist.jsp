@@ -61,17 +61,17 @@
             style="cursor: pointer">
             <td>[공지사항]</td>
             <td>${list.boTitle}</td>
-            <td>${list.boWriter}</td>
+            <td>${list.boNickname} <span style="font-size: 12px; color: #888888;">(${list.boWriter})</span></td>
             <td>${list.boTime}</td>
         </tr>
         </c:forEach>
         </c:otherwise>
         </c:choose>
     </table>
-    <div style="position: relative">
-        <ul style="text-align: center;">
+    <div class=" d-flex justify-content-center" style="position: relative;">
+        <ul class="pagination" style="text-align: center;">
             <c:forEach var="i" begin="1" end="${pageCount}" step="1">
-                <a href="/board/noticeboardlist/?pageNum=${i}" style="padding:5px;" id="pageNum${i}"><c:out value="${i}" /></a>
+                <li class="page-item"><a class="page-link"href="/board/noticeboardlist/?pageNum=${i}"  id="pageNum${i}"><c:out value="${i}" /></a></li>
             </c:forEach>
         </ul>
     </div>
@@ -89,7 +89,6 @@
         if(pageNum == '')
         pageNum = 1; // 특별히 지정된 페이지 번호가 없으면 그냥 페이지 1이라고 간주
 
-        document.getElementById('pageNum'+pageNum).style.textDecoration = 'underline'
         document.getElementById('pageNum'+pageNum).style.fontWeight = 'bold'
     }
 

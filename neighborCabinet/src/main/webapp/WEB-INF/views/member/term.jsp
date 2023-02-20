@@ -212,7 +212,7 @@
         const box2 = document.getElementById("box2");
         const box3 = document.getElementById("box3");
 
-        if (!box1.checked && !box2.checked && !box3.checked) {
+        if (!(box1.checked && box2.checked && box3.checked)) {
             alert("모든 약관에 동의해주세요.");
         } else {
             location.href='/member/joinform'

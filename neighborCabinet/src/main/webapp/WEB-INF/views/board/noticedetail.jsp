@@ -16,6 +16,16 @@
 <html>
 <head>
     <title>공지사항 글</title>
+    <style>
+        hr{
+            width: 100%;
+            height: 2px;
+            background: #00DBAF;
+            border: 0;
+        }
+
+    </style>
+
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
@@ -25,12 +35,12 @@
         ${board.boTime}
         <hr>
     </div>
-<div class="Content m-3 p-3" style="font-size: 20px; border: 1px solid black;">
+<div class="Content m-3 p-3" style="font-size: 20px; ">
     <h3 class ="con"> 내용 </h3>
-    <hr>
 
     <pre style="white-space: pre-wrap; margin-left: 20px; margin-top: 20px;">${board.boContent}</pre>
 </div>
+    <hr>
     <div class="row">
     <div class = "list m-5 "  style=" width: 1000px">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16" style="cursor: pointer;" onclick="location.href='/board/noticeboardlist'">
@@ -47,6 +57,37 @@
     </div>
     </c:if>
     </div>
+    <c:if test="${board.boCategory == 2}">
+        <div class="replywrite m-3 p-3" style="">
+        <h3 class ="">댓글작성</h3>
+            <form action="/comment/write" method="post">
+            <textarea class="form-control" name="cContent" row ="5" style="" required></textarea>
+            <input type="hidden" name="cWriter">
+            <input type="hidden" name="boNo" value="${board.boNo}">
+
+            <input type="submit" class="btn mt-3" style="background: #00DBAF; color: #FFFFFF; border-radius: 0px; float: right;" value="작성">
+        </form>
+    </div>
+
+    <div class="replylist m-3 p-3">
+        <h3 class ="">댓글목록</h3>
+        <c:choose>
+        <c:when test="${empty comment}">
+            <p class="m-4">댓글이 없습니다.</p>
+        </c:when>
+        <c:otherwise>
+        <ul>
+        <c:forEach var="comment" items="${comment}">
+           <li> <p>${comment.cWriter} / ${comment.cTime}</p> </li>
+            <pre style="white-space: pre-wrap;">${comment.cContent}</pre>
+            <hr style=" background: #888888;">
+
+        </c:forEach>
+        </ul>
+        </c:otherwise>
+        </c:choose>
+    </div>
+    </c:if>
 </div>
 
 <c:import url="/WEB-INF/views/layout/footer.jsp"/>
@@ -58,7 +99,8 @@
             if(answer){
                 const boNo = '${board.boNo}';
                 const intBoNo = parseInt(boNo);
-                location.href="/board/delete/"+intBoNo;
+                    location.href = "/board/delete/" + intBoNo;
+
             }
 
         });

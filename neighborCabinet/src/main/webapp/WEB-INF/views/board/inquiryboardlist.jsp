@@ -61,25 +61,59 @@
             style="cursor: pointer">
             <td>[문의사항]</td>
             <td>${list2.boTitle}</td>
-            <td>${list2.boWriter}</td>
+            <td>${list2.boNickname}<span style="font-size: 12px; color: #888888;">(${list2.boWriter})</span></td>
             <td>${list2.boTime}</td>
         </tr>
         </c:forEach>
         </c:otherwise>
         </c:choose>
     </table>
-    <div style="position: relative">
-        <ul style="text-align: center;">
+    <div class=" d-flex justify-content-center" style="position: relative;">
+        <ul class="pagination" style="text-align: center;">
             <c:forEach var="i" begin="1" end="${pageCount}" step="1">
-                <a href="/board/inquiryboardlist/?pageNum=${i}" style="padding:5px;" id="pageNum${i}"><c:out value="${i}" /></a>
+                <li class="page-item"><a class="page-link" href="/board/inquiryboardlist/?pageNum=${i}"  id="pageNum${i}"><c:out value="${i}" /></a></li>
             </c:forEach>
         </ul>
     </div>
 
-    <a onclick="location.href='/board/inquiryregister'" class="btn m-3" style="background: #00DBAF; color: #Ffffff; float: right;" >문의 작성</a>
+    <a id="reg" class="btn m-3" style="background: #00DBAF; color: #Ffffff; float: right;" >문의 작성</a>
+
+    <input type="hidden" class="btn btn-primary" id="login" data-bs-toggle="modal" data-bs-target="#login1">
+
+    <!-- Modal -->
+    <div class="modal fade" id="login1" tabindex="-1" aria-labelledby="login2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="login2">로그인</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    로그인이 필요한 서비스 입니다.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background: #00DBAF; color: #FFFFFF;" onclick="location='/member/loginform'">로그인 하러가기</button>
+                    <button type="button" class="btn" style="background: #888888; color: #FFFFFF;" onclick="location='/member/term'">회원가입 하러가기</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 <c:import url="/WEB-INF/views/layout/footer.jsp"/>
+<script>
+    $("#reg").click(function(){
+        if("${sid}" === null || "${sid}" === ""){
+            $('#login').trigger('click');
+        }
+        else{
+            location.href='/board/inquiryregister';
+        }
+    });
+
+</script>
 <script>
         // 페이지 로딩 후, 현재 페이지 번호 스타일 변경 - 밑줄 + Bold
         window.onload = function(){
@@ -87,10 +121,8 @@
         if(pageNum == '')
         pageNum = 1; // 특별히 지정된 페이지 번호가 없으면 그냥 페이지 1이라고 간주
 
-        document.getElementById('pageNum'+pageNum).style.textDecoration = 'underline'
         document.getElementById('pageNum'+pageNum).style.fontWeight = 'bold'
     }
-
 </script>
 <script>
 

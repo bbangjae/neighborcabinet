@@ -33,6 +33,8 @@ public class rentalController_S {
     @Autowired
     IBoxmodifyService iBoxmodifyService;
 
+    @Autowired
+    private PlaceInfoService pservice;
 
     @Value("${file.upload.path}")
     String uploadPath;
@@ -186,6 +188,102 @@ public class rentalController_S {
         }
 
         return "place_b/placeDetailView";
+    }
+
+    @RequestMapping("/rental/placelist/{sid}")
+    public String rentalplacelist(@PathVariable String sid, Model model){
+
+        List<PlaceInfoVO> placeInfoVOList = service.placeList(sid);
+        model.addAttribute("placelist", placeInfoVOList);
+
+        return "rental/rentallist";
+
+    }
+
+    @RequestMapping("/rental/rentalmodi/{pNo}")
+    public String rentalmodi(@PathVariable int pNo, Model model,HttpSession httpSession) throws Exception{
+        PlaceInfoVO pi = pservice.detailViewPlace(pNo);
+        String id =(String) httpSession.getAttribute("sid");
+        model.addAttribute("pi",pi);
+        model.addAttribute("boxStock", iBoxmodifyService.boxStock(id));
+
+        return "rental/rentalmodi";
+    }
+
+    @RequestMapping("/rental/modi/{pNo}")
+    public String modi(@PathVariable int pNo, Model model, PlaceInfoVO placeInfoVO,boxtypeVO boxtype,HttpSession httpSession, MultipartFile[] files) throws Exception{
+
+        service.deleteboxtype(pNo);
+        placeInfoVO.setpNo(pNo);
+        service.placemodi(placeInfoVO);
+        String id =(String) httpSession.getAttribute("sid");
+        boxtype.setpNo(placeInfoVO.getpNo());
+        service.boxDate(boxtype);
+        service.boxPreg(boxtype);
+
+        if( placeInfoVO.getpNo() > 0) {
+            List<FileVO> fileList = fileService.fileList(pNo);
+            for (int a = 0; a < fileList.size(); a++) {
+                File file = new File(System.getProperty("user.dir") + uploadPath + fileList.get(a).getSavedFileName());
+                if (file.exists())
+                    file.delete(); // 파일 유무 확인 후 삭제
+            }
+            if (fileList.size() > 0)
+                fileService.fileDelete(fileList); // 파일 정보 DB에서 삭제
+
+        }
+
+            //파일 저장소 위치 존재 확인 후 없으면 생성
+            File folder = new File(System.getProperty("user.dir") + uploadPath);
+            if (!folder.exists()) {
+                folder.mkdir();
+            }
+
+        // 파일을 저장하고, 저장된 파일 목록을 생성
+        List<FileVO> fileList = new ArrayList<FileVO>();
+        for(int a=0; a<files.length; a++) {
+            // 첨부 파일 유무 확인 후, 있으면 파일 저장
+            if( files[a].isEmpty())
+                continue;
+            String originalFileName = files[a].getOriginalFilename(); //파일의 원래 이름
+            String uploadedFileName = RandomStringUtils.randomAlphanumeric(10)+"_"+originalFileName; // 중복 방지를 위해 저장될 랜덤값 + 파일 이름
+            File fileToUpload = new File( System.getProperty("user.dir")+ uploadPath+ uploadedFileName );
+            files[a].transferTo(fileToUpload);
+
+            // 저장된 파일의 정보를 리스트로 보관
+            FileVO fileInfo = new FileVO();
+            fileInfo.setpId(placeInfoVO.getpNo());
+            fileInfo.setOriginalFileName(originalFileName);
+            fileInfo.setSavedFileName(uploadedFileName);
+            fileList.add(fileInfo);
+        }
+
+        // 저장된 파일 정보 리스트를 DB에 저장
+        if(fileList.size()>0) {
+            fileService.fileRegister(fileList);
+        }
+
+        return "redirect:/rental/placelist/"+id;
+    }
+
+    @RequestMapping("/rental/rentaldelete/{pNo}")
+
+    private String deleteplace(@PathVariable int pNo,HttpSession httpSession){
+        System.out.println(pNo);
+        service.deleteplace(pNo);
+
+        List<FileVO> fileList = fileService.fileList(pNo);
+        for(int a=0; a<fileList.size(); a++) {
+            File file = new File(System.getProperty("user.dir")+ uploadPath+ fileList.get(a).getSavedFileName());
+            if(file.exists())
+                file.delete(); // 파일 유무 확인 후 삭제
+        }
+        if(fileList.size()>0)
+            fileService.fileDelete(fileList); // 파일 정보 DB에서 삭제
+        String id =(String) httpSession.getAttribute("sid");
+
+
+        return "redirect:/rental/placelist/"+id;
     }
 
 }

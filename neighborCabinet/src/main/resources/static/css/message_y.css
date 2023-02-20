@@ -1,0 +1,105 @@
+@charset "UTF-8";
+#mesBox{
+	margin : auto;
+	width : 80%;
+}
+#mesDeleteBox{
+	display : flex;
+	align-items : center;
+	border-top : solid 1px;
+	border-bottom : solid 1px;
+	height : 30px;
+}
+#mesDeleteBox label{
+	height : 100%;
+	display : flex;
+	padding : 0 10px;
+	align-items : center;
+}
+#mesDeleteBox div{
+	margin-right : 10px;
+}
+#mesDeleteBox button{
+	background : none;
+	border : none;
+	box-sizing : border-box;
+}
+#mesDeleteBox button:hover{
+	cursor : pointer;
+	border : solid 0.5px #a2a2a2;
+	border-radius : 3px;
+	box-sizing : border-box;
+}
+.colorEB{
+	color : #d1d1d1;
+}
+.mes_AllmessageS{
+	overflow : auto;
+	height : 500px;
+}
+.mes_AllmessageS::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+}
+
+.mes_AllmessageS::-webkit-scrollbar-thumb {
+    /* height: 50px;
+    background: #d1d1d1;
+    border-radius: 10px; */
+    display: none;
+}
+
+.mes_AllmessageS::-webkit-scrollbar-track {
+    background: #ebebeb;
+    display: none;
+}
+.mes_mesaage{
+	display : flex;
+	align-items : center;
+	height : 30px;
+	box-sizing : border-box;
+}
+.mes_mesaage:hover{
+	background : #ebebeb;
+}
+.mes_mesaage>label{
+	height : 100%;
+	display : flex;
+	padding : 0 10px;
+	align-items : center;
+}
+.mesTitle{
+	flex : 1 0 auto;
+	display : flex;
+	justify-content: space-between;
+}
+.mesTitle>div:first-child{
+	width : 120px;
+}
+.mesTitle>div:nth-child(2){
+	width : 300px;
+	overflow : hidden;
+}
+.mesTitle>div:last-child{
+	margin-right : 20px;
+	width : 130px;
+}
+/* ------------------------------------------------------------ */
+.mesDInfo{
+	position : relative;
+}
+.mesFirstCheck{
+	position : absolute;
+	top : -15px;
+	right : 0;
+	font-size : 5px;
+	color : red;
+	transform : translate(-50%, -50%);
+}
+.paymentMInfo{
+	height : 100px;
+	display : none;
+	border-bottom : solid .5px #d1d1d1;
+	padding : 20px 0;
+	box-sizing : border-box;
+}

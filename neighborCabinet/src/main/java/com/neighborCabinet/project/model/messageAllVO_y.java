@@ -7,7 +7,22 @@ public class messageAllVO_y {
 	private String mesDate;
 	private int reserveNo;
 	private int OX;
+	private String pWriteTitle;
+	private String reserveDate;
 	
+	
+	public String getpWriteTitle() {
+		return pWriteTitle;
+	}
+	public void setpWriteTitle(String pWriteTitle) {
+		this.pWriteTitle = pWriteTitle;
+	}
+	public String getReserveDate() {
+		return reserveDate;
+	}
+	public void setReserveDate(String reserveDate) {
+		this.reserveDate = reserveDate;
+	}
 	public int getReserveNo() {
 		return reserveNo;
 	}

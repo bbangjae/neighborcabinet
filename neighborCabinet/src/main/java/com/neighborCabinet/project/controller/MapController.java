@@ -33,9 +33,10 @@ public class MapController {
 	public String map(Model model,
 					  HttpServletRequest request) {
 		ArrayList<MapVO> listAllMap = mapService.listAllMap();
-		System.out.print(listAllMap.get(0).getpImage());
+
 		JSONArray mapAddress = new JSONArray();
 		for(int i=0;i<listAllMap.size();i++) {
+			System.out.println(i+"   "+listAllMap.get(i).getpImage());
 			HashMap<String, Object> map = macService.addToxy(listAllMap.get(i).getpAddress1());
 			JSONObject jo = new JSONObject(map);
 			jo.put("wT",listAllMap.get(i).getpWriteTitle());

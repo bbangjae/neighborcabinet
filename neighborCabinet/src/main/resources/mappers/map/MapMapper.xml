@@ -27,25 +27,26 @@
 			<result property="pBoxInfo"  column="pBoxInfo"  />
 			<result property="pCautionInfo"  column="pCautionInfo"  />
 			<result property="pAddress1"  column="pAddress1"  />
-			<result property="pImage"  column="pImage"  />
+			<result property="pImage"  column="pSaveImage"  />
 			<result property="pTime"  column="pTime"  />
 
 		</resultMap>
 
 	<!-- 장소 조회 -->
 
-<!--	<select id="listAllMap"  resultMap="mapResult">-->
-<!--		SELECT p.*, (select f.fileNo from files f where f.pId=p.pNo limit 1 ) as fileNo-->
-<!--		FROM place p, files f-->
-<!--		where p.pNo=f.pId-->
-<!--		group by pNo;-->
-<!--	</select>-->
-	<!-- 장소 조회 -->
 	<select id="listAllMap"  resultMap="mapResult">
-		SELECT *
-		FROM place
-		ORDER BY pNo ASC
+		select p.*, (select savedFileName from files f where f.pId=p.pNo limit 1 ) as pSaveImage
+		from files f, place p
+		where f.pId=p.pNo
+		group by pNo;
+
 	</select>
+	<!-- 장소 조회 -->
+<!--	<select id="listAllMap"  resultMap="mapResult">-->
+<!--		SELECT *-->
+<!--		FROM place-->
+<!--		ORDER BY pNo ASC-->
+<!--	</select>-->
 
 	<select id="searchPlace" parameterType="string" resultType="int">
 		select ifnull(max(pNo),0)

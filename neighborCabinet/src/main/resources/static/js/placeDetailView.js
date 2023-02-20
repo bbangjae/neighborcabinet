@@ -461,6 +461,9 @@ $(document).ready(function(){
     var q_content;
     $(".qa_update").on('click',function(){
         if($(this).val()==="수정") {
+            q_index= $(this).attr("vs") * 1;
+            qa_text=$(".qa_text").eq(q_index);
+            q_content=$(".qa_text").eq(q_index).val()
             $(qa_text).val(q_content);
             $(qa_text).attr('readonly',true);
             $(qa_text).css({
@@ -470,10 +473,9 @@ $(document).ready(function(){
             $(".qa_update").val("수정");
 
             $(this).val("확인");
-            q_index= $(this).attr("vs") * 1;
-            $(".qa_delete").eq(q_index).val("취소");
-            qa_text=$(".qa_text").eq(q_index);
-            q_content=$(".qa_text").eq(q_index).val()
+
+            $(".qa_div").eq(q_index).find(".qa_delete").val("취소");
+
             $(qa_text).attr('readonly',false);
             $(qa_text).css({
                 "background-color":"white",
@@ -489,8 +491,7 @@ $(document).ready(function(){
         else if($(this).val()==="확인"){
             let answer = confirm("수정하시겠습니까?");
             if(answer){
-                console.log($(".qa_delete").eq(q_index));
-                console.log($(".qa_div").eq(q_index).attr("qaNo"));
+
                 $.ajax({
                     type: "post",
                     url: "/place/placeDetailView/qaUpdate",
@@ -505,8 +506,8 @@ $(document).ready(function(){
                         $(qa_text).css({
                             "background-color":"rgb(249, 250, 251)"
                         });
-                        $(".qa_update").eq(q_index).val("수정");
-                        $(".qa_delete").eq(q_index).val("삭제");
+                        $(".qa_div").eq(q_index).find(".qa_update").val("수정");
+                        $(".qa_div").eq(q_index).find(".qa_delete").eq(q_index).val("삭제");
                     }
 
                 })
@@ -532,7 +533,7 @@ $(document).ready(function(){
                     $.ajax({
                         type: "post",
                         url: "/place/placeDetailView/qaDelete",
-                        data: {"qaNo": $(this).attr("qaNo")},
+                        data: {"qaNo": $(".qa_div").eq(q_index).attr("qaNo")},
                         success() {
                             location.href = "/place/placeDetailView/" + $("#QA_confirm").val();
                         }

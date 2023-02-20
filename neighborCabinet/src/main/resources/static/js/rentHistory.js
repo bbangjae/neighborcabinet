@@ -57,9 +57,20 @@ $(document).ready(function() {
 				}
 				}
 	
-	})
+		})
 	//모달 창 종료 시 데이터 초기화 작성
-})
+	})
+
+
+//qr코드
+	$("#qrBtn").click(function(){
+		alert("qr코드 링크 생성");
+		url="/qr";
+		var content = $("#content").val();
+		$("#img").attr("src",url+"?content="+content);
+	});
+
+
 
 
 });

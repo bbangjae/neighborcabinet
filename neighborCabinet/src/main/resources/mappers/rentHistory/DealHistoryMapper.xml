@@ -17,7 +17,7 @@
   	</resultMap> -->
 	
 	<!-- 거래 내역 -->
-	<select id="listAllDeal" parameterType="string" resultType="com.neighborCabinet.project.model.DealHistoryVO">
+ 	<select id="listAllDeal" parameterType="string" resultType="com.neighborCabinet.project.model.DealHistoryVO">
 		SELECT *
 		FROM dealHistory
 		ORDER BY dealNo ASC

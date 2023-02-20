@@ -9,16 +9,75 @@
 		<meta charset="UTF-8">
 		<title>대여 페이지</title>
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/rental.css'/>">
+		<link rel="stylesheet" type="text/css" href=/css/modifyInfo.css/>
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="<c:url value='/js/rentHistory.js' />"></script>
 		<script src="<c:url value='/js/pagination.js' />" ></script>
 		<!-- 반응형을 위해 아래의 가로폭 조정 코드 필요 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<c:import url="/WEB-INF/views/layout/header.jsp" />
+		<script src="<c:url value="/js/mod.js" />"></script>
 		<script src="<c:url value='/js/searchZip.js' />"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 	<body>
 	<div id="wrap">
+	<div class="navBlock">
+				<nav class="infoNav">
+					<ul class="allNav"> 
+					<li class="navList"> 
+							<a href="/mypage" class="navListlink" id="mypageLink">
+								<div class="figureBox">
+									<figure>
+										<img class="modifyInfo" src="/image/mypage.png">
+									</figure>
+								</div>
+								<div class="listObject">마이페이지</div>
+							</a>
+						</li>
+						<li class="navList">
+							<a href="/modifyInfo" class="navListlink" id="myinfoLink">
+								<div class="figureBox">
+									<figure>
+										<img class="modifyInfo" src="/image/profile2.png">
+									</figure>
+								</div>
+								<div class="listObject" id="modifyInfoList">개인정보</div>
+							</a>
+						</li>
+						<li class="navList">
+							<a href="/rentHistory" class="navListlink" id="payLink">
+								<div class="figureBox">
+									<figure>
+										<img class="modifyInfo" src="/image/customer.png">
+									</figure>
+								</div>
+								<div class="listObject">거래/대여</div>
+							</a>
+						</li>
+						<li class="navList">
+							<a href="/rentHistory" class="navListlink" id="reviewLink">
+								<div class="figureBox">
+									<figure>
+										<img class="modifyInfo" src="/image/review2.png">
+									</figure>
+								</div>
+								<div class="listObject">리뷰관리</div>
+							</a>
+						</li>
+						<li class="navList">
+							<a href="/lenderPage" class="navListlink" id="lenderLink">
+								<div class="figureBox">
+									<figure>
+										<img class="modifyInfo" src="/image/lender.png">
+									</figure>
+								</div>
+								<div class="listObject">공급자페이지</div>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
     <div class="box-wrapper">
       <!-- 추후 대여중인 박스가 있으면 해당 내용 제공, 없으면 대여중인 박스가 없습니다 보이기 -->
       <div class="box-title">내 거래 현황</div>
@@ -31,12 +90,12 @@
          <c:forEach var="deal" items="${dealAllHistory}">
           <div class="boxInfo">
             <div id="topContainer">
-              <div id="date"><fmt:formatDate value='${deal.receiptDate}' dateStyle="full"/><span id="time"> <fmt:formatDate value='${deal.receiptDate}' type="time" timeStyle="short"/></span>까지</div>
+             <%--  <div id="date"><fmt:formatDate value='${deal.reserveDate}' dateStyle="full"/><span id="time"> <fmt:formatDate value='${deal.reserveDate}' type="time" timeStyle="short"/></span>까지</div> --%>
               <div id="more"><a id="moreBtn">상세보기</a></div>
             </div>
             <div id="middleContainer">
               <div id="rentImg">
-               <c:if test="${deal.pickup eq 'O' }">
+               <c:if test="${deal.pickup eq '1' }">
                 <div id="pickup"></div>
                </c:if>
                 <img src="<c:url value='/image/${deal.dealObject}.jpg'/>" alt="이미지가 없습니다">
@@ -60,10 +119,10 @@
       </div>
     </div>
     
-  <!-- 대여  내역 시작 -->    
+  <!-- 대여 내역에서 거래 내역으로 변경 -->    
     <div class="box-wrapper">
       <div class="box-title">
-        <div>내 대여 내역</div>
+        <div>내 거래 내역</div>
         <div class="detail" id="setting">
           <%-- <a href="#">
             <img src="<c:url value='/image/setting.jpg'/>">
@@ -73,7 +132,7 @@
       <div class="btn-wrapper">
         <ul class="btns">
           <li class="dealBtn current" id="before" data-tab="before-tr">
-            대여 전
+            거래 전
           </li>
           <li class="line">
             <img src="<c:url value='/image/go.jpg'/>">
@@ -108,16 +167,16 @@
             <th>픽업</th>
            </tr>
            <c:forEach var="before" items="${rentAllHistory}">
-            <!-- 대여 전 -->
-            <c:if test="${before.rentState eq '대여전' }">
+            <!-- 거래 전 -->
+            <c:if test="${before.resState eq '1' }">
             <tr>
-              <td>${before.rentNo}</td>
-              <td>${before.rentPlace}</td>
+              <td>${before.reserveNo}</td>
+              <td>${before.pAddress1}</td>
               <!-- 시간대 재조정 -->
-              <td><fmt:formatDate value='${before.receiptDate}' pattern="yyyy-MM-dd hh:mm"/></td>
+             <%--  <td><fmt:formatDate value='${before.reserveDate}' pattern="yyyy-MM-dd hh:mm"/></td> --%>
               <td>${before.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
               <td>${before.rentTime}</td>
-              <td style="color:blue;">${before.rentState}</td>
+              <td style="color:blue;">대여전</td>
               <td>${before.pickup}</td>
             </tr>
              </c:if>
@@ -137,15 +196,15 @@
             <th>픽업</th>
             </tr>
            <c:forEach var="cur" items="${rentAllHistory}">
-            <c:if test="${cur.rentState eq '대여중' }">
+            <c:if test="${cur.resState eq '2' }">
             <tr>
-              <td>${cur.rentNo}</td>
+              <td>${cur.reserveNo}</td>
               <td>${cur.rentPlace}</td>
               <!-- 시간대 재조정 -->
-              <td><fmt:formatDate value='${cur.receiptDate}' pattern="yyyy-MM-dd hh:mm"/></td>
+             <%--  <td><fmt:formatDate value='${cur.reserveDate}' pattern="yyyy-MM-dd hh:mm"/></td> --%>
               <td>${cur.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
               <td>${cur.rentTime}</td>
-              <td style="color:red;">${cur.rentState}</td>
+              <td style="color:red;">대여중</td>
               <td>${cur.pickup}</td>
             </tr>
             </c:if>
@@ -161,13 +220,22 @@
       <!-- 이미 생성된 코드가 있으면 해당 내용 제공, 없으면 QR코드 생성 버튼 보이기 -->
       <div class="box-title">
         QR 코드 생성
-        <a id="re"><img src="<c:url value='/image/re2.jpg'/>"></a>
+        <%-- <a id="re"><img src="<c:url value='/image/re2.jpg'/>"></a> --%>
       </div>
       <div class="boxType" id="qr">
         <div class="infoContainer" id="qrContainer">
-        <div class="notice"><img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다.</div>
+        <div class="notice">
+        <%-- <img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다. --%>
+	      	<div>
+				<input id="content" type="hidden" name="content" value="${sessionScope.sid}"/> 
+				<!-- <input type="button" id="execute" value="QR코드 생성" /> -->
+				<img id="img" style="display:none;" onload="this.style.display = 'block'"/>
+			</div>
+        </div>
          <%-- <c:if test="${empty }">
          </c:if> --%>
+         <%-- <img th:src="@{'data:image/jpeg;base64,'+${img}}"> --%>
+         
         </div>
 
       </div>
@@ -181,7 +249,8 @@
 		  <div class="modal_content" title="">
 		   <div class="modal_close"><img src="<c:url value='/image/close.jpg'/>"></div>
 		   <form id="searchForm" name="searchForm"> <!--  method="get" action="/rentHistorySearch"  -->
-			<input type="hidden" id="pageIndex" name="pageIndex" value="">
+			<input type="hidden" id="pageIndex" name="pageIndex" value="${searchVO.pageIndex}">
+			<!-- <input type="hidden" id="pageIndex" name="pageIndex" value=""> -->
 		   <div class="bar">
 		       <input type="text" name="searchKeyword" id="searchKeyword" value="${searchVO.searchKeyword}" placeholder="사용자명을 입력하세요" autocomplete="on" onfocus="this.placeholder=''" onblur="this.placeholder='사용자명을 입력하세요'" required>
 		       <input type="image" id="searchBtn" src="<c:url value='/image/search.jpg'/>">
@@ -197,7 +266,7 @@
 	            <th>장소</th>
 	            <th>수령일</th>
 	            <th>사용자</th>
-	            <th>시간</th>
+	            <th>시간</th>  <!-- <fmt:formatDate value='${all.reserveDate}' pattern="yyyy-MM-dd hh:mm"/> -->
 	            <th>상태</th>
 	            <th>픽업</th>
 	          </tr>
@@ -206,15 +275,14 @@
             <c:set var="ii" value="${resultCnt - (searchVO.pageIndex -1) * paginationInfo.recordCountPerPage }" />
            	<c:forEach var="all" items="${rentAllHistory}" varStatus="sts">
             <%-- <c:if test="${all.rentState eq '대여완료' }"> --%>
-            <!-- ${fn:contains(all.rentState, '대여완료')} == true -->
             <tr class="rentHistory">
-              <td class="t_c"><c:out value="${all.rentNo}"/></td> <!-- ${ii} -->
+              <td class="t_c"><c:out value="${all.reserveNo}"/></td> <!-- ${ii} -->
               <td class="t_c">${all.rentPlace}</td>
               <!-- 시간대 재조정 -->
-              <td class="t_c"><fmt:formatDate value='${all.receiptDate}' pattern="yyyy-MM-dd hh:mm"/></td>
+              <td class="t_c">날짜임시</td>
               <td class="t_c">${all.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
               <td class="t_c">${all.rentTime}</td>
-              <td class="t_c" style="color:grey;">${all.rentState}</td>
+              <td class="t_c" style="color:grey;">대여완료</td>
               <td class="t_c">${all.pickup}</td>
             </tr>
             <c:set var="ii" value="${ii - 1}"/>
@@ -240,7 +308,7 @@
 							<a href="javascript:void(0);" onclick="fn_go_page(1); return false;" ></a>
 						</li>
 						<li class="prev">
-							<a href="javascript:void(0);"  onclick="fn_go_page(${searchVO.startDate - 1}); return false;" ></a>
+							<a href="javascript:void(0);"  onclick="fn_go_page('${searchVO.startDate - 1}'); return false;" ></a>
 						</li>
 					</c:if>
 					<c:forEach var="num" begin="${searchVO.startDate}" end="${searchVO.endDate}">

@@ -49,5 +49,15 @@ public class MemberService implements IMemberService {
         return dao.userIdCheck(userId);
     }
 
+    @Override
+    public String getNickName(String userId) {
+        return dao.getNickName(userId);
+    }
+
+    @Override
+    public String findid(String name, String email) {
+        return dao.findid(name,email);
+    }
+
 
 }

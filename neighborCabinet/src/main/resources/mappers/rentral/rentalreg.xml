@@ -25,6 +25,24 @@
         call create_Date(#{pNo},#{A_Qty},#{B_Qty},#{C_Qty},#{D_Qty},#{E_Qty},#{F_Qty})
     </insert>
 
+    <select id="placeList" parameterType="String" resultType="com.neighborCabinet.project.model.PlaceInfoVO">
+        select * from place where userId = #{sid}
+    </select>
+
+    <update id="placemodi" parameterType="com.neighborCabinet.project.model.PlaceInfoVO">
+        update place set pWriteTitle = #{pWriteTitle}, pWriteSub = #{pWriteSub}, pType = #{pType}, pType_d = #{pType_d}, food = #{food}, pickup = #{pickup}, pPlaceTitle = #{pPlaceTitle}, pPlaceInfo = #{pPlaceInfo}, pHp = #{pHp}, pS_Time = #{pS_Time}, pE_Time = #{pE_Time}, pAddress1 = #{pAddress1}, pAddress2 = #{pAddress2}, pBoxInfo = #{pBoxInfo}, pCautionInfo = #{pCautionInfo}
+        where pNo = #{pNo}
+    </update>
+
+    <delete id="deleteboxtype" parameterType="int">
+        DELETE FROM boxtype WHERE pNo = #{pNo}
+    </delete>
+    
+    <delete id="deleteplace" parameterType="int">
+        DELETE p, b FROM place p
+        LEFT JOIN boxtype b ON p.pNo = b.pNo
+        WHERE p.pNo = #{pNo}
+    </delete>
 
 
 </mapper>

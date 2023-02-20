@@ -4,6 +4,7 @@ import com.neighborCabinet.project.model.MemberVO;
 import com.neighborCabinet.project.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,7 +43,10 @@ public class MemberController {
         // 서비스에서 "success" 반환받았으면
         if(result.equals("success")) {
             //로그인 성공하면 세션 변수 지정
-            session.setAttribute("sid", param.get("id"));
+            String id = (String)param.get("id");
+            session.setAttribute("sid",id);
+            String nicknmae = service.getNickName(id);
+            session.setAttribute("nickname",nicknmae);
         }
 
         return result;
@@ -71,6 +75,25 @@ public class MemberController {
 
         return  result;
     }
+
+    @RequestMapping("/findidform")
+    public String findidform(){
+
+        return "member/findid";
+    }
+
+    @ResponseBody
+    @RequestMapping("/findid")
+    public String findid(@RequestParam String name, @RequestParam String email, Model model){
+        String id = service.findid(name,email);
+        String result = "fail";
+        if( id != null){
+            result = "success";
+        }
+        System.out.println(id);
+        return id;
+    }
+
 
 }
 

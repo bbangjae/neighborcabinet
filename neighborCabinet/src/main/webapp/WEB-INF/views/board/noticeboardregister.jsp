@@ -57,6 +57,7 @@
         </table>
         <input type="hidden" name="boCategory" value="1">
         <input type="hidden" name="boWriter">
+        <input type="hidden" name="boNickname">
         <div class=" d-flex justify-content-center">
           <input type="submit"  class="btn m-3" style="background: #00DBAF; color: #Ffffff;" value="저장">
           <a onclick="location.href='/board/Nregister'" class="btn m-3" style="background: #00DBAF; color: #Ffffff;" >뒤로</a>

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class RentalregService implements IRentalService {
@@ -36,6 +37,32 @@ public class RentalregService implements IRentalService {
         return reg.boxDate(boxtype);
     }
 
+    @Override
+    public List<PlaceInfoVO> placeList(String sid) {
+        return reg.placeList(sid);
+    }
+
+    @Override
+    public void placemodi(PlaceInfoVO placeInfoVO) {
+         reg.placemodi(placeInfoVO);
+    }
+
+    @Override
+    public void placedelete(String sid) {
+         reg.placedelete(sid);
+    }
+
+    @Override
+    public void deleteboxtype(int pNo) {
+        reg.deleteboxtype(pNo);
+
+    }
+
+    @Override
+    public void deleteplace(int pNo) {
+        reg.deleteplace(pNo);
+
+    }
 
 
 }

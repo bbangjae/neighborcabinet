@@ -12,7 +12,7 @@
 
 <html>
 <head>
-    <title>로그인</title>
+    <title>아이디 찾기</title>
     <script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
     <style>
         body {
@@ -134,39 +134,74 @@
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
 
 <div class="container">
-    <div class = "login1">
-<div class="login">
-    <header class="login__header" >
-        <h2><svg class="icon">
-            <use xlink:href="#icon-lock" />
-        </svg>이웃집 캐비닛</h2>
-    </header>
-    <header class="login__header" style="display: none;">
-        <h2><svg class="icon">
-            <use xlink:href="#icon-lock" />
-        </svg>아이디찾기</h2>
-    </header>
+    <div class = "find_id" style="">
+        <div class="login">
+            <header class="login__header" >
+                <h2><svg class="icon">
+                    <use xlink:href="#icon-lock" />
+                </svg>아이디찾기</h2>
+            </header>
+            <form class="login__form" id= "find_id">
 
-    <form class="login__form" id= "loginForm">
+                <div>
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" placeholder="가입 시 등록한 이름을 입력하세요.">
+                </div>
 
-        <div>
-            <label for="id">아이디</label>
-            <input type="text" id="id" name="id" placeholder="아이디">
+                <div>
+                    <label for="email">이메일</label>
+                    <input type="text" id="email" name="email" placeholder="가입 시 등록한 이메일을 입력하세요.">
+                </div>
+
+                <div style="text-align: center;">
+                    <input class="button" type="submit" value="아이디찾기" >
+                </div>
+
+            </form>
         </div>
+    </div>
+    <input type="hidden" class="btn btn-primary" id="findID" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
-        <div>
-            <label for="pwd">비밀번호</label>
-            <input type="password" id="pwd" name="pwd" placeholder="비밀번호">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">아이디 확인</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    당신의 아이디는 <strong id = "userId"></strong> 입니다
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background: #00DBAF; color: #FFFFFF;" onclick="location='/member/loginform'">로그인 하러가기</button>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div style="text-align: center;">
-            <input class="button mb-3" type="submit" value="로그인">
-            <a style="font-size: 12px; color: rgba(18,136,109,0.98); cursor: pointer;" onclick="location='/findidform'">아이디찾기</a> / <a style="font-size: 12px; color: rgba(18,136,109,0.98)">패스워드찾기</a>
+    <input type="hidden" class="btn btn-primary" id="nofind" data-bs-toggle="modal" data-bs-target="#nofind1">
+
+    <!-- Modal -->
+    <div class="modal fade" id="nofind1" tabindex="-1" aria-labelledby="nofind2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="nofind2">아이디 확인</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    일치하는 아이디가 없습니다.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                </div>
+            </div>
         </div>
+    </div>
 
-    </form>
-</div>
-</div>
+
+
 
     <svg xmlns="http://www.w3.org/2000/svg" class="icons">
     <symbol id="icon-lock" viewBox="0 0 448 512">
@@ -178,22 +213,24 @@
 <c:import url="/WEB-INF/views/layout/footer.jsp"/>
 <script>
     $(document).ready(function(){
-        $('#loginForm').on('submit', function(){
+        $('#find_id').on('submit', function(){
             //폼이 submit 되지 않도록 기본 기능 중단
             event.preventDefault();
 
             // 서버에 전송하고 결과 받아서 처리
             $.ajax({
                 type:"post",
-                url:"/member/login",
-                data: {"id":$('#id').val(),
-                    "pwd":$('#pwd').val()},
+                url:"/findid",
+                data: {"name":$('#name').val(),
+                    "email":$('#email').val()},
                 dataType:'text',
-                success:function(result){
-                    if(result == "success"){
-                        location.href="/";
+                success:function(id){
+                    if(id != ""){
+                        $('#userId').text(id);
+                        console.log(id);
+                        $('#findID').trigger('click');
                     }else{
-                        alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+                        $('#nofind').trigger('click');
                     }
 
                 },

@@ -38,8 +38,8 @@
     
     <insert id="boardRegister" parameterType="com.neighborCabinet.project.model.NboardVO">
         insert into
-        board (boTitle, boContent, boWriter, boTime, boCategory)
-        values (#{boTitle}, #{boContent}, #{boWriter}, NOW(), #{boCategory})
+        board (boTitle, boContent, boWriter, boNickname, boTime, boCategory)
+        values (#{boTitle}, #{boContent}, #{boWriter}, #{boNickname}, NOW(), #{boCategory})
     </insert>
 
     <select id="boardDetail" parameterType="int" resultType="com.neighborCabinet.project.model.NboardVO">
@@ -54,5 +54,26 @@
         from board
         where boNo = #{boNo}
     </delete>
+
+    <select id="list" parameterType="int" resultType="com.neighborCabinet.project.model.boardCommentVO">
+        select
+        *
+        from boardcomment
+        where boNo = #{boNo}
+    </select>
+
+    <insert id="write" parameterType="com.neighborCabinet.project.model.boardCommentVO">
+        insert into
+        boardcomment(cNo, cContent, cWriter, cTime, boNo)
+        values ( #{cNo}, #{cContent}, #{cWriter}, NOW(), #{boNo})
+    </insert>
+
+    <select id="commentTotalCount" parameterType="int" resultType="java.lang.Integer">
+        select
+        count(*)
+        from boardcomment
+        where boNo = #{boNo}
+    </select>
+
 
 </mapper>

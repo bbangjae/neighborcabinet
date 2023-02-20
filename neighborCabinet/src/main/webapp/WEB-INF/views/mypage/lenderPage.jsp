@@ -250,25 +250,26 @@
 			        <div class="infoContainer" id="rentContainer">
 			        <!-- 거래 내역 -->
 			         <c:forEach var="ldeal" items="${LdealAllHistory}">
+			         <c:if test="${ldeal.resState eq '2' }">
 			          <div class="boxInfo">
 			            <div id="topContainer">
 			              <div id="date"><%-- <fmt:formatDate value='${ldeal.reserveDate}' dateStyle="full"/><span id="time"> <fmt:formatDate value='${ldeal.reserveDate}' type="time" timeStyle="short"/></span> --%>
-			              ${ldeal.reserveDate}까지</div>
+			              ${ldeal.reserveDate.substring(0,12)}<span id="time"> ${ldeal.startTime}<span> ~ </span>${ldeal.endTime} </span>까지</div>
 			              <div id="more"><a id="moreBtn">상세보기</a></div>
 			            </div>
 			            <div id="middleContainer">
 			              <div id="rentImg">
-			              <c:if test="${ldeal.pickup eq '0' }">
+			              <c:if test="${ldeal.pickup eq '1' }">
 			                <div id="pickup"></div>
 			               </c:if>
 			                <img src="<c:url value='/image/${ldeal.storList}.jpg'/>" alt="이미지가 없습니다">
 			              </div>
 			              <div id="rentText">
 			                <div id="address">
-			                  <span id="HP">${ldeal.senderPhone}</span>
+			                  <span id="HP">${ldeal.senderPhone.substring(0,3)} - ${ldeal.senderPhone.substring(3,7)} - ${ldeal.senderPhone.substring(7,11)}</span>
 			                  <a id="Pn"><img src="<c:url value='/image/phone1.png'/>"></a>
 			                </div>
-			                <div id="rentTime">${ldeal.startTime}<span>~</span>${ldeal.endTime}<span>,</span> ${ldeal.senderName}</div>
+			                <div id="rentTime">${ldeal.startTime}<span>~</span>${ldeal.endTime}<span>,</span> ${ldeal.senderName}<span style="font-size: 12px; color: #888888;">(${ldeal.sender})</span></div>
 			              </div>
 			            </div>
 			            <div id="bottomContainer">
@@ -276,6 +277,7 @@
 			    <%-- <a><img src="<c:url value='/image/messenger.jpg'/>"></a> --%>
 			            </div>
 			          </div>
+			          </c:if>
 			         </c:forEach>
 			         <!-- 거래 내역 끝 -->
 			        </div>
@@ -322,26 +324,31 @@
 			          <table class="tab-content current" id="before-tr">
 			          <tr>
 			            <th>번호</th>
-			            <th>장소</th>
+			            <th>대여자 전화번호</th>
 			            <th>수령일</th>
-			            <th>사용자</th>
-			            <th>시간</th>
+			            <th>대여자</th>
+			            <th>대여시간</th>
 			            <th>상태</th>
 			            <th>픽업</th>
 			           </tr>
-			           <c:forEach var="before" items="${rentAllHistory}">
+			           <c:forEach var="before" items="${LdealAllHistory}">
 			            <!-- 대여 전 -->
-			            <c:if test="${before.rentState eq '대여전' }">
-			            <tr>
-			              <td>${before.rentNo}</td>
-			              <td>${before.rentPlace}</td>
-			              <!-- 시간대 재조정 -->
-			              <td><fmt:formatDate value='${before.receiptDate}' pattern="yyyy-MM-dd hh:mm"/></td>
-			              <td>${before.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
-			              <td>${before.rentTime}</td>
-			              <td style="color:blue;">${before.rentState}</td>
-			              <td>${before.pickup}</td>
-			            </tr>
+			            <c:if test="${before.resState eq '0' }">
+				            <tr>
+				              <td>${before.reserveNo}</td>
+				              <td>${before.senderPhone.substring(0,3)} - ${before.senderPhone.substring(3,7)} - ${before.senderPhone.substring(7,11)}</td>
+				              <!-- 시간대 재조정 -->
+				              <td>${before.reserveDate.substring(0,12)}</td>
+				              <td>${before.senderName}<span style="font-size: 12px; color: #888888;">(${before.sender})</span></td> <!-- 길어지면 감춰지도록 조정 -->
+				              <td>${before.startTime} ~ ${before.endTime}</td>
+				              <td style="color:blue;">대여전</td>
+				               	<c:if test="${before.pickup eq '0' }">
+			             	 		<td>O</td>
+			              		</c:if>
+			              		<c:if test="${before.pickup eq '1' }">
+			             		 	<td>X</td>
+			              		</c:if>
+				            </tr>
 			             </c:if>
 			           </c:forEach>
 			          </table>
@@ -351,24 +358,29 @@
 			          <table class="tab-content" id="current-tr">
 			          <tr>
 			            <th>번호</th>
-			            <th>장소</th>
+			            <th>대여자 전화번호</th>
 			            <th>수령일</th>
-			            <th>사용자</th>
-			            <th>시간</th>
+			            <th>대여자</th>
+			            <th>대여시간</th>
 			            <th>상태</th>
 			            <th>픽업</th>
 			            </tr>
-			           <c:forEach var="cur" items="${rentAllHistory}">
-			            <c:if test="${cur.rentState eq '대여중' }">
+			           <c:forEach var="cur" items="${LdealAllHistory}">
+			            <c:if test="${cur.resState eq '2' }">
 			            <tr>
-			              <td>${cur.rentNo}</td>
-			              <td>${cur.rentPlace}</td>
+			              <td>${cur.reserveNo}</td>
+			              <td>${cur.senderPhone.substring(0,3)} - ${cur.senderPhone.substring(3,7)} - ${cur.senderPhone.substring(7,11)}</td>
 			              <!-- 시간대 재조정 -->
-			              <td><fmt:formatDate value='${cur.receiptDate}' pattern="yyyy-MM-dd hh:mm"/></td>
-			              <td>${cur.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
-			              <td>${cur.rentTime}</td>
-			              <td style="color:red;">${cur.rentState}</td>
-			              <td>${cur.pickup}</td>
+			              <td>${cur.reserveDate.substring(0,12)}</td>
+			              <td>${cur.senderName}<span style="font-size: 12px; color: #888888;">(${cur.sender})</span></td>
+			              <td>${cur.startTime} ~ ${cur.endTime}</td> <!-- 길어지면 감춰지도록 조정 -->
+			              <td style="color:red;">대여중</td>
+			              <c:if test="${cur.pickup eq '0' }">
+			             	 <td>O</td>
+			              </c:if>
+			              <c:if test="${cur.pickup eq '1' }">
+			             	 <td>X</td>
+			              </c:if>
 			            </tr>
 			            </c:if>
 			           </c:forEach>
@@ -413,26 +425,37 @@
           <table class="tab-content" id="all-tr">
           <tr>
             <th>번호</th>	
-            <th>장소</th>
+            <th>대여자 전화번호</th>
             <th>수령일</th>
-            <th>사용자</th>
-            <th>시간</th>
+            <th>대여자</th>
+            <th>대여시간</th>
             <th>상태</th>
             <th>픽업</th>
             </tr>
-           <c:forEach var="all" items="${rentAllHistory}">
-            <c:if test="${all.rentState eq '대여완료' }">
+           <c:forEach var="all" items="${LdealAllHistory}">
             <tr>
-              <td>${all.rentNo}</td>
-              <td>${all.rentPlace}</td>
+              <td>${all.reserveNo}</td>
+              <td>${all.senderPhone.substring(0,3)} - ${all.senderPhone.substring(3,7)} - ${all.senderPhone.substring(7,11)}</td>
               <!-- 시간대 재조정 -->
-              <td><fmt:formatDate value='${all.receiptDate}' pattern="yyyy-MM-dd hh:mm"/></td>
-              <td>${all.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
-              <td>${all.rentTime}</td>
-              <td style="color:grey;">${all.rentState}</td>
-              <td>${all.pickup}</td>
+              <td>${all.reserveDate.substring(0,12)}</td>
+              <td>${all.senderName}<span style="font-size: 12px; color: #888888;">(${all.sender})</span></td> <!-- 길어지면 감춰지도록 조정 -->
+              <td>${all.startTime} ~ ${all.endTime}</td>
+              <c:if test="${all.resState eq '0' }">
+              	<td style="color:blue;">대여전</td>
+              </c:if>
+              <c:if test="${all.resState eq '2' }">
+              	<td style="color:red;">대여중</td>
+              </c:if>
+              <c:if test="${all.resState eq '3' }">
+              	<td style="color:grey;">대여완료</td>
+              </c:if>
+              <c:if test="${all.pickup eq '0' }">
+              	<td style="color:grey;">O</td>
+              </c:if>
+              <c:if test="${all.pickup eq '1' }">
+              	<td style="color:grey;">X</td>
+              </c:if>
             </tr>
-            </c:if>
            </c:forEach>
           </table>
          <!-- 대여완료 끝 -->   

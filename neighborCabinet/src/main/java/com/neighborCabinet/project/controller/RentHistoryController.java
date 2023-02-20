@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -42,8 +46,13 @@ public class RentHistoryController {
 	//할일: 대여 상태 바뀌면 전체조회로 데이터 넘어가야 함
 	
 	//여기 searchVO 제거 고려
+	//***********유저 고유 아이디 값으로 매핑
 	@RequestMapping("/rentHistory")
-	public String rent(@ModelAttribute("searchVO") RentHistoryVO searchVO, HttpServletRequest request, Model model) throws UnsupportedEncodingException {
+	public String rent(@ModelAttribute("searchVO") RentHistoryVO searchVO, HttpServletRequest request, Model model, HttpSession session) throws UnsupportedEncodingException {
+		
+		String userId = (String) session.getAttribute("sid");
+		searchVO.setUserId(userId);
+		
 		//거래 내역
 		ArrayList<DealHistoryVO> dealAllHistory = dealService.listAllDeal();
 		model.addAttribute("dealAllHistory", dealAllHistory);
@@ -109,7 +118,7 @@ public class RentHistoryController {
 		 
 		try{            
 		  ObjectMapper mapper = new ObjectMapper();
-		  PageVO searchVO = (PageVO)mapper.readValue(filterJSON, new TypeReference<PageVO>(){ });
+		  RentHistoryVO searchVO = (RentHistoryVO)mapper.readValue(filterJSON, new TypeReference<PageVO>(){ });
 		  
 			//searchVO.setSite_code(loginService.getSiteCode());
 		 
@@ -123,8 +132,11 @@ public class RentHistoryController {
 		    searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		 
 			/* Map<String, Object> map = gnb01Service.getAearMemberList(searchVO); */
-		    Map<String, Object> map = service.listAllHistory(searchVO);
-		    int totCnt = Integer.parseInt((String)map.get("resultCnt"));
+		   // Map<String, Object> map = service.listAllHistory(searchVO);
+		   // int totCnt = Integer.parseInt((String)map.get("resultCnt"));
+		    
+		    ArrayList<RentHistoryVO> rentAllHistory = service.listAllHistory(searchVO);
+		    int totCnt = service.getListCnt(searchVO);
 		    
 		    paginationInfo.setTotalRecordCount(totCnt);
 		    
@@ -135,9 +147,9 @@ public class RentHistoryController {
 		    searchVO.setRealEnd(paginationInfo.getRealEnd());
 		    
 		    /* 페이징 끝 */
-		    
-		    obj.put("resultList", map.get("resultList"));
-		    obj.put("resultCnt", map.get("resultCnt"));
+		    obj.put("rentAllHistory", rentAllHistory);
+		    //obj.put("resultList", map.get("resultList"));
+		    //obj.put("resultCnt", map.get("resultCnt"));
 		    obj.put("totalPageCnt", (int)Math.ceil(totCnt / (double)searchVO.getPageUnit()));
 		    obj.put("searchVO", searchVO);
 		  
@@ -150,7 +162,52 @@ public class RentHistoryController {
 		out.print(obj);
 		return null;
 	}
+	
+	//본인인증 페이지 나오기 전에 sessionScope의 id값 null이면 로그인 페이지로 포워딩
+	
+	//
 
+	//QR 본인인증 임시 /chart.apis.google.com/chart?cht=qr&chs=300x300&chl=https://"+"qrConfirm
+	@RequestMapping("/qrConfirm/{userId}")
+	public String qrForm(@PathVariable("userId") String userId, Model model, HttpSession session) {
+		//아직 미작성
+		return "qr/qrForm";
+	}
+	
+	@RequestMapping("/getQrcode")
+	public String getQrcode(Model model) throws Exception {
+		
+		/*
+		 * String img = getQRCodeImage(result.getData().getQrCode(), 200, 200);
+		 * model.addAttribute("img", img);
+		 */
+
+		//return "qrcode";
+		return "qr/qrForm";
+	}
+	
+	@RequestMapping("/qr")
+	public ModelAndView qrForm(@RequestParam String content) {
+		return new ModelAndView("qrcodeview","content",content);
+	}
+
+
+	// QR코드 이미지 생성
+	/*
+	 * public static String getQRCodeImage(String text, int width, int height)
+	 * throws WriterException, IOException { QRCodeWriter qrCodeWriter = new
+	 * QRCodeWriter(); BitMatrix bitMatrix = qrCodeWriter.encode(text,
+	 * BarcodeFormat.QR_CODE, width, height);
+	 * 
+	 * ByteArrayOutputStream pngOutputStream = new ByteArrayOutputStream();
+	 * 
+	 * MatrixToImageWriter.writeToStream(bitMatrix, "PNG", pngOutputStream);
+	 * 
+	 * return Base64.getEncoder().encodeToString(pngOutputStream.toByteArray()); }
+	 */
+	
+	
+	
 	
 	
 }

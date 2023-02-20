@@ -3,23 +3,26 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- <beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+		p:order="2"
+		p:viewClass="org.springframework.web.servlet.view.JstlView"
+	    p:prefix="/WEB-INF/views/"  
+	    p:suffix=".jsp"
+	 />
+	
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>     
+       
+	qr코드 생성 클래스 정의     
+	<beans:bean id="qrcodeview" class="com.study.batch.QRCodeView"/> -->
   
    <mapper namespace="com.neighborCabinet.project.dao.IRentHistoryDAO">
- <!--  	<resultMap id="rentHistoryResult" type="com.neighborCabinet.project.model.RentHistoryVO" >
-  		<result property="rentNo"  column="rentNo"  />
-  		<result property="rentPlace"  column="rentPlace"  />
-  		<result property="receiptDate"  column="receiptDate"  />
-  		<result property="userName"  column="userName"  />
-  		<result property="rentTime"  column="rentTime"  />
-  		<result property="rentState"  column="rentState"  />
-  		<result property="pickup"  column="pickup"  />
-  	</resultMap> -->
-  	
   	<!-- 검색 가능한 내역 나누기-->
   	<!--  -->
   	
 	<sql id="historyWhere" >
-		WHERE 1=1
+		<!-- WHERE 1=1 -->
+		<!-- WHERE pNo=#{pNo}
+		AND userId=#{userId} -->
 		<if test="searchKeyword != null and searchKeyword != ''">
 		<!-- 공급해준 대여장소(선택지 몇 안 됨, 알맞게 수정) 또는 소비자와 매치 -->
 			<![CDATA[
@@ -34,19 +37,24 @@
 	<select id="listAllHistory" parameterType="com.neighborCabinet.project.model.RentHistoryVO" resultType="com.neighborCabinet.project.model.RentHistoryVO">
 		<![CDATA[
 		SELECT *
-		FROM rentHistory
+		FROM reserve
+		WHERE userId=#{userId}
 		]]> 
-		<include refid="historyWhere"/>
+		<!-- <include refid="historyWhere"/> -->
 		<![CDATA[
-		ORDER BY rentNo DESC
+		ORDER BY reserveNo DESC
 		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
 		]]> 
 	</select>
 	
 	<select id="getListCnt" parameterType="com.neighborCabinet.project.model.RentHistoryVO" resultType="java.lang.Integer">
 		SELECT count(*)
-		FROM rentHistory
+		FROM reserve
+		WHERE userId=#{userId}
 		<include refid="historyWhere"/>
 	</select>
+	
+	
+	
 	
 </mapper>

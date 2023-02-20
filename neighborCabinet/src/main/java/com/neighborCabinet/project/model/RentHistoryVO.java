@@ -5,13 +5,44 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class RentHistoryVO extends PageVO{
-	private int rentNo;
+	private int reserveNo;
+	
+	
+	public int getReserveNo() {
+		return reserveNo;
+	}
+	public void setReserveNo(int reserveNo) {
+		this.reserveNo = reserveNo;
+	}
+	private String userId;
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	private int pNo;
+	
+	public int getpNo() {
+		return pNo;
+	}
+	public void setpNo(int pNo) {
+		this.pNo = pNo;
+	}
 	private String rentPlace;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date receiptDate;
+	//@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private String reserveDate;
+	
+	
+	public String getReserveDate() {
+		return reserveDate;
+	}
+	public void setReserveDate(String reserveDate) {
+		this.reserveDate = reserveDate;
+	}
 	private String userName;
 	private String rentTime;
-	private String rentState;
+	private String resState;
 	private String pickup;
 	private String searchKeyword; //검색 변수
 	
@@ -21,23 +52,11 @@ public class RentHistoryVO extends PageVO{
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
 	}
-	public int getRentNo() {
-		return rentNo;
-	}
-	public void setRentNo(int rentNo) {
-		this.rentNo = rentNo;
-	}
 	public String getRentPlace() {
 		return rentPlace;
 	}
 	public void setRentPlace(String rentPlace) {
 		this.rentPlace = rentPlace;
-	}
-	public Date getReceiptDate() {
-		return receiptDate;
-	}
-	public void setReceiptDate(Date receiptDate) {
-		this.receiptDate = receiptDate;
 	}
 	public String getUserName() {
 		return userName;
@@ -51,16 +70,16 @@ public class RentHistoryVO extends PageVO{
 	public void setRentTime(String rentTime) {
 		this.rentTime = rentTime;
 	}
-	public String getRentState() {
-		return rentState;
-	}
-	public void setRentState(String rentState) {
-		this.rentState = rentState;
-	}
 	public String getPickup() {
 		return pickup;
 	}
 	public void setPickup(String pickup) {
 		this.pickup = pickup;
+	}
+	public String getResState() {
+		return resState;
+	}
+	public void setResState(String resState) {
+		this.resState = resState;
 	}
 }

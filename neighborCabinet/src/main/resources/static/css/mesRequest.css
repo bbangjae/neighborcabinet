@@ -1,0 +1,109 @@
+@charset "UTF-8";
+#mesBox{
+	margin : auto;
+	width : 80%;
+}
+.R_resInfoTBox{
+	display : flex;
+	justify-content: space-between;
+	align-items : center;
+	height : 30px;
+	border-top : solid 1px;
+	border-bottom : solid 1px;
+}
+.R_resInfoTBox>div:last-child{
+	width : 150px;
+}
+.R_TBox{
+	flex : 1 0 auto;
+	display : flex;
+}
+.R_TBox>div:first-child{
+	width : 120px;
+}
+.R_TBox>div:last-child{
+	width : 300px;
+}
+
+/* 반복 */
+.R_resInfoBox{
+	display : flex;
+	justify-content: space-between;
+	align-items : center;
+	height : 30px;
+	border-bottom : solid .5px #a2a2a2;
+}
+.R_resInfoBox:hover{
+	background : #ebebeb;
+}
+.R_Box{
+	flex : 1 0 auto;
+	display : flex;
+	height : 100%;
+	align-items : center;
+}
+.R_Box>div:first-child{
+	width : 120px;
+}
+.R_Box>div:last-child{
+	width : 300px;
+}
+.R_resInfoBox>div:last-child{
+	width : 150px;
+}
+.MResO{
+	background : #00DBAF;
+	color : white;
+	border-radius : 15px;
+	width : 50px;
+	height : 25px;
+	border : none;
+}
+.MResX{
+	background : red;
+	color : white;
+	border-radius : 15px;
+	width : 50px;
+	height : 25px;
+	border : none;
+}
+.R_resInfoBox>div:last-child button:hover{
+	cursor : pointer;
+	filter : brightness(0.9);
+}
+#requestInfoBox{
+	border-collapse: collapse;
+	margin : 20px auto;
+}
+.RI_1{
+	margin : auto;
+	width : 90%;
+	padding : 0 10px;
+	border-radius : 15px;
+}
+.RI_1Title{
+	font-size : 20px;
+}
+.RI_1PF{
+	display : flex;
+	align-items : center;
+	justify-content: center;
+}
+.RI_1PF>div{
+	margin-right : 20px;
+}
+.RI_1Cont{
+	display : flex;
+	align-items : center;
+}
+.RI_1Cont>div:first-child{
+	width : 150px;
+}
+.mesRcut{
+	height : 3px;
+	border-radius : 10px;
+	background : #ebebeb;
+	width : 90%;
+	margin : auto;
+	padding : 0 10px;
+}

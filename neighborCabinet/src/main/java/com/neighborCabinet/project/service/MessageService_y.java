@@ -26,7 +26,7 @@ public class MessageService_y implements IMessageService_y {
 	}
 
 	@Override
-	public ReserveDetailVO_y requestInfo(int reserveNo, String userId) {
+	public ReserveVO_y requestInfo(int reserveNo, String userId) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("reserveNo", reserveNo);
 		map.put("userId", userId);

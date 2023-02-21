@@ -1,6 +1,7 @@
 package com.neighborCabinet.project.controller;
 
 import java.io.ByteArrayOutputStream;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -37,7 +38,6 @@ import com.neighborCabinet.project.model.DealHistoryVO;
 import com.neighborCabinet.project.model.PageVO;
 import com.neighborCabinet.project.model.Pagination;
 import com.neighborCabinet.project.model.RentHistoryVO;
-import com.neighborCabinet.project.service.DealHistoryService;
 import com.neighborCabinet.project.service.QrconfirmService;
 import com.neighborCabinet.project.service.RentHistoryService;
 
@@ -47,8 +47,9 @@ public class RentHistoryController{
 	@Autowired
 	RentHistoryService service;
 
-	@Autowired
-	DealHistoryService dealService;
+	/*
+	 * @Autowired DealHistoryService dealService;
+	 */
 	
 	@Autowired
 	QrconfirmService QRService;
@@ -63,10 +64,6 @@ public class RentHistoryController{
 
 		String userId = (String) session.getAttribute("sid");
 		searchVO.setUserId(userId);
-
-		// 거래 내역
-		ArrayList<DealHistoryVO> dealAllHistory = dealService.listAllDeal();
-		model.addAttribute("dealAllHistory", dealAllHistory);
 
 		Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
 		if (null != inputFlashMap) {

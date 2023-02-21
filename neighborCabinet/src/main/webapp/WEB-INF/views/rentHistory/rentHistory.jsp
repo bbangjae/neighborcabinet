@@ -261,7 +261,7 @@
         <div class="notice">
         <%-- <img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다. --%>
 			<form action="/qrCode" method="post">
-		      <input type="hidden" name="url" value="http://localhost:8080/qrConfirm/${sessionScope.sid }"/><button type="submit" id="qrBtn">개인 인증 코드 만들기</button>
+		      <input type="hidden" name="url" value="http://115.85.181.111:8080/qrConfirm/${sessionScope.sid }"/><button type="submit" id="qrBtn">개인 인증 코드 만들기</button>
 		    </form>
         </div>
        </div>

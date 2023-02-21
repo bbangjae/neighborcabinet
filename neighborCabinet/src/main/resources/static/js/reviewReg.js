@@ -50,17 +50,17 @@ $(document).ready(function(){
  			data:{"content":$('#reviewContent').val()},
  			success:function(result){
  				$('#qwer').empty();
- 				$('#qwer').append("부정 : "+result.negative + "중립 : "+ result.neutral + "긍정 : "+ result.positive);
+ 				//$('#qwer').append("부정 : "+result.negative + "중립 : "+ result.neutral + "긍정 : "+ result.positive);
  				var i=1;
 			    var func1 = setInterval(function(){
-			        if(i<result.negative){
+			        if(i<=result.negative){
 			            color1(i);
 			            i++;
-			        } else if(i<result.neutral){
-			            color2(i);
+			        } else if(i<=result.neutral){
+			            color2(i, result.negative);
 			            i++;
-			        } else if(i<result.positive){
-			            color3(i);
+			        } else if(i<=result.positive){
+			            color3(i, result.negative, result.neutral);
 			            i++;
 			        } else {
 			            clearInterval(func1);
@@ -79,15 +79,15 @@ function color1(i){
         });
     
 }
-function color2(i){
+function color2(i, a){
     $("#qwer").css({
-        "background":"conic-gradient(#8b22ff 0% 25%, #ffc33b 25% "+i+"%, #ffffff "+i+"% 100%)"
+        "background":"conic-gradient(#8b22ff 0% "+a+"%, #ffc33b 25% "+a + i+"%, #ffffff "+ a + i+"% 100%)"
         });
      
 }
-function color3(i){
+function color3(i, a, b){
     $("#qwer").css({
-        "background":"conic-gradient(#8b22ff 0% 25%, #ffc33b 25% 70%, #21f3d6 70% "+i+"%, #ffffff "+i+"% 100%)"
+        "background":"conic-gradient(#8b22ff 0% "+a+"%, #ffc33b "+a+"% "+a+b+"%, #21f3d6 "+a+b+"% "+a+b+i+"%, #ffffff "+a+b+i+"% 100%)"
         });
      
 }

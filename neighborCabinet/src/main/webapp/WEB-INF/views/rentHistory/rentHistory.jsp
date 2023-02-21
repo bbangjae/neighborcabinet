@@ -106,6 +106,7 @@
 					</ul>
 				</nav>
 			</div>
+		<div style="height:100%; margin-top: 60px;">
     <div class="box-wrapper">
       <!-- 추후 대여중인 박스가 있으면 해당 내용 제공, 없으면 대여중인 박스가 없습니다 보이기 -->
       <div class="box-title">내 거래 현황</div>
@@ -419,6 +420,7 @@
 		
 	  
 	  <!-- 모달 창 끝 -->
+    </div>
     
   </div> <!-- wrap으로 감싼 부분 끝 -->
   <c:import url="/WEB-INF/views/layout/footer.jsp" />

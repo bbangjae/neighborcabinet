@@ -2,6 +2,7 @@ package com.neighborCabinet.project.controller;
 
 import java.io.ByteArrayOutputStream;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -34,7 +35,6 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
-import com.neighborCabinet.project.model.DealHistoryVO;
 import com.neighborCabinet.project.model.PageVO;
 import com.neighborCabinet.project.model.Pagination;
 import com.neighborCabinet.project.model.RentHistoryVO;

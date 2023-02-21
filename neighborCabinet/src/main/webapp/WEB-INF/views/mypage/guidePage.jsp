@@ -105,7 +105,7 @@
     		
     		<div class="sequenceBox" id="T4B">
     			<div class="sequenceL">
-    				<img src="/image/GRentalreg.JPG" class="sequenceImg">
+    				<img src="/image/Gmapinfo.JPG" class="sequenceImg">
     			</div>
     			<div class="sequenceR">
     				<div class="sequenceText">
@@ -123,12 +123,12 @@
     				<div class="sequenceText2">
 	    				<h4>04</h4>
 	    				<h4>장소 협의</h4>
-	    				<span>거래 수락을 통해</span>
-	    				<div>거래를 진행하는 공급자와 합의를 통해 물건 전달</div>
+	    				<span>거래 수락 이후에 전화번호를 통해 장소 협의 후</span>
+	    				<div>거래를 진행하는 공급자에게 물건 전달</div>
 	    			</div>
     			</div>
     			<div class="sequenceR">
-    				<img src="/image/GRentalreg.JPG" class="sequenceImg2">
+    				<img src="/image/GPnum.JPG" class="sequenceImg2">
     			</div>
     		</div>
     		<hr>

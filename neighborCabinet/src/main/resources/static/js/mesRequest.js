@@ -21,6 +21,7 @@ $(document).ready(function(){
 	$(document).on("click",".MResO",function(){
 		var reserveNo = this.getAttribute('data-reserveNo');
 		var sender = this.getAttribute('data-sender');
+		e.stopImmediatePropagation();
 		var check = confirm("수락하시겠습니까?");
 		if(check){
 			$.ajax({
@@ -54,6 +55,7 @@ $(document).ready(function(){
 	$(document).on("click",".MResX",function(){
 		var reserveNo = this.getAttribute('data-reserveNo');
 		var sender = this.getAttribute('data-sender');
+		e.stopImmediatePropagation();
 		var check = confirm("거절하시겠습니까?");
 		if(check){
 			$.ajax({

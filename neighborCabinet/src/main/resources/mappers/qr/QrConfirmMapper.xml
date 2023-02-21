@@ -11,5 +11,12 @@
         SET resState=2
         WHERE sender=#{userId} and senderPhone=#{senderPhone}
      </update>
+     
+     <!-- QR인증 -->
+     <update id="dealFinish" parameterType="hashmap">
+        UPDATE reserve
+        SET resState=3
+        WHERE receiver=#{userId} and reserveNo=#{reserveNo}
+     </update>
    
 </mapper>

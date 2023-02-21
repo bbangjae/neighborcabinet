@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>대여 페이지</title>
+		<title>거래/대여 현황</title>
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/rental.css'/>">
 		<link rel="stylesheet" type="text/css" href=/css/modifyInfo.css/>
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
@@ -87,25 +87,32 @@
       <div class="boxType" id="rent">
         <div class="infoContainer" id="rentContainer">
         <!-- 거래 내역 -->
-         <c:forEach var="deal" items="${dealAllHistory}">
+         <c:forEach var="rent" items="${rentAllHistory}">
+          <c:if test="${empty rent.reserveNo}">
+         	<div class="notice">
+         		진행 중인 거래가 없습니다.
+         	</div>
+         </c:if>
+         <c:if test="${not empty rent.reserveNo}">
+          <c:if test="${rent.resState eq 2 }">
           <div class="boxInfo">
             <div id="topContainer">
-             <%--  <div id="date"><fmt:formatDate value='${deal.reserveDate}' dateStyle="full"/><span id="time"> <fmt:formatDate value='${deal.reserveDate}' type="time" timeStyle="short"/></span>까지</div> --%>
+              <div id="date">${rent.reserveDate.substring(0, 12)}<span id="time"> ${rent.endTime}</span>까지</div>
               <div id="more"><a id="moreBtn">상세보기</a></div>
             </div>
             <div id="middleContainer">
               <div id="rentImg">
-               <c:if test="${deal.pickup eq '1' }">
+               <c:if test="${rent.pickup eq 1 }">
                 <div id="pickup"></div>
                </c:if>
-                <img src="<c:url value='/image/${deal.dealObject}.jpg'/>" alt="이미지가 없습니다">
+                <img src="<c:url value='/image/1.jpg'/>" alt="이미지가 없습니다">
               </div>
               <div id="rentText">
                 <div id="address">
-                  <span>${deal.dealPlace}</span>
+                  <span>${rent.pAddress1}</span>
                   <a id="map"><img src="<c:url value='/image/map.jpg'/>"></a>
                 </div>
-                <div id="rentTime">${deal.dealStart}<span>~</span>${deal.dealEnd}<span>,</span> ${deal.userName}</div>
+                <div id="rentTime">${rent.startTime}<span>~</span>${rent.endTime}<span>,</span> ${rent.receiver}</div>
               </div>
             </div>
             <div id="bottomContainer">
@@ -113,7 +120,10 @@
     <%--           <a><img src="<c:url value='/image/messenger.jpg'/>"></a> --%>
             </div>
           </div>
+          </c:if>
+          </c:if>
          </c:forEach>
+      
          <!-- 거래 내역 끝 -->
         </div>
       </div>
@@ -161,23 +171,35 @@
             <th>번호</th>
             <th>장소</th>
             <th>수령일</th>
-            <th>사용자</th>
-            <th>시간</th>
+            <th>공급자</th>
+            <th>대여시간</th>
             <th>상태</th>
             <th>픽업</th>
            </tr>
            <c:forEach var="before" items="${rentAllHistory}">
             <!-- 거래 전 -->
-            <c:if test="${before.resState eq '1' }">
+            <c:if test="${before.resState eq '1' or '0' }">
             <tr>
               <td>${before.reserveNo}</td>
               <td>${before.pAddress1}</td>
               <!-- 시간대 재조정 -->
-             <%--  <td><fmt:formatDate value='${before.reserveDate}' pattern="yyyy-MM-dd hh:mm"/></td> --%>
-              <td>${before.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
-              <td>${before.rentTime}</td>
+              <td>${before.reserveDate.substring(0, 12)}</td>
+              <td>${before.receiver}</td> <!-- 길어지면 감춰지도록 조정 -->
+              <td>${before.startTime}~${before.endTime}</td>
               <td style="color:blue;">대여전</td>
-              <td>${before.pickup}</td>
+              <td>
+              	<c:choose>
+			         <c:when test="${before.pickup eq 0}">
+			            X
+			         </c:when>
+			         <c:when test="${before.pickup eq 1}">
+			            O
+			         </c:when>
+			         <c:otherwise>
+			            null
+			         </c:otherwise>
+			    </c:choose>
+              </td>
             </tr>
              </c:if>
            </c:forEach>
@@ -190,8 +212,8 @@
             <th>번호</th>
             <th>장소</th>
             <th>수령일</th>
-            <th>사용자</th>
-            <th>시간</th>
+            <th>공급자</th>
+            <th>대여시간</th>
             <th>상태</th>
             <th>픽업</th>
             </tr>
@@ -199,13 +221,25 @@
             <c:if test="${cur.resState eq '2' }">
             <tr>
               <td>${cur.reserveNo}</td>
-              <td>${cur.rentPlace}</td>
+              <td>${cur.pAddress1}</td>
+              <td>${cur.reserveDate.substring(0, 12)}</td>
               <!-- 시간대 재조정 -->
-             <%--  <td><fmt:formatDate value='${cur.reserveDate}' pattern="yyyy-MM-dd hh:mm"/></td> --%>
-              <td>${cur.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
-              <td>${cur.rentTime}</td>
+              <td>${cur.receiver}</td> <!-- 길어지면 감춰지도록 조정 -->
+              <td>${cur.startTime}~${cur.endTime}</td>
               <td style="color:red;">대여중</td>
-              <td>${cur.pickup}</td>
+              <td>
+              	<c:choose>
+			         <c:when test="${cur.pickup eq 0}">
+			            X
+			         </c:when>
+			         <c:when test="${cur.pickup eq 1}">
+			            O
+			         </c:when>
+			         <c:otherwise>
+			            null
+			         </c:otherwise>
+			    </c:choose>
+              </td>
             </tr>
             </c:if>
            </c:forEach>
@@ -222,26 +256,19 @@
         QR 코드 생성
         <%-- <a id="re"><img src="<c:url value='/image/re2.jpg'/>"></a> --%>
       </div>
-      <div class="boxType" id="qr">
+       <div class="boxType" id="qr">
         <div class="infoContainer" id="qrContainer">
         <div class="notice">
         <%-- <img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다. --%>
-	      	<div>
-				<input id="content" type="hidden" name="content" value="${sessionScope.sid}"/> 
-				<!-- <input type="button" id="execute" value="QR코드 생성" /> -->
-				<img id="img" style="display:none;" onload="this.style.display = 'block'"/>
-			</div>
+			<form action="/qrCode" method="post">
+		      <input type="hidden" name="url" value="http://localhost:8080/qrConfirm/${sessionScope.sid }"/><button type="submit" id="qrBtn">개인 인증 코드 만들기</button>
+		    </form>
         </div>
-         <%-- <c:if test="${empty }">
-         </c:if> --%>
-         <%-- <img th:src="@{'data:image/jpeg;base64,'+${img}}"> --%>
-         
-        </div>
-
+       </div>
       </div>
-      <div class="qr">
+      <!-- <div class="qr">
         <a id="qrBtn" href="#">개인 인증 코드 만들기</a>
-      </div>
+      </div> -->
     </div>
     
     <!-- 모달 창 -->
@@ -258,15 +285,15 @@
 		   </div>
 		    <!-- 기존 대여테이블 삽입 위치 --> 
 		    <!-- 대여완료 -->
-		    <span>총게시물 ${totCnt} / 페이지 (${searchVO.pageIndex} / ${totalPageCnt})</span>
+		    <span>총 게시물 ${totCnt} / 페이지 (${searchVO.pageIndex} / ${totalPageCnt})</span>
           <table class="tab-content" id="all-tr">
             <thead>
 	          <tr>
 	            <th>번호</th>
 	            <th>장소</th>
 	            <th>수령일</th>
-	            <th>사용자</th>
-	            <th>시간</th>  <!-- <fmt:formatDate value='${all.reserveDate}' pattern="yyyy-MM-dd hh:mm"/> -->
+	            <th>공급자</th>
+	            <th>대여시간</th>
 	            <th>상태</th>
 	            <th>픽업</th>
 	          </tr>
@@ -277,13 +304,41 @@
             <%-- <c:if test="${all.rentState eq '대여완료' }"> --%>
             <tr class="rentHistory">
               <td class="t_c"><c:out value="${all.reserveNo}"/></td> <!-- ${ii} -->
-              <td class="t_c">${all.rentPlace}</td>
+              <td class="t_c">${all.pAddress1}</td>
               <!-- 시간대 재조정 -->
-              <td class="t_c">날짜임시</td>
-              <td class="t_c">${all.userName}</td> <!-- 길어지면 감춰지도록 조정 -->
-              <td class="t_c">${all.rentTime}</td>
-              <td class="t_c" style="color:grey;">대여완료</td>
-              <td class="t_c">${all.pickup}</td>
+              <td class="t_c">${all.reserveDate.substring(0, 12)}</td>
+              <td class="t_c">${all.receiver}</td> <!-- 길어지면 감춰지도록 조정 -->
+              <td class="t_c">${all.startTime}~${all.endTime}</td>
+              <c:choose>
+		         <c:when test="${all.resState eq 0}">
+		            <td class="t_c" style="color:#00f5b8;">대기중</td>
+		         </c:when>
+		         <c:when test="${all.resState eq 1}">
+		            <td class="t_c" style="color:blue;">대여전</td>
+		         </c:when>
+		         <c:when test="${all.resState eq 2}">
+		            <td class="t_c" style="color:red;">대여중</td>
+		         </c:when>
+		         <c:when test="${all.resState eq 3}">
+		            <td class="t_c" style="color:grey;">대여완료</td>
+		         </c:when>
+		         <c:otherwise>
+		            <td class="t_c" style="color:grey;">null</td>
+		         </c:otherwise>
+		      </c:choose>
+              <td class="t_c">
+            	<c:choose>
+			         <c:when test="${all.pickup eq 0}">
+			            X
+			         </c:when>
+			         <c:when test="${all.pickup eq 1}">
+			            O
+			         </c:when>
+			         <c:otherwise>
+			            null
+			         </c:otherwise>
+			    </c:choose>
+              </td>
             </tr>
             <c:set var="ii" value="${ii - 1}"/>
             <%-- </c:if> --%>

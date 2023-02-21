@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ page session="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,7 @@
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
 <script src="<c:url value="/js/mod.js" />"></script>
 <script src="<c:url value='/js/searchZip.js' />"></script>
+<script src="<c:url value='/js/qrConfirm.js' />"></script>
 </head>
 <body>
 <div class="wrap">
@@ -73,21 +75,23 @@
 					</ul>
 				</nav>
 			</div>
+			
 			<div class="bodyWrap">
 				<span class="pageInfo">거래현황 → 본인확인</span>
 				<h1 class="pageName">본인 확인</h1>
+		  <form method="post" action="/qrConfirm/${sessionScope.sid}" class="update_form">
 			<div class="modifyinfoBox">
-				<div class="userName" >
+				<%-- <div class="userName" >
                		<span class="modifySpan">아이디</span>
                		<div class="currentName">
-                    	<input type="text" class="modifySpan2" name="userId" id="userId" value="<c:out value='${sessionScope.sid}'></c:out>">
+                    	<c:out value='${rentAllHistory.userId}'/>
                 	</div>
                 	<hr class="miHr" color="#00DBAF" size="0.7px">
-                </div>       	
+                </div>   --%>     	
 				<div class="userName">
-					<span class="modifySpan">성명</span>
+					<span class="modifySpan">아이디</span>
 					<div class="currentName">
-						<input type="text" class="modifySpan2" id="userName" name="userName" value="<c:out value='${memberInfo.userName }'></c:out>">
+						<input type="text" class="modifySpan2" id="userId" name="userId">
 					</div>
 					<hr class="miHr" color="#00DBAF" size="0.7px">
 				</div>
@@ -96,14 +100,17 @@
 						<span class="modifySpan">전화번호</span>
 					</div>
 					<div class="currentName">
-						<input type="text" class="modifySpan2" id="userHp" name ="userHp" value="<c:out value='${memberInfo.userHp }'></c:out>">	
+						<input type="text" class="modifySpan2" id="senderPhone" name="senderPhone">	
 					</div>
 					<hr class="miHr" color="#00DBAF" size="1px">
 				</div>
-				<div class="qr">
-			      <a id="qrBtn" href="#">본인 인증하기</a>
-			    </div>
+				
 			</div>
+			
+		  </form>
+		  <div class="qr">
+			      <button id="qrBtn" class="bt1" name="bt1">본인 인증하기</button>
+			    </div>
 		</div>
 	</div>
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>

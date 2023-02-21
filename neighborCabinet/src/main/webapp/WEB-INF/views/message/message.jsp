@@ -34,7 +34,7 @@
 				</div>
 				<input type="checkbox" id="${message.mesNo}_1" name="mes_messageS" style="display : none;">
 				<div class="mesDInfo">
-					<%-- <c:if test="${message.OX eq '0'}">
+<%-- 					<c:if test="${message.look eq '0'}">
 						<div class="mesFirstCheck"><i class="fa-solid fa-circle"></i></div>
 					</c:if> --%>
 					<div style="width : 100%; border-top : solid .5px #d1d1d1;" class="mesCutLine"></div>

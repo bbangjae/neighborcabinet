@@ -11,7 +11,14 @@ public class messageAllVO_y {
 	private String reserveDate;
 	private String receiver;
 	private int pNo;
+	private int look;
 	
+	public int getLook() {
+		return look;
+	}
+	public void setLook(int look) {
+		this.look = look;
+	}
 	public String getReceiver() {
 		return receiver;
 	}

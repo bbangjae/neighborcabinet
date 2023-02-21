@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function(){
-	$(document).on("click","input[name='mes_messageS']",function(){
+	$(document).on("change","input[name='mes_messageS']",function(){
 		var check = $(this).is(':checked');
 		var a = $(this);
 		if(check){
@@ -11,7 +11,7 @@ $(document).ready(function(){
 			$(this).next().children('.mesCutLine').css("display","none");
 			$(this).prev().css("background","#ebebeb");
 			
-			var reserveNo = $(this).attr('id').split('_', 1);
+			
 		}else{
 			$(this).next().children('.paymentMInfo').css("display","none");
 			$(this).next().children('.mesCutLine').css("display","block");

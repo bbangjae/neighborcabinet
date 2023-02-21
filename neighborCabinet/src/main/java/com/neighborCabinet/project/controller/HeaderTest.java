@@ -267,9 +267,11 @@ public class HeaderTest {
 		re.setReserveNo(reserveNo);
 		ReserveVO_y reserveInfo = service.reserveInfo(reserveNo);
 
-		reserveInfo.setRentEndDate(reserveInfo.getReserveDate().substring(0, 4) + reserveInfo.getReserveDate().substring(6, 8)
+		reserveInfo.setReviewEnd(reserveInfo.getReserveDate().substring(0, 4) + reserveInfo.getReserveDate().substring(6, 8)
 				+reserveInfo.getReserveDate().substring(9, 11));
-		
+		String a = reserveInfo.getReserveDate().substring(0, 4) + reserveInfo.getReserveDate().substring(6, 8)
+				+ reserveInfo.getReserveDate().substring(9, 11);
+		service.insert_resT(reserveNo, a);
 		service.insert_res(re);
 		service.insert_resD(reD);
 		

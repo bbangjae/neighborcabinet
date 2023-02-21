@@ -58,7 +58,12 @@
 	</select>
 	<update id="insert_res" parameterType="com.neighborCabinet.project.model.ReserveVO_y">
 		UPDATE reserve
-		SET sender=#{sender}, resState=0, receiver=#{receiver}, reviewEnd=#{rentEndDate}
+		SET sender=#{sender}, resState=0, receiver=#{receiver} 
+		WHERE reserveNo=#{reserveNo}
+	</update>
+	<update id="insert_resT" parameterType="hashmap">
+		UPDATE reserve
+		SET reviewEnd=#{a}
 		WHERE reserveNo=#{reserveNo}
 	</update>
 	<update id="insert_resD" parameterType="com.neighborCabinet.project.model.ReserveDetailVO_y">

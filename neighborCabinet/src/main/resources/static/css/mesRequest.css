@@ -78,11 +78,18 @@
 .RI_1{
 	margin : auto;
 	width : 90%;
-	padding : 0 10px;
+	padding : 0 10px 5px;
 	border-radius : 15px;
+	background : #d2fff7;
+	margin-bottom : 10px;
 }
 .RI_1Title{
 	font-size : 20px;
+	padding-left : 20px;
+	text-align : left;
+	font-weight : 600;
+	border-bottom : solid 1px;
+	margin-bottom : 5px;
 }
 .RI_1PF{
 	display : flex;
@@ -95,15 +102,8 @@
 .RI_1Cont{
 	display : flex;
 	align-items : center;
+	margin-bottom : 5px;
 }
 .RI_1Cont>div:first-child{
 	width : 150px;
-}
-.mesRcut{
-	height : 3px;
-	border-radius : 10px;
-	background : #ebebeb;
-	width : 90%;
-	margin : auto;
-	padding : 0 10px;
 }

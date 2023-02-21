@@ -11,11 +11,13 @@
         VALUES (#{pNo},#{pWriteTitle},#{pWriteSub},#{pType},#{pType_d},#{food},#{pickup},#{pPlaceTitle},#{pPlaceInfo},#{pHp},#{pS_Time}, #{pE_Time}, #{pAddress1},#{pAddress2},#{pBoxInfo},#{pCautionInfo},#{userId})
     </insert>
 
+<!--
     <select id="boxreg" parameterType="String" resultType="com.neighborCabinet.project.model.BoxVO">
         select BoxType, BoxQty, userId
         from box
         where userId=#{userId} and BoxQty > 0
     </select>
+-->
 
     <insert id ="boxPreg" parameterType="com.neighborCabinet.project.model.boxtypeVO">
         call insert_boxtype(#{pNo},#{A_Qty},#{A_Price},#{B_Qty},#{B_Price},#{C_Qty},#{C_Price},#{D_Qty},#{D_Price},#{E_Qty},#{E_Price},#{F_Qty},#{F_Price})

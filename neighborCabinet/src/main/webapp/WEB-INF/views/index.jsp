@@ -155,9 +155,16 @@
                 지금 당장 신청하세요
               </div>
               <div class="s4_5_button">
-                <button class="s5_btn" type="button" onclick="location.href='<c:url value='/rental/rentalreg'/>'" style="margin-right: 50px;">
+                <c:if test="${empty sessionScope.sid}">
+                  <button class="s5_btn" type="button" onclick="location.href='<c:url value='/member/loginform'/>'">
+                    공간 등록
+                  </button>
+                </c:if>
+                <c:if test="${not empty sessionScope.sid}">
+                <button class="s5_btn" type="button" onclick="location.href='<c:url value='/rental/rentalreg/${sessionScope.sid}'/>'" style="margin-right: 50px;">
                   공간 등록
                 </button>
+                </c:if>
                 <button class="s5_btn" type="button" onclick="location.href='/guidePage'">
                   가이드 보기
                 </button>

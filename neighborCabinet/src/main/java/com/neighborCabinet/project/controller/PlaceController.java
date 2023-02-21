@@ -40,7 +40,10 @@ public class PlaceController {
         PlaceInfoVO pi=service.detailViewPlace(pNo);
         String regEx = "(\\d{3})(\\d{3,4})(\\d{4})";
         pi.setpHp(pi.getpHp().replaceAll(regEx, "$1-$2-$3"));
-
+        if(pi.getpS_Time().length()>3)
+            pi.setpS_Time(pi.getpS_Time().substring(0,2));
+        if(pi.getpE_Time().length()>3)
+            pi.setpE_Time(pi.getpE_Time().substring(0,2));
         ArrayList<QaVO> qaList=service.showViewQA(pNo);
         ArrayList<ReviewVO> reviewList=service.showViewReview(pNo);
         int r_cnt=0;

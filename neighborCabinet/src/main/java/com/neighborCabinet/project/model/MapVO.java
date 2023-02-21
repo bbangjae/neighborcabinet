@@ -10,7 +10,8 @@ public class MapVO {
 	private String pCautionInfo;
 	private String pAddress1;
 	private String pImage;
-	private String pTime;
+	private String pS_Time;
+	private String pE_Time;
 	/*
 	 * @DateTimeFormat(pattern = "yyyy-MM-dd") private Date mapDate;
 	 */
@@ -75,11 +76,19 @@ public class MapVO {
 		this.pImage = pImage;
 	}
 
-	public String getpTime() {
-		return pTime;
+	public String getpS_Time() {
+		return pS_Time;
 	}
 
-	public void setpTime(String pTime) {
-		this.pTime = pTime;
+	public void setpS_Time(String pS_Time) {
+		this.pS_Time = pS_Time;
+	}
+
+	public String getpE_Time() {
+		return pE_Time;
+	}
+
+	public void setpE_Time(String pE_Time) {
+		this.pE_Time = pE_Time;
 	}
 }

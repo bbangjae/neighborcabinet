@@ -294,7 +294,7 @@
 					<c:forEach var="p" items="${listAllMap }">
 					<div class="placeInfo" id="list${p.pNo}" value="${p.pNo}" >
 						<div class="placeimageDiv">
-							<img style=" width:100%; height:100%;" src="<c:url value='/uploads/${p.pImage}' />" >
+							<img style=" width:100%; height:100%;" src="<c:url value='/images/${p.pImage}' />" >
 						</div>
 						<div class="placeTitleBox">
 							<div class="placeTitle">
@@ -303,7 +303,7 @@
 							<div class="placeDetail">
 								<div id="pTime">
 									<img src="/image/clock.png">
-									<span>10:00~20:00</span>
+									<span>${p.pS_Time}:00~${p.pE_Time}:00</span>
 								</div>
 								<div id="pAddress">
 									<img src="/image/placeholder.png">

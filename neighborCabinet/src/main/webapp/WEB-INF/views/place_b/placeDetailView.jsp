@@ -81,7 +81,7 @@
                     </div>
                     <div id="imagePanel" style="width:${fC*750}px; " value="${fC}">
                         <c:forEach var="file"  items="${fileList}">
-                            <img style=" width:750px; height: 400px;" src="<c:url value='/uploads/${file.savedFileName}' />" >
+                            <img style=" width:750px; height: 400px;" src="<c:url value='/images/${file.savedFileName}' />" >
                         </c:forEach>
 
                     </div>
@@ -155,8 +155,22 @@
 
                     <div class="t_text" style="color:gray;">
                         <c:forEach var="im" items="${im}" varStatus="vs">
+
+
                             <c:if test="${ql[vs.index]>0}" >
-                                <li class="box_info">박스 ${im.key} 보유</li>
+                                <c:if test="${im.key.equals('1호')||im.key.equals('2호')||im.key.equals('3호')}">
+                                    <li class="box_info">박스 ${im.key} <span style="color:#00DBAF">${ql[vs.index]}</span>개 보유</li>
+                                </c:if>
+                                <c:if test="${im.key.equals('4호')}">
+                                    <li class="box_info">시크릿 박스 1호<span style="color:#00DBAF">${ql[vs.index]}</span>개 보유</li>
+                                </c:if>
+                                <c:if test="${im.key.equals('5호')}">
+                                    <li class="box_info">시크릿 박스 2호 <span style="color:#00DBAF">${ql[vs.index]}</span>개 보유</li>
+                                </c:if>
+                                <c:if test="${im.key.equals('6호')}">
+                                    <li class="box_info">시크릿 박스 3호 <span style="color:#00DBAF">${ql[vs.index]}</span>개 보유</li>
+                                </c:if>
+
                             </c:if>
                         </c:forEach>
                     </div>

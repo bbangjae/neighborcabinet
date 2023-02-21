@@ -28,7 +28,8 @@
 			<result property="pCautionInfo"  column="pCautionInfo"  />
 			<result property="pAddress1"  column="pAddress1"  />
 			<result property="pImage"  column="pSaveImage"  />
-			<result property="pTime"  column="pTime"  />
+			<result property="pS_Time"  column="pS_Time"  />
+			<result property="pE_Time"  column="pE_Time"  />
 
 		</resultMap>
 

@@ -81,7 +81,7 @@
                     </div>
                     <div id="imagePanel" style="width:${fC*750}px; " value="${fC}">
                         <c:forEach var="file"  items="${fileList}">
-                            <img style=" width:750px; height: 400px;" src="<c:url value='/uploads/${file.savedFileName}' />" >
+                            <img style=" width:750px; height: 400px;" src="<c:url value='/images/${file.savedFileName}' />" >
                         </c:forEach>
 
                     </div>

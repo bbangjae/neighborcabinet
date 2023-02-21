@@ -41,13 +41,10 @@ public class rentalController_S {
 
     @RequestMapping("/rental/rentalreg/{sid}")
     public String rental(@PathVariable String sid, HttpSession httpSession, Model model) throws Exception {
-/*
         String loginId = (String) httpSession.getAttribute("sid");
         if(loginId == null){
             return "member/loginform";
         }
-*/
-        model.addAttribute("boxlist",service.boxreg(sid));
         model.addAttribute("boxStock", iBoxmodifyService.boxStock(sid));
 
 
@@ -59,23 +56,6 @@ public class rentalController_S {
     private String reg(PlaceInfoVO placeInfo,  boxtypeVO boxtype,HttpSession httpSession,HttpServletRequest req, MultipartFile[] files, Model model)throws Exception {
 
         // 글저장
-/*
-        PlaceInfoVO placeInfo = new PlaceInfoVO();
-        placeInfo.setpWriteTitle(req.getParameter("pWriteTitle"));
-        placeInfo.setpWriteSub(req.getParameter("pWriteSub"));
-        placeInfo.setpType(req.getParameter("pType"));
-        placeInfo.setpType_d(req.getParameter("pType_d"));
-        placeInfo.setFood(req.getParameter("food"));
-        placeInfo.setPickup(req.getParameter("pickup"));
-        placeInfo.setpPlaceTitle(req.getParameter("pPlaceTitle"));
-        placeInfo.setpPlaceInfo(req.getParameter("pPlaceInfo"));
-        placeInfo.setpHp(req.getParameter("pHp"));
-        placeInfo.setpTime(req.getParameter("pTime"));
-        placeInfo.setpAddress1(req.getParameter("pAddress1"));
-        placeInfo.setpAddress2(req.getParameter("pAddress2"));
-        placeInfo.setpBoxInfo(req.getParameter("pBoxInfo"));
-        placeInfo.setpCautionInfo(req.getParameter("pCautionInfo"));
-*/
         placeInfo.setUserId((String)httpSession.getAttribute("sid"));
         service.rentalreg(placeInfo); // db에 글 저장
 
@@ -83,10 +63,6 @@ public class rentalController_S {
         service.boxDate(boxtype);
         boxtype.setpNo(placeInfo.getpNo());
         service.boxPreg(boxtype);
-
-/*
-        int boxQtyin = Integer.parseInt(req.getParameter("boxQty"));
-*/
 
 
         //파일 저장소 위치 존재 확인 후 없으면 생성

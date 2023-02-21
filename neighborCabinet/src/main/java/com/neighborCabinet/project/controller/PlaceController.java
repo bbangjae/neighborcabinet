@@ -1,10 +1,8 @@
 package com.neighborCabinet.project.controller;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.neighborCabinet.project.model.PlaceInfoVO;
-import com.neighborCabinet.project.model.QaVO;
-import com.neighborCabinet.project.model.ReserveVo;
-import com.neighborCabinet.project.model.ReviewVO;
+import com.neighborCabinet.project.model.*;
+import com.neighborCabinet.project.service.BoxOrderService_y;
 import com.neighborCabinet.project.service.FileService;
 import com.neighborCabinet.project.service.MapAddressChangeService;
 import com.neighborCabinet.project.service.PlaceInfoService;
@@ -29,7 +27,8 @@ import java.util.*;
 public class PlaceController {
     @Autowired
     private PlaceInfoService service;
-
+    @Autowired
+    private BoxOrderService_y service2;
     @Autowired
     FileService fileService;
     @Autowired
@@ -229,6 +228,16 @@ public class PlaceController {
     @RequestMapping("/testb2")
     public String test2(){
         return "testB2";
+    }
+    @RequestMapping("/boxList3")
+    public String boxList2(Model model) {
+
+        ArrayList<BoxInfoVO_y> type_A = service2.type_AList();
+        ArrayList<BoxInfoVO_y> type_B = service2.type_BList();
+        model.addAttribute("type_A", type_A);
+        model.addAttribute("type_B", type_B);
+
+        return "/boxOrder/boxList2";
     }
 
 }

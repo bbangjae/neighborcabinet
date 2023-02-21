@@ -19,7 +19,7 @@
 	<script type="text/javascript">
 		$(function(){
 			initMap();
-			searchTitleToCoordinate(${kw});
+			searchAddressToCoordinate("${kw2}");
 		});
 
 		function initMap(){
@@ -310,11 +310,10 @@
 		let index =json.findIndex(i=>i.pNo===pno)
 
 		jsonP[pno]=json[index];
-		console.log(pno);
 	}
 
 	var map = new naver.maps.Map("map", {
-		center: new naver.maps.LatLng(jsonP[${kw}].y, jsonP[${kw}].x),
+		center: new naver.maps.LatLng(jsonP[1].y, jsonP[1].x),
 		zoom: 15,
 		mapTypeControl: true
 	});

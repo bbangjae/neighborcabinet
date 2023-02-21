@@ -128,8 +128,11 @@ $(document).ready(function(){
 				data:{"searchInput":searchInput},
 				success:function(result) {
 					console.log(url.indexOf('map'));
-					if (url.indexOf('map')===-1)
+					if (url.indexOf('map')===-1){
 						location.href = "/map/SearchForm/" + result;
+						if(result===0)
+							location.href = "/map/SearchForm2/" + searchInput;
+				}
 					else {
 						if (!(result === 0))
 							searchTitleToCoordinate(result);
@@ -150,8 +153,10 @@ $(document).ready(function(){
 			url:"/map/Search",
 			data:{"searchInput":searchInput},
 			success:function(result) {
-				if (url.indexOf('map')===-1) {
+				if (url.indexOf('map')===-1){
 					location.href = "/map/SearchForm/" + result;
+					if(result===0)
+						location.href = "/map/SearchForm2/" + searchInput;
 				}
 				else {
 					if (!(result === 0))
@@ -164,3 +169,4 @@ $(document).ready(function(){
 	});
 
 });
+

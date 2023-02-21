@@ -118,7 +118,7 @@
         <div id="section4" class="section_4_5">
           <div class="s4_5_inner">
             <div class="section_img">
-              <div><img src="image/map.png"></div>
+              <div><img src="image/map3.png"></div>
 
             </div>
             <div class="section_text">
@@ -164,7 +164,7 @@
               </div>
             </div>
             <div class="section_img">
-              <div><img src="image/map.png"></div>
+              <div><img  src="image/placeAdd.png"></div>
             </div>
           </div>
 

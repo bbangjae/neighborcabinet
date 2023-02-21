@@ -210,7 +210,7 @@ html,body {
 }
 .section_4_5 .s4_5_inner .section_img div{
 
-	width:300px;
+	width:350px;
 	height:500px;
 	background-color:white;
 	border:solid 7px #F9FAFB;
@@ -220,10 +220,10 @@ html,body {
 	box-shadow: 0px 10px 48px -4px rgba(0,0,0,0.75);
 }
 .section_4_5 .s4_5_inner .section_img div img{
-	width:280px;
+	width:340px;
 	height:480px;
 	border-radius:9%;
-	margin:5px 0 0 10px;
+	margin:5px 0 0 5px;
 }
 .section_4_5 .s4_5_inner .title{
 	width:100%;

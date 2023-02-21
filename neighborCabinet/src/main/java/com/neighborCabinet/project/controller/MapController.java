@@ -33,16 +33,16 @@ public class MapController {
 	public String map(Model model,
 					  HttpServletRequest request) {
 		ArrayList<MapVO> listAllMap = mapService.listAllMap();
-
+		System.out.println();
 		JSONArray mapAddress = new JSONArray();
 		for(int i=0;i<listAllMap.size();i++) {
-			System.out.println(i+"   "+listAllMap.get(i).getpImage());
 			HashMap<String, Object> map = macService.addToxy(listAllMap.get(i).getpAddress1());
 			JSONObject jo = new JSONObject(map);
 			jo.put("wT",listAllMap.get(i).getpWriteTitle());
 			jo.put("pNo",listAllMap.get(i).getpNo());
 			mapAddress.put(jo);
-		}
+			}
+
 		request.setAttribute("mA",mapAddress);
 		model.addAttribute("listAllMap", listAllMap);
 		return "map/Map";
@@ -65,6 +65,26 @@ public class MapController {
 		model.addAttribute("listAllMap", listAllMap);
 		model.addAttribute("kw",kw);
 		return "map/MapSearch";
+	}
+	@RequestMapping("/map/SearchForm2/{kw2}")
+	public String mapSearchForm2(Model model,
+								@PathVariable String kw2,
+								HttpServletRequest request) {
+		ArrayList<MapVO> listAllMap = mapService.listAllMap();
+		JSONArray mapAddress = new JSONArray();
+		for(int i=0;i<listAllMap.size();i++) {
+			HashMap<String, Object> map = macService.addToxy(listAllMap.get(i).getpAddress1());
+			JSONObject jo = new JSONObject(map);
+			jo.put("wT",listAllMap.get(i).getpWriteTitle());
+			jo.put("pNo",listAllMap.get(i).getpNo());
+			mapAddress.put(jo);
+		}
+
+		request.setAttribute("mA",mapAddress);
+		model.addAttribute("listAllMap", listAllMap);
+		model.addAttribute("kw2", kw2);
+
+		return "map/MapSearch2";
 	}
 	@ResponseBody
 	@RequestMapping("/map/Search")

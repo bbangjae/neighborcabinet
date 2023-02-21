@@ -10,7 +10,7 @@
 	<script src="<c:url value="/js/jquery-3.6.1.min.js" />"></script>
 	<script src="<c:url value="/js/mod.js" />"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href=/css/exMap.css/>
+	<link rel="stylesheet" type="text/css" href=/css/Map.css/>
 	<c:import url="/WEB-INF/views/layout/header.jsp" />
 <%--	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>--%>
 	<script src="<c:url value='/js/searchZip.js' />"></script>
@@ -34,13 +34,34 @@
 					lngSpan = northEast.lng() - southWest.lng(),
 					latSpan = northEast.lat() - southWest.lat();
 
-			for (var i = 0; i < json.length; i++) {
+			for (var i = 0; i < jsonP.length; i++) {
 				// 지역을 담은 배열의 길이만큼 for문으로 마커와 정보창을 채워주자 !
+
+				if(jsonP[i]===undefined){
+					var marker = new naver.maps.Marker({
+						map: map,
+						title: jsonP[1].roadAddress, // 지역구 이름
+						position: new naver.maps.LatLng(jsonP[1].y , jsonP[1].x) // 지역구의 위도 경도 넣기
+
+					});
+					/* 정보창 */
+					var infoWindow = new naver.maps.InfoWindow({
+						content: '<div style="text-decoration: none; text-align:center;padding:10px;border-radius:21px 21px 21px 21px;"   >' +
+								'<a  style="text-decoration:none; color:#00DBAF;  font-weight:bold" href="<c:url value="/place/placeDetailView/'+jsonP[1].pNo+'"/>" >' +  jsonP[1].wT + '</div>',
+						anchorSkew: true,
+						borderColor:"#00DBAF",
+						maxWidth:150
+
+					});
+					markers.push(marker);
+					infoWindows.push(infoWindow);
+					continue;
+				}
 
 				var marker = new naver.maps.Marker({
 					map: map,
-					title: json[i].roadAddress, // 지역구 이름
-					position: new naver.maps.LatLng(json[i].y , json[i].x) // 지역구의 위도 경도 넣기
+					title: jsonP[i].roadAddress, // 지역구 이름
+					position: new naver.maps.LatLng(jsonP[i].y , jsonP[i].x) // 지역구의 위도 경도 넣기
 
 				});
 
@@ -48,14 +69,13 @@
 				/* 정보창 */
 				var infoWindow = new naver.maps.InfoWindow({
 					content: '<div style="text-decoration: none; text-align:center;padding:10px;border-radius:21px 21px 21px 21px;"   >' +
-							'<a  style="text-decoration:none; color:#00DBAF;  font-weight:bold" href="<c:url value="/place/placeDetailView/'+json[i].pNo+'"/>" >' +  json[i].wT + '</div>',
+							'<a  style="text-decoration:none; color:#00DBAF;  font-weight:bold" href="<c:url value="/place/placeDetailView/'+jsonP[i].pNo+'"/>" >' +  jsonP[i].wT + '</div>',
 					anchorSkew: true,
 					borderColor:"#00DBAF",
 					maxWidth:150
 
 				}); // 클릭했을 때 띄워줄 정보 HTML 작성
 				markers.push(marker); // 생성한 마커를 배열에 담는다.
-
 				infoWindows.push(infoWindow); // 생성한 정보창을 배열에 담는다.
 
 
@@ -77,14 +97,13 @@
 			}
 
 			for (var i=0, ii=markers.length; i<ii; i++) {
-				//console.log(markers[i] , getClickHandler(i));
 				naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i)); // 클릭한 마커 핸들러
 
 			}
 			$('.placeInfo').on('click',function(){
 
-					var marker = markers[$(this).attr("value")*1-1],
-							infoWindow=infoWindows[$(this).attr("value")*1-1];
+					var marker = markers[$(this).attr("value")*1],
+							infoWindow=infoWindows[$(this).attr("value")*1];
 					infoWindow.close();
 					infoWindow.open(map,marker);
 
@@ -107,11 +126,11 @@
 					position = marker.getPosition();
 
 					if (mapBounds.hasLatLng(position)) {
-						showMarker(map, marker,i+1);
+						showMarker(map, marker,i);
 
 
 					} else {
-						hideMarker(map, marker,i+1);
+						hideMarker(map, marker,i);
 					}
 				}
 			}
@@ -176,11 +195,11 @@
 		}
 
 		function searchTitleToCoordinate(pNo) {
-			var location = new naver.maps.LatLng(json[pNo-1].y, json[pNo-1].x);
+			var location = new naver.maps.LatLng(jsonP[pNo].y, jsonP[pNo].x);
 			map.setCenter(location);
 			map.setZoom(15); // 지도의 줌 레벨을 변경합니다.
-			var marker = markers[pNo-1],
-					infoWindow=infoWindows[pNo-1];
+			var marker = markers[pNo],
+					infoWindow=infoWindows[pNo];
 			infoWindow.close();
 			infoWindow.open(map,marker);
 
@@ -288,7 +307,7 @@
 							<div class="placeDetail">
 								<div id="pTime">
 									<img src="/image/clock.png">
-									<span>${p.pTime }</span>
+									<span>10:00~20:00</span>
 								</div>
 								<div id="pAddress">
 									<img src="/image/placeholder.png">
@@ -305,7 +324,15 @@
 	<!-- 지도 Script -->
 	<script>
 		var json=[];
+		var jsonP=[];
 		json=<%=mapAddress%>;
+		for(i=0;i<json.length;i++){
+			let pno=json[i].pNo*1
+			let index =json.findIndex(i=>i.pNo===pno)
+
+			jsonP[pno]=json[index];
+		}
+
 
 		var map = new naver.maps.Map("map", {
 			center: new naver.maps.LatLng(json[0].y, json[0].x),

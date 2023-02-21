@@ -8,9 +8,11 @@
 		<title>Insert title here</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/header.css'/>">
+		<link rel="stylesheet" type="text/css" href='<c:url value="/css/header2.css"/>'>
 		<script src="https://kit.fontawesome.com/487e3fe7a5.js" crossorigin="anonymous"></script>
 		<script src="<c:url value="/js/jquery-3.6.1.min.js"/>"></script>
 		<script src="<c:url value="/js/header.js"/>"></script>
+		<script src="<c:url value='/js/header2.js' />"></script>
 	</head>
 	<body>
 		<div id="outside_sidebar"></div>
@@ -68,9 +70,8 @@
 						</div>
 					</form>
 					<div style="display : flex; align-items: center;">
-						<div id="messageBox">
-							<i class="fa-regular fa-envelope fa-1x" style="color:#00DBAF"></i>
-							<i class="fa-regular fa-bell fa-1x" style="color:#00DBAF"></i>
+						<div id="messageBox__header">
+							<label for="messageModal"><i class="fa-regular fa-bell fa-1x" style="color:#00DBAF"></i></label>
 						</div>
 						<button type="button" id="user_button">
 							<i class="fa-solid fa-bars fa-1x" style="color:#00DBAF"></i>
@@ -82,6 +83,22 @@
 		<div id="header_space"></div>
 		<div id="STTStopBox">
 			<button type="button" id="stopBtn"><i class="fa-solid fa-microphone fa-2x"></i></button>
+		</div>
+		<input type="checkbox" style="display:none;" id="messageModal">
+		<div id="messageBox">
+			<label for="messageModal"></label>
+			<div id="mesContentBox">
+				<div id="mesCtg">
+					<input type="radio" name="mesCtg" id="mesCtg1" value="1" checked>
+					<label for="mesCtg1">알림</label>
+					<input type="radio" name="mesCtg" id="mesCtg2" value="2">
+					<label for="mesCtg2">요청</label>
+				</div>
+				<div id="mesInfoBox">
+					<label for="messageModal"><i class="fa-regular fa-circle-xmark"></i></label>
+					<div id="applyDiv"></div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

@@ -103,3 +103,7 @@
 	padding : 20px 0;
 	box-sizing : border-box;
 }
+.paymentMInfo a{
+	text-decoration-line: none;
+	color : darkorchid;
+}

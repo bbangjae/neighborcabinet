@@ -11,7 +11,7 @@
 		<script src="<c:url value="/js/mesRequest.js"/>"></script>
 	</head>
 	<body>
-		<div id="section1">
+		<div id="section1_y">
 			요청메시지 <i class="fa-regular fa-bell fa-1x" style="color:#00DBAF"></i>
 		</div>
 		<div id="mesBox">

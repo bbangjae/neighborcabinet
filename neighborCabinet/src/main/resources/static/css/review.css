@@ -126,6 +126,9 @@ a{
 	border-radius : 10px;
 	box-shadow: 0px 6px 16px rgb(0 0 0 / 5%);
 }
+#section_1 a{
+	color : black;
+}
 #section_1 li:nth-child(n+2){
 	margin-top : 10px;
 }

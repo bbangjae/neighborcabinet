@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neighborCabinet.project.model.ReserveDetailVO_y;
@@ -41,6 +42,50 @@ public class MessageController {
 		model.addAttribute("message", message);
 		
 		return "/message/message";
+		
+	}
+	@RequestMapping("/message/delete")
+	public String mesMessageDelete(@RequestParam("chmes[]") ArrayList<Integer> chkArr, HttpSession session, Model model) {
+		
+		if(chkArr != null) {
+			for(int mesNo : chkArr) {
+				service.mesDelete(mesNo);
+				System.out.println(mesNo);
+			}
+		}
+		
+		String userId = (String) session.getAttribute("sid");
+		
+		ArrayList<messageAllVO_y> message = service.messageAll(userId);
+		
+		for(int i = 0;i<message.size();i++) {
+			message.get(i).setMesDate(message.get(i).getMesDate().substring(0, 16));
+			System.out.print(message.get(i).getMesNo());
+		}
+		model.addAttribute("message", message);
+		
+		
+		return "redirect:/message/message";
+		
+	}
+	@RequestMapping("/message/deleteAll")
+	public String mesMessageDeleteAll(HttpSession session, Model model) {
+		
+		
+		
+		String userId = (String) session.getAttribute("sid");
+		service.mesDeleteAll(userId);
+		
+		ArrayList<messageAllVO_y> message = service.messageAll(userId);
+		
+		for(int i = 0;i<message.size();i++) {
+			message.get(i).setMesDate(message.get(i).getMesDate().substring(0, 16));
+			System.out.print(message.get(i).getMesNo());
+		}
+		model.addAttribute("message", message);
+		
+		
+		return "redirect:/message/message";
 		
 	}
 	

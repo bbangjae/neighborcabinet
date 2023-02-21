@@ -49,14 +49,12 @@ $(document).ready(function(){
   				// [녹음] 버튼 눌렀을 때
   				recordBtn.onclick = () => {
   					mediaRecorder.start(); // 녹음 시작
-  					STTStopBox.style.display = "";
 
   				}
   				
   				// [정지] 버튼 눌렀을 때
   				stopBtn.onclick = () => {
   					mediaRecorder.stop(); // 녹음 정지
-  					STTStopBox.style.display = 'none';
   				}
   				
   				// chunks에 저장된 녹음 데이터를 audio 양식으로 설정
@@ -67,7 +65,6 @@ $(document).ready(function(){
   				});
   				
   				chunks = []; // 초기화 : 초기화하지 않으면 녹음 내용이 누적됨
-  				
   				// 녹음 내용을 파일로 저장 시 파일명 랜덤 생성
   				var num  = new Date();
   				const clipName = num.getTime() + "_voiceMsg"; // 파일 이름
@@ -86,7 +83,7 @@ $(document).ready(function(){
   			  		console.log("오류 발생 : " + err);
   			  });
   		
-  	}  	
+  	}
   	//////////////////////////////////////////////////////////////////////////
   	
   	// (2) 파일 업로드 
@@ -96,7 +93,6 @@ $(document).ready(function(){
   		var formData = new FormData();
   		formData.append('uploadFile', blob, clipName + ".mp3");
   		// name, 데이터, 파일명
-  		console.log(formData);
   		// 서버에 전달하고 응답 받음
   		$.ajax({
  			type:"post",
@@ -109,17 +105,13 @@ $(document).ready(function(){
  				
  				// <input> 태그의 값을 받은 텍스트로 설정
  				$('#header_searchInput').val(result);
- 				//alert("성공");
  				//$('#header_form').submit();
  				
  			},
  			error:function(){
  				alert("실패");
  			},
- 			complete:function(){
- 				//alert("작업 완료");
- 			}
- 		}); // ajax 종료 	
+ 		});	
   	}
 	$('#header_searchInput').on('keydown', function(e){
 

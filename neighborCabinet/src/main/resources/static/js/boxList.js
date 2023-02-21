@@ -152,20 +152,20 @@ $(document).ready(function(){
 					qty = 1;
 					alert("최소 수량입니다");
 				}
-				else if(qty > boxStock){
-					qty = boxStock;
-					alert("최대 수량입니다");
-				}
+				//else if(qty > boxStock){
+				//	qty = boxStock;
+				//	alert("최대 수량입니다");
+				//}
 				number.val(qty);
 				var total = qty * boxPrice;
 				var price = $(this).parent().siblings('.price').children();
 				price.val(total.toLocaleString()+"원");
 			} else{
 				qty += 1;
-				if(qty > boxStock){
-					qty = boxStock;
-					alert("최대 수량입니다");
-				}
+				//if(qty > boxStock){
+				//	qty = boxStock;
+				//	alert("최대 수량입니다");
+				//}
 				number.val(qty);
 				var total = qty * boxPrice;
 				var price = $(this).parent().siblings('.price').children();
@@ -190,11 +190,11 @@ $(document).ready(function(){
 			number.val(1);
 			alert("최소 수량입니다");
 		}
-		else if(qty > boxStock){
-			qty = boxStock;
-			number.val(boxStock);
-			alert("최대 수량입니다");
-		}
+		//else if(qty > boxStock){
+		//	qty = boxStock;
+		//	number.val(boxStock);
+		//	alert("최대 수량입니다");
+		//}
      	price.val(total.toLocaleString() + "원");
      	doSum();
     });

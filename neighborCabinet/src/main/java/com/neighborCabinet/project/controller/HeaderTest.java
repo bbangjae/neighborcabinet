@@ -195,9 +195,10 @@ public class HeaderTest {
 		if(reserveCheck ==0) {
 			return "redirect:/";
 		}
-		ReserveVo reserveInfo = service.reserveInfo(reserveNo);
+		ReserveVO_y reserveInfo = service.reserveInfo(reserveNo);
 		model.addAttribute("reserveInfo", reserveInfo);
-		
+		String imgSrc = service.imgSrc(reserveInfo.getpNo());
+		model.addAttribute("imgSrc", imgSrc);
 		
 		String reserve_day = reserveInfo.getReserveDate().substring(0, 4) +"."+ reserveInfo.getReserveDate().substring(6, 8)
 				+"." + reserveInfo.getReserveDate().substring(9, 11);
@@ -286,7 +287,10 @@ public class HeaderTest {
 		SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
 		Calendar cal = Calendar.getInstance();
 		int nowDate = Integer.parseInt(dtFormat.format(cal.getTime()));
-		
+		for(int i = 0;i<reviewO.size();i++) {
+			String imgSrc = service.imgSrc(reviewO.get(i).getpNo());
+			reviewO.get(i).setImgsrc(imgSrc);
+		}
 		for(int i = 0;i<reviewO.size();i++) {
 			
 			String date = reviewO.get(i).getReviewEnd();

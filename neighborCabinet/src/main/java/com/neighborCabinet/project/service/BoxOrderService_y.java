@@ -135,7 +135,7 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 	}
 
 	@Override
-	public ReserveVo reserveInfo(int reserveNo) {
+	public ReserveVO_y reserveInfo(int reserveNo) {
 		
 		return dao.reserveInfo(reserveNo);
 	}
@@ -155,6 +155,12 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 	public int reviewpNo(int reserveNo) {
 		
 		return dao.reviewpNo(reserveNo);
+	}
+
+	@Override
+	public String imgSrc(int pNo) {
+		
+		return dao.imgSrc(pNo);
 	}
 
 

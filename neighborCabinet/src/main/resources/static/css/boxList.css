@@ -142,8 +142,6 @@ input:checked ~ .box_left i{
 	margin-right : 10px;
 	height : 50%;
 	font-size : 23px;
-	display : flex;
-	justify-content : space-between;
 }
 .stock{
 	font-size : 15px;

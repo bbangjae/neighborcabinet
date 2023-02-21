@@ -373,7 +373,7 @@ article> form{
 .objectCheck{
 	display : none;
 }
-input:checked + label{
+#resultDiv input:checked + label{
 	background-color : #a7a7a7 !important;
 }
 #complete{

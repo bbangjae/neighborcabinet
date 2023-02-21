@@ -11,23 +11,23 @@
 		<script src="<c:url value="/js/message.js"/>"></script>
 	</head>
 	<body>
-		<div id="section1">
+		<div id="section1_y">
 			알림메시지 <i class="fa-regular fa-bell fa-1x" style="color:#00DBAF"></i>
 		</div>
 		<div id="mesBox">
 			<div id="mesDeleteBox">
 				<label for="mesAllSelect"><input type="checkbox" id="mesAllSelect"></label>
 				<div class="colorEB">|</div>
-				<div><button type="button" style="width:45px;">삭제</button></div>
+				<div><button type="button" style="width:45px;" id="deleteMesBtn">삭제</button></div>
 				<div class="colorEB">|</div>
-				<div><button type="button" style="width:80px;">전체 삭제</button></div>
+				<div><button type="button" style="width:85px;" id="deleteMesAllBtn">전체 삭제</button></div>
 			</div>
 			<div class="mes_AllmessageS">
 			<c:forEach var="message" items="${message}">
 				<div class="mes_mesaage">
 					<label for="${message.mesNo}"><input type="checkbox" class="mesSelect" id="${message.mesNo}"></label>
 					<label class="mesTitle" for="${message.mesNo}_1">
-						<div>${message.userId}</div>
+						<div>${message.receiver}</div>
 						<div>${message.message}</div>
 						<div>${message.mesDate}</div>
 					</label>
@@ -46,7 +46,7 @@
 						</c:if>
 						<c:if test="${message.OX eq '0'}">
 							<span style="color:#f34336;">예약이 거절</span>되었습니다.<br>
-							거절된 공간은 <a href="">공간대여</a>에서 확인해주세요.
+							거절된 공간은 <a href="<c:url value='/place/placeDetailView/${message.pNo }'/>">공간대여</a>에서 확인해주세요.
 						</c:if>
 					</div>
 				</div>

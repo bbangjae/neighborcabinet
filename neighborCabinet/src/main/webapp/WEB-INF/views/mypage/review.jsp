@@ -87,6 +87,7 @@
 								<tr>
 									<td rowspan="3" class="reviewImg">
 										<img onerror="this.src='<c:url value='/image/homeImg.png'/>'" src="" class="reviewImg">
+										<%-- ${reviewO.imgsrc} --%>
 									</td>
 									<td colspan="2" class="text_left">
 										<a href="<c:url value='/place/placeDetailView/${reviewO.pNo }'/>">${reviewO.pWriteTitle }<br>
@@ -118,7 +119,7 @@
 											${review.pAddress1}(${review.pAddress2})
 										</a>
 									</div>
-									<div id="writer"><fmt:formatDate value="${review.reviewDate}"  pattern="yyyy-MM-dd" /></div>
+									<div id="writer" style="text-align : left; margin-left : 20px; font-size : 15px;"><fmt:formatDate value="${review.reviewDate}"  pattern="yyyy-MM-dd" /></div>
 									<input type="hidden" name="pNo" id="pNo" value="1">
 									<input type="hidden" class="myReview" value="${review.reviewGrade }">
 									<fieldset>

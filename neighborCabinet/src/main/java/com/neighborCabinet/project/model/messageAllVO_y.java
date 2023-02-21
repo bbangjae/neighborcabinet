@@ -9,8 +9,21 @@ public class messageAllVO_y {
 	private int OX;
 	private String pWriteTitle;
 	private String reserveDate;
+	private String receiver;
+	private int pNo;
 	
-	
+	public String getReceiver() {
+		return receiver;
+	}
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
+	}
+	public int getpNo() {
+		return pNo;
+	}
+	public void setpNo(int pNo) {
+		this.pNo = pNo;
+	}
 	public String getpWriteTitle() {
 		return pWriteTitle;
 	}

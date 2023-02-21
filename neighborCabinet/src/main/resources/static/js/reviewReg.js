@@ -51,11 +51,43 @@ $(document).ready(function(){
  			success:function(result){
  				$('#qwer').empty();
  				$('#qwer').append("부정 : "+result.negative + "중립 : "+ result.neutral + "긍정 : "+ result.positive);
+ 				var i=1;
+			    var func1 = setInterval(function(){
+			        if(i<result.negative){
+			            color1(i);
+			            i++;
+			        } else if(i<result.neutral){
+			            color2(i);
+			            i++;
+			        } else if(i<result.positive){
+			            color3(i);
+			            i++;
+			        } else {
+			            clearInterval(func1);
+			        }
+			    },10);
  			},
  			error:function(){
  				alert("실패");
  			},
  		});
 	});
-	
 });
+function color1(i){
+    $("#qwer").css({
+        "background":"conic-gradient(#8b22ff 0% "+i+"%, #ffffff "+i+"% 100%)"
+        });
+    
+}
+function color2(i){
+    $("#qwer").css({
+        "background":"conic-gradient(#8b22ff 0% 25%, #ffc33b 25% "+i+"%, #ffffff "+i+"% 100%)"
+        });
+     
+}
+function color3(i){
+    $("#qwer").css({
+        "background":"conic-gradient(#8b22ff 0% 25%, #ffc33b 25% 70%, #21f3d6 70% "+i+"%, #ffffff "+i+"% 100%)"
+        });
+     
+}

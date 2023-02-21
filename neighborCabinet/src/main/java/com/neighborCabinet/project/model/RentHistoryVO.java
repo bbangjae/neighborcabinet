@@ -1,49 +1,19 @@
 package com.neighborCabinet.project.model;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class RentHistoryVO extends PageVO{
 	private int reserveNo;
-	
-	
-	public int getReserveNo() {
-		return reserveNo;
-	}
-	public void setReserveNo(int reserveNo) {
-		this.reserveNo = reserveNo;
-	}
 	private String userId;
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 	private int pNo;
-	
-	public int getpNo() {
-		return pNo;
-	}
-	public void setpNo(int pNo) {
-		this.pNo = pNo;
-	}
-	private String rentPlace;
-	//@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private String pAddress1;
 	private String reserveDate;
-	
-	
-	public String getReserveDate() {
-		return reserveDate;
-	}
-	public void setReserveDate(String reserveDate) {
-		this.reserveDate = reserveDate;
-	}
-	private String userName;
-	private String rentTime;
-	private String resState;
-	private String pickup;
+	private String senderPhone;
+	private String receiver;
+	private String sender;
+	private String senderName;
+	private String startTime;
+	private String endTime;
+	private int resState;
+	private int pickup;
 	private String searchKeyword; //검색 변수
 	
 	public String getSearchKeyword() {
@@ -52,34 +22,85 @@ public class RentHistoryVO extends PageVO{
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
 	}
-	public String getRentPlace() {
-		return rentPlace;
+	public String getReceiver() {
+		return receiver;
 	}
-	public void setRentPlace(String rentPlace) {
-		this.rentPlace = rentPlace;
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
 	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public String getRentTime() {
-		return rentTime;
-	}
-	public void setRentTime(String rentTime) {
-		this.rentTime = rentTime;
-	}
-	public String getPickup() {
+	public int getPickup() {
 		return pickup;
 	}
-	public void setPickup(String pickup) {
+	public void setPickup(int pickup) {
 		this.pickup = pickup;
 	}
-	public String getResState() {
+	public int getResState() {
 		return resState;
 	}
-	public void setResState(String resState) {
+	public void setResState(int resState) {
 		this.resState = resState;
 	}
+	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public int getReserveNo() {
+		return reserveNo;
+	}
+	public void setReserveNo(int reserveNo) {
+		this.reserveNo = reserveNo;
+	}
+	public int getpNo() {
+		return pNo;
+	}
+	public void setpNo(int pNo) {
+		this.pNo = pNo;
+	}
+	public String getReserveDate() {
+		return reserveDate;
+	}
+	public void setReserveDate(String reserveDate) {
+		this.reserveDate = reserveDate;
+	}
+	public String getpAddress1() {
+		return pAddress1;
+	}
+	public void setpAddress1(String pAddress1) {
+		this.pAddress1 = pAddress1;
+	}
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+	public String getSenderPhone() {
+		return senderPhone;
+	}
+	public void setSenderPhone(String senderPhone) {
+		this.senderPhone = senderPhone;
+	}
+	public String getSender() {
+		return sender;
+	}
+	public void setSender(String sender) {
+		this.sender = sender;
+	}
+	public String getSenderName() {
+		return senderName;
+	}
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
+	}
+	
+	
 }

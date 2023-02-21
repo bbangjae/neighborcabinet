@@ -43,12 +43,12 @@ $(document).ready(function() {
 				if(data.length>=1){
 				data.forEach(function(item){
 				html += '<tr>';
-				html += '<td>'+item.rentNo+'</td>';
-				html += '<td>'+item.rentPlace+'</td>';
-				html += '<td>'+item.receiptDate+'</td>';
-				html += '<td>'+item.userName+'</td>';
-				html += '<td>'+item.rentTime+'</td>';
-				html += '<td>'+item.rentState+'</td>';
+				html += '<td>'+item.reserveNo+'</td>';
+				html += '<td>'+item.pAddress1+'</td>';
+				html += '<td>'+item.reserveDate+'</td>';
+				html += '<td>'+item.receiver+'</td>';
+				html += '<td>'+item.reserveDate+'</td>';
+				html += '<td>'+item.resState+'</td>';
 				html +=	'<td>'+item.pickup+'</td>';
 				html += '</tr>';	
 				})
@@ -63,12 +63,12 @@ $(document).ready(function() {
 
 
 //qr코드
-	$("#qrBtn").click(function(){
-		alert("qr코드 링크 생성");
-		url="/qr";
-		var content = $("#content").val();
-		$("#img").attr("src",url+"?content="+content);
-	});
+	//$("#qrBtn").click(function(){
+	//	alert("qr코드 링크 생성");
+		//url="/qr";
+		//var content = $("#content").val();
+		//$("#img").attr("src",url+"?content="+content);
+	//});
 
 
 

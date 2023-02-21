@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/images/**")
 		.addResourceLocations("file:///F:/neighborcabinet/neighborCabinet/uploads/",
-				"file:////uploads/");
+				"file:///root/uploads/");
 													// upload 폴더 경로 설정 (동일한 이름 /images 사용)
 	}
 }

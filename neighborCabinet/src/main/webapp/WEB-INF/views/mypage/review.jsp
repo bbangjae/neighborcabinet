@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href='<c:url value="/css/review.css"/>'>
 		<script src="<c:url value="/js/jquery-3.6.1.min.js"/>"></script>
 		<script src="<c:url value="/js/review.js"/>"></script>
+		<c:import url="/WEB-INF/views/member/chat.jsp"/>
 	</head>
 	<body>
 		<c:import url="/WEB-INF/views/layout/header.jsp" />
@@ -58,13 +59,13 @@
 							</a>
 						</li>
 						<li class="navList">
-							<a href="/" class="navListlink" id="boxLink">
+							<a href="/lenderPage" class="navListlink" id="boxLink">
 								<div class="figureBox">
 									<figure>
 										<img class="modifyInfo" src="/image/box2.png">
 									</figure>
 								</div>
-								<div class="listObject">박스</div>
+								<div class="listObject">공급자</div>
 							</a>
 						</li>
 					</ul>
@@ -86,8 +87,7 @@
 							<li><table>
 								<tr>
 									<td rowspan="3" class="reviewImg">
-										<img onerror="this.src='<c:url value='/image/homeImg.png'/>'" src="" class="reviewImg">
-										<%-- ${reviewO.imgsrc} --%>
+										<img onerror="this.src='<c:url value='/images/${reviewO.imgsrc}'/>'" src="" class="reviewImg">
 									</td>
 									<td colspan="2" class="text_left">
 										<a href="<c:url value='/place/placeDetailView/${reviewO.pNo }'/>">${reviewO.pWriteTitle }<br>

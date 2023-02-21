@@ -41,7 +41,8 @@ public class MemberService implements IMemberService {
         // 암호화된 비밀번호로 vo에 저장한 후 vo를 mapper에 보내서 db에 저장
         vo.setUserPw(encodedPassword); // vo에 암호화된 비밀번호 저장
         dao.insertMember(vo);
-
+        System.out.println(vo.getUserId());
+        dao.insertBoxM(vo.getUserId());
     }
 
     @Override

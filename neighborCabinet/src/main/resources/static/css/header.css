@@ -77,15 +77,6 @@ body{
 #messageBox__header i:hover{
 	cursor : pointer;
 }
-#STTBtn{
-	border : none;
-	background-color : white;
-	font-size : 15px;
-	color : #00DBAF;
-}
-#STTBtn:hover{
-	cursor:pointer;
-}
 
 #header_searchBtn:hover{
 	cursor:pointer;
@@ -102,7 +93,6 @@ body{
 }
 #user_button:hover{
 	cursor:pointer;
-	box-shadow: 2px 2px gray;
 }
 #user_button i:first-child {
 	padding-right : 7px;
@@ -159,23 +149,6 @@ body{
 	width : 100%;
 	font-size : 20px;
 	display: block;
-}
-#STTStopBox{
-	left : 500px;
-	position : absolute;
-	margin :auto;
-	width : 500px;
-	line-height : 500px;
-	background : white;
-	text-align : center;
-	display : none;
-}
-#STTStopBox button{
-	background : none;
-	color : red;
-	border : none;
-	font-size : 100px;
-	margin : auto;
 }
 /************************* 반응형 설정 *************************/
 @media (max-width: 1023px){

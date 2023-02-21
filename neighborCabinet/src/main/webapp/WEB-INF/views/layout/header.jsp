@@ -65,13 +65,13 @@
 						</div>
 						<div id="header_searchBtnBox">
 							<button type="submit" id="header_searchBtn"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button>
-							<button type="button" id="STTBtn"><i class="fa-solid fa-microphone fa-2x"></i></button><!-- STTBtn -->
-							<button type="button" id="stopBtn"><i class="fa-solid fa-microphone fa-2x"></i></button>
 						</div>
 					</form>
 					<div style="display : flex; align-items: center;">
 						<div id="messageBox__header">
+							<c:if test="${not empty sessionScope.sid}">
 							<label for="messageModal"><i class="fa-regular fa-bell fa-1x" style="color:#00DBAF"></i></label>
+							</c:if>
 						</div>
 						<button type="button" id="user_button">
 							<i class="fa-solid fa-bars fa-1x" style="color:#00DBAF"></i>
@@ -81,14 +81,12 @@
 			</header>
 		</div>
 		<div id="header_space"></div>
-		<div id="STTStopBox">
-			<button type="button" id="stopBtn"><i class="fa-solid fa-microphone fa-2x"></i></button>
-		</div>
 		<input type="checkbox" style="display:none;" id="messageModal">
 		<div id="messageBox">
 			<label for="messageModal"></label>
 			<div id="mesContentBox">
 				<div id="mesCtg">
+					<!-- <input type="radio" name="mesCtg" id="mesCtg0" value="0"> -->
 					<input type="radio" name="mesCtg" id="mesCtg1" value="1" checked>
 					<label for="mesCtg1">알림</label>
 					<input type="radio" name="mesCtg" id="mesCtg2" value="2">

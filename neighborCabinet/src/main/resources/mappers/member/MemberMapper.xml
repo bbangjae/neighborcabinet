@@ -13,6 +13,10 @@
         INSERT INTO member (userId, userPw, userName, userEmail, userHp, userZipcode, userAddress1, userAddress2, userNickname)
         VALUES (#{userId}, #{userPw}, #{userName}, #{userEmail}, #{userHp}, #{userZipcode}, #{userAddress1}, #{userAddress2}, #{userNickname})
     </insert>
+    <insert id="insertBoxM" parameterType="string">
+        INSERT INTO boxmodify (userId, a01, a02, a03, a04, b01, b02, b03, b04)
+        VALUES (#{userId}, '0', '0', '0', '0', '0', '0', '0', '0')
+    </insert>
     <!--중복 검사-->
     <select id="userIdCheck" parameterType="String"  resultType="string">
         SELECT userId FROM member where userId = #{userId}

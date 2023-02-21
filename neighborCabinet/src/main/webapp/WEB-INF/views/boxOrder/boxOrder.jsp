@@ -69,6 +69,7 @@
 	    </script>
 	</head>
 	<body>
+		<c:import url="/WEB-INF/views/member/chat.jsp"/>
 		<c:import url="/WEB-INF/views/layout/header.jsp" />
 		<div id="wrap">
 			<div class="spaceDiv"></div>

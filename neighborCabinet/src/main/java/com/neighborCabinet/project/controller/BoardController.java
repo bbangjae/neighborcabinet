@@ -96,7 +96,7 @@ public class BoardController {
         if(nboardVO.getBoNo()>0){
             boardService.boardDelete(boNo);
         }
-        return "redirect:/board/noticeboardlist";
+        return "redirect:/board/inquiryboardlist";
     }
     @RequestMapping("/comment/write")
     public String commentwrite(boardCommentVO vo,HttpSession httpSession){

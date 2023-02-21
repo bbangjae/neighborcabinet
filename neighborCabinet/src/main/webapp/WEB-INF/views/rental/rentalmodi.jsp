@@ -538,13 +538,13 @@
     <div class="col-md-12 mb-5 mt-5">
       <div class="mb-3 mt-3">
         <label for="pPlaceInfo" ><h4>공간 소개</h4></label>
-        <textarea class="form-control " id="pPlaceInfo" name ="pPlaceInfo" placeholder="공간소개를 적어주세요"style="border-radius: 0px;" rows="10" value="${pi.pPlaceInfo}"></textarea>
+        <textarea class="form-control " id="pPlaceInfo" name ="pPlaceInfo" placeholder="공간소개를 적어주세요"style="border-radius: 0px;" rows="10" >${pi.pPlaceInfo}</textarea>
       </div>
     </div>
     <div class="col-md-12 mb-5 mt-3">
       <div class="mb-3 mt-3">
         <label for="pCautionInfo" ><h4>예약 시 주의사항</h4></label>
-        <textarea class="form-control " id="pCautionInfo" name ="pCautionInfo" placeholder="예약 시 주의사항을 적어주세요."style="border-radius: 0px;" rows="5" value="${pi.pCautionInfo}"></textarea>
+        <textarea class="form-control " id="pCautionInfo" name ="pCautionInfo" placeholder="예약 시 주의사항을 적어주세요."style="border-radius: 0px;" rows="5" >${pi.pCautionInfo}</textarea>
       </div>
     </div>
     <div class ="row">

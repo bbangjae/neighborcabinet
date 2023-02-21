@@ -27,6 +27,8 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
+<c:import url="/WEB-INF/views/member/chat.jsp"/>
+
 <div class=" container">
     <div class ="heading mt-5">
         <h3> 문의사항 </h3>

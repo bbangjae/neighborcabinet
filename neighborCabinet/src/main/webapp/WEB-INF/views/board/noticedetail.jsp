@@ -29,6 +29,8 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
+<c:import url="/WEB-INF/views/member/chat.jsp"/>
+
 <div class="container">
     <div class ="heading mt-5">
         <h3 style="font-weight: bold;"> ${board.boTitle}</h3>
@@ -48,14 +50,12 @@
     </svg>
     <a onclick="location.href='javascript:history.back(-1)'"  style="cursor: pointer;">목록으로</a>
     </div>
-    <c:if test="${sid == 'admin'}">
     <div class = "X m-5"  style=" width: 100px; float: right;">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" style="cursor: pointer;">
             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
         </svg>
         <a id = "delete" style="cursor: pointer;">글 삭제</a>
     </div>
-    </c:if>
     </div>
     <c:if test="${board.boCategory == 2}">
         <div class="replywrite m-3 p-3" style="">
@@ -97,10 +97,14 @@
         $('.X').click(function() {
             var answer = confirm("삭제 하시겠습니까?");
             if(answer){
+                console.log('${sid}');
+                if('${sid}' === '${board.boWriter}' || '${sid}' == 'admin'){
                 const boNo = '${board.boNo}';
                 const intBoNo = parseInt(boNo);
-                    location.href = "/board/delete/" + intBoNo;
-
+                    location.href = "/board/delete/" + intBoNo;}
+                    else {
+                        alert("권한이 없습니다!");
+                }
             }
 
         });

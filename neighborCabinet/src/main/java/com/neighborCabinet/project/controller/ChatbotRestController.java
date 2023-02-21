@@ -23,5 +23,15 @@ public class ChatbotRestController {
         return result;
     }
 
+    // 이미지 / 멀티링크 처리하기 위해 JSON 형식 문자열 그대로 반환
+    @RequestMapping("/chatbot3")
+    public String chatbot3(@RequestParam("message") String message) {
+        String result = chatbotService.chatbot3Main(message);
+        return result;
+    }
+
+
+
+
 
 }

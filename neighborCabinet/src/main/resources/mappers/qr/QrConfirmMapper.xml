@@ -9,7 +9,7 @@
      <update id="QRconfirm">
         UPDATE reserve
         SET resState=2
-        WHERE sender=#{userId} and senderPhone=#{senderPhone}
+        WHERE sender=#{sender} and senderPhone=#{senderPhone}
      </update>
      
      <!-- QR인증 -->

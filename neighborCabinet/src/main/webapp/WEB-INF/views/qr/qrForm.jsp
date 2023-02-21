@@ -79,19 +79,12 @@
 			<div class="bodyWrap">
 				<span class="pageInfo">거래현황 → 본인확인</span>
 				<h1 class="pageName">본인 확인</h1>
-		  <form method="post" action="/qrConfirm/${sessionScope.sid}" class="update_form">
+		  <form method="post" action="/qrConfirm" class="update_form">
 			<div class="modifyinfoBox">
-				<%-- <div class="userName" >
-               		<span class="modifySpan">아이디</span>
-               		<div class="currentName">
-                    	<c:out value='${rentAllHistory.userId}'/>
-                	</div>
-                	<hr class="miHr" color="#00DBAF" size="0.7px">
-                </div>   --%>     	
 				<div class="userName">
 					<span class="modifySpan">아이디</span>
 					<div class="currentName">
-						<input type="text" class="modifySpan2" id="userId" name="userId">
+						<input type="text" class="modifySpan2" id="userId" name="sender">
 					</div>
 					<hr class="miHr" color="#00DBAF" size="0.7px">
 				</div>

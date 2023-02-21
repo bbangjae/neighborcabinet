@@ -290,10 +290,10 @@
        <div class="boxType" id="qr">
         <div class="infoContainer" id="qrContainer">
         <div class="notice">
-        <%-- <img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다. --%>
-			<form action="/qrCode" method="post">
+        <img src="<c:url value='/image/exclamation.jpg'/>">공급자 페이지에서 확인하세요.
+			<%-- <form action="/qrCode" method="post">
 		      <input type="hidden" name="url" value="http://115.85.181.111:8080/qrConfirm/${sessionScope.sid }"/><button type="submit" id="qrBtn">개인 인증 코드 만들기</button>
-		    </form>
+		    </form> --%>
         </div>
        </div>
       </div>

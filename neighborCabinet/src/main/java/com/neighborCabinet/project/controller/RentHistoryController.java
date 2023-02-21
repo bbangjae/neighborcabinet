@@ -1,8 +1,6 @@
 package com.neighborCabinet.project.controller;
 
 import java.io.ByteArrayOutputStream;
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -178,16 +176,20 @@ public class RentHistoryController{
 	// QR 본인인증
 	// jsp value=http://115.85.181.111:8080/qrConfirm/${sessionScope.sid}로 변경
 	@RequestMapping("/qrConfirm/{userId}")
-	public String qrForm(@PathVariable("userId") String userId, HttpSession session, @ModelAttribute("rentVO") RentHistoryVO rentVO, Model model) throws Exception {
-		//ArrayList<RentHistoryVO> rentAllHistory = service.listAllHistory(rentVO);
-		//userId = (String) session.getAttribute("sid");
-		//model.addAttribute("rentAllHistory", rentAllHistory);
-		userId = (String) session.getAttribute("sid");
-		rentVO.setSender(userId);
-        QRService.QRconfirm(rentVO);
+	public String qrForm(@PathVariable("userId") String userId, HttpSession session, RentHistoryVO rentVO, Model model) throws Exception {
 
-		
 		return "qr/qrForm";
+	}
+
+	
+	@RequestMapping("/qrConfirm")
+	public String qrConfrim(HttpSession session, RentHistoryVO rentVO, @RequestParam("sender") String sender, @RequestParam("senderPhone") String senderPhone, Model model) throws Exception {
+		
+		rentVO.setSender(sender);
+		rentVO.setSenderPhone(senderPhone);
+	    QRService.QRconfirm(rentVO);
+		
+	    return "redirect:/rentHistory";
 	}
 	
 	

@@ -620,6 +620,7 @@
           상세 주소를 입력해주세요.
         </div>
       </div>
+      <input type="hidden" id ="pBoxInfo" name="pBoxInfo" value="0">
 
     </div>
     <hr>
@@ -661,6 +662,47 @@
       $('#accordion_B03').closest('.accordion-item').hide();
     }
 
+
+  });
+</script>
+<script>
+  $(document).ready(function() {
+
+    $(document).click(function() {
+      var input1 = document.getElementById("BoxQtyp_A01");
+      var input2 = document.getElementById("BoxQtyp_A02");
+      var input3 = document.getElementById("BoxQtyp_A03");
+      var input4 = document.getElementById("BoxQtyp_B01");
+      var input5 = document.getElementById("BoxQtyp_B02");
+      var input6 = document.getElementById("BoxQtyp_B03");
+      var boxInfo = document.getElementById("pBoxInfo");
+      let countA = 0;
+      let countB = 0;
+
+
+      if (input1.value >= 1 || input2.value >= 1 || input3.value >= 1 ) {
+        countA++;
+      }
+      if (input4.value >= 1 ||input5.value >= 1 ||input6.value >= 1) {
+        countB++;
+      }
+/*
+      console.log("카운트A" + countA);
+      console.log("카운트B" + countB);
+*/
+      if (countA > 0 && countB > 0) {
+        boxInfo.value = "3";
+      } else if (countA > 0) {
+        boxInfo.value = "1";
+      } else if (countB > 0) {
+        boxInfo.value = "2";
+      } else {
+        boxInfo.value = "0";
+      }
+/*
+      console.log(boxInfo.value);
+*/
+    });
 
   });
 </script>

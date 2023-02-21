@@ -495,7 +495,7 @@
                         <p style="margin-top: 14px; margin-left: 10px;">시간 당</p>
                         <input type="text" class = " form-control " id = "Boxprice_B01" name="D_Price" style="border-radius: 0px; width: 60px;  border:none; text-align: right; "placeholder="금액" value="0" readonly>
                         <p style="margin-top: 14px;">원</p>
-                        <input type="text" class = " form-control " id = "BoxQtyp_B01" name="D_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0"readonly >
+                        <input type="text" class = " form-control " id = "BoxQtyp_B01" name="D_Qty" style="border-radius: 0px; width: 60px; border:none;  text-align: right; " value="0" readonly >
                         <p style="margin-top: 14px;">개</p>
                     </div>
                 </div>
@@ -623,6 +623,7 @@
 
         </div>
         <hr>
+        <input type="hidden" id ="pBoxInfo" name="pBoxInfo" value="0">
 
         <div class=" d-flex justify-content-center">
             <input type="button" id="button2" class="btn btn-lg text-white m-5 " style="background: #888888; border-radius: 0px; width: 220px; height: 55px;" value="취소" onclick="location.href='/'">
@@ -951,6 +952,47 @@
     $(document).ready(function(){
         e.stopImmediatePropagation();
         $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        $(document).click(function() {
+            var input1 = document.getElementById("BoxQtyp_A01");
+            var input2 = document.getElementById("BoxQtyp_A02");
+            var input3 = document.getElementById("BoxQtyp_A03");
+            var input4 = document.getElementById("BoxQtyp_B01");
+            var input5 = document.getElementById("BoxQtyp_B02");
+            var input6 = document.getElementById("BoxQtyp_B03");
+            var boxInfo = document.getElementById("pBoxInfo");
+            let countA = 0;
+            let countB = 0;
+
+
+            if (input1.value >= 1 || input2.value >= 1 || input3.value >= 1 ) {
+                countA++;
+            }
+            if (input4.value >= 1 ||input5.value >= 1 ||input6.value >= 1) {
+                countB++;
+            }
+            /*
+                  console.log("카운트A" + countA);
+                  console.log("카운트B" + countB);
+            */
+            if (countA > 0 && countB > 0) {
+                boxInfo.value = "3";
+            } else if (countA > 0) {
+                boxInfo.value = "1";
+            } else if (countB > 0) {
+                boxInfo.value = "2";
+            } else {
+                boxInfo.value = "0";
+            }
+            /*
+                  console.log(boxInfo.value);
+            */
+        });
+
     });
 </script>
 </body>

@@ -32,7 +32,7 @@
     </select>
 
     <update id="placemodi" parameterType="com.neighborCabinet.project.model.PlaceInfoVO">
-        update place set pWriteTitle = #{pWriteTitle}, pWriteSub = #{pWriteSub}, pType = #{pType}, pType_d = #{pType_d}, food = #{food}, pickup = #{pickup}, pPlaceTitle = #{pPlaceTitle}, pPlaceInfo = #{pPlaceInfo}, pHp = #{pHp}, pS_Time = #{pS_Time}, pE_Time = #{pE_Time}, pAddress1 = #{pAddress1}, pAddress2 = #{pAddress2}, pBoxInfo = #{pBoxInfo}, pCautionInfo = #{pCautionInfo}
+        update place set pWriteTitle = #{pWriteTitle}, pWriteSub = #{pWriteSub}, pType = #{pType}, pType_d = #{pType_d}, food = #{food}, pickup = #{pickup}, pPlaceTitle = #{pPlaceTitle}, pPlaceInfo = #{pPlaceInfo}, pHp = #{pHp}, pS_Time = #{pS_Time}, pE_Time = #{pE_Time}, pAddress1 = #{pAddress1}, pAddress2 = #{pAddress2}, pBoxInfo = #{pBoxInfo}, pCautionInfo = #{pCautionInfo}, pBoxInfo = #{pBoxInfo}
         where pNo = #{pNo}
     </update>
 

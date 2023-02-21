@@ -9,9 +9,15 @@ public class ReviewOListVO_y {
 	private String userId;
 	private String reviewEnd;
 	private String reserveNo;
+	private String imgsrc;
 	
 	
-	
+	public String getImgsrc() {
+		return imgsrc;
+	}
+	public void setImgsrc(String imgsrc) {
+		this.imgsrc = imgsrc;
+	}
 	public String getReserveNo() {
 		return reserveNo;
 	}

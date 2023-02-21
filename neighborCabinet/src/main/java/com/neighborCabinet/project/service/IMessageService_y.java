@@ -14,4 +14,7 @@ public interface IMessageService_y {
 	public void requestX(int reserveNo, String messageId); // 요청 거절
 	
 	public ArrayList<messageAllVO_y> messageAll(String userId); // 자신의 모든 메시지 불러오기
+	public int pNoSerch(int reserveNo);
+	public void mesDelete(int mesNo);
+	public void mesDeleteAll(String userId);
 }

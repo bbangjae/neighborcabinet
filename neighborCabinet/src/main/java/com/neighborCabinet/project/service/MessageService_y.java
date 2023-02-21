@@ -68,4 +68,21 @@ public class MessageService_y implements IMessageService_y {
 		return dao.resCheck(map);
 	}
 
+	@Override
+	public int pNoSerch(int reserveNo) {
+		
+		return dao.pNoSerch(reserveNo);
+	}
+
+	@Override
+	public void mesDelete(int mesNo) {
+		dao.mesDelete(mesNo);
+	}
+
+	@Override
+	public void mesDeleteAll(String userId) {
+		dao.mesDeleteAll(userId);
+		
+	}
+
 }

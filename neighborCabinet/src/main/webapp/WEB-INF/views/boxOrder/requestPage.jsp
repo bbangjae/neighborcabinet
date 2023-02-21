@@ -81,6 +81,7 @@
 								<div id="fixedInfo_1_1">
 									<div>
 										<img id="spaceImg" src="<c:url value="/image/homeImg.png"/>">
+										${imgSrc }
 									</div>
 									<div id="spaceDis">
 										<div>${place.pWriteTitle }</div>
@@ -90,8 +91,7 @@
 								</div>
 								<div id="fixedInfo_1_2">
 									<div><div>공간 유형</div><div>${place.pType }</div></div>
-									<div><div>선택한 박스</div><div>이웃집 플라스틱 박스</div></div>
-									<div><div>모든 개수</div><div>1개</div></div>
+									<div><div>선택한 박스</div><div>${reserveInfo.boxType }</div></div>
 								</div>
 							</div>
 						</section>
@@ -99,7 +99,7 @@
 							<div class="sec_title">예약정보</div>
 							<div id="fixedInfo_2">
 								<div id="fixedInfo_2bobo"><span>예약날짜</span><span>${reserve_day } (${dayofweek }) ${start_time }시 ~ ${end_time }시</span></div>
-								<div><span>예약박스</span><span>플라스틱 3호</span></div>
+								<div><span>예약박스</span><span>${reserveInfo.boxType }</span></div>
 							</div>
 						</section>	
 						<section id="s3">
@@ -146,11 +146,8 @@
 								<div><div>공간상호</div><div>${place.pPlaceTitle }</div></div>
 								<div><div>대표자명</div><div>${host.userName }</div></div>
 								<div><div>소재지</div><div>${place.pAddress1 }(${place.pAddress2 })</div></div>
-								<div><div>사업자번호</div><div>649824</div></div>
-								<div>
-									<div>연락처</div>
-									<div id="PAndE"><div>${H_HP1 }-${H_HP2 }-${H_HP3 }</div><div>${host.userEmail }</div></div>
-									</div>
+								<div><div>연락처</div><div>${H_HP1 }-${H_HP2 }-${H_HP3 }</div></div>
+								<div><div>이메일</div><div>${host.userEmail }</div></div>
 							</div>
 						</section>
 					</div>
@@ -162,7 +159,7 @@
 									<div id="fixedInfo_5_1_1">
 										<div>예약날짜<span>${reserve_day } (${dayofweek })</span></div>
 										<div>예약시간<span>${start_time }시 ~ ${end_time }시, ${reserve_time }시간</span></div>
-										<div>예약박스<span>플라스틱 박스</span></div>
+										<div>예약박스<span>${reserveInfo.boxType }</span></div>
 									</div>
 									<div>
 										<div><fmt:formatNumber value="${reserveInfo.reservePrice }" pattern="#,###" /></div>
@@ -183,7 +180,7 @@
 		<div id="modal">
 			<label for="objectModal"></label>
 			<div>
-				<label for="objectModal"><i class="fa-regular fa-circle-xmark"></i></label>
+				<label for="objectModal"><i class="fa-regular fa-circle-xmark" id="objectModal_i"></i></label>
 				<form id="objectForm">
 					사진 업로드 : <input type="file" id="uploadFile" name="uploadFile">
 					<input type="submit" value="결과 확인">

@@ -11,14 +11,9 @@ $(document).ready(function(){
 		
 		let url = '/mypage/reviewReg/' + lin;
 		let title = 'review';
-		let option = 'width=500, height=450, top=150, left=600, status=yes, scrollbars=yes';
+		let option = 'width=550, height=550, top=150, left=600, status=yes, scrollbars=yes';
 		window.open( url , title, option);
 		
-//		frmPa.action = url;
-//		frmPa.method = "post";
-//		frmPa.target = title;
-//		frmPa.check.value = '3';
-//		frmPa.submit();
 	});
 	
 	

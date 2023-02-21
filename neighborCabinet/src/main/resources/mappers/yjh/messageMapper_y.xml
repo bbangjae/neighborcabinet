@@ -43,4 +43,10 @@
 		WHERE m.userId=#{userId} and m.reserveNo=r.reserveNo and r.pNo=p.pNo
 		ORDER BY mesDate DESC
 	</select>
+	<delete id="mesDelete" parameterType="int">
+		DELETE FROM messageAll WHERE mesNo = #{mesNo}
+	</delete>
+	<delete id="mesDeleteAll" parameterType="string">
+		DELETE FROM messageAll WHERE userId = #{userId}
+	</delete>
 </mapper >

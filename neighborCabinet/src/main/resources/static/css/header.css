@@ -67,14 +67,14 @@ body{
 	font-size : 15px;
 	color : #00DBAF;
 }
-#messageBox{
+#messageBox__header{
 	font-size : 25px;
 	margin-right : 30px;
 }
-#messageBox i{
+#messageBox__header i{
 	margin-left : 10px;
 }
-#messageBox i:hover{
+#messageBox__header i:hover{
 	cursor : pointer;
 }
 #STTBtn{

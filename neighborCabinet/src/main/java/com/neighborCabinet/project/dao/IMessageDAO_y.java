@@ -17,5 +17,8 @@ public interface IMessageDAO_y {
 	public void requestXMessage(HashMap<String, Object> map); // 요청 거절 메시지
 	
 	public ArrayList<messageAllVO_y> messageAll(String userId); // 자신의 모든 메시지 불러오기
+	public int pNoSerch(int reserveNo);
+	public void mesDelete(int mesNo);
+	public void mesDeleteAll(String userId);
 	
 }

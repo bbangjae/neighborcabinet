@@ -138,8 +138,10 @@ public class MessageController {
 		String userId = (String) session.getAttribute("sid");
 		
 		ReserveVO_y requestInfo = service.requestInfo(reserveNo, userId);
-		
+		String HP = requestInfo.getSenderPhone().substring(0, 3)+ "-" + requestInfo.getSenderPhone().substring(3, 7) + "-"
+				+ requestInfo.getSenderPhone().substring(7);
 		model.addAttribute("requestInfo", requestInfo);
+		model.addAttribute("HP", HP);
 		
 		return "/message/requestInfo";
 	}

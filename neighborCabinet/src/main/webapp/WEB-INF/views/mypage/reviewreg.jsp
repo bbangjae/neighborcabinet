@@ -24,7 +24,15 @@
 					<input type="radio" name="reviewGrade" value="2" id="rate4"><label for="rate4">★</label>
 					<input type="radio" name="reviewGrade" value="1" id="rate5"><label for="rate5">★</label>
 				</fieldset>
-				<div id="emotionBox"><button type="button" id="abcd" >감정 분석</button><div id="qwer"></div></div>
+				<div id="emotionBox">
+					<button type="button" id="abcd" >감정 분석</button>
+					<div id="qwer"><div></div></div>
+					<div id="asdf">
+						<div><span style="background : #8b22ff"></span><span>부정</span></div>
+						<div><span style="background : #ffc33b"></span><span>중립</span></div>
+						<div><span style="background : #21f3d6"></span><span>긍정</span></div>
+					</div>
+				</div>
 				<div>
 					<textarea name="reviewContent" id="reviewContent"></textarea>
 				</div>

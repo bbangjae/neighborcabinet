@@ -24,8 +24,8 @@
 				#{userId}, #{totalPrice})
 	</insert>
 	<insert id="insert_OrdDetail" parameterType="com.neighborCabinet.project.model.ShippingVO_y">
-		INSERT INTO orderDetail (ordNo, boxType, boxQty, selPrice)
-		VALUES (#{ordNo}, #{boxType}, #{boxQty}, #{selPrice})
+		INSERT INTO orderDetail (ordNo, boxType, boxQty, selPrice, userId)
+		VALUES (#{ordNo}, #{boxType}, #{boxQty}, #{selPrice}, #{userId})
 	</insert>
 	
 	<!-- 예약결제페이지 -->
@@ -58,7 +58,7 @@
 	</select>
 	<update id="insert_res" parameterType="com.neighborCabinet.project.model.ReserveVO_y">
 		UPDATE reserve
-		SET sender=#{sender}, resState=0, receiver=#{receiver}, reviewEnd="00000000"
+		SET sender=#{sender}, resState=0, receiver=#{receiver}, reviewEnd=#{rentEndDate}
 		WHERE reserveNo=#{reserveNo}
 	</update>
 	<update id="insert_resD" parameterType="com.neighborCabinet.project.model.ReserveDetailVO_y">

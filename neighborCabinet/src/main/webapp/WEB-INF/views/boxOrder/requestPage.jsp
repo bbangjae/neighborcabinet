@@ -70,6 +70,7 @@
 	</head>
 	<body>
 		<c:import url="/WEB-INF/views/layout/header.jsp" />
+		<c:import url="/WEB-INF/views/member/chat.jsp"/>
 		<div id="wrap">
 			<div><h1>예약하기</h1></div>
 			<article>
@@ -80,7 +81,7 @@
 							<div id="fixedInfo_1">
 								<div id="fixedInfo_1_1">
 									<div>
-										<img id="spaceImg" src="<c:url value="/image/homeImg.png"/>">
+										<img id="spaceImg" src="<c:url value="/images/${imgSrc}"/>">
 										${imgSrc }
 									</div>
 									<div id="spaceDis">
@@ -108,11 +109,11 @@
 							<div id="fixedInfo_3">
 								<div>
 									<div></div>
-									<c:if test="${place.pickup eq '1,0'}">
+									<c:if test="${place.pickup eq 1}">
 										<input type="checkbox" value="0" id="pickup" name="pickup">
 					                    <label for="pickup" style="margin-right : 5px;"></label><label for="pickup" style="margin-right : 50px;">픽업 요청</label>
 				                    </c:if>
-				                    <c:if test="${place.food eq '1,0'}">
+				                    <c:if test="${place.food eq 1}">
 					                    <input type="checkbox" value="0" id="food" name="food" >
 					                    <label for="food" style="margin-right : 5px;"></label><label for="food" style="margin-right : 50px;">음식 포함</label>
 				                    </c:if>

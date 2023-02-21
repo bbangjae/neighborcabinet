@@ -5,5 +5,5 @@ import java.util.ArrayList;
 import com.neighborCabinet.project.model.boxHistoryVO;
 
 public interface IBoxhistoryDAO {
-	public ArrayList<boxHistoryVO> listBoxHistory(boxHistoryVO boxVO);
+	public ArrayList<boxHistoryVO> listBoxHistory(String userId);
 }

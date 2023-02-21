@@ -12,6 +12,5 @@ public interface IUsermodifyDAO {
 	
 	// 회원정보 삭제
 	public int memberDelete(String userId);
-
 }
   

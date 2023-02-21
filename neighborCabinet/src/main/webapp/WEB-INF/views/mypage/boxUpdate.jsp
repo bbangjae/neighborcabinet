@@ -72,29 +72,39 @@
 				</nav>
 			</div>
 			
-			<div class="wrap3">
-				<div class="bU">
-					<div class="lbU1">
-						<div class="lbU">
-							<div class="lbuimageBox">
-								<img class="lbuImage" src="/image/normal.png">
-							</div>
-							<div class="">
-								
-							</div>
-							
-						</div>
-					</div>
-					<div class="rbU1">
-						<div class="rbU">
-							<div class="rbuimageBox">
-								<img class="rbuImage" src="/image/premium.png">
-							</div>
-						</div>
-					</div>
-				</div>
+			<form action="/QRconfirm" method="post" class="update_form">
+				<input id="sender" name="sender">
+				<input id="senderPhone" name="senderPhone">
+			</form>
+			<button id="bt1" name="bt1"></button>
 			</div>
-		</div>
+		<script>
+		$("#bt1").on("click", function(){	
+			let sender = $("#sender").val();
+			let senderPhone = $("#senderPhone").val();
+			
+			if ( !confirm("QR")) {
+					 alert("취소를 누르셨습니다.");
+					 return false;
+				} else {
+					$.ajax({
+			 			type:"post",
+			 			url:"/QRconfirm",
+			 			data:{"senderPhone":senderPhone,"sender":sender},
+			 			success:function(result){
+			 				if(result=="success"){
+			 					alert("거래종료");
+			 					location.href="/boxUpdate";
+			 				}
+			 			
+			 			},
+			 			error:function(){
+			 				alert("실패");
+			 			},
+			 		});
+				}	
+		});
+		</script>
 		</body>
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>
 </html>

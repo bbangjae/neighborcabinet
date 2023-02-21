@@ -246,7 +246,8 @@ ul.btns li.current{
   width: 30%;
 }
 
-#moreBtn{
+.moreBtn{
+  background-color: transparent;
   border: 1px solid #eaeaea;
   border-radius: 10px;
   font-weight: lighter;

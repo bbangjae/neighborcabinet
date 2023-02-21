@@ -9,6 +9,7 @@ public class ReserveVO_y {
 	private int resState;
 	private String rentEndDate;
 	private String reserveDate;
+	private String userId;
 	private int reservePrice;
 	private int pickup;
 	private int food;
@@ -137,5 +138,11 @@ public class ReserveVO_y {
 	public void setResState(int resState) {
 		this.resState = resState;
 	}
-
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	
 }

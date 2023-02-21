@@ -127,7 +127,7 @@
 						<form action="/modifyBox" method="post" id="modifyABoxForm">
 						<table class="aboxModify" id="aboxModify" style="display:none;">
 							<tr>
-								<input type="hidden" class="modifySpan2" name="userId" id="userId" value="<c:out value='${sessionScope.sid}'></c:out>">
+								
 								<th>타입</th>
 								<th>크기</th>
 								<th class="pmth" style="display:none;"></th>
@@ -155,13 +155,13 @@
 								<th><input class="thValue" id="a03" name="a03" value="${boxStock.a03 }" readonly="readonly"/></th>
 								<th class="pmth" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
 							</tr>
-							<tr>
+							<%-- <tr>
 								<th>A04</th>
 								<th>400x400x400</th>
 								<th class="pmth" style="display:none;"><button type ="button" onclick="fnCalCount('m',this);" class="m1">-</button></th>
 								<th><input class="thValue" id="a04" name="a04" value="${boxStock.a04 }" readonly="readonly"/></th>
 								<th class="pmth" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
-							</tr>
+							</tr> --%>
 							
 						</table>
 						</form>
@@ -197,13 +197,13 @@
 								<th><input class="thValue" id="b03" name="b03" value="${boxStock.b03 }" readonly="readonly"/></th>
 								<th class="pmth1" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
 							</tr>
-							<tr>
+							<%-- <tr>
 								<th>B04</th>
 								<th>400x400x400</th>
 								<th class="pmth1" style="display:none;"><button type ="button" onclick="fnCalCount('m',this);" class="m1">-</button></th>
 								<th><input class="thValue" id="b04" name="b04" value="${boxStock.b04 }" readonly="readonly"/></th>
 								<th class="pmth1" style="display:none;"><button type="button" onclick="fnCalCount('p', this);" class="p1">+</button></th>
-							</tr>
+							</tr> --%>
 						</table>
 						</form>
 								<button class="saveBtn2" id="saveBtn2" style="display:none;">저장</button>
@@ -249,13 +249,18 @@
 			      <div class="boxType" id="rent">
 			        <div class="infoContainer" id="rentContainer">
 			        <!-- 거래 내역 -->
-			         <c:forEach var="ldeal" items="${LdealAllHistory}">
+			        
+			         <c:forEach var="ldeal" items="${LdealAllHistory}" varStatus="status"> 
 			         <c:if test="${ldeal.resState eq '2' }">
 			          <div class="boxInfo">
 			            <div id="topContainer">
 			              <div id="date"><%-- <fmt:formatDate value='${ldeal.reserveDate}' dateStyle="full"/><span id="time"> <fmt:formatDate value='${ldeal.reserveDate}' type="time" timeStyle="short"/></span> --%>
 			              ${ldeal.reserveDate.substring(0,12)}<span id="time"> ${ldeal.startTime}<span> ~ </span>${ldeal.endTime} </span>까지</div>
-			              <div id="more"><a id="moreBtn">상세보기</a></div>
+			              <!-- <form method="post" class="update_form"> -->
+			          		<input type="hidden" class="modifySpan2" name="reserveNo" id="reserveNo" value="${ldeal.reserveNo}">
+			          		<input type="hidden" class="modifySpan2" name="userId" id="userId" value="<c:out value='${sessionScope.sid}'></c:out>">
+			              <!-- </form> -->
+			              <div id="more"><button class="moreBtn">거래종료</button></div>
 			            </div>
 			            <div id="middleContainer">
 			              <div id="rentImg">
@@ -283,7 +288,6 @@
 			        </div>
 			      </div>
 			    </div>
-			    
 						     <!-- 대여  내역 시작 -->    
 			    <div class="box-wrapper">
 			      <div class="box-title">
@@ -464,11 +468,6 @@
 	  
 	  <!-- 모달 창 끝 -->
     		<!-- 수량 조정 form -->
-			<form action="/cart/update" method="post" class="quantity_update_form">
-				<input type="hidden" name="cartId" class="update_cartId">
-				<input type="hidden" name="bookCount" class="update_bookCount">
-				<input type="hidden" name="memberId" value="${member.memberId}">
-			</form>
     		
 			</div>
 		</div>
@@ -507,6 +506,52 @@
 		    }
 
 		</script>
+		<!-- <script>
+		$(".moreBtn").on("click", function(e){	
+			let update_form = $(".update_form");
+			
+			if ( !confirm("거래를 종료 하시겠습니까?")) {
+					 alert("취소를 누르셨습니다.");
+					 return false;
+				} else {
+					e.preventDefault();
+					update_form.submit();
+					alert("거래종료"); 
+				}	
+		});
+		</script> -->
+		
+		
+		<script>
+		$(".moreBtn").on("click", function(){
+			/* event.preventDefault(); */
+			let reserveNo = $("#reserveNo").val();
+			let userId = $("#userId").val();
+			
+			if ( !confirm("거래를 종료 하시겠습니까?")) {
+					 alert("취소를 누르셨습니다.");
+					 return false;
+				} else {
+					$.ajax({
+			 			type:"post",
+			 			url:"/dealFinish",
+			 			data:{"reserveNo":reserveNo,"userId":userId},
+			 			success:function(result){
+			 				if(result=="success"){
+			 					alert("거래종료");
+			 					location.href="/lenderPage";
+			 				}
+			 			
+			 			},
+			 			error:function(){
+			 				alert("실패");
+			 			},
+			 		});
+				}
+		});
+		</script>
+		
+		
 		</body>
 		<div class="fb"><c:import url="/WEB-INF/views/layout/footer.jsp"/></div>
 </html>

@@ -11,6 +11,7 @@ public class boxHistoryVO {
 	private int boxQty;
 	private int selPrice;
 	private String ordDate;
+	private String userId;
 	
 	public int getOrdDNo() {
 		return ordDNo;
@@ -47,6 +48,12 @@ public class boxHistoryVO {
 	}
 	public void setOrdDate(String ordDate) {
 		this.ordDate = ordDate;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}	
 	
 	

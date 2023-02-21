@@ -24,7 +24,7 @@ public interface IRentalregDAO {
 
     public void deleteplace(int pNo);
 
-
+    public void deletereserveDate(int pNo);
 
 
 

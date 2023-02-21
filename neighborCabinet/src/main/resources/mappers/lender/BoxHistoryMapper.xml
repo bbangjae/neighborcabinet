@@ -5,10 +5,10 @@
   
   <mapper namespace="com.neighborCabinet.project.dao.IBoxhistoryDAO">
   
-  	<select id="listBoxHistory" parameterType="com.neighborCabinet.project.model.boxHistoryVO" resultType="com.neighborCabinet.project.model.boxHistoryVO">
+  	<select id="listBoxHistory" parameterType="string" resultType="com.neighborCabinet.project.model.boxHistoryVO">
 		SELECT *
 		FROM orderDetail
-		ORDER BY ordDNo ASC
+		WHERE userId=#{userId }
 	</select>
 	
 </mapper>

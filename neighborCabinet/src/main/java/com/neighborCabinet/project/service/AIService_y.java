@@ -141,9 +141,9 @@ public class AIService_y {
 		SentimentVO senti = new SentimentVO();
 		
 		JSONObject result = new JSONObject(jsonResultStr).getJSONObject("document").getJSONObject("confidence");
-		int positive = result.getInt("positive");
-		int negative = result.getInt("negative");
-		int neutral = result.getInt("neutral");
+		double positive = result.getInt("positive");
+		double negative = result.getInt("negative");
+		double neutral = result.getInt("neutral");
 		
 		senti.setNegative(negative);
 		senti.setNeutral(neutral);

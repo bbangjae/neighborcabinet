@@ -14,8 +14,8 @@ public class BoxhistoryService implements IBoxhistoryService{
 	IBoxhistoryDAO dao;
 				
 	@Override
-	public ArrayList<boxHistoryVO> listBoxHistory(boxHistoryVO boxVO) {
-		return dao.listBoxHistory(boxVO);
+	public ArrayList<boxHistoryVO> listBoxHistory(String userId) {
+		return dao.listBoxHistory(userId);
 	}
 
 }

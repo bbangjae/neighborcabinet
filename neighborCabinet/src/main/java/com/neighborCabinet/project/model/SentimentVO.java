@@ -1,26 +1,28 @@
 package com.neighborCabinet.project.model;
 
 public class SentimentVO {
-	private int positive;
-	private int negative;
-	private int neutral;
+	private double positive;
+	private double negative;
+	private double neutral;
 	
-	public int getPositive() {
+	public double getPositive() {
 		return positive;
 	}
-	public void setPositive(int positive) {
+	public void setPositive(double positive) {
 		this.positive = positive;
 	}
-	public int getNegative() {
+	public double getNegative() {
 		return negative;
 	}
-	public void setNegative(int negative) {
+	public void setNegative(double negative) {
 		this.negative = negative;
 	}
-	public int getNeutral() {
+	public double getNeutral() {
 		return neutral;
 	}
-	public void setNeutral(int neutral) {
+	public void setNeutral(double neutral) {
 		this.neutral = neutral;
 	}
+	
+	
 }

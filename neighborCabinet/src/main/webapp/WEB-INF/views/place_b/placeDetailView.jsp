@@ -81,7 +81,7 @@
                     </div>
                     <div id="imagePanel" style="width:${fC*750}px; " value="${fC}">
                         <c:forEach var="file"  items="${fileList}">
-                            <img style=" width:750px; height: 400px;" src="<c:url value='/images/${file.savedFileName}' />" >
+                            <img style=" width:750px; height: 400px;" src="<c:url value='/uploads/${file.savedFileName}' />" >
                         </c:forEach>
 
                     </div>
@@ -196,10 +196,9 @@
                             <div class="i_sub">
                                 ${aM.get("roadAddress")}
                             </div>
-                            <div class="i_btn">
+                            <div class="i_btn" style="margin-left:30px; width:300px; ">
                                 <ul class="call_ul" style="border:0px;">
                                     <li class="call_li" id="call"><a href="#target">전화걸기</a></li>
-                                    <li class="call_li"><a href="#target">길찾기</a></li>
 
 
                                 </ul>
@@ -320,7 +319,23 @@
                                 <div class="box_title" style="">
                                     <button class="after_btn"></button>
                                     <button class="click_btn" style="margin:0px;"></button>
-                                    <span class="o_type" style="display: inline-block;width:43%;">${im.key}</span>
+                                    <c:if test="${im.key.equals('1호')||im.key.equals('2호')||im.key.equals('3호')}">
+                                        <span class="o_type" style="display: inline-block;width:43%;">박스 ${im.key}</span>
+                                    </c:if>
+                                    <c:if test="${im.key.equals('4호')}">
+                                    <span class="o_type" style="display: inline-block;width:43%;">시크릿 박스 1호</span>
+                                    </c:if>
+                                    <c:if test="${im.key.equals('5호')}">
+                                        <span class="o_type" style="display: inline-block;width:43%;">시크릿 박스 2호</span>
+                                    </c:if>
+                                    <c:if test="${im.key.equals('6호')}">
+                                        <span class="o_type" style="display: inline-block;width:43%;">시크릿 박스 3호</span>
+                                    </c:if>
+
+
+<%--                                        <span class="o_type" style="display: inline-block;width:43%;">박스 ${im.key}</span>--%>
+
+
                                     <div style="display: inline-block; width:45%; font-weight:lighter; text-align: right;">
 
                                         <span class="o_price" style="margin-right:-5px; text-align: right;" value="${pl[vs.index]}">￦${pl[vs.index]}</span>

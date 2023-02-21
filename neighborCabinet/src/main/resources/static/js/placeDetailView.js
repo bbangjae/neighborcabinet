@@ -507,7 +507,7 @@ $(document).ready(function(){
                             "background-color":"rgb(249, 250, 251)"
                         });
                         $(".qa_div").eq(q_index).find(".qa_update").val("수정");
-                        $(".qa_div").eq(q_index).find(".qa_delete").eq(q_index).val("삭제");
+                        $(".qa_div").eq(q_index).find(".qa_delete").val("삭제");
                     }
 
                 })
@@ -550,7 +550,7 @@ $(document).ready(function(){
                     })
                     qaHeight();
                     $(this).val("삭제")
-                    $(".qa_update").eq(q_index).val("수정");
+                    $(".qa_div").eq(q_index).find(".qa_update").val("수정");
 
             }
 

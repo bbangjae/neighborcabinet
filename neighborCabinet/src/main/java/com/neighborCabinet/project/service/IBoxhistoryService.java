@@ -6,5 +6,5 @@ import com.neighborCabinet.project.model.boxHistoryVO;
 
 
 public interface IBoxhistoryService {
-	public ArrayList<boxHistoryVO> listBoxHistory(boxHistoryVO boxVO);
+	public ArrayList<boxHistoryVO> listBoxHistory(String userId);
 }

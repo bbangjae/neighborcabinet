@@ -135,7 +135,6 @@ public class PlaceController {
         }
         else
             result=-1;
-        System.out.print(1234);
         return result;
     }
     @ResponseBody
@@ -236,7 +235,6 @@ public class PlaceController {
         ArrayList<BoxInfoVO_y> type_B = service2.type_BList();
         model.addAttribute("type_A", type_A);
         model.addAttribute("type_B", type_B);
-
         return "/boxOrder/boxList2";
     }
 

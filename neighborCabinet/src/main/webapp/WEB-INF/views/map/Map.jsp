@@ -20,12 +20,9 @@
 		$(function(){
 			moveNear();
 			initMap();
-
 		});
 
 		function initMap(){
-
-
 			markers = new Array(); // 마커 정보를 담는 배열
 			infoWindows = new Array(); // 정보창을 담는 배열
 			var bounds = map.getBounds(),
@@ -163,7 +160,7 @@
 				}
 
 				if (response.v2.meta.totalCount === 0) {
-					return alert('totalCount' + response.v2.meta.totalCount);
+					return alert('주소를 확인해주세요.');
 				}
 
 				var htmlAddresses = [],
@@ -295,7 +292,6 @@
 				<div class="viewMapR">
 					<!-- 장소 정보1 -->
 					<c:forEach var="p" items="${listAllMap }">
-<%--					<div class="placeInfo" id="list${p.pNo}" onclick="location.href='<c:url value='/place/placeDetailView/${p.pNo}'/>'">--%>
 					<div class="placeInfo" id="list${p.pNo}" value="${p.pNo}" >
 						<div class="placeimageDiv">
 							<img style=" width:100%; height:100%;" src="<c:url value='/uploads/${p.pImage}' />" >

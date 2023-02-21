@@ -190,6 +190,7 @@ public class rentalController_S {
     public String modi(@PathVariable int pNo, Model model, PlaceInfoVO placeInfoVO,boxtypeVO boxtype,HttpSession httpSession, MultipartFile[] files) throws Exception{
 
         service.deleteboxtype(pNo);
+        service.deletereserveDate(pNo);
         placeInfoVO.setpNo(pNo);
         service.placemodi(placeInfoVO);
         String id =(String) httpSession.getAttribute("sid");
@@ -208,6 +209,7 @@ public class rentalController_S {
                 fileService.fileDelete(fileList); // 파일 정보 DB에서 삭제
 
         }
+
 
             //파일 저장소 위치 존재 확인 후 없으면 생성
             File folder = new File(System.getProperty("user.dir") + uploadPath);

@@ -64,5 +64,11 @@ public class RentalregService implements IRentalService {
 
     }
 
+    @Override
+    public void deletereserveDate(int pNo) {
+        reg.deletereserveDate(pNo);
+
+    }
+
 
 }

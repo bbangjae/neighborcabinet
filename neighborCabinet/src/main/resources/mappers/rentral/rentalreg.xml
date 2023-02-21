@@ -39,6 +39,10 @@
     <delete id="deleteboxtype" parameterType="int">
         DELETE FROM boxtype WHERE pNo = #{pNo}
     </delete>
+
+    <delete id="deletereserveDate" parameterType="int">
+        delete from reserveDate where pNo = #{pNo}
+    </delete>
     
     <delete id="deleteplace" parameterType="int">
         DELETE p, b FROM place p

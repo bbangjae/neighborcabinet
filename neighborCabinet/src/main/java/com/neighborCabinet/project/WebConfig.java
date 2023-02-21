@@ -12,7 +12,9 @@ public class WebConfig implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/images/**")
 		.addResourceLocations("file:///F:/neighborcabinet/neighborCabinet/uploads/",
-				"file:////uploads/");
+				"file:////uploads/",
+				"file:////var/lib/jenkins/workspace/ncabinet/uploads/",
+				"file:////var/lib/jenkins/workspace/ncabinet/neighborCabinet/uploads/");
 													// upload 폴더 경로 설정 (동일한 이름 /images 사용)
 	}
 }

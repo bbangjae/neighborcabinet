@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
-import org.apache.catalina.connector.Connector;
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
-import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
-import org.springframework.context.annotation.Bean;
+//import org.apache.catalina.connector.Connector;
+//import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+//import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
+//import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @PropertySources({
@@ -24,17 +24,17 @@ public class NeighborCabinetApplication {
 		SpringApplication.run(NeighborCabinetApplication.class, args);
 	}
 	
-	@Bean    
-	public ServletWebServerFactory serveltContainer(){       
-		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();        
-		tomcat.addAdditionalTomcatConnectors(createStandardConnector());       
-		return tomcat;    
-	}    
-	
-	private Connector createStandardConnector(){        
-		Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");        
-		connector.setPort(8080);        
-		return connector;  
-	}
+//	@Bean    
+//	public ServletWebServerFactory serveltContainer(){       
+//		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();        
+//		tomcat.addAdditionalTomcatConnectors(createStandardConnector());       
+//		return tomcat;    
+//	}    
+//	
+//	private Connector createStandardConnector(){        
+//		Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");        
+//		connector.setPort(8080);        
+//		return connector;  
+//	}
 
 }

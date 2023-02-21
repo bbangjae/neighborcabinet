@@ -311,8 +311,8 @@
         }
 
         // 챗봇 창에 보낸 메시지 추가
-        $('#chatBox').append('<div class="msgBox send"><span id="in">' +
-            $('#message').val() + '</span></div><br>');
+        $('#chatBox').append('<div class="msgBox send"><span id="in"><pre>' +
+            $('#message').val() + '</pre></span></div><br>');
 
     callAjax();
 

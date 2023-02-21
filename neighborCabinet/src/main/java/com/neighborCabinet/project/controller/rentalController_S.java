@@ -90,7 +90,7 @@ public class rentalController_S {
 
 
         //파일 저장소 위치 존재 확인 후 없으면 생성
-        File folder = new File(System.getProperty("user.dir")+ uploadPath);
+        File folder = new File(uploadPath);
         if (!folder.exists()) {
             folder.mkdir();
         }
@@ -103,7 +103,7 @@ public class rentalController_S {
                 continue;
             String originalFileName = files[a].getOriginalFilename(); //파일의 원래 이름
             String uploadedFileName = RandomStringUtils.randomAlphanumeric(10)+"_"+originalFileName; // 중복 방지를 위해 저장될 랜덤값 + 파일 이름
-            File fileToUpload = new File( System.getProperty("user.dir")+ uploadPath+ uploadedFileName );
+            File fileToUpload = new File( uploadPath+ uploadedFileName );
             files[a].transferTo(fileToUpload);
 
             // 저장된 파일의 정보를 리스트로 보관
@@ -129,7 +129,7 @@ public class rentalController_S {
         try{
             FileVO fileInfo = fileService.fileDetail(fileNo);
 
-            String saveFolderPath = System.getProperty("user.dir")+ uploadPath; // 파일이 저장된 위치
+            String saveFolderPath = uploadPath; // 파일이 저장된 위치
             String savedFileName = fileInfo.getSavedFileName(); // 서버에 저장된 이름
             String originalFileName = fileInfo.getOriginalFileName(); // 실제 내보낼 파일 명
 
@@ -224,7 +224,7 @@ public class rentalController_S {
         if( placeInfoVO.getpNo() > 0) {
             List<FileVO> fileList = fileService.fileList(pNo);
             for (int a = 0; a < fileList.size(); a++) {
-                File file = new File(System.getProperty("user.dir") + uploadPath + fileList.get(a).getSavedFileName());
+                File file = new File(uploadPath + fileList.get(a).getSavedFileName());
                 if (file.exists())
                     file.delete(); // 파일 유무 확인 후 삭제
             }
@@ -234,7 +234,7 @@ public class rentalController_S {
         }
 
             //파일 저장소 위치 존재 확인 후 없으면 생성
-            File folder = new File(System.getProperty("user.dir") + uploadPath);
+            File folder = new File(uploadPath);
             if (!folder.exists()) {
                 folder.mkdir();
             }
@@ -247,7 +247,7 @@ public class rentalController_S {
                 continue;
             String originalFileName = files[a].getOriginalFilename(); //파일의 원래 이름
             String uploadedFileName = RandomStringUtils.randomAlphanumeric(10)+"_"+originalFileName; // 중복 방지를 위해 저장될 랜덤값 + 파일 이름
-            File fileToUpload = new File( System.getProperty("user.dir")+ uploadPath+ uploadedFileName );
+            File fileToUpload = new File( uploadPath+ uploadedFileName );
             files[a].transferTo(fileToUpload);
 
             // 저장된 파일의 정보를 리스트로 보관
@@ -274,7 +274,7 @@ public class rentalController_S {
 
         List<FileVO> fileList = fileService.fileList(pNo);
         for(int a=0; a<fileList.size(); a++) {
-            File file = new File(System.getProperty("user.dir")+ uploadPath+ fileList.get(a).getSavedFileName());
+            File file = new File( uploadPath+ fileList.get(a).getSavedFileName());
             if(file.exists())
                 file.delete(); // 파일 유무 확인 후 삭제
         }

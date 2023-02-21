@@ -31,6 +31,7 @@ public interface IBoxOrderDAO_y {
 	// 예약 결제 페이지(결제)
 	public void insert_res(ReserveVO_y re);
 	public void insert_resD(ReserveDetailVO_y reD);
+	public void insert_resT(HashMap<String, Object> map);
 	
 	//리뷰
 	public ArrayList<ReviewOListVO_y> reviewOList(String userId); //대여 완료 불러오기

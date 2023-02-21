@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.neighborCabinet.project.model.ReserveDetailVO_y;
+import com.neighborCabinet.project.model.MesChkVO;
 import com.neighborCabinet.project.model.ReserveVO_y;
 import com.neighborCabinet.project.model.messageAllVO_y;
 import com.neighborCabinet.project.service.MessageService_y;
@@ -21,6 +21,26 @@ import com.neighborCabinet.project.service.MessageService_y;
 public class MessageController {
 	@Autowired
 	private MessageService_y service;
+	
+//	@ResponseBody
+//	@RequestMapping("/message/check")
+//	public MesChkVO mesCheck(@RequestParam("mesNo") int mesNo, HttpSession session, Model model) {
+//		
+//		String userId = (String) session.getAttribute("sid");
+//		System.out.println("여기1");
+//		service.meschange(mesNo);
+//		System.out.println("여기2");
+//		MesChkVO chk = new MesChkVO();
+//		System.out.println("여기3");
+//		chk.setMesR(service.mesRequestCheck(userId));
+//		chk.setMesAll(service.mesAllCheck(userId));
+//		
+//		System.out.println(chk.getMesAll());
+//		System.out.println(chk.getMesR());
+//		
+//		return chk;
+//		
+//	}
 	
 	@RequestMapping("/message")
 	public String message(HttpSession session, Model model) {
@@ -50,7 +70,6 @@ public class MessageController {
 		if(chkArr != null) {
 			for(int mesNo : chkArr) {
 				service.mesDelete(mesNo);
-				System.out.println(mesNo);
 			}
 		}
 		
@@ -60,7 +79,6 @@ public class MessageController {
 		
 		for(int i = 0;i<message.size();i++) {
 			message.get(i).setMesDate(message.get(i).getMesDate().substring(0, 16));
-			System.out.print(message.get(i).getMesNo());
 		}
 		model.addAttribute("message", message);
 		
@@ -80,7 +98,6 @@ public class MessageController {
 		
 		for(int i = 0;i<message.size();i++) {
 			message.get(i).setMesDate(message.get(i).getMesDate().substring(0, 16));
-			System.out.print(message.get(i).getMesNo());
 		}
 		model.addAttribute("message", message);
 		
@@ -106,7 +123,6 @@ public class MessageController {
 	public ArrayList<ReserveVO_y> requestO(@PathVariable int reserveNo, @PathVariable String messageId, HttpSession session, Model model) {
 		
 		String userId = (String) session.getAttribute("sid");
-		System.out.println(service.resCheck(reserveNo, userId));
 		if(service.resCheck(reserveNo, userId) == 0) {
 			ArrayList<ReserveVO_y> resInfo = null;
 			return resInfo;

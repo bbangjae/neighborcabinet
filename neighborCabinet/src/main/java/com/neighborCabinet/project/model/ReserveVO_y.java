@@ -8,6 +8,7 @@ public class ReserveVO_y {
 	private String receiver;
 	private int resState;
 	private String rentEndDate;
+	private String reviewEnd;
 	private String reserveDate;
 	private String userId;
 	private int reservePrice;
@@ -24,6 +25,12 @@ public class ReserveVO_y {
 	private String pWriteTitle;
 	
 	
+	public String getReviewEnd() {
+		return reviewEnd;
+	}
+	public void setReviewEnd(String reviewEnd) {
+		this.reviewEnd = reviewEnd;
+	}
 	public String getpWriteTitle() {
 		return pWriteTitle;
 	}

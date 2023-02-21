@@ -163,5 +163,14 @@ public class BoxOrderService_y implements IBoxOrderService_y {
 		return dao.imgSrc(pNo);
 	}
 
+	@Override
+	public void insert_resT(int reserveNo, String a) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("reserveNo", reserveNo);
+		map.put("a", a);
+		dao.insert_resT(map);
+	}
+
 
 }

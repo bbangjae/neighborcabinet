@@ -31,6 +31,7 @@ public interface IBoxOrderService_y {
 	// 예약 결제 페이지(결제)
 	public void insert_res(ReserveVO_y re);
 	public void insert_resD(ReserveDetailVO_y reD);
+	public void insert_resT(int reserveNo, String a);
 	
 	// 리뷰
 	public MemberVO memberInfo(String userId); // 유저 정보
@@ -40,6 +41,7 @@ public interface IBoxOrderService_y {
 	public void reviewReg(HashMap<String, Object> map); //리뷰 등록
 	public void reviewdelete(String userId, int reviewNo); // 리뷰 삭제
 	public int reviewpNo(int reserveNo); // reserve에서 pNo 값 가져오기
+	
 	
 	//리뷰 페이징 카운트
 	public int myreviewCnt(String userId);

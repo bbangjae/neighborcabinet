@@ -2,7 +2,6 @@ package com.neighborCabinet.project.controller;
 
 import java.util.ArrayList;
 
-
 import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
@@ -19,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.neighborCabinet.project.model.BoxmodifyVO;
-import com.neighborCabinet.project.model.DealHistoryVO;
+//import com.neighborCabinet.project.model.DealHistoryVO;
 import com.neighborCabinet.project.model.LDealHistoryVO;
 import com.neighborCabinet.project.model.MemberVO;
 import com.neighborCabinet.project.model.RentHistoryVO;
@@ -167,15 +166,16 @@ public class MypageController {
 
    
      @ResponseBody
+     
      @RequestMapping("/dealFinish") 
      public String dealFinishPOST(@RequestParam HashMap<String, Object> param, HttpSession session)throws Exception{ 
      String userId = (String) session.getAttribute("sid"); 
       /* Reserve.setSender(userId); */
      QRService.dealFinish(param);
      
-     return "success";
+     return "success"; 
      }
-
+   
 
    @RequestMapping("/boxUpdate")
    public String boxUpdate() {

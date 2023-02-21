@@ -25,8 +25,8 @@
 		WHERE reserveNo=#{reserveNo}
 	</update>
 	<insert id="requestOMessage" parameterType="hashmap">
-		INSERT INTO messageAll (message, reserveNo, userId, OX)
-		VALUES ("예약 확정.", #{reserveNo}, #{messageId}, 1)
+		INSERT INTO messageAll (message, reserveNo, userId, OX, look)
+		VALUES ("예약 확정.", #{reserveNo}, #{messageId}, 1, 0)
 	</insert>
 	<update id="requestX" parameterType="int">
 		UPDATE reserve
@@ -34,8 +34,8 @@
 		WHERE reserveNo=#{reserveNo}
 	</update>
 	<insert id="requestXMessage" parameterType="hashmap">
-		INSERT INTO messageAll (message, reserveNo, userId, OX)
-		VALUES ("예약 신청 거절", #{reserveNo}, #{messageId}, 0)
+		INSERT INTO messageAll (message, reserveNo, userId, OX, look)
+		VALUES ("예약 신청 거절", #{reserveNo}, #{messageId}, 0, 0)
 	</insert>
 	<select id="messageAll" parameterType="string" resultType="com.neighborCabinet.project.model.messageAllVO_y">
 		SELECT *
@@ -49,4 +49,19 @@
 	<delete id="mesDeleteAll" parameterType="string">
 		DELETE FROM messageAll WHERE userId = #{userId}
 	</delete>
+	<update id="meschange" parameterType="int">
+		UPDATE messageAll
+		SET look=1
+		WHERE mesNo=#{mesNo}
+	</update>
+	<select id="mesRequestCheck" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*)
+		FROM reserve
+		WHERE receiver=#{userId} and resState=0
+	</select>
+	<select id="mesAllCheck" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*)
+		FROM messageAll
+		WHERE userId=#{userId} and look=0
+	</select>
 </mapper >

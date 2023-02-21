@@ -31,4 +31,10 @@ public class ChatbotController {
         return "member/chat2";
     }
 
+    @RequestMapping("member/chat3")
+    public String chat3(){
+        return "member/chat3";
+    }
+
+
 }

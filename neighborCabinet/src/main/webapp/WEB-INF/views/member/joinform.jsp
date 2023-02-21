@@ -399,7 +399,7 @@ h2{
         console.log(isEmailValid)
         console.log(isHpValid)
         //만일 폼이 유효하지 않는다면 전송을 막아주기
-        if(isNameValid || isNickValid ||isIdValid||isPwValid||isPwchkValid||isEmailValid||isHpValid){
+        if(isNameValid || isNickValid ||isPwValid||isPwchkValid||isEmailValid||isHpValid){
             //이벤트 객체의 함수를 이용해서 폼 전송 막아주기
             e.preventDefault();
             alert("필수사항을 입력해주세요");

@@ -76,6 +76,72 @@ public class ChatbotService {
 
         return chatbotMessage;
     }
+    //chatbot3 : 이미지/멀티링크 답변 처리하기 위해서
+    // JSON 형식의 문자열을 파싱하지 않고 그대로 반환
+    public  String chatbot3Main(String voiceMessage) {
+
+        String apiURL = "https://3wvzkgzao3.apigw.ntruss.com/custom/v1/9067/92bc92b16665d5a4302bebede61dab2a72d3621ee2097bdf6195981987251af4";
+        String secretKey = "T1pKS1ZyQ2VvUHlIWmdFRU9Tb0lseGt0UHlLUVptU0E=";
+
+        String chatbotMessage = ""; // 응답 메시지
+
+        try {
+            //String apiURL = "https://ex9av8bv0e.apigw.ntruss.com/custom_chatbot/prod/";
+
+            URL url = new URL(apiURL);
+
+            String message = getReqMessage(voiceMessage);
+            System.out.println("##" + message); // 전송 메시지
+
+            String encodeBase64String = makeSignature(message, secretKey);
+
+            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Content-Type", "application/json;UTF-8");
+            con.setRequestProperty("X-NCP-CHATBOT_SIGNATURE", encodeBase64String);
+
+            // post request
+            con.setDoOutput(true);
+            DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+            wr.write(message.getBytes("UTF-8"));
+            wr.flush();
+            wr.close();
+            int responseCode = con.getResponseCode();
+
+            BufferedReader br;
+
+            if(responseCode==200) { // Normal call
+                System.out.println(con.getResponseMessage());
+
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(
+                                con.getInputStream()));
+                String decodedString;
+                while ((decodedString = in.readLine()) != null) {
+                    chatbotMessage = decodedString;   // 서버로부터 결과 받은 메시지 : chatbotMessage (응답 메시지)
+                }
+                //chatbotMessage = decodedString;
+                in.close();
+
+                // 응답 메시지 출력
+                System.out.println("응답 메시지 : " + chatbotMessage);
+                // chatbotMessage : 서버에서 응답 받은 메시지 (JSON 형식의 문자열)
+
+                // JSON 형태 그대로 반환하기 위해 파싱 작업 처리하지 않음
+                // 응답 메시지 JSON 파싱 메소드 호출
+                // chatbotMessage = jsonToString(chatbotMessage);
+                // JSON 파싱 결과 추출된 답변 메시지
+
+            } else {  // Error occurred
+                chatbotMessage = con.getResponseMessage();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return chatbotMessage;
+    }
+
 
     public String makeSignature(String message, String secretKey) {
 

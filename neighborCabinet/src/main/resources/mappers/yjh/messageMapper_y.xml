@@ -21,7 +21,7 @@
 	</select>
 	<update id="requestO" parameterType="int">
 		UPDATE reserve
-		SET resState=0
+		SET resState=1
 		WHERE reserveNo=#{reserveNo}
 	</update>
 	<insert id="requestOMessage" parameterType="hashmap">
@@ -30,7 +30,7 @@
 	</insert>
 	<update id="requestX" parameterType="int">
 		UPDATE reserve
-		SET resState=0
+		SET resState=5
 		WHERE reserveNo=#{reserveNo}
 	</update>
 	<insert id="requestXMessage" parameterType="hashmap">

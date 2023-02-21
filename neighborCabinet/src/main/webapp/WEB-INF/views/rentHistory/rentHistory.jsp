@@ -19,6 +19,34 @@
 		<script src="<c:url value="/js/mod.js" />"></script>
 		<script src="<c:url value='/js/searchZip.js' />"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- <script type="text/javascript">
+		$(".moreBtn").on("click", function(){
+			/* event.preventDefault(); */
+			let reserveNo = $("#reserveNo").val();
+			let userId = $("#userId").val();
+			
+			if ( !confirm("거래를 종료 하시겠습니까?")) {
+					 alert("취소를 누르셨습니다.");
+					 return false;
+				} else {
+					$.ajax({
+			 			type:"post",
+			 			url:"/dealFinish",
+			 			data:{"reserveNo":reserveNo,"userId":userId},
+			 			success:function(result){
+			 				if(result=="success"){
+			 					alert("거래종료");
+			 					location.href="/lenderPage";
+			 				}
+			 			
+			 			},
+			 			error:function(){
+			 				alert("실패");
+			 			},
+			 		});
+				}
+		});
+		</script> -->
 	</head>
 	<body>
 	<div id="wrap">
@@ -82,7 +110,7 @@
       <!-- 추후 대여중인 박스가 있으면 해당 내용 제공, 없으면 대여중인 박스가 없습니다 보이기 -->
       <div class="box-title">내 거래 현황</div>
       <div class="box-alert">
-        <img src="<c:url value='/image/exclamation.jpg'/>"> 대여 종료 시 해당 내역은 자동 삭제됩니다.
+        <img src="<c:url value='/image/exclamation.jpg'/>"> 대여 종료 시 해당 내역은 공급자에 의해 삭제됩니다.
       </div>
       <div class="boxType" id="rent">
         <div class="infoContainer" id="rentContainer">
@@ -98,6 +126,8 @@
           <div class="boxInfo">
             <div id="topContainer">
               <div id="date">${rent.reserveDate.substring(0, 12)}<span id="time"> ${rent.endTime}</span>까지</div>
+             <%-- 	<input type="hidden" class="modifySpan2" name="reserveNo" id="reserveNo" value="${rent.reserveNo}">
+       			<input type="hidden" class="modifySpan2" name="userId" id="userId" value="<c:out value='${sessionScope.sid}'></c:out>"> --%>
               <div id="more"><a id="moreBtn">상세보기</a></div>
             </div>
             <div id="middleContainer">
@@ -261,7 +291,7 @@
         <div class="notice">
         <%-- <img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다. --%>
 			<form action="/qrCode" method="post">
-		      <input type="hidden" name="url" value="http://localhost:8080/qrConfirm/${sessionScope.sid }"/><button type="submit" id="qrBtn">개인 인증 코드 만들기</button>
+		      <input type="hidden" name="url" value="http://115.85.181.111:8080/qrConfirm/${sessionScope.sid }"/><button type="submit" id="qrBtn">개인 인증 코드 만들기</button>
 		    </form>
         </div>
        </div>

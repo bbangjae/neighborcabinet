@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,7 +17,7 @@
 					<div>예약자</div><div>${requestInfo.senderName}</div>
 				</div>
 				<div class="RI_1Cont">
-					<div>연락처</div><div>${requestInfo.senderPhone}</div>
+					<div>연락처</div><div>${HP}</div>
 				</div>
 				<div class="RI_1Cont">
 					<div>이메일</div><div>${requestInfo.senderEmail}</div>
@@ -47,7 +48,7 @@
 					<div>박스</div><div>${requestInfo.boxType}</div>
 				</div>
 				<div class="RI_1Cont">
-					<div>가격</div><div>${requestInfo.reservePrice}</div>
+					<div>가격</div><div><fmt:formatNumber value="${requestInfo.reservePrice}" pattern="#,###" />원</div>
 				</div>
 			</div>
 		</div>

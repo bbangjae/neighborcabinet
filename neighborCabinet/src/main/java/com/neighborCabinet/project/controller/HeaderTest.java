@@ -146,8 +146,7 @@ public class HeaderTest {
 							 OrderListVO_y vo, HttpSession session, Model model) {
 		
 		// 현재 아이디
-		//String userId = (String) session.getAttribute("sid");
-		String userId = "1234";
+		String userId = (String) session.getAttribute("sid");
 		
 		vo.setUserId(userId);
 		
@@ -266,6 +265,10 @@ public class HeaderTest {
 		
 		reD.setSenderPhone(senderPhone1 + senderPhone2 + senderPhone3);
 		re.setReserveNo(reserveNo);
+		ReserveVO_y reserveInfo = service.reserveInfo(reserveNo);
+
+		reserveInfo.setRentEndDate(reserveInfo.getReserveDate().substring(0, 4) + reserveInfo.getReserveDate().substring(6, 8)
+				+reserveInfo.getReserveDate().substring(9, 11));
 		
 		service.insert_res(re);
 		service.insert_resD(reD);

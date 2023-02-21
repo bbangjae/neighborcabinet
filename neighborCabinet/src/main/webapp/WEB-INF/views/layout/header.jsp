@@ -86,8 +86,8 @@
 			<label for="messageModal"></label>
 			<div id="mesContentBox">
 				<div id="mesCtg">
-					<!-- <input type="radio" name="mesCtg" id="mesCtg0" value="0"> -->
-					<input type="radio" name="mesCtg" id="mesCtg1" value="1" checked>
+					<input type="radio" name="mesCtg" id="mesCtg0" value="0" checked>
+					<input type="radio" name="mesCtg" id="mesCtg1" value="1">
 					<label for="mesCtg1">알림</label>
 					<input type="radio" name="mesCtg" id="mesCtg2" value="2">
 					<label for="mesCtg2">요청</label>

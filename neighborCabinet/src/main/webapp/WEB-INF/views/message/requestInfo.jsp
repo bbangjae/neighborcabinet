@@ -23,12 +23,11 @@
 					<div>이메일</div><div>${requestInfo.senderEmail}</div>
 				</div>
 			</div>
-			<div class="mesRcut"></div>
 			<div class="RI_1">
 				<div class="RI_1Title">예약 내용</div>
-				<div class="RI_1PF">
-					<div>픽업<c:if test="${requestInfo.pickup eq '0'}">X</c:if><c:if test="${requestInfo.pickup eq '1'}">O</c:if></div>
-					<div>음식<c:if test="${requestInfo.pickup eq '0'}">X</c:if><c:if test="${requestInfo.pickup eq '1'}">O</c:if></div>
+				<div class="RI_1Cont">
+					<div>픽업<input name="ch_name" type="checkbox" <c:if test="${requestInfo.pickup eq '1'}">checked</c:if> onClick="return false;"/></div>
+					<div>음식<input name="ch_name" type="checkbox" <c:if test="${requestInfo.food eq '1'}">checked</c:if> onClick="return false;"/></div>
 				</div>
 				
 				<div class="RI_1Cont">
@@ -38,7 +37,6 @@
 					<div>요청사항</div><div>${requestInfo.request}</div>
 				</div>
 			</div>
-			<div class="mesRcut"></div>
 			<div class="RI_1">
 				<div class="RI_1Title">결제 내용</div>
 				<div class="RI_1Cont">

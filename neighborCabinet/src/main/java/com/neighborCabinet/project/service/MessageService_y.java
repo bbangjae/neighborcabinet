@@ -85,4 +85,21 @@ public class MessageService_y implements IMessageService_y {
 		
 	}
 
+	@Override
+	public void meschange(int mes) {
+		dao.meschange(mes);
+	}
+
+	@Override
+	public int mesRequestCheck(String userId) {
+		
+		return dao.mesRequestCheck(userId);
+	}
+
+	@Override
+	public int mesAllCheck(String userId) {
+		
+		return dao.mesAllCheck(userId);
+	}
+
 }

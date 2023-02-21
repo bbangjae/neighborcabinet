@@ -17,4 +17,8 @@ public interface IMessageService_y {
 	public int pNoSerch(int reserveNo);
 	public void mesDelete(int mesNo);
 	public void mesDeleteAll(String userId);
+	
+	public void meschange(int mes);
+	public int mesRequestCheck(String userId);
+	public int mesAllCheck(String userId);
 }

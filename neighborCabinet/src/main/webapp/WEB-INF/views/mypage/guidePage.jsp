@@ -99,14 +99,14 @@
 	    			</div>
     			</div>
     			<div class="sequenceR">
-    				<img src="/image/Gmap.JPG" class="sequenceImg2">
+    				<img src="/image/tkdydwk2.png" class="sequenceImg2">
     			</div>
     		</div>
     		<hr>
     		
     		<div class="sequenceBox" id="T4B">
     			<div class="sequenceL">
-    				<img src="/image/Gmapinfo.JPG" class="sequenceImg">
+    				<img src="/image/tkdydwk3.png" class="sequenceImg">
     			</div>
     			<div class="sequenceR">
     				<div class="sequenceText">
@@ -129,7 +129,7 @@
 	    			</div>
     			</div>
     			<div class="sequenceR">
-    				<img src="/image/GPnum.JPG" class="sequenceImg2">
+    				<img src="/image/tkdydwk4.PNG" class="sequenceImg2">
     			</div>
     		</div>
     		<hr>
@@ -261,7 +261,7 @@
 	    			</div>
     			</div>
     			<div class="sequenceR">
-    				<img src="/image/GBox.JPG" class="sequenceImg2">
+    				<img src="/image/rhdrmqwk2.PNG" class="sequenceImg2">
     			</div>
     		</div>
     		<hr>
@@ -291,7 +291,7 @@
 	    			</div>
     			</div>
     			<div class="sequenceR">
-    				<img src="/image/Gagree.JPG" class="sequenceImg2">
+    				<img src="/image/rhdrmqwk4.png" class="sequenceImg2">
     			</div>
     		</div>
     		<hr>

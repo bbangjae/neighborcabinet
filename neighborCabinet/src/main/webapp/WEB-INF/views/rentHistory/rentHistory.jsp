@@ -148,7 +148,7 @@
                <c:if test="${rent.pickup eq 1 }">
                 <div id="pickup"></div>
                </c:if>
-                <img src="<c:url value='/image/1.jpg'/>" alt="이미지가 없습니다">
+                <img src="<c:url value='/image/place1.jpg'/>" alt="이미지가 없습니다">
               </div>
               <div id="rentText">
                 <div id="address">

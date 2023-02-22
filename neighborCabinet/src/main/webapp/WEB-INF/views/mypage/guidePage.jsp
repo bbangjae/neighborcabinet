@@ -20,6 +20,7 @@
 	<link rel ="stylesheet" type="text/css" href="<c:url value='/css/guidePage.css'/>">
 	<script src="<c:url value='/js/guidePage.js' />"></script>
     <title> 가이드페이지 </title>
+    <c:import url="/WEB-INF/views/member/chat.jsp"/>
     <c:import url="/WEB-INF/views/layout/header.jsp"/>
 	</head>
 	<body>

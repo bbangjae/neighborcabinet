@@ -12,6 +12,7 @@
 		
 		<link rel="stylesheet" type="text/css" href=/css/modifyInfo.css/> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<c:import url="/WEB-INF/views/member/chat.jsp"/>
 		<c:import url="/WEB-INF/views/layout/header.jsp" />
 		<script src="<c:url value='/js/searchZip.js' />"></script>
 		<script src="<c:url value='/js/lenderPage.js' />"></script>

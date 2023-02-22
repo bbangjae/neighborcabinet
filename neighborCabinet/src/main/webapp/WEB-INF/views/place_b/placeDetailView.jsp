@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href='<c:url value="/css/placeDetailView.css"/>'>
     <script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
     <script src="<c:url value="/js/placeDetailView.js"/>"></script>
+    <c:import url="/WEB-INF/views/member/chat.jsp"/>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=hm0bb8lwq6"></script>
 
 </head>
@@ -87,9 +88,8 @@
                     </div>
                 </div>
 
-                <div class="ct_title">
+                <div class="ct_title" style="height: 100%; margin-bottom: 30px;">
                     ${pi.pPlaceTitle}
-
                 </div>
 
                 <div class="ct_menu">

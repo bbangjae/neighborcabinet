@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href='<c:url value="/css/boxList2.css"/>'>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script src="<c:url value='/js/searchZip.js' />"></script>
+	<c:import url="/WEB-INF/views/member/chat.jsp"/>
 	<c:import url="/WEB-INF/views/layout/header.jsp"/>
 	<script src="<c:url value="/js/jquery-3.6.1.min.js"/>"></script>
 	<script src="<c:url value="/js/boxList2.js"/>"></script>

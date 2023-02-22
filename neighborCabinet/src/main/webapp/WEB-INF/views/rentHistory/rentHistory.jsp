@@ -15,6 +15,7 @@
 		<script src="<c:url value='/js/pagination.js' />" ></script>
 		<!-- 반응형을 위해 아래의 가로폭 조정 코드 필요 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<c:import url="/WEB-INF/views/member/chat.jsp"/>
 		<c:import url="/WEB-INF/views/layout/header.jsp" />
 		<script src="<c:url value="/js/mod.js" />"></script>
 		<script src="<c:url value='/js/searchZip.js' />"></script>

@@ -289,8 +289,8 @@
         for(var b in bubbles){
             if(bubbles[b].type == 'text'){ // 기본 답변인 경우
                 /* chatBox에 받은 메시지 추가 */
-                $('#chatBox').append('<div class="msgBox receive"><span id="in">' +
-                    bubbles[b].data.description +'</span></div>');
+                $('#chatBox').append('<div class="msgBox receive"><span id="in"><pre style="white-space: pre-wrap;">' +
+                    bubbles[b].data.description +'</pre></span></div>');
 
             }	else if(bubbles[b].type == 'template'){//이미지 답변 또는 멀티링크 답변 시작
                 if(bubbles[b].data.cover.type=="image"){//이미지 이면

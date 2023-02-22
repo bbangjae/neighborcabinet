@@ -104,7 +104,7 @@
         }
 
         .login__form {
-            background-color: #e5e3e3;
+            background-color: #eeeeee;
             border-bottom-left-radius: 1.25em;
             border-bottom-right-radius: 1.25em;
             display: grid;
@@ -118,7 +118,7 @@
 
         .login input[type="text"],
         .login input[type="password"] {
-            background-color: #eee;
+            background-color: #ffffff;
             color: #777;
             padding: 0.25em 0.625em;
             width: 100%;
@@ -136,10 +136,10 @@
 <div class="container">
     <div class = "find_id" style="">
         <div class="login">
-            <header class="login__header" >
-                <h2><svg class="icon">
+            <header class="login__header" style="text-align: center;" >
+                <h2><%--<svg class="icon">
                     <use xlink:href="#icon-lock" />
-                </svg>아이디찾기</h2>
+                </svg>--%>아이디찾기</h2>
             </header>
             <form class="login__form" id= "find_id">
 

@@ -454,7 +454,7 @@ public class HeaderTest {
 	@RequestMapping("/objectDetect")
 	public ArrayList<ObjectVO> objectDetection(@RequestParam("uploadFile") MultipartFile file) throws IOException {
 		
-		File folder = new File(System.getProperty("user.dir")+ uploadPath);
+		File folder = new File(System.getProperty("user.dir")+ "/upload/");
         if (!folder.exists()) {
             folder.mkdir();
         }
@@ -467,11 +467,11 @@ public class HeaderTest {
 //		Path filePath = Paths.get(filePathName);
 //		file.transferTo(sendFile);
 		
-		File sendFile = new File(System.getProperty("user.dir")+ uploadPath + "objectDetect");
-		Path filePath = Paths.get(System.getProperty("user.dir")+ uploadPath + "objectDetect");
+		File sendFile = new File(System.getProperty("user.dir")+ "/upload/" + "objectDetect");
+		Path filePath = Paths.get(System.getProperty("user.dir")+ "/upload/" + "objectDetect");
 		file.transferTo(sendFile);
 		
-		ArrayList<ObjectVO> objList = AIService.objectDetect(System.getProperty("user.dir")+ uploadPath + "objectDetect");
+		ArrayList<ObjectVO> objList = AIService.objectDetect(System.getProperty("user.dir")+ "/upload/" + "objectDetect");
 		
 		for(int i = 0; i < objList.size(); i++) {
 			objList.get(i).setNumber(i);

@@ -79,19 +79,12 @@
 			<div class="bodyWrap">
 				<span class="pageInfo">거래현황 → 본인확인</span>
 				<h1 class="pageName">본인 확인</h1>
-		  <form method="post" action="/qrConfirm/${sessionScope.sid}" class="update_form">
+		  <form method="post" action="/qrConfirm" class="update_form">
 			<div class="modifyinfoBox">
-				<%-- <div class="userName" >
-               		<span class="modifySpan">아이디</span>
-               		<div class="currentName">
-                    	<c:out value='${rentAllHistory.userId}'/>
-                	</div>
-                	<hr class="miHr" color="#00DBAF" size="0.7px">
-                </div>   --%>     	
 				<div class="userName">
 					<span class="modifySpan">아이디</span>
 					<div class="currentName">
-						<input type="text" class="modifySpan2" id="userId" name="userId">
+						<input type="text" class="modifySpan2" id="userId" name="sender">
 					</div>
 					<hr class="miHr" color="#00DBAF" size="0.7px">
 				</div>
@@ -103,14 +96,19 @@
 						<input type="text" class="modifySpan2" id="senderPhone" name="senderPhone">	
 					</div>
 					<hr class="miHr" color="#00DBAF" size="1px">
+					
+				</div>
+				<div class="userName"> <!--  style="display: flex;" -->
+					<button id="qrBtn" class="bt1" name="bt1">본인 인증하기</button>
+					<!-- style="margin-left: 35%;" 주면 가운데로 가능하나 더 어색함 -->
 				</div>
 				
 			</div>
 			
 		  </form>
-		  <div class="qr">
-			      <button id="qrBtn" class="bt1" name="bt1">본인 인증하기</button>
-			    </div>
+		  <!-- <div class="qr"> -->
+			      
+		    <!-- </div> -->
 		</div>
 	</div>
 	<c:import url="/WEB-INF/views/layout/footer.jsp"/>

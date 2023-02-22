@@ -106,6 +106,7 @@
 					</ul>
 				</nav>
 			</div>
+		<div style="height:100%; margin-top: 60px;">
     <div class="box-wrapper">
       <!-- 추후 대여중인 박스가 있으면 해당 내용 제공, 없으면 대여중인 박스가 없습니다 보이기 -->
       <div class="box-title">내 거래 현황</div>
@@ -289,10 +290,10 @@
        <div class="boxType" id="qr">
         <div class="infoContainer" id="qrContainer">
         <div class="notice">
-        <%-- <img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다. --%>
-			<form action="/qrCode" method="post">
+        <img src="<c:url value='/image/exclamation.jpg'/>">공급자 페이지에서 확인하세요.
+			<%-- <form action="/qrCode" method="post">
 		      <input type="hidden" name="url" value="http://115.85.181.111:8080/qrConfirm/${sessionScope.sid }"/><button type="submit" id="qrBtn">개인 인증 코드 만들기</button>
-		    </form>
+		    </form> --%>
         </div>
        </div>
       </div>
@@ -419,6 +420,7 @@
 		
 	  
 	  <!-- 모달 창 끝 -->
+    </div>
     
   </div> <!-- wrap으로 감싼 부분 끝 -->
   <c:import url="/WEB-INF/views/layout/footer.jsp" />

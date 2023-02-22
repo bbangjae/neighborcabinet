@@ -40,8 +40,8 @@
       <col width="5px"/>
     </colgroup>
     <thead class="table table-light" <%--style="background: #00DBAF; color: #FFFFFF;"--%>>
-    <tr>
-      <th style="font-weight: bold;"><h5>공간명</h5></th>
+    <tr style="width: 100%;">
+      <th colspan="3" style="font-weight: bold; "><h5>공간명</h5></th>
     </tr>
     </thead>
     <tbody>

@@ -39,8 +39,8 @@ ul.btns{
 
 .line{
   text-align: center;
-  margin-right: 20px;
-  margin-left: 10px;
+
+
 }
 
 ul.btns li{
@@ -180,14 +180,15 @@ ul.btns li.current{
 }
 
 .infoContainer {
+    width: 1000px;
   min-height: 320px;
-  min-width: 1100px;
+  min-width: 1000px;
   margin-left: 5%;
   margin-right: 18.5%;
 /*   padding-left: 30px;
   padding-right: 30px; */
   background: #f8f8f8; /* #f0f0f0; */
-	border-radius: 20px;
+    border-radius: 20px;
 /*   padding-bottom: 10px; */
  display: flex;
   flex-wrap: wrap;
@@ -465,7 +466,7 @@ th, td{
 }
 
 .qr {
-	display: flex;
+
 /*   border: 1px solid black; */
 }
 
@@ -626,6 +627,7 @@ th, td{
 	}
 
   .btn-wrapper{
+
     height: 120px;
   }
 

@@ -244,9 +244,9 @@
 				</nav>
 			</div>
 			
-			<div class="wrap3">
+			<div class="wrap3" style=" width:1180px; height:100%;">
 			<div class="modal1">
-				<div class="modal_body">
+				<div class="modal_body" >
 					<div class="modal_close1"><img src="<c:url value='/image/close.jpg'/>"></div>
 					<div class="title-l">박스구매내역</div>
 					<table class="boxTable">
@@ -271,21 +271,21 @@
 					</table>
 				</div>
 			</div>
-		   	   <div class="box-wrapper">
+		   	   <div class="box-wrapper" style=" height:100%; width: 1000px;">
 			      <!-- 추후 대여중인 박스가 있으면 해당 내용 제공, 없으면 대여중인 박스가 없습니다 보이기 -->
-			      <div class="box-title">내 거래 현황</div>
-			      <div class="box-alert">
+			      <div class="box-title"  >내 거래 현황</div>
+			      <div class="box-alert ">
 			        <img src="<c:url value='/image/exclamation.jpg'/>"> 대여 종료 시 해당 내역은 자동 삭제됩니다.
 			      </div>
 			      <div class="boxType" id="rent">
-			        <div class="infoContainer" id="rentContainer">
+			        <div class="infoContainer" id="rentContainer" style="width: 1000px;">
 			        <!-- 거래 내역 -->
 			        
 			         <c:forEach var="ldeal" items="${LdealAllHistory}" varStatus="status"> 
 			         <c:if test="${ldeal.resState eq '2' }">
-			          <div class="boxInfo">
-			            <div id="topContainer">
-			              <div id="date"><%-- <fmt:formatDate value='${ldeal.reserveDate}' dateStyle="full"/><span id="time"> <fmt:formatDate value='${ldeal.reserveDate}' type="time" timeStyle="short"/></span> --%>
+			          <div class="boxInfo" style=" width:45%;">
+			            <div id="topContainer" >
+			              <div id="date" ><%-- <fmt:formatDate value='${ldeal.reserveDate}' dateStyle="full"/><span id="time"> <fmt:formatDate value='${ldeal.reserveDate}' type="time" timeStyle="short"/></span> --%>
 			              ${ldeal.reserveDate.substring(0,12)}<span id="time"> ${ldeal.startTime}<span> ~ </span>${ldeal.endTime} </span>까지</div>
 			              <!-- <form method="post" class="update_form"> -->
 			          		<input type="hidden" class="modifySpan2" name="reserveNo" id="reserveNo" value="${ldeal.reserveNo}">
@@ -294,11 +294,11 @@
 			              <div id="more"><button class="moreBtn">거래종료</button></div>
 			            </div>
 			            <div id="middleContainer">
-			              <div id="rentImg">
+			              <div id="rentImg" ">
 			              <c:if test="${ldeal.pickup eq '1' }">
 			                <div id="pickup"></div>
 			               </c:if>
-			                <img src="<c:url value='/image/${ldeal.storList}.jpg'/>" alt="이미지가 없습니다">
+			                <img src="<c:url value='/image/place1.jpg'/>" alt="이미지가 없습니다">
 			              </div>
 			              <div id="rentText">
 			                <div id="address">
@@ -313,6 +313,7 @@
 			    <%-- <a><img src="<c:url value='/image/messenger.jpg'/>"></a> --%>
 			            </div>
 			          </div>
+
 			          </c:if>
 			         </c:forEach>
 			         <!-- 거래 내역 끝 -->
@@ -323,15 +324,15 @@
 			    <div class="box-wrapper">
 			      <div class="box-title">
 			        <div>내 대여 내역</div>
-			        <div class="detail" id="setting">
+			        <div class="detail" id="setting" >
 			          <%-- <a href="#">
 			            <img src="<c:url value='/image/setting.jpg'/>">
 			          </a> --%>
 			        </div>
 			      </div>
-			      <div class="btn-wrapper">
+			      <div class="btn-wrapper"  style="margin: 0 auto; padding:0; text-align:left;">
 			        <ul class="btns">
-			          <li class="dealBtn current" id="before" data-tab="before-tr">
+			          <li class="dealBtn current" id="before" data-tab="before-tr" style=" ">
 			            대여 전
 			          </li>
 			          <li class="line">
@@ -432,16 +433,18 @@
 						QR 코드 생성
 						<%-- <a id="re"><img src="<c:url value='/image/re2.jpg'/>"></a> --%>
 					</div>
-					<div class="boxType" id="qr">
-						<div class="infoContainer" id="qrContainer">
-							<div class="notice">
-								<%-- <img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다. --%>
-								<form action="/qrCode" method="post">
-									<input type="hidden" name="url" value="http://115.85.181.111:8080/qrConfirm/${sessionScope.sid }"/><button type="submit" id="qrBtn">개인 인증 코드 만들기</button>
-								</form>
-							</div>
+					<div class="boxType" id="qr" style="  width:100%; display: block;">
+						<div class="infoContainer" id="qrContainer" style=" margin-bottom: 0px;position: relative; ">
+
+						</div>
+						<div class="notice" style=" margin:0 auto;" >
+							<%-- <img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다. --%>
+							<form action="/qrCode" method="post">
+								<input type="hidden" name="url" value="http://115.85.181.111:8080/qrConfirm/${sessionScope.sid }"/><button type="submit" id="qrBtn" style="margin-left:400px;">개인 인증 코드 만들기</button>
+							</form>
 						</div>
 					</div>
+
 					<!-- <div class="qr">
                       <a id="qrBtn" href="#">개인 인증 코드 만들기</a>
                     </div> -->

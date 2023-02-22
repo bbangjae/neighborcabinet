@@ -84,7 +84,7 @@
 							</a>
 						</li>
 						<li class="navList">
-							<a href="/rentHistory" class="navListlink" id="reviewLink">
+							<a href="/mypage/review" class="navListlink" id="reviewLink">
 								<div class="figureBox">
 									<figure>
 										<img class="modifyInfo" src="/image/review2.png">
@@ -100,7 +100,18 @@
 										<img class="modifyInfo" src="/image/lender.png">
 									</figure>
 								</div>
-								<div class="listObject">공급자페이지</div>
+								<div class="listObject" id="lenderList">공급자</div>
+							</a>
+						</li>
+
+						<li class="navList">
+							<a href="/boxList" class="navListlink" id="boxOrder">
+								<div class="figureBox">
+									<figure>
+										<img class="modifyInfo" src="/image/buybox.png">
+									</figure>
+								</div>
+								<div class="listObject" id="boxOrderList">박스구매</div>
 							</a>
 						</li>
 					</ul>

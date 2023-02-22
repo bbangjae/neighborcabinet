@@ -67,7 +67,7 @@
 								<img class="modifyInfo" src="/image/lender.png">
 							</figure>
 						</div>
-						<div class="listObject" id="lenderList">공급자페이지</div>
+						<div class="listObject" id="lenderList">공급자</div>
 					</a>
 				</li>
 
@@ -78,7 +78,7 @@
 								<img class="modifyInfo" src="/image/buybox.png">
 							</figure>
 						</div>
-						<div class="listObject" id="boxOrderList">박스구매</div>
+						<div class="listObject" id="boxOrderList" style="color: gray;">박스구매</div>
 					</a>
 				</li>
 			</ul>

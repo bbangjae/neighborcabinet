@@ -28,14 +28,6 @@
 	width:200px;
 }
 
-#placeCheckLink{
-	background:#D7FFF1 !important;
-}
-
-#placeChecklisk{
-	color:gray;
-}
-
 .navListlink{
 	display:flex;
 	align-items: center;
@@ -45,7 +37,10 @@
 	margin-bottom:7px;
 	margin-top:7px;
 	height:45px;
-	
+	color:gray;
+}
+.navListlink{
+	box-sizing: border-box;
 }
 
 .navListlink:hover{
@@ -53,6 +48,7 @@
   border-right:1px solid #77AF9C;
   border-top:1px solid #77AF9C;
   border-bottom:1px solid #77AF9C;
+	cursor: pointer;
 }
 
 .figureBox{
@@ -112,12 +108,15 @@ a{
 	display:flex;
 	width:59%;
 	height: 70vh;
+	box-sizing: border-box;
 }
 
 .viewMapL:active{
 	border:2px solid #77AF9C;
 }
+.viewMapR img{
 
+}
 .viewMapR{
 	/* border:1px solid black; */
 	display:flex;
@@ -129,17 +128,19 @@ a{
 
 .placeInfo{
 	display:flex;
-	width:300px;
+	width:320px;
 	align-items:center;
 	padding:10px;
 	margin:10px;
 	cursor:pointer;
 	border:1px solid lightgrey;
 	border-radius: 2px;
+	box-sizing: border-box;
+
 }
 
 .placeInfo:hover{
-	border:2px solid #77AF9C;
+	border:1px solid #77AF9C;
 }
 
 .placeimageDiv{

@@ -74,13 +74,13 @@
 							</a>
 						</li>
 						<li class="navList">
-							<a href="/rentHistory" class="navListlink" id="payLink">
+							<a href="/rentHistory" class="navListlink" id="payLink" style="background-color: #d7fff1;">
 								<div class="figureBox">
 									<figure>
 										<img class="modifyInfo" src="/image/customer.png">
 									</figure>
 								</div>
-								<div class="listObject">거래/대여</div>
+								<div class="listObject" style="color:gray;">거래/대여</div>
 							</a>
 						</li>
 						<li class="navList">

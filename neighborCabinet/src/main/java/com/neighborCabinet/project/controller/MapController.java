@@ -40,11 +40,18 @@ public class MapController {
 				listAllMap.get(i).setpS_Time(listAllMap.get(i).getpS_Time().substring(0,2));
 			if(listAllMap.get(i).getpE_Time().length()>3)
 				listAllMap.get(i).setpE_Time(listAllMap.get(i).getpE_Time().substring(0,2));
+			if (listAllMap.get(i).getpS_Time().length()==1){
+				listAllMap.get(i).setpS_Time("0"+listAllMap.get(i).getpS_Time());
+			}
+			if (listAllMap.get(i).getpE_Time().length()==1){
+				listAllMap.get(i).setpE_Time("0"+listAllMap.get(i).getpE_Time());
+			}
 
 			HashMap<String, Object> map = macService.addToxy(listAllMap.get(i).getpAddress1());
 			JSONObject jo = new JSONObject(map);
 			jo.put("wT",listAllMap.get(i).getpWriteTitle());
 			jo.put("pNo",listAllMap.get(i).getpNo());
+			jo.put("bI",listAllMap.get(i).getpBoxInfo());
 			mapAddress.put(jo);
 			}
 
@@ -65,10 +72,17 @@ public class MapController {
 				listAllMap.get(i).setpS_Time(listAllMap.get(i).getpS_Time().substring(0,2));
 			if(listAllMap.get(i).getpE_Time().length()>3)
 				listAllMap.get(i).setpE_Time(listAllMap.get(i).getpE_Time().substring(0,2));
+			if (listAllMap.get(i).getpS_Time().length()==1){
+				listAllMap.get(i).setpS_Time("0"+listAllMap.get(i).getpS_Time());
+			}
+			if (listAllMap.get(i).getpE_Time().length()==1){
+				listAllMap.get(i).setpE_Time("0"+listAllMap.get(i).getpE_Time());
+			}
 			HashMap<String, Object> map = macService.addToxy(listAllMap.get(i).getpAddress1());
 			JSONObject jo = new JSONObject(map);
 			jo.put("wT",listAllMap.get(i).getpWriteTitle());
 			jo.put("pNo",listAllMap.get(i).getpNo());
+			jo.put("bI",listAllMap.get(i).getpBoxInfo());
 			mapAddress.put(jo);
 		}
 		request.setAttribute("mA",mapAddress);
@@ -82,15 +96,23 @@ public class MapController {
 								HttpServletRequest request) {
 		ArrayList<MapVO> listAllMap = mapService.listAllMap();
 		JSONArray mapAddress = new JSONArray();
+
 		for(int i=0;i<listAllMap.size();i++) {
 			if(listAllMap.get(i).getpS_Time().length()>3)
 				listAllMap.get(i).setpS_Time(listAllMap.get(i).getpS_Time().substring(0,2));
 			if(listAllMap.get(i).getpE_Time().length()>3)
 				listAllMap.get(i).setpE_Time(listAllMap.get(i).getpE_Time().substring(0,2));
+			if (listAllMap.get(i).getpS_Time().length()==1){
+				listAllMap.get(i).setpS_Time("0"+listAllMap.get(i).getpS_Time());
+			}
+			if (listAllMap.get(i).getpE_Time().length()==1){
+				listAllMap.get(i).setpE_Time("0"+listAllMap.get(i).getpE_Time());
+			}
 			HashMap<String, Object> map = macService.addToxy(listAllMap.get(i).getpAddress1());
 			JSONObject jo = new JSONObject(map);
 			jo.put("wT",listAllMap.get(i).getpWriteTitle());
 			jo.put("pNo",listAllMap.get(i).getpNo());
+			jo.put("bI",listAllMap.get(i).getpBoxInfo());
 			mapAddress.put(jo);
 		}
 

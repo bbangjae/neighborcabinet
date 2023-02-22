@@ -40,6 +40,7 @@ body {
 	margin-bottom:7px;
 	margin-top:7px;
 	height:45px;
+	box-sizing: border-box;
 
 }
 
@@ -211,11 +212,13 @@ a{
 }
 .box_type ul li{
 	height : 100px;
+	border-radius:3px 3px 3px 3px;
 }
 .box_type ul li:hover{
-	border: solid 1px #77AF9C;
-	background-color : rgba(0, 219, 175, .2);
-	color:gray;
+	border: solid 1px #00DBAF;
+	background-color : #00DBAF;
+	border-radius:3px 3px 3px 3px;
+	color:white;
 	cursor: pointer;
 }
 .box_type ul li:nth-child(n+2){

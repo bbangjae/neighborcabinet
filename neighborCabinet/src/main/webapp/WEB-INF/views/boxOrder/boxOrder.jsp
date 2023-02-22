@@ -72,7 +72,7 @@
 		<c:import url="/WEB-INF/views/member/chat.jsp"/>
 		<c:import url="/WEB-INF/views/layout/header.jsp" />
 		<div id="wrap">
-			<div class="spaceDiv"></div>
+			<div class="spaceDiv" style="margin:0 auto; width:1080px; height:100%;">
 			<form action="<c:url value='/boxPayment'/>" method="post" id="payment">
 				<div class="left_align">주문한 박스</div>
 				<table id="ordered_boxTitle">
@@ -163,7 +163,9 @@
 				<input type="button" onclick="requestPay()" value="결제" id="paymentBtn"><br>
 				<input type="submit" id="hiddenGo" value="결제X(시연용)">
 			</form>
-			<div style="height : 300px;"></div>
+				<div id="footer" style="width: 100%;height: 1px;">
+					<c:import url="/WEB-INF/views/layout/footer.jsp"/>
+				</div>
 		</div>
 	</body>
 </html>

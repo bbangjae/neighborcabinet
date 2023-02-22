@@ -127,7 +127,7 @@
                             <c:if test="${pi.food.equals('0')}">
                                 <span>음식 가능</span>
                             </c:if>
-                            <c:if test="${pi.food.equals('1')}">
+                            <c:if test="${not pi.food.equals('0')}">
                                 <span>음식 불가능</span>
                             </c:if>
                         </div>
@@ -142,7 +142,7 @@
                             <c:if test="${pi.pickup.equals('0')}">
                                 <span>픽업 가능</span>
                             </c:if>
-                            <c:if test="${pi.pickup.equals('1')}">
+                            <c:if test="${not pi.pickup.equals('0')}">
                                 <span>픽업 불가능</span>
                             </c:if>
                         </div>

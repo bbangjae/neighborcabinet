@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href=/css/Map.css/>
 	<c:import url="/WEB-INF/views/layout/header.jsp" />
 <%--	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>--%>
-	<script src="<c:url value='/js/searchZip.js' />"></script>
+<%--	<script src="<c:url value='/js/searchZip.js' />"></script>--%>
 	<script src="<c:url value='/js/Map.js' />"></script>
 	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=hm0bb8lwq6&submodules=geocoder"></script>
 	<script type="text/javascript">
@@ -32,20 +32,20 @@
 					latSpan = northEast.lat() - southWest.lat();
 
 			for (var i = 0; i < jsonP.length; i++) {
-				// 지역을 담은 배열의 길이만큼 for문으로 마커와 정보창을 채워주자 !
+				// 지역을 담은 배열의 길이만큼 for문으로 마커와 정보창 !
 
 				if(jsonP[i]===undefined){
+
 					var marker = new naver.maps.Marker({
 						map: map,
-						title: jsonP[1].roadAddress, // 지역구 이름
-						position: new naver.maps.LatLng(jsonP[1].y , jsonP[1].x) // 지역구의 위도 경도 넣기
-
+						position: new naver.maps.LatLng(jsonP[1].y , jsonP[1].x),
+						visible: false
 					});
 					/* 정보창 */
 					var infoWindow = new naver.maps.InfoWindow({
 						content: '<div style="text-decoration: none; text-align:center;padding:10px;border-radius:21px 21px 21px 21px;"   >' +
 								'<a  style="text-decoration:none; color:#00DBAF;  font-weight:bold" href="<c:url value="/place/placeDetailView/'+jsonP[1].pNo+'"/>" >' +  jsonP[1].wT + '</div>',
-						anchorSkew: true,
+						anchorSkew: false,
 						borderColor:"#00DBAF",
 						maxWidth:150
 
@@ -54,30 +54,84 @@
 					infoWindows.push(infoWindow);
 					continue;
 				}
+				if(jsonP[i].bI==="1") {
+					var marker = new naver.maps.Marker({
 
-				var marker = new naver.maps.Marker({
-					map: map,
-					title: jsonP[i].roadAddress, // 지역구 이름
-					position: new naver.maps.LatLng(jsonP[i].y , jsonP[i].x) // 지역구의 위도 경도 넣기
+						map: map,
+						title: jsonP[i].roadAddress, // 지역구 이름
+						position: new naver.maps.LatLng(jsonP[i].y, jsonP[i].x),// 지역구의 위도 경도 넣기
+						icon: {
+							content: '<i class="fa-solid fa-location-dot" style="font-size: 30px; color: #0080ff"></i>',
+							size: new naver.maps.Size(38, 58),
+							anchor: new naver.maps.Point(11,11),
+						},
+						draggable: false,
+					});
+					var infoWindow = new naver.maps.InfoWindow({
+						content: '<div style="text-decoration: none; text-align:center; padding:10px; border-radius:21px 21px 21px 21px;"   >' +
+								'<a  style="text-decoration:none; color:#0080ff;  font-weight:bold" href="<c:url value="/place/placeDetailView/'+jsonP[i].pNo+'"/>" >' +  jsonP[i].wT + '</div>',
+						anchorSkew: false,
+						borderColor:"#0080ff",
+						maxWidth:150
 
-				});
+					});
+				}
+				if(jsonP[i].bI==="2") {
+					var marker = new naver.maps.Marker({
 
+						map: map,
+						title: jsonP[i].roadAddress, // 지역구 이름
+						position: new naver.maps.LatLng(jsonP[i].y, jsonP[i].x),// 지역구의 위도 경도 넣기
+						icon: {
+							content: '<i class="fa-solid fa-location-dot" style="font-size: 30px; color: #DB4455 "></i>',
+							size: new naver.maps.Size(38, 58),
+							anchor: new naver.maps.Point(11,11),
+						},
+						draggable: false,
+					});
+					var infoWindow = new naver.maps.InfoWindow({
+						content: '<div style="text-decoration: none; text-align:center;padding:10px; border-radius:21px 21px 21px 21px;"   >' +
+								'<a  style="text-decoration:none; color:#DB4455;  font-weight:bold" href="<c:url value="/place/placeDetailView/'+jsonP[i].pNo+'"/>" >' +  jsonP[i].wT + '</div>',
+						anchorSkew: false,
+						borderColor:"#DB4455",
+						maxWidth:150
+
+					});
+				}
+				if(jsonP[i].bI==="3") {
+					var marker = new naver.maps.Marker({
+
+						map: map,
+						title: jsonP[i].roadAddress, // 지역구 이름
+						position: new naver.maps.LatLng(jsonP[i].y, jsonP[i].x),// 지역구의 위도 경도 넣기
+						icon: {
+							// content: '<div style="text-decoration: none;width:75px; height: 23px; background-color: #d7fff1; text-align:left; font-size:10px;padding:0px;border-radius:21px 21px 21px 21px;"   ><input type="radio" style="background: white !important; height:100%;margin:0 0 0 5px; text-align: left; " disabled>123</input></div>',
+							content: '<i class="fa-solid fa-location-dot" style="font-size: 30px; color: #00DBAF "></i>',
+
+							size: new naver.maps.Size(38, 58),
+							anchor: new naver.maps.Point(11,11),
+						},
+						draggable: false,
+					});
+					var infoWindow = new naver.maps.InfoWindow({
+						content: '<div style="text-decoration: none; text-align:center;padding:10px;border-radius:21px 21px 21px 21px;"   >' +
+								'<a  style="text-decoration:none; color:#00DBAF;  font-weight:bold" href="<c:url value="/place/placeDetailView/'+jsonP[i].pNo+'"/>" >' +  jsonP[i].wT + '</div>',
+						anchorSkew: false,
+						borderColor:"#00DBAF",
+						maxWidth:150
+
+					});
+				}
 
 				/* 정보창 */
-				var infoWindow = new naver.maps.InfoWindow({
-					content: '<div style="text-decoration: none; text-align:center;padding:10px;border-radius:21px 21px 21px 21px;"   >' +
-							'<a  style="text-decoration:none; color:#00DBAF;  font-weight:bold" href="<c:url value="/place/placeDetailView/'+jsonP[i].pNo+'"/>" >' +  jsonP[i].wT + '</div>',
-					anchorSkew: true,
-					borderColor:"#00DBAF",
-					maxWidth:150
-
-				}); // 클릭했을 때 띄워줄 정보 HTML 작성
+				 // 클릭했을 때 띄워줄 정보 HTML 작성
 				markers.push(marker); // 생성한 마커를 배열에 담는다.
 				infoWindows.push(infoWindow); // 생성한 정보창을 배열에 담는다.
 
 
 
 			}
+
 			//클릭시 정보 보이는 칸
 			function getClickHandler(seq) {
 
@@ -105,6 +159,40 @@
 					infoWindow.open(map,marker);
 
 			});
+
+			$('#total_box').on('click',function(){
+
+				for(i=0;i<jsonP.length;i++){
+					if(jsonP[i]===undefined) continue;
+					infoWindows[i].close();
+					markers[i].setVisible(true);
+
+				}
+
+			})
+			$('#normal_box').on('click',function(){
+				for(i=0;i<jsonP.length;i++){
+					if(jsonP[i]===undefined) continue;
+					markers[i].setVisible(true);
+					if(!(jsonP[i].bI==="1"||jsonP[i].bI==="3")){
+						infoWindows[i].close();
+						markers[i].setVisible(false);
+					}
+				}
+
+			})
+			$('#premium_box').on('click',function(){
+				for(i=0;i<jsonP.length;i++){
+					if(jsonP[i]===undefined) continue;
+					markers[i].setVisible(true);
+					if(!(jsonP[i].bI==="2"||jsonP[i].bI==="3")){
+						infoWindows[i].close();
+						markers[i].setVisible(false);
+					}
+				}
+
+			})
+
 
 
 			// 지도 보이는부분 마커 표시 + 리스트 보이기
@@ -178,14 +266,6 @@
 				if (item.englishAddress) {
 					htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
 				}
-
-				/*infoWindow.setContent([
-					'<div style="padding:10px;min-width:200px;line-height:150%;">',
-					'<h4 style="margin-top:5px;">검색 주소 : '+ address +'</h4><br />',
-					htmlAddresses.join('<br />'),
-					'</div>'
-				].join('\n'));*/
-
 				map.setCenter(point);
 				// infoWindow.open(map, point);
 			});
@@ -202,8 +282,6 @@
 
 		}
 		function moveNear() {
-
-
 					if (navigator.geolocation) {
 						/**
 						 * navigator.geolocation 은 Chrome 50 버젼 이후로 HTTP 환경에서 사용이 Deprecate 되어 HTTPS 환경에서만 사용 가능 합니다.
@@ -238,35 +316,35 @@
 				</li>
 					
 				<li class="navList">
-					<div  class="navListlink" id="placeCheckLink">
+					<div  class="navListlink" id="total_box" style="background-color: #D7FFF1;">
 						<div class="figureBox">
 							<figure>
 								<img class="modifyInfo" src="/image/searching.png">
 							</figure>
 						</div>
-						<div class="listObject" id="placeChecklisk">전체</div>
+						<div class="listObject"  >전체</div>
 					</div>
 				</li>
 					
 				<li class="navList">
-					<a href="/" class="navListlink" id="dealLink">
+					<a class="navListlink" id="normal_box">
 						<div class="figureBox">
 							<figure>
 								<img class="modifyInfo" src="/image/normal.png">
 							</figure>
 						</div>
-						<div class="listObject">일반</div>
+						<div class="listObject" >일반</div>
 					</a>
 				</li>
 				
 				<li class="navList">
-					<a href="/" class="navListlink" id="dealLink">
+					<a  class="navListlink" id="premium_box">
 						<div class="figureBox">
 							<figure id="premiumBox">
 								<img class="modifyInfo" src="/image/premium.png">
 							</figure>
 						</div>
-						<div class="listObject">프리미엄</div>
+						<div class="listObject" >프리미엄</div>
 					</a>
 				</li>
 					
@@ -274,10 +352,10 @@
 					<a href="/rentHistory" class="navListlink" id="dealLink">
 						<div class="figureBox">
 							<figure>
-								<img class="modifyInfo" src="/image/deal.png">
+								<img class="modifyInfo" src="/image/customer.png">
 							</figure>
 						</div>
-						<div class="listObject">거래현황</div>
+						<div class="listObject">거래/대여</div>
 					</a>
 				</li>
 			</ul>
@@ -327,6 +405,7 @@
 			let index =json.findIndex(i=>i.pNo===pno)
 
 			jsonP[pno]=json[index];
+
 		}
 
 

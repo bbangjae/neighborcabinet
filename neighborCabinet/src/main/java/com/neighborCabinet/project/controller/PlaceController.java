@@ -203,6 +203,8 @@ public class PlaceController {
         map.put("pNo",pNo);
         map.put("bt",bt);
         HashMap<String,Object> map2= service.showDate(map);
+
+
         map2.put("hours",map2.get("hours").toString().replaceAll("\"",""));
 
 

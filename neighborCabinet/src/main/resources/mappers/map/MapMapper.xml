@@ -42,12 +42,6 @@
 		group by pNo;
 
 	</select>
-	<!-- 장소 조회 -->
-<!--	<select id="listAllMap"  resultMap="mapResult">-->
-<!--		SELECT *-->
-<!--		FROM place-->
-<!--		ORDER BY pNo ASC-->
-<!--	</select>-->
 
 	<select id="searchPlace" parameterType="string" resultType="int">
 		select ifnull(max(pNo),0)

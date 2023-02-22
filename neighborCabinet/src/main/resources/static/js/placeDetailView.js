@@ -268,9 +268,17 @@ function timeTableMaker(sY,sM, sD){
         dataType : "json",
         success:function (map){
 
+            var st=String(map.st);
+            var et=String(map.et);
+            if(st.length>2)
+                st=(st.substring(0,2));
+            if(et.length>2)
+                et=(et.substring(0,2));
+
+
             hours_R=map.hours;
-            startTime=map.st*1;
-            endTime=map.et*1;
+            startTime=st*1;
+            endTime=et*1;
 
 
 

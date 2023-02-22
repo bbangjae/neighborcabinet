@@ -162,7 +162,7 @@
                                     <li class="box_info">박스 ${im.key} <span style="color:#00DBAF">${ql[vs.index]}</span>개 보유</li>
                                 </c:if>
                                 <c:if test="${im.key.equals('4호')}">
-                                    <li class="box_info">시크릿 박스 1호<span style="color:#00DBAF">${ql[vs.index]}</span>개 보유</li>
+                                    <li class="box_info">시크릿 박스 1호 <span style="color:#00DBAF">${ql[vs.index]}</span>개 보유</li>
                                 </c:if>
                                 <c:if test="${im.key.equals('5호')}">
                                     <li class="box_info">시크릿 박스 2호 <span style="color:#00DBAF">${ql[vs.index]}</span>개 보유</li>

@@ -26,7 +26,7 @@
 	</update>
 	<insert id="requestOMessage" parameterType="hashmap">
 		INSERT INTO messageAll (message, reserveNo, userId, OX, look)
-		VALUES ("예약 확정.", #{reserveNo}, #{messageId}, 1, 0)
+		VALUES ("예약 확정", #{reserveNo}, #{messageId}, 1, 0)
 	</insert>
 	<update id="requestX" parameterType="int">
 		UPDATE reserve

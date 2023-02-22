@@ -11,7 +11,7 @@ $(document).ready(function(){
 		
 		let url = '/mypage/reviewReg/' + lin;
 		let title = 'review';
-		let option = 'width=500, height=550, top=150, left=600, status=yes, scrollbars=yes';
+		let option = 'width=600, height=550, top=150, left=600, status=yes, scrollbars=yes';
 		window.open( url , title, option);
 		
 	});

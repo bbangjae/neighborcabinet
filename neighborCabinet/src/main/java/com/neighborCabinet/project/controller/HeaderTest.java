@@ -118,6 +118,9 @@ public class HeaderTest {
 			
 			String HP = HP1 + "-" + HP2 + "-" + HP3;
 			model.addAttribute("HP", HP);
+			model.addAttribute("HP1", HP1);
+			model.addAttribute("HP2", HP2);
+			model.addAttribute("HP3", HP3);
 		}
 		
 		model.addAttribute("userVo", userVo);

@@ -15,7 +15,7 @@
 		FROM member
 		WHERE userId=#{userId}
 	</select>
-	<insert id="insert_OrdList" parameterType="com.neighborCabinet.project.model.ShippingVO_y">
+	<insert id="insert_OrdList" parameterType="com.neighborCabinet.project.model.OrderListVO_y">
 		INSERT INTO orderList (ordNo, shipName, shipAddress1, shipAddress2,
 								shipPhone, shipHope, ordStatus,
 								userId, totalPrice)
@@ -23,7 +23,7 @@
 				#{shipPhone}, #{shipHope}, 1,
 				#{userId}, #{totalPrice})
 	</insert>
-	<insert id="insert_OrdDetail" parameterType="com.neighborCabinet.project.model.ShippingVO_y">
+	<insert id="insert_OrdDetail" parameterType="com.neighborCabinet.project.model.OrderListVO_y">
 		INSERT INTO orderDetail (ordNo, boxType, boxQty, selPrice, userId)
 		VALUES (#{ordNo}, #{boxType}, #{boxQty}, #{selPrice}, #{userId})
 	</insert>
@@ -40,7 +40,7 @@
 		WHERE reserveNo=#{reserveNo}
 	</select>
 	<select id="imgSrc" parameterType="int" resultType="string">
-		SELECT originalFileName
+		SELECT savedFileName
 		FROM files
 		WHERE pId=#{pNo}
 		ORDER BY fileNo ASC 

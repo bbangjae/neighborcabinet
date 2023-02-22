@@ -75,7 +75,7 @@
     		
     		<div class="sequenceBox" id="T2B">
     			<div class="sequenceL">
-    				<img src="/image/Gjoin.JPG" class="sequenceImg">
+    				<img src="/image/GJoin.JPG" class="sequenceImg">
     			</div>
     			<div class="sequenceR">
     				<div class="sequenceText">
@@ -98,7 +98,7 @@
 	    			</div>
     			</div>
     			<div class="sequenceR">
-    				<img src="/image/GMap.JPG" class="sequenceImg2">
+    				<img src="/image/Gmap.JPG" class="sequenceImg2">
     			</div>
     		</div>
     		<hr>
@@ -237,7 +237,7 @@
     		
     		<div class="sequenceBox" id="T7B">
     			<div class="sequenceL">
-    				<img src="/image/Gjoin.JPG" class="sequenceImg">
+    				<img src="/image/GJoin.JPG" class="sequenceImg">
     			</div>
     			<div class="sequenceR">
     				<div class="sequenceText">

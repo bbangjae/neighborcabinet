@@ -27,6 +27,7 @@ $(document).ready(function(){
 			$("#shipping_address2", opener.document).val($("#userAddress2").val());
 			$("#shipping_phoneF", opener.document).val(HP1 + "-" + HP2 + "-" + HP3);
 			$("#shipping_phoneB", opener.document).val($("#userHp").val());
+			console.log($("#shipping_phoneB").val());
 			window.close();
 		}
 		

@@ -82,7 +82,6 @@
 								<div id="fixedInfo_1_1">
 									<div>
 										<img id="spaceImg" src="<c:url value="/images/${imgSrc}"/>">
-										${imgSrc }
 									</div>
 									<div id="spaceDis">
 										<div>${place.pWriteTitle }</div>

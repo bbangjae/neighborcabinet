@@ -60,7 +60,7 @@
 	border : none;
 }
 .MResX{
-	background : red;
+	background : #DB4455;
 	color : white;
 	border-radius : 15px;
 	width : 50px;
@@ -106,4 +106,9 @@
 }
 .RI_1Cont>div:first-child{
 	width : 150px;
+}
+.RI_1Cont span{
+	color : #DB4455;
+	font-size : 15px;
+	font-weight : bold;
 }

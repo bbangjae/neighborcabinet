@@ -8,6 +8,7 @@
 		<script src="js/jquery-3.6.1.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/mypage.css' />">
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<c:import url="/WEB-INF/views/member/chat.jsp"/>
 		<c:import url="/WEB-INF/views/layout/header.jsp" />
 		<title>마이페이지</title>
 	</head>

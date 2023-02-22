@@ -26,8 +26,8 @@
 			<div class="RI_1">
 				<div class="RI_1Title">예약 내용</div>
 				<div class="RI_1Cont">
-					<div>픽업<input name="ch_name" type="checkbox" <c:if test="${requestInfo.pickup eq '1'}">checked</c:if> onClick="return false;"/></div>
-					<div>음식<input name="ch_name" type="checkbox" <c:if test="${requestInfo.food eq '1'}">checked</c:if> onClick="return false;"/></div>
+					<div>픽업<c:if test="${requestInfo.pickup eq '1'}"><span>O</span></c:if><c:if test="${requestInfo.pickup eq '0'}"><span>X</span></c:if></div>
+					<div>음식<c:if test="${requestInfo.food eq '1'}"><span>O</span></c:if><c:if test="${requestInfo.food eq '0'}"><span>X</span></c:if></div>
 				</div>
 				
 				<div class="RI_1Cont">

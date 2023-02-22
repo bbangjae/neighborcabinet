@@ -30,15 +30,15 @@
 		<div id="wrap">
 		<div class="navBlock">
 				<nav class="infoNav">
-					<ul class="allNav"> 
-					<li class="navList"> 
+					<ul class="allNav">
+						<li class="navList">
 							<a href="/" class="navListlink" id="mypageLink">
 								<div class="figureBox">
 									<figure>
 										<img class="modifyInfo" src="/image/mypage.png">
 									</figure>
 								</div>
-								<div class="listObject">마이페이지</div>
+								<div class="listObject" id="mypageList">마이페이지</div>
 							</a>
 						</li>
 						<li class="navList">
@@ -48,7 +48,7 @@
 										<img class="modifyInfo" src="/image/profile2.png">
 									</figure>
 								</div>
-								<div class="listObject">개인정보</div>
+								<div class="listObject" id="modifyInfoList" style="color:black;">개인정보</div>
 							</a>
 						</li>
 						<li class="navList">
@@ -58,7 +58,7 @@
 										<img class="modifyInfo" src="/image/customer.png">
 									</figure>
 								</div>
-								<div class="listObject">거래/대여</div>
+								<div class="listObject" id="payLinkList">거래/대여</div>
 							</a>
 						</li>
 						<li class="navList">
@@ -81,6 +81,7 @@
 								<div class="listObject" id="lenderList">공급자</div>
 							</a>
 						</li>
+
 						<li class="navList">
 							<a href="/boxList" class="navListlink" id="boxOrder">
 								<div class="figureBox">
@@ -88,9 +89,10 @@
 										<img class="modifyInfo" src="/image/buybox.png">
 									</figure>
 								</div>
-								<div class="listObject" id="boxOrderList">박스구매</div>
+								<div class="listObject" id="boxOrderList" >박스구매</div>
 							</a>
 						</li>
+
 					</ul>
 				</nav>
 			</div>

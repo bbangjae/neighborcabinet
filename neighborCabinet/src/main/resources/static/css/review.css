@@ -48,11 +48,14 @@ body{
 	margin-top:7px;
 	height:45px;
 	box-sizing: border-box;
+
+}
+.
+.navListlink:hover{
+	border:1px solid #77AF9C;
+	font-size: 0.93em;
 }
 
-.navListlink:hover{
-  background:#D7FFF1 !important;
-}
 
 .figureBox{
 	height:100%;

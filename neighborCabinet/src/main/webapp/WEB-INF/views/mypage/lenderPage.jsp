@@ -424,27 +424,29 @@
 			        </div>
 			      </div>
 			    </div>
-			<!-- 대여 내역 끝 -->
-			
-			 <div class="box-wrapper">
-			   <!-- 이미 생성된 코드가 있으면 해당 내용 제공, 없으면 QR코드 생성 버튼 보이기 -->
-			    <div class="box-title">
-			        QR 코드 생성
-			        <a id="re"><img src="<c:url value='/image/re2.jpg'/>"></a>
-			      </div>
-			      <div class="boxType" id="qr">
-			        <div class="infoContainer" id="qrContainer">
-			        <div class="notice"><img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다.</div>
-			         <%-- <c:if test="${empty }">
-			         </c:if> --%>
-			        </div>
-			
-			      </div>
-			      <div class="qr">
-			        <a id="qrBtn" href="#">개인 인증 코드 만들기</a>
-			      </div>
-			    </div>
-			
+				<!-- 대여 내역 끝 -->
+
+				<div class="box-wrapper">
+					<!-- 이미 생성된 코드가 있으면 해당 내용 제공, 없으면 QR코드 생성 버튼 보이기 -->
+					<div class="box-title">
+						QR 코드 생성
+						<%-- <a id="re"><img src="<c:url value='/image/re2.jpg'/>"></a> --%>
+					</div>
+					<div class="boxType" id="qr">
+						<div class="infoContainer" id="qrContainer">
+							<div class="notice">
+								<%-- <img src="<c:url value='/image/exclamation.jpg'/>">생성된 QR 코드가 없습니다. --%>
+								<form action="/qrCode" method="post">
+									<input type="hidden" name="url" value="http://115.85.181.111:8080/qrConfirm/${sessionScope.sid }"/><button type="submit" id="qrBtn">개인 인증 코드 만들기</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="qr">
+                      <a id="qrBtn" href="#">개인 인증 코드 만들기</a>
+                    </div> -->
+				</div>
+
 				<!-- 모달 창 -->
 		<div class="modal">
 		  <div class="modal_content" title="">

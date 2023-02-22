@@ -312,7 +312,7 @@
                     var ct_data = bubbles[b].data.contentTable[ct];
                     for(var ct_d in ct_data){
                         $("#chatBox").append
-                        ("<a href='"+ct_data[ct_d].data.data.action.data.url+"' target='_blank'> <div class='msgBox receive'><span id='in'>" +
+                        ("<a href='"+ct_data[ct_d].data.data.action.data.url+"' target='_blank'> <div class='msgBox receive'><span id='in'style='color: #00DBAF;font-weight: bold; '>" +
                             ct_data[ct_d].data['title'] + "</span></div></a>");
                     }
                 }// contentTable for문 끝

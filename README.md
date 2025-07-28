@@ -51,16 +51,16 @@ neighborCabinet/
 ### 주변 보관 공간 확인
 사용자의 위치를 기반으로 지도에서 근처 보관소를 확인
 
-<img src="./src/main/resources/static/image/tkdydwk2.png" width="350"/>
+<img src="./src/main/resources/static/image/tkdydwk2.png" width="600"/>
 
 
 ### 공간 예약 및 결제
 시간대 선택 → 실시간 예약 및 결제
 
-<img src="./src/main/resources/static/image/tkdydwk3.png" width="350"/>
+<img src="./src/main/resources/static/image/tkdydwk3.png" width="600"/>
 
 ### 실시간 거래 수락 / 거절
 예약 요청에 대해 실시간 응답 가능
 
-<img src="./src/main/resources/static/image/rhdrmqwk4.png" width="350"/>
+<img src="./src/main/resources/static/image/rhdrmqwk4.png" width="600">
 

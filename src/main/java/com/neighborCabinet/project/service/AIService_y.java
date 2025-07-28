@@ -27,8 +27,8 @@ public class AIService_y {
 	public String stt(String filePathName) {
 		
 		String result="";
-		String clientId = "2wp8nsh8wo"; // Application Client ID";
-		String clientSecret = "CI8m6vQdcx52TsBKS00GpkzHJh0hgio1eYgTMGwi"; // Application Client Secret";
+		String clientId = System.getenv("NAVER_AI_CLIENT_ID"); // Application Client ID";
+		String clientSecret = System.getenv("NAVER_AI_CLIENT_SECRET"); // Application Client Secret";
 
 		try {
 			String imgFile = filePathName;

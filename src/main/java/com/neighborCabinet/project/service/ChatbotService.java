@@ -18,8 +18,8 @@ import java.util.Date;
 @Service
 public class ChatbotService {
     public String main(String voiceMessage) {
-        String apiURL ="https://3wvzkgzao3.apigw.ntruss.com/custom/v1/9067/92bc92b16665d5a4302bebede61dab2a72d3621ee2097bdf6195981987251af4";
-        String secretKey ="T1pKS1ZyQ2VvUHlIWmdFRU9Tb0lseGt0UHlLUVptU0E=";
+        String apiURL = System.getenv("CHATBOT_API_URL");
+        String secretKey = System.getenv("CHATBOT_SECRET_KEY");
 
         String chatbotMessage = ""; //응답 메시지
 

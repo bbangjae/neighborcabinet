@@ -20,8 +20,8 @@ public class MapAddressChangeService {
     public static HashMap<String,Object> addToxy(String str){
         // 주소 입력 -> 위도, 경도 좌표 추출.
         BufferedReader io = new BufferedReader(new InputStreamReader(System.in));
-        String clientId = "hm0bb8lwq6";
-        String clientSecret = "fJILEMCVq1K6UrGpXQ3a6ABqQxQ5a9q13vBJgi0p";
+        String clientId = System.getenv("NAVER_MAP_CLIENT_ID");
+        String clientSecret = System.getenv("NAVER_MAP_CLIENT_SECRET");
 
         try {
 
